@@ -28,7 +28,7 @@ namespace VTYS_Mobilay_Magazasi
                 
                 attributeSetList.DisplayMember = "set_name";
                 attributeSetList.ValueMember = "attributeSet_ID";
-                attributeSetList.PromptText = "Choose from the list";
+                
                 attributeSetList.DataSource = ds.Tables[tableName];
                 
                 attributeSetList.SelectedItem = null;
