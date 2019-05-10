@@ -22,12 +22,12 @@ namespace VTYS_Mobilay_Magazasi
         }
         
 
-        
+        //Form Yüklendiğinde Gerçekleşecek Olaylar
         private void data_entry_Load(object sender, EventArgs e)
         {
             
         }
-        //1. Panelin Gerçekleştirdiği Olaylar asdasdas
+        //1. Panelin Gerçekleştirdiği Olaylar
         private void metroTile2_Click(object sender, EventArgs e)
         {
             panelControl(0);
