@@ -50,7 +50,6 @@ namespace VTYS_Mobilay_Magazasi
         private void metroGrid1_MouseClick(object sender, MouseEventArgs e)
         {
             string tableName = "attributes";
-            MessageBox.Show("");
             string pro_ID = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
             string query = String.Format(Queries.productsAttributes, pro_ID);
             DataSet ds = Products.getDataSet(query, tableName);

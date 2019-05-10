@@ -25,16 +25,12 @@ namespace VTYS_Mobilay_Magazasi
             DataSet ds = Products.getDataSet(Queries.attributeSet, tableName);
             if (ds != null)
             {
-                
                 attributeSetList.DisplayMember = "set_name";
                 attributeSetList.ValueMember = "attributeSet_ID";
-                
-                attributeSetList.DataSource = ds.Tables[tableName];
-                
+                attributeSetList.DataSource = ds.Tables[tableName];   
                 attributeSetList.SelectedItem = null;
                 attributeSetList.PromptText = "Choose from the list";
             }
-
         }
            
 
@@ -57,40 +53,64 @@ namespace VTYS_Mobilay_Magazasi
                 MessageBox.Show("");
                 panel1.Visible = true;
             metroButton4.Enabled = false;
-            MetroLabel[] txtTeamNames = new MetroLabel[ds.Tables[tableName].Rows.Count];
 
-            for (int u = 0; u < txtTeamNames.Count(); u++)
+            int[] attributeID = new int [ds.Tables[tableName].Rows.Count];
+            for(int u=0; u< attributeID.Length; u++)
             {
-                txtTeamNames[u] = new MetroLabel();
+                attributeID[u] = (int) ds.Tables[tableName].Rows[u]["attribute_attribute_ID"];
+            }
+
+
+            string atttableName = "AttributeNames";
+            DataSet attDs = Products.getDataSet(Queries.attribute, atttableName);
+            if (attDs == null)
+                MessageBox.Show("");
+
+            MetroLabel[] lblTeamNames = new MetroLabel[ds.Tables[tableName].Rows.Count];
+            for (int u = 0; u < lblTeamNames.Count(); u++)
+            {
+                lblTeamNames[u] = new MetroLabel();
             }
             int i = 0;
-            foreach (MetroLabel txt in txtTeamNames)
+            foreach (MetroLabel lbl in lblTeamNames)
             {
-                string name = "TeamNumber" + i.ToString();
-
-                txt.Name = name;
-                txt.Text = name;
-                txt.Location = new Point(471, 209 + (i * 40));
-                txt.Visible = true;
-                this.Controls.Add(txt);
+                string name =(string) attDs.Tables[atttableName].Rows[attributeID[i]-1]["att_name"];
+                lbl.Name = name;
+                lbl.Text = name;
+                lbl.Location = new Point(471, 209 + (i * 40));
+                lbl.Visible = true;
+                this.Controls.Add(lbl);
                 i++;
             }
 
             MetroComboBox[] listTeamNames = new MetroComboBox[ds.Tables[tableName].Rows.Count];
 
-            for (int u = 0; u < txtTeamNames.Count(); u++)
+            for (int u = 0; u < listTeamNames.Count(); u++)
             {
                 listTeamNames[u] = new MetroComboBox();
             }
             i = 0;
             foreach (MetroComboBox list in listTeamNames)
             {
+                string valuetableName = "AttributeValues";
+                string valueQuery = String.Format(Queries.attributeValues, attributeID[i].ToString());
+                DataSet attValDs = Products.getDataSet(valueQuery, valuetableName);
+                if (attValDs == null)
+                    MessageBox.Show("");
+
+
                 string name = "TeamNumber" + i.ToString();
 
                 list.Name = name;
                 list.Text = name;
                 list.Location = new Point(603, 199 + (i * 40));
                 list.Visible = true;
+                list.DisplayMember = "val_value";
+                list.ValueMember = "attributeValue_ID";
+                list.DataSource = attValDs.Tables[valuetableName];
+                list.SelectedItem = null;
+                list.PromptText = "Choose from the list";
+
                 this.Controls.Add(list);
                 i++;
             }
