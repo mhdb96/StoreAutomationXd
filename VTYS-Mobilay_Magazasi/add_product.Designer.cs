@@ -42,6 +42,8 @@
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.metroButton4 = new MetroFramework.Controls.MetroButton();
+            this.ID = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +65,7 @@
             this.attributeSetList.Name = "attributeSetList";
             this.attributeSetList.PromptText = "Choose from the list";
             this.attributeSetList.Size = new System.Drawing.Size(179, 30);
+            this.attributeSetList.Style = MetroFramework.MetroColorStyle.Green;
             this.attributeSetList.TabIndex = 1;
             this.attributeSetList.UseSelectable = true;
             // 
@@ -127,7 +130,7 @@
             this.price.CustomButton.Visible = false;
             this.price.Lines = new string[0];
             this.price.Location = new System.Drawing.Point(157, 217);
-            this.price.MaxLength = 6;
+            this.price.MaxLength = 8;
             this.price.Name = "price";
             this.price.PasswordChar = '\0';
             this.price.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -140,6 +143,7 @@
             this.price.UseSelectable = true;
             this.price.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.price.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.price.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.price_KeyPress);
             // 
             // description
             // 
@@ -188,7 +192,7 @@
             this.stock.CustomButton.Visible = false;
             this.stock.Lines = new string[0];
             this.stock.Location = new System.Drawing.Point(157, 246);
-            this.stock.MaxLength = 6;
+            this.stock.MaxLength = 8;
             this.stock.Name = "stock";
             this.stock.PasswordChar = '\0';
             this.stock.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -231,6 +235,8 @@
             this.name.UseSelectable = true;
             this.name.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.name.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.name.Click += new System.EventHandler(this.name_Click);
+            this.name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.name_KeyPress);
             // 
             // metroButton2
             // 
@@ -240,9 +246,12 @@
             this.metroButton2.TabIndex = 4;
             this.metroButton2.Text = "add";
             this.metroButton2.UseSelectable = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.metroLabel6);
+            this.panel1.Controls.Add(this.ID);
             this.panel1.Controls.Add(this.metroLabel2);
             this.panel1.Controls.Add(this.stock);
             this.panel1.Controls.Add(this.name);
@@ -267,6 +276,46 @@
             this.metroButton4.UseSelectable = true;
             this.metroButton4.Click += new System.EventHandler(this.metroButton4_Click);
             // 
+            // ID
+            // 
+            // 
+            // 
+            // 
+            this.ID.CustomButton.Image = null;
+            this.ID.CustomButton.Location = new System.Drawing.Point(127, 1);
+            this.ID.CustomButton.Name = "";
+            this.ID.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.ID.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.ID.CustomButton.TabIndex = 1;
+            this.ID.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.ID.CustomButton.UseSelectable = true;
+            this.ID.CustomButton.Visible = false;
+            this.ID.Enabled = false;
+            this.ID.Lines = new string[0];
+            this.ID.Location = new System.Drawing.Point(157, 23);
+            this.ID.MaxLength = 50;
+            this.ID.Name = "ID";
+            this.ID.PasswordChar = '\0';
+            this.ID.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.ID.SelectedText = "";
+            this.ID.SelectionLength = 0;
+            this.ID.SelectionStart = 0;
+            this.ID.ShortcutsEnabled = true;
+            this.ID.Size = new System.Drawing.Size(149, 23);
+            this.ID.TabIndex = 11;
+            this.ID.UseSelectable = true;
+            this.ID.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.ID.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.Location = new System.Drawing.Point(17, 26);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(22, 20);
+            this.metroLabel6.TabIndex = 12;
+            this.metroLabel6.Text = "ID";
+            // 
             // add_product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -283,6 +332,7 @@
             this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.Green;
             this.Text = "Add A Product";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.add_product_FormClosed);
             this.Load += new System.EventHandler(this.add_product_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -307,5 +357,7 @@
         private MetroFramework.Controls.MetroButton metroButton2;
         private System.Windows.Forms.Panel panel1;
         private MetroFramework.Controls.MetroButton metroButton4;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private MetroFramework.Controls.MetroTextBox ID;
     }
 }

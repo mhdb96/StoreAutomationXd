@@ -42,9 +42,14 @@ namespace VTYS_Mobilay_Magazasi
             string tableName = "products";
             panelControl(1);
             metroGrid2.DataSource= null;
-            DataSet ds = Products.getDataSet(Queries.products, tableName);
+            string query = String.Format(Queries.products, "product_ID");
+            DataSet ds = DbCommand.getDataSet(query, tableName);
             if(ds!=null)
                 productsGrid.DataSource = ds.Tables[tableName];
+            productsGrid.Columns[0].Width = 30;
+            productsGrid.Columns[3].Width = 50;
+            productsGrid.Columns[4].Width = 50;
+
         }
 
         private void metroGrid1_MouseClick(object sender, MouseEventArgs e)
@@ -52,7 +57,7 @@ namespace VTYS_Mobilay_Magazasi
             string tableName = "attributes";
             string pro_ID = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
             string query = String.Format(Queries.productsAttributes, pro_ID);
-            DataSet ds = Products.getDataSet(query, tableName);
+            DataSet ds = DbCommand.getDataSet(query, tableName);
             if (ds != null)
                 metroGrid2.DataSource = ds.Tables[tableName];
         }
@@ -103,6 +108,9 @@ namespace VTYS_Mobilay_Magazasi
             accountingPanel.Visible = panels[5];
         }
 
-        
+        private void productsPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

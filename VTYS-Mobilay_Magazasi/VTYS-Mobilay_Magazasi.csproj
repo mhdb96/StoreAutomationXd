@@ -76,6 +76,7 @@
     <Compile Include="data_entry.Designer.cs">
       <DependentUpon>data_entry.cs</DependentUpon>
     </Compile>
+    <Compile Include="DbCommand.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

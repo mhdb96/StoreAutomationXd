@@ -10,45 +10,37 @@ using Mycom = MySql.Data.MySqlClient.MySqlCommand;
 
 
 namespace VTYS_Mobilay_Magazasi
+
 {
     class Products
     {
-        static public DataSet getDataSet(string query, string tableName)
+        public string id;
+        public string name;
+        public string desc;
+        public string price;
+        public string stock;
+        public string set_id;
+        public string[] attribute_id;
+        public string[] attribute_name;
+        public string[] att_val_id;
+        public int count;
+
+        public void setArrayslength()
         {
-                try
-                {
-                    DataSet ds = new DataSet();
-                    Mycon mycnct = DatabaseInfo.getConnection();
-                    Myad myadapter = new Myad();
-                    myadapter.SelectCommand = new Mycom(query, mycnct);
-                    mycnct.Open();
-                    myadapter.Fill(ds, tableName);
-                    mycnct.Close();
-                    return ds;
-                }
-                catch (Exception ex)
-                {
-                    return null;
-                }       
+            attribute_id = new string[count];
+            attribute_name = new string[count];
+            att_val_id = new string [count];
+
         }
 
-        static public DataTable getDataTable(string query, string tableName)
+        public void setAttVal(string[] nattVa, int ct)
         {
-            try
+            att_val_id = new string[ct];
+            for (int i = 0; i < ct; i++)
             {
-                DataTable dt = new DataTable();
-                Mycon mycnct = DatabaseInfo.getConnection();
-                Myad myadapter = new Myad();
-                myadapter.SelectCommand = new Mycom(query, mycnct);
-                mycnct.Open();
-                myadapter.Fill(dt);
-                mycnct.Close();
-                return dt;
-            }
-            catch (Exception ex)
-            {
-                return null;
+                att_val_id[i] = nattVa[i];
             }
         }
+
     }
 }
