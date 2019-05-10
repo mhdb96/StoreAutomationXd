@@ -27,7 +27,7 @@ namespace VTYS_Mobilay_Magazasi
         {
             
         }
-        
+        //1. Panelin Gerçekleştirdiği Olaylar asdasdas
         private void metroTile2_Click(object sender, EventArgs e)
         {
             panelControl(0);
