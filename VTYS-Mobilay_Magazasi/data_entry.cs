@@ -68,6 +68,12 @@ namespace VTYS_Mobilay_Magazasi
             add.ShowDialog();
         }
 
+        private void btnUpdateProduct_Click(object sender, EventArgs e)
+        {
+            add_product add = new add_product();
+            add.ShowDialog();
+        }
+
         //=============================================================
         //=======================          ============================
         //=============================================================
@@ -112,5 +118,7 @@ namespace VTYS_Mobilay_Magazasi
         {
 
         }
+
+        
     }
 }

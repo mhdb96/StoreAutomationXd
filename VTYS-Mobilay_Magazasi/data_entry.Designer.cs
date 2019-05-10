@@ -242,6 +242,7 @@
             this.btnUpdateProduct.TabIndex = 7;
             this.btnUpdateProduct.Text = "Update";
             this.btnUpdateProduct.UseSelectable = true;
+            this.btnUpdateProduct.Click += new System.EventHandler(this.btnUpdateProduct_Click);
             // 
             // btnAddProduct
             // 
