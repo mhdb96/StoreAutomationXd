@@ -12,7 +12,7 @@ using Mycom = MySql.Data.MySqlClient.MySqlCommand;
 namespace VTYS_Mobilay_Magazasi
 
 {
-    class Products
+    public class Products
     {
         public string id;
         public string name;
@@ -20,6 +20,7 @@ namespace VTYS_Mobilay_Magazasi
         public string price;
         public string stock;
         public string set_id;
+        public string set_name;
         public string[] attribute_id;
         public string[] attribute_name;
         public string[] att_val_id;
@@ -32,15 +33,5 @@ namespace VTYS_Mobilay_Magazasi
             att_val_id = new string [count];
 
         }
-
-        public void setAttVal(string[] nattVa, int ct)
-        {
-            att_val_id = new string[ct];
-            for (int i = 0; i < ct; i++)
-            {
-                att_val_id[i] = nattVa[i];
-            }
-        }
-
     }
 }

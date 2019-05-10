@@ -57,7 +57,6 @@ namespace VTYS_Mobilay_Magazasi
         {
             try
             {
-                DataTable dt = new DataTable();
                 Mycon mycnct = DatabaseInfo.getConnection();
                 Myad myadapter = new Myad();
                 myadapter.SelectCommand = new Mycom(query, mycnct);

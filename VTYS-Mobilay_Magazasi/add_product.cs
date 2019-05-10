@@ -14,25 +14,128 @@ using System.Windows.Forms;
 namespace VTYS_Mobilay_Magazasi
 {
     public partial class add_product : MetroForm
-    { 
+    {
         Products myPro = new Products();
+        bool update;
         public add_product()
         {
             InitializeComponent();
         }
 
+        public add_product(Products upPro, bool u)
+        {
+            InitializeComponent();
+            myPro = upPro;
+            update = u;
+        }
+
         private void add_product_Load(object sender, EventArgs e)
         {
-            string tableName = "attributeSet";
-            DataSet ds = DbCommand.getDataSet(Queries.attributeSet, tableName);
-            if (ds != null)
+            if (!update)
             {
-                attributeSetList.DisplayMember = "set_name";
-                attributeSetList.ValueMember = "attributeSet_ID";
-                attributeSetList.DataSource = ds.Tables[tableName];   
-                attributeSetList.SelectedItem = null;
-                attributeSetList.PromptText = "Choose from the list";
+                string tableName = "attributeSet";
+                DataSet ds = DbCommand.getDataSet(Queries.attributeSet, tableName);
+                if (ds != null)
+                {
+                    attributeSetList.DisplayMember = "set_name";
+                    attributeSetList.ValueMember = "attributeSet_ID";
+                    attributeSetList.DataSource = ds.Tables[tableName];
+                    attributeSetList.SelectedItem = null;
+                    attributeSetList.PromptText = "Choose from the list";
+                }
             }
+            else
+            {
+                attributeSetList.SelectedItem = null;
+                attributeSetList.PromptText = myPro.set_name;
+                attributeSetList.Enabled = false;
+                metroButton4.Visible = false;
+                metroButton2.Text = "Update";
+                panel1.Visible = true;
+                ID.Enabled = false;
+                ID.Text = myPro.id;
+                name.Text = myPro.name;
+                description.Text = myPro.desc;
+                price.Text = myPro.price;
+                stock.Text = myPro.stock;
+                string tableName = "setAttributes";
+                string setID = myPro.set_id;
+                string query = String.Format(Queries.setAttributes, setID);
+                DataSet ds = DbCommand.getDataSet(query, tableName);
+                if (ds == null)
+                    MessageBox.Show("");
+                int[] attributeID = new int[ds.Tables[tableName].Rows.Count];
+                for (int u = 0; u < attributeID.Length; u++)
+                {
+                    attributeID[u] = (int)ds.Tables[tableName].Rows[u]["attribute_attribute_ID"];
+                }
+
+                string atttableName = "AttributeNames";
+                DataSet attDs = DbCommand.getDataSet(Queries.attribute, atttableName);
+                if (attDs == null)
+                    MessageBox.Show("DataSet is empty!");
+
+                MetroLabel[] lblNames = new MetroLabel[ds.Tables[tableName].Rows.Count];
+                for (int u = 0; u < lblNames.Count(); u++)
+                {
+                    lblNames[u] = new MetroLabel();
+                }
+                myPro.count = ds.Tables[tableName].Rows.Count;
+                int i = 0;
+                foreach (MetroLabel lbl in lblNames)
+                {
+
+                    lbl.Name = "lbl" + (string)attDs.Tables[atttableName].Rows[attributeID[i] - 1]["att_name"];
+                    lbl.Text = (string)attDs.Tables[atttableName].Rows[attributeID[i] - 1]["att_name"];
+                    lbl.Location = new Point(471, 209 + (i * 40));
+                    lbl.Visible = true;
+                    this.Controls.Add(lbl);
+                    i++;
+                }
+
+                MetroComboBox[] listNames = new MetroComboBox[ds.Tables[tableName].Rows.Count];
+                for (int u = 0; u < listNames.Count(); u++)
+                {
+                    listNames[u] = new MetroComboBox();
+                }
+                i = 0;
+                foreach (MetroComboBox list in listNames)
+                {
+                    string valuetableName = "AttributeValues";
+                    string valueQuery = String.Format(Queries.attributeValues, attributeID[i].ToString());
+                    DataSet attValDs = DbCommand.getDataSet(valueQuery, valuetableName);
+                    if (attValDs == null)
+                        MessageBox.Show("DataSet is empty!");
+                    string name = (string)attDs.Tables[atttableName].Rows[attributeID[i] - 1]["att_name"];
+                    list.Name = name;
+                    //list.Text = name;
+                    list.Location = new Point(603, 199 + (i * 40));
+                    list.Visible = true;
+                    list.DisplayMember = "val_value";
+                    list.ValueMember = "attributeValue_ID";
+                    list.DataSource = attValDs.Tables[valuetableName];
+                    //list.PromptText = "Choose from the list";
+                    list.Style = MetroFramework.MetroColorStyle.Green;
+                    this.Controls.Add(list);
+
+                    string valIndextableName = "AttributeValues";
+                    string valIndexQuery = String.Format(Queries.attributeValues, attributeID[i].ToString());
+                    DataSet valIndexDs = DbCommand.getDataSet(valIndexQuery, valIndextableName);
+                    if (attValDs == null)
+                        MessageBox.Show("DataSet is empty!");
+
+                    for (int u = 0; u < list.Items.Count; u++)
+                    {
+                        if (valIndexDs.Tables[valIndextableName].Rows[u]["attributeValue_ID"].ToString() == myPro.att_val_id[i])
+                        {
+                            list.SelectedIndex = u;
+                            list.PromptText = valIndexDs.Tables[valIndextableName].Rows[u]["val_value"].ToString();
+                        }
+                    }
+                    i++;
+                }
+            }
+
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
@@ -42,115 +145,130 @@ namespace VTYS_Mobilay_Magazasi
 
         private void metroButton4_Click(object sender, EventArgs e)
         {
-            string id = "id";
-            string idQuery = String.Format(Queries.newID, "product_ID", "product");
-            DataSet idDs = DbCommand.getDataSet(idQuery, id);
-            if (idDs == null)
-                MessageBox.Show("");
-            ID.Text =((int) (idDs.Tables[id].Rows[0]["max(product_ID)"])+1).ToString();
-            myPro.id = ID.Text;
-
-            string tableName = "setAttributes";
-            string setID = attributeSetList.SelectedValue.ToString();
-            string query = String.Format(Queries.setAttributes, setID);
-            DataSet ds= DbCommand.getDataSet(query, tableName);
-            if (ds == null)
-                MessageBox.Show("");
+            if (!update)
+            {
                 panel1.Visible = true;
-            metroButton4.Enabled = false;
+                metroButton4.Enabled = false;
 
-            int[] attributeID = new int [ds.Tables[tableName].Rows.Count];
-            for(int u=0; u< attributeID.Length; u++)
-            {
-                attributeID[u] = (int) ds.Tables[tableName].Rows[u]["attribute_attribute_ID"];
-            }
+                string id = "id";
+                string idQuery = String.Format(Queries.newID, "product_ID", "product");
+                DataSet idDs = DbCommand.getDataSet(idQuery, id);
+                if (idDs == null)
+                    MessageBox.Show("");
+                ID.Text = ((int)(idDs.Tables[id].Rows[0]["max(product_ID)"]) + 1).ToString();
+                myPro.id = ID.Text;
 
-            string atttableName = "AttributeNames";
-            DataSet attDs = DbCommand.getDataSet(Queries.attribute, atttableName);
-            if (attDs == null)
-                MessageBox.Show("DataSet is empty!");
+                string tableName = "setAttributes";
+                string setID = attributeSetList.SelectedValue.ToString();
+                string query = String.Format(Queries.setAttributes, setID);
+                DataSet ds = DbCommand.getDataSet(query, tableName);
+                if (ds == null)
+                    MessageBox.Show("");
 
-            MetroLabel[] lblTeamNames = new MetroLabel[ds.Tables[tableName].Rows.Count];
-            for (int u = 0; u < lblTeamNames.Count(); u++)
-            {
-                lblTeamNames[u] = new MetroLabel();
-            }
-            myPro.count = ds.Tables[tableName].Rows.Count;
-            myPro.setArrayslength();
-            int i = 0;
-            foreach (MetroLabel lbl in lblTeamNames)
-            {
-                myPro.attribute_id[i]= attDs.Tables[atttableName].Rows[attributeID[i] - 1]["attribute_ID"].ToString();
-                myPro.attribute_name[i] = (string)attDs.Tables[atttableName].Rows[attributeID[i] - 1]["att_name"];
-                string name ="lbl"+(string) attDs.Tables[atttableName].Rows[attributeID[i]-1]["att_name"];
-                lbl.Name = name;
-                lbl.Text = name;
-                lbl.Location = new Point(471, 209 + (i * 40));
-                lbl.Visible = true;
-                this.Controls.Add(lbl);
-                i++;
-            }
 
-            MetroComboBox[] listTeamNames = new MetroComboBox[ds.Tables[tableName].Rows.Count];
+                int[] attributeID = new int[ds.Tables[tableName].Rows.Count];
+                for (int u = 0; u < attributeID.Length; u++)
+                {
+                    attributeID[u] = (int)ds.Tables[tableName].Rows[u]["attribute_attribute_ID"];
+                }
 
-            for (int u = 0; u < listTeamNames.Count(); u++)
-            {
-                listTeamNames[u] = new MetroComboBox();
-            }
-            i = 0;
-            foreach (MetroComboBox list in listTeamNames)
-            {
-                string valuetableName = "AttributeValues";
-                string valueQuery = String.Format(Queries.attributeValues, attributeID[i].ToString());
-                DataSet attValDs = DbCommand.getDataSet(valueQuery, valuetableName);
-                if (attValDs == null)
+                string atttableName = "AttributeNames";
+                DataSet attDs = DbCommand.getDataSet(Queries.attribute, atttableName);
+                if (attDs == null)
                     MessageBox.Show("DataSet is empty!");
-                string name = (string)attDs.Tables[atttableName].Rows[attributeID[i] - 1]["att_name"];
-                list.Name = name;
-                list.Text = name;
-                list.Location = new Point(603, 199 + (i * 40));
-                list.Visible = true;
-                list.DisplayMember = "val_value";
-                list.ValueMember = "attributeValue_ID";
-                list.DataSource = attValDs.Tables[valuetableName];
-                list.SelectedItem = null;
-                list.PromptText = "Choose from the list";
-                list.Style = MetroFramework.MetroColorStyle.Green;
 
-                this.Controls.Add(list);
-                i++;
+                MetroLabel[] lblTeamNames = new MetroLabel[ds.Tables[tableName].Rows.Count];
+                for (int u = 0; u < lblTeamNames.Count(); u++)
+                {
+                    lblTeamNames[u] = new MetroLabel();
+                }
+                myPro.count = ds.Tables[tableName].Rows.Count;
+                myPro.setArrayslength();
+                int i = 0;
+                foreach (MetroLabel lbl in lblTeamNames)
+                {
+                    myPro.attribute_id[i] = attDs.Tables[atttableName].Rows[attributeID[i] - 1]["attribute_ID"].ToString();
+                    myPro.attribute_name[i] = (string)attDs.Tables[atttableName].Rows[attributeID[i] - 1]["att_name"];
+                    string name = "lbl" + (string)attDs.Tables[atttableName].Rows[attributeID[i] - 1]["att_name"];
+                    lbl.Name = name;
+                    lbl.Text = (string)attDs.Tables[atttableName].Rows[attributeID[i] - 1]["att_name"];
+                    lbl.Location = new Point(471, 209 + (i * 40));
+                    lbl.Visible = true;
+                    this.Controls.Add(lbl);
+                    i++;
+                }
+
+                MetroComboBox[] listTeamNames = new MetroComboBox[ds.Tables[tableName].Rows.Count];
+
+                for (int u = 0; u < listTeamNames.Count(); u++)
+                {
+                    listTeamNames[u] = new MetroComboBox();
+                }
+                i = 0;
+                foreach (MetroComboBox list in listTeamNames)
+                {
+                    string valuetableName = "AttributeValues";
+                    string valueQuery = String.Format(Queries.attributeValues, attributeID[i].ToString());
+                    DataSet attValDs = DbCommand.getDataSet(valueQuery, valuetableName);
+                    if (attValDs == null)
+                        MessageBox.Show("DataSet is empty!");
+                    string name = (string)attDs.Tables[atttableName].Rows[attributeID[i] - 1]["att_name"];
+                    list.Name = name;
+                    list.Text = name;
+                    list.Location = new Point(603, 199 + (i * 40));
+                    list.Visible = true;
+                    list.DisplayMember = "val_value";
+                    list.ValueMember = "attributeValue_ID";
+                    list.DataSource = attValDs.Tables[valuetableName];
+                    list.SelectedItem = null;
+                    list.PromptText = "Choose from the list";
+                    list.Style = MetroFramework.MetroColorStyle.Green;
+                    this.Controls.Add(list);
+                    i++;
+                }
             }
         }
 
         private void metroButton2_Click(object sender, EventArgs e)
         {
-            myPro.name = name.Text;
-            myPro.desc = description.Text;
-            myPro.price = price.Text;
-            myPro.stock = stock.Text;
-            myPro.set_id = attributeSetList.SelectedValue.ToString();
-            string query = String.Format(Queries.insProduct,myPro.id, myPro.name,myPro.desc,myPro.price,myPro.stock,myPro.set_id);
-            if (!DbCommand.insertIntoDb(query))
-                MessageBox.Show("");
-
-            for(int i=0; i<myPro.count; i++)
+                myPro.name = name.Text;
+                myPro.desc = description.Text;
+                myPro.price = price.Text;
+                myPro.stock = stock.Text;
+            if (!update)
             {
-                MetroComboBox list = (MetroComboBox)Controls[myPro.attribute_name[i]];
-                myPro.att_val_id[i] = list.SelectedValue.ToString();
-                query = String.Format(Queries.insProductAttribute, myPro.id, myPro.att_val_id[i] , myPro.set_id, myPro.attribute_id[i]);
-                
+                myPro.set_id = attributeSetList.SelectedValue.ToString();
+                string query = String.Format(Queries.insProduct, myPro.id, myPro.name, myPro.desc, myPro.price, myPro.stock, myPro.set_id);
                 DbCommand.insertIntoDb(query);
-               
+                for (int i = 0; i < myPro.count; i++)
+                {
+                    MetroComboBox list = (MetroComboBox)Controls[myPro.attribute_name[i]];
+                    myPro.att_val_id[i] = list.SelectedValue.ToString();
+                    query = String.Format(Queries.insProductAttribute, myPro.id, myPro.att_val_id[i], myPro.set_id, myPro.attribute_id[i]);
+
+                    DbCommand.insertIntoDb(query);
+
+                }
             }
-            
+            else
+            {
+                string query = String.Format(Queries.upProduct, myPro.name, myPro.desc, myPro.price, myPro.stock, myPro.id);
+                DbCommand.insertIntoDb(query);
+                for (int i = 0; i < myPro.count; i++)
+                {
+                    MetroComboBox list = (MetroComboBox)Controls[myPro.attribute_name[i]];
+                    myPro.att_val_id[i] = list.SelectedValue.ToString();
+                    query = String.Format(Queries.upProductAtt, myPro.att_val_id[i],myPro.id, myPro.attribute_id[i]);
+                    DbCommand.insertIntoDb(query);
 
+                }
+            }
             this.Close();
-
         }
 
         private void add_product_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
+
         }
 
         private void name_Click(object sender, EventArgs e)
@@ -160,13 +278,12 @@ namespace VTYS_Mobilay_Magazasi
 
         private void name_KeyPress(object sender, KeyPressEventArgs e)
         {
-           
+
         }
 
         private void price_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-        (e.KeyChar != '.'))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
             }
