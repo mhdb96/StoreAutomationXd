@@ -1,0 +1,16 @@
+C:\Users\onurk\Desktop\veri\VTYS-Mobilay_Magazasi\bin\Debug\VTYS-Mobilay_Magazasi.exe.config
+C:\Users\onurk\Desktop\veri\VTYS-Mobilay_Magazasi\bin\Debug\VTYS-Mobilay_Magazasi.exe
+C:\Users\onurk\Desktop\veri\VTYS-Mobilay_Magazasi\bin\Debug\VTYS-Mobilay_Magazasi.pdb
+C:\Users\onurk\Desktop\veri\VTYS-Mobilay_Magazasi\bin\Debug\MySql.Data.dll
+C:\Users\onurk\Desktop\veri\VTYS-Mobilay_Magazasi\bin\Debug\Google.Protobuf.dll
+C:\Users\onurk\Desktop\veri\VTYS-Mobilay_Magazasi\bin\Debug\MySql.Data.xml
+C:\Users\onurk\Desktop\veri\VTYS-Mobilay_Magazasi\obj\Debug\VTYS-Mobilay_Magazasi.csprojAssemblyReference.cache
+C:\Users\onurk\Desktop\veri\VTYS-Mobilay_Magazasi\obj\Debug\VTYS_Mobilay_Magazasi.add_product.resources
+C:\Users\onurk\Desktop\veri\VTYS-Mobilay_Magazasi\obj\Debug\VTYS_Mobilay_Magazasi.data_entry.resources
+C:\Users\onurk\Desktop\veri\VTYS-Mobilay_Magazasi\obj\Debug\VTYS_Mobilay_Magazasi.login.resources
+C:\Users\onurk\Desktop\veri\VTYS-Mobilay_Magazasi\obj\Debug\VTYS_Mobilay_Magazasi.Properties.Resources.resources
+C:\Users\onurk\Desktop\veri\VTYS-Mobilay_Magazasi\obj\Debug\VTYS-Mobilay_Magazasi.csproj.GenerateResource.cache
+C:\Users\onurk\Desktop\veri\VTYS-Mobilay_Magazasi\obj\Debug\VTYS-Mobilay_Magazasi.csproj.CoreCompileInputs.cache
+C:\Users\onurk\Desktop\veri\VTYS-Mobilay_Magazasi\obj\Debug\VTYS-Mobilay_Magazasi.csproj.CopyComplete
+C:\Users\onurk\Desktop\veri\VTYS-Mobilay_Magazasi\obj\Debug\VTYS-Mobilay_Magazasi.exe
+C:\Users\onurk\Desktop\veri\VTYS-Mobilay_Magazasi\obj\Debug\VTYS-Mobilay_Magazasi.pdb
