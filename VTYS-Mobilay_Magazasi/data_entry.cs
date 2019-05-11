@@ -107,6 +107,24 @@ namespace VTYS_Mobilay_Magazasi
             update.ShowDialog();
         }
 
+        private void btnDeleteProduct_Click(object sender, EventArgs e)
+        {
+            if (productsGrid.SelectedRows.Count != 0)
+            {
+                Products myPro = new Products();
+                myPro.id = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+
+                string query = String.Format(Queries.delProductAtt, myPro.id);
+                DbCommand.insertIntoDb(query);
+                query = String.Format(Queries.delProduct, myPro.id);
+                DbCommand.insertIntoDb(query);
+                metroTile1_Click(sender, e);
+            }
+            else MessageBox.Show("sec");
+            
+
+        }
+
         //=============================================================
         //=======================          ============================
         //=============================================================
