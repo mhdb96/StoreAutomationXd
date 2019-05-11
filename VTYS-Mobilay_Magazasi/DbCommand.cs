@@ -8,6 +8,7 @@ using Myad = MySql.Data.MySqlClient.MySqlDataAdapter;
 using Mycom = MySql.Data.MySqlClient.MySqlCommand;
 using System.Data;
 using MetroFramework;
+using MetroFramework.Forms;
 using System.Windows.Forms;
 
 namespace VTYS_Mobilay_Magazasi
@@ -41,7 +42,7 @@ namespace VTYS_Mobilay_Magazasi
             catch (Exception ex)
             {
                 //Eğer try kısmında hata alırsak çalışması gereken kod
-                MessageBox.Show("");
+                MetroMessageBox.Show(data_entry.ActiveForm, ex.Message,"Database Error!",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 return null;
                 //
             }
@@ -80,7 +81,7 @@ namespace VTYS_Mobilay_Magazasi
             }
             catch (Exception ex)
             {
-                MessageBox.Show("");
+                MetroMessageBox.Show(data_entry.ActiveForm, ex.Message, "Database Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
         }

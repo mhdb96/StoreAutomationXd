@@ -1,4 +1,5 @@
 ﻿using MetroFramework.Forms;
+using MetroFramework;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -96,57 +97,68 @@ namespace VTYS_Mobilay_Magazasi
 
         private void btnUpdateProduct_Click(object sender, EventArgs e)
         {
-            Products myPro = new Products();
-            myPro.name = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
-            myPro.desc = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[2].Value.ToString();
-            myPro.price = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[3].Value.ToString();
-            myPro.stock = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[4].Value.ToString();
-            myPro.set_name = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[5].Value.ToString();
-            myPro.id = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-
-            string tableName = "attributes";
-            string name = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[5].Value.ToString();
-            string query = String.Format(Queries.set_ID, name);
-            DataSet ds = DbCommand.getDataSet(query, tableName);
-            if (ds != null)
-                myPro.set_id = ds.Tables[tableName].Rows[0]["attributeset_ID"].ToString();
-
-            myPro.count = metroGrid2.Rows.Count;
-            myPro.setArrayslength();
-            for(int i=0; i<myPro.count; i++)
+            if (productsGrid.SelectedRows.Count != 0)
             {
-                name = metroGrid2.Rows[i].Cells[0].Value.ToString();
-                query = String.Format(Queries.att_ID, name);
-                ds = DbCommand.getDataSet(query, tableName);
-                if (ds != null)
-                    myPro.attribute_id[i] = ds.Tables[tableName].Rows[0]["attribute_ID"].ToString();
+                Products myPro = new Products();
+                myPro.name = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
+                myPro.desc = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[2].Value.ToString();
+                myPro.price = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[3].Value.ToString();
+                myPro.stock = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[4].Value.ToString();
+                myPro.set_name = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[5].Value.ToString();
+                myPro.id = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
 
-                name = metroGrid2.Rows[i].Cells[1].Value.ToString();
-                query = String.Format(Queries.attVal_ID, name);
-                ds = DbCommand.getDataSet(query, tableName);
+                string tableName = "attributes";
+                string name = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[5].Value.ToString();
+                string query = String.Format(Queries.set_ID, name);
+                DataSet ds = DbCommand.getDataSet(query, tableName);
                 if (ds != null)
-                    myPro.att_val_id[i] = ds.Tables[tableName].Rows[0]["attributeValue_ID"].ToString();
+                    myPro.set_id = ds.Tables[tableName].Rows[0]["attributeset_ID"].ToString();
 
-                myPro.attribute_name[i] = metroGrid2.Rows[i].Cells[0].Value.ToString();
+                myPro.count = metroGrid2.Rows.Count;
+                myPro.setArrayslength();
+                for (int i = 0; i < myPro.count; i++)
+                {
+                    name = metroGrid2.Rows[i].Cells[0].Value.ToString();
+                    query = String.Format(Queries.att_ID, name);
+                    ds = DbCommand.getDataSet(query, tableName);
+                    if (ds != null)
+                        myPro.attribute_id[i] = ds.Tables[tableName].Rows[0]["attribute_ID"].ToString();
+
+                    name = metroGrid2.Rows[i].Cells[1].Value.ToString();
+                    query = String.Format(Queries.attVal_ID, name);
+                    ds = DbCommand.getDataSet(query, tableName);
+                    if (ds != null)
+                        myPro.att_val_id[i] = ds.Tables[tableName].Rows[0]["attributeValue_ID"].ToString();
+
+                    myPro.attribute_name[i] = metroGrid2.Rows[i].Cells[0].Value.ToString();
+                }
+                add_product update = new add_product(myPro, true);
+                update.ShowDialog();
             }
-            add_product update = new add_product(myPro,true);
-            update.ShowDialog();
+            else
+                MetroMessageBox.Show(this, "You must choose a product before trying to update it", "Update Erorr", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            
         }
 
         private void btnDeleteProduct_Click(object sender, EventArgs e)
         {
             if (productsGrid.SelectedRows.Count != 0)
             {
-                Products myPro = new Products();
-                myPro.id = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-
-                string query = String.Format(Queries.delProductAtt, myPro.id);
-                DbCommand.insertIntoDb(query);
-                query = String.Format(Queries.delProduct, myPro.id);
-                DbCommand.insertIntoDb(query);
-                metroTile1_Click(sender, e);
+                DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                if(dr == DialogResult.Yes)
+                {
+                    Products myPro = new Products();
+                    myPro.id = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+                    string query = String.Format(Queries.delProductAtt, myPro.id);
+                    DbCommand.insertIntoDb(query);
+                    query = String.Format(Queries.delProduct, myPro.id);
+                    DbCommand.insertIntoDb(query);
+                    metroTile1_Click(sender, e);
+                }
+                
             }
-            else MessageBox.Show("sec");
+            else MetroMessageBox.Show(this,"You must choose a product before trying to delete it","Deletion Erorr",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             
 
         }

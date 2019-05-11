@@ -252,21 +252,27 @@ namespace VTYS_Mobilay_Magazasi
                     DbCommand.insertIntoDb(query);
 
                 }
+                this.Close();
             }
             else
             {
-                string query = String.Format(Queries.upProduct, myPro.name, myPro.desc, myPro.price, myPro.stock, myPro.id);
-                DbCommand.insertIntoDb(query);
-                for (int i = 0; i < myPro.count; i++)
+                DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
                 {
-                    MetroComboBox list = (MetroComboBox)Controls[myPro.attribute_name[i]];
-                    myPro.att_val_id[i] = list.SelectedValue.ToString();
-                    query = String.Format(Queries.upProductAtt, myPro.att_val_id[i],myPro.id, myPro.attribute_id[i]);
+                    string query = String.Format(Queries.upProduct, myPro.name, myPro.desc, myPro.price, myPro.stock, myPro.id);
                     DbCommand.insertIntoDb(query);
+                    for (int i = 0; i < myPro.count; i++)
+                    {
+                        MetroComboBox list = (MetroComboBox)Controls[myPro.attribute_name[i]];
+                        myPro.att_val_id[i] = list.SelectedValue.ToString();
+                        query = String.Format(Queries.upProductAtt, myPro.att_val_id[i], myPro.id, myPro.attribute_id[i]);
+                        DbCommand.insertIntoDb(query);
 
+                    }
+                    this.Close();
                 }
             }
-            this.Close();
+            
         }
 
         private void add_product_FormClosed(object sender, FormClosedEventArgs e)
