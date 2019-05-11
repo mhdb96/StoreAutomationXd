@@ -22,76 +22,109 @@ namespace VTYS_Mobilay_Magazasi
         }
         
 
-        
+        //Form Yüklendiğinde Gerçekleşecek Olaylar
         private void data_entry_Load(object sender, EventArgs e)
         {
             
         }
-        
+
+        //=============================================================
+        //======================= OVERVIEW ============================
+        //=============================================================
         private void metroTile2_Click(object sender, EventArgs e)
         {
             panelControl(0);
         }
 
         //=============================================================
-        //======================= Products ============================
+        //======================= PRODUCTS ============================
         //=============================================================
 
+        //PRODUCTS'a tıklandığında tüm ürünleri gösteren fonksiyon
         private void metroTile1_Click(object sender, EventArgs e)
         {
             string tableName = "products";
             panelControl(1);
             metroGrid2.DataSource= null;
+
+            //SQL kodunu Queries sınıfından çekip string değişkene attı
+            //Ardından string değişkenindeki kodu kullanılarak DbCommand sınıfından
+            //verileri alıp DataSet değişkenine attı
             string query = String.Format(Queries.products, "product_ID");
             DataSet ds = DbCommand.getDataSet(query, tableName);
-            if(ds!=null)
+            //
+            //Gelen veriler productsGrid'e aktardı
+            if (ds!=null)
                 productsGrid.DataSource = ds.Tables[tableName];
+            //
+            //productsGrid'n sütün genişlikleri manuel olarak ayarladı
             productsGrid.Columns[0].Width = 30;
             productsGrid.Columns[3].Width = 50;
             productsGrid.Columns[4].Width = 50;
-
+            //
         }
 
+        //Seçilen ürünün özelliklerini farklı bir tabloya aktaran fonksiyon
         private void metroGrid1_MouseClick(object sender, MouseEventArgs e)
         {
             string tableName = "attributes";
+
+            //productsGrid'de tıklanan satırın id'sini alıp string bir değişkene attı
+            //Ardından bu id'yi kullanılarak Queries sınıfından SQL kodunu çekip string bir değişkene attı
+            //Daha Sonra string değişkenindeki SQL kodu kullanılarak DbCommand sınıfından
+            //verileri alıp DataSet değişkenine attı
             string pro_ID = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
             string query = String.Format(Queries.productsAttributes, pro_ID);
             DataSet ds = DbCommand.getDataSet(query, tableName);
+            //
+            //Gelen veriler metroGrid2'ye aktardı
             if (ds != null)
                 metroGrid2.DataSource = ds.Tables[tableName];
+            //
         }
 
+        //add butonuna tıklandığında çalışacak fonksiyon
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
+            //add_product'sınıfından yeni bir nesne tanımlandı ve yeni bir pencerede açıldı
             add_product add = new add_product();
             add.ShowDialog();
+            //
         }
 
         //=============================================================
-        //=======================          ============================
+        //======================= ORDERS ==============================
         //=============================================================
         private void metroTile9_Click(object sender, EventArgs e)
         {
             panelControl(2);
         }
 
+        //=============================================================
+        //======================= COSTUMERS ===========================
+        //=============================================================
         private void metroTile10_Click(object sender, EventArgs e)
         {
             panelControl(3);
         }
 
+        //=============================================================
+        //======================= SUPPLIERS ===========================
+        //=============================================================
         private void metroTile11_Click(object sender, EventArgs e)
         {
             panelControl(4);
         }
 
+        //=============================================================
+        //======================= ACCOUNTING ==========================
+        //=============================================================
         private void metroTile12_Click(object sender, EventArgs e)
         {
             panelControl(5);
         }
 
-
+        //Tıklanan panelin açılıp diğer panellerin kapanmasını gerçekleştiren kod
         void panelControl (int p)
         {
             bool [] panels = new bool[6];

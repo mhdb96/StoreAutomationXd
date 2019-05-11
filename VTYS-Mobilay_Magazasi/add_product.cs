@@ -21,32 +21,46 @@ namespace VTYS_Mobilay_Magazasi
             InitializeComponent();
         }
 
+        //Form açıldığında gerçekleşecek olaylar
         private void add_product_Load(object sender, EventArgs e)
         {
             string tableName = "attributeSet";
+            //DataSet sınıfından ds isminde nesne oluşturup 
+            //DbCommand sınıfı yardımıyla Queries'den SQL komutunu alıp ds içerisine attı
             DataSet ds = DbCommand.getDataSet(Queries.attributeSet, tableName);
+            //
+
             if (ds != null)
             {
-                attributeSetList.DisplayMember = "set_name";
-                attributeSetList.ValueMember = "attributeSet_ID";
-                attributeSetList.DataSource = ds.Tables[tableName];   
-                attributeSetList.SelectedItem = null;
-                attributeSetList.PromptText = "Choose from the list";
+                
+                attributeSetList.DisplayMember = "set_name"; //Görünecek olan hücreler belirler
+                attributeSetList.ValueMember = "attributeSet_ID"; //Arka planda tutulacak hücre id'lerini belirler
+                attributeSetList.DataSource = ds.Tables[tableName]; //SQL komutuyla DataSet'e çektiğimiz bilgileri attributeSetList'e atar
+                attributeSetList.SelectedItem = null; //Seçili olan değeri boş yapar
+                attributeSetList.PromptText = "Choose from the list"; //Açıklama metni
             }
         }
 
+        //Cancel butonunun gerçekleştirdiği olayın fonksiyonu
         private void metroButton1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        
 
         private void metroButton4_Click(object sender, EventArgs e)
         {
             string id = "id";
+            //Queries sınıfından SQL komutları string bir değişkene attı
+            //Ardından DbCommand'i kullanarak verileri çekip DataSet'e attı
+            //Toplam ürün sayısını elde etti
             string idQuery = String.Format(Queries.newID, "product_ID", "product");
             DataSet idDs = DbCommand.getDataSet(idQuery, id);
+            //
+
             if (idDs == null)
                 MessageBox.Show("");
+
             ID.Text =((int) (idDs.Tables[id].Rows[0]["max(product_ID)"])+1).ToString();
             myPro.id = ID.Text;
 
