@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace VTYS_Mobilay_Magazasi
 {
+    //SQL komutlarının bulunduğu sınıf
     class Queries
     {
         readonly public static string products = "select p.product_ID as \"ID\", p.pro_name as \"Name\",pro_description as \"Description\",pro_price as \"Price\",pro_stock as \"Stock\", ats.set_name as \"Category\" from product p join attributeset ats on p.attributeSet_attributeSet_ID = ats.attributeSet_ID order by {0};";

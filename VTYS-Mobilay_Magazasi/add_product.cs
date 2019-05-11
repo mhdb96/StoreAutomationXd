@@ -138,10 +138,12 @@ namespace VTYS_Mobilay_Magazasi
 
         }
 
+        //Cancel butonunun gerçekleştirdiği olayın fonksiyonu
         private void metroButton1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        
 
         private void metroButton4_Click(object sender, EventArgs e)
         {

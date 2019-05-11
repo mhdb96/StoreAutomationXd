@@ -10,14 +10,16 @@ namespace VTYS_Mobilay_Magazasi
 {
     class DatabaseInfo
     {
+        //Veritabanının bilgilerini string değişkenlere attı
         public static string server = "localhost";
         public static string user = "root";
-        public static string pass = "alpha86";
+        public static string pass = "1903forza";
         public static string database = "mydb";
         public static uint port = 3306;
-
+        //
         static public MySqlConnection getConnection()
         {
+            //MySqlConnectionStringBuilder sınıfından builder nesnesi yaratıp bilgileri içine attı
             MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder
             {
                 Server = server,
@@ -26,8 +28,12 @@ namespace VTYS_Mobilay_Magazasi
                 Database = database,
                 Port = port
             };
+            //
+            //build nesnesi yardımıyla MySqlConnection sınıfından myConnection nesnesi oluşturdu
+            //ve geri döndürdü
             MySqlConnection myConnection = new MySqlConnection(builder.ToString());
             return myConnection;
+            //
         }
     }
 }
