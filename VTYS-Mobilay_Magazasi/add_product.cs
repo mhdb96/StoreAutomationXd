@@ -151,6 +151,7 @@ namespace VTYS_Mobilay_Magazasi
             {
                 panel1.Visible = true;
                 metroButton4.Enabled = false;
+                attributeSetList.Enabled = false;
 
                 string id = "id";
                 string idQuery = String.Format(Queries.newID, "product_ID", "product");

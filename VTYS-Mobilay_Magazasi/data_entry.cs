@@ -14,8 +14,10 @@ using System.Windows.Forms;
 namespace VTYS_Mobilay_Magazasi
 {
     public partial class data_entry : MetroForm
-
     {
+        int controlS = 0;
+        int controlA = 0;
+        int controlV = 0;
         public data_entry()
         {
             InitializeComponent();
@@ -147,6 +149,172 @@ namespace VTYS_Mobilay_Magazasi
             else MessageBox.Show("sec");
             
 
+        }
+        private void filterList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (filterList.SelectedIndex == 0) //Category
+            {
+                controlS = 0;
+                controlA = 0;
+                controlV = 0;
+                metroButton2.Visible = false;
+                logicFilter.Visible = false;
+                metroTextBox2.Visible = false;
+                metroTextBox3.Visible = false;
+                string tableName = "attributeSet";
+                DataSet ds = DbCommand.getDataSet(Queries.attributeSet, tableName);
+                if (ds != null)
+                {
+                    attributeSetList.DisplayMember = "set_name";
+                    attributeSetList.ValueMember = "attributeSet_ID";
+                    attributeSetList.DataSource = ds.Tables[tableName];
+                    attributeSetList.SelectedItem = null;
+                    attributeSetList.PromptText = "Choose from the list";
+                }
+                attributeSetList.Visible = true;
+                attributeList.Visible = false;
+                attributeValuesList.Visible = false;
+            }
+            else if (filterList.SelectedIndex == 1) //Stock
+            {
+                metroTextBox2.Text = "";
+                metroTextBox3.Text = "";
+                metroButton2.Visible = true;
+                logicFilter.Visible = true;
+                logicFilter.SelectedItem = null;
+                logicFilter.PromptText = "Choose a filter";
+                metroTextBox2.Visible = false;
+                metroTextBox3.Visible = false;
+                attributeValuesList.Visible = false;
+                attributeSetList.Visible = false;
+                attributeList.Visible = false;
+            }
+            else //Price
+            {
+                metroTextBox2.Text = "";
+                metroTextBox3.Text = "";
+                metroButton2.Visible = true;
+                logicFilter.Visible = true;
+                logicFilter.SelectedItem = null;
+                logicFilter.PromptText = "Choose a filter";
+                metroTextBox2.Visible = false;
+                metroTextBox3.Visible = false;
+                attributeValuesList.Visible = false;
+                attributeSetList.Visible = false;
+                attributeList.Visible = false;
+            }
+        }
+
+        private void logicFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (logicFilter.SelectedIndex == 3)
+            {
+                metroTextBox2.Visible = true;
+                metroTextBox3.Visible = true;
+            }
+            else
+            {
+                metroTextBox3.Visible = false;
+                metroTextBox2.Visible = true;
+            }
+        }
+
+        private void attributeSetList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            controlA = 0;
+            controlV = 0;
+            if (attributeSetList.SelectedItem != null && controlS >= 2)
+            {
+                string tableName = "attribute";
+                string query = String.Format(Queries.setAttributedata, attributeSetList.SelectedValue.ToString());
+                DataSet ds = DbCommand.getDataSet(query, tableName);
+                if (ds != null)
+                {
+                    attributeList.DisplayMember = "att_name";
+                    attributeList.ValueMember = "attribute_ID";
+                    attributeList.DataSource = ds.Tables[tableName];
+                    attributeList.SelectedItem = null;
+                    attributeList.PromptText = "Choose from the list";
+                }
+                attributeList.Visible = true;
+                attributeValuesList.Visible = false;
+
+                query = String.Format(Queries.productsFiltering, attributeSetList.SelectedValue.ToString());
+                ds = DbCommand.getDataSet(query, tableName);
+                productsGrid.DataSource = ds.Tables[tableName]; ;
+            }
+            controlS++;
+        }
+
+        private void attributeList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            controlV = 0;
+            if (attributeList.SelectedItem != null && controlA >= 2)
+            {
+                string tableName = "attribute";
+                string query = String.Format(Queries.attributeValues, attributeList.SelectedValue.ToString());
+                DataSet ds = DbCommand.getDataSet(query, tableName);
+                if (ds != null)
+                {
+                    attributeValuesList.DisplayMember = "val_value";
+                    attributeValuesList.ValueMember = "attributeValue_ID";
+                    attributeValuesList.DataSource = ds.Tables[tableName];
+                    attributeValuesList.SelectedItem = null;
+                    attributeValuesList.PromptText = "Choose from the list";
+                }
+                attributeValuesList.Visible = true;
+            }
+            controlA++;
+        }
+
+        private void attributeValuesList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (attributeList.SelectedItem != null && controlV >= 2)
+            {
+                string tableName = "Products";
+                string query = String.Format(Queries.attributeValues, attributeList.SelectedValue.ToString());
+                DataSet ds = DbCommand.getDataSet(query, tableName);
+                if (ds != null)
+                {
+                    query = String.Format(Queries.productsFiltering, attributeSetList.SelectedValue.ToString() + " and pa.attributeValue_attributeValue_ID = " + attributeValuesList.SelectedValue.ToString());
+                    ds = DbCommand.getDataSet(query, tableName);
+                    productsGrid.DataSource = ds.Tables[tableName]; ;
+                }
+            }
+            controlV++;
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            string filter="";
+
+            if (filterList.SelectedIndex == 1)
+                filter = "pro_stock";
+            else if (filterList.SelectedIndex == 2)
+                filter = "pro_price";
+            
+            string tableName = "Products";
+            string query = "";
+            if (logicFilter.SelectedIndex == 3)
+                query = String.Format(Queries.productsBetweenFilter, filter, metroTextBox2.Text, metroTextBox3.Text);
+            else
+                query = String.Format(Queries.productsBasicFilter, filter,logicFilter.SelectedItem.ToString(),metroTextBox2.Text);
+            DataSet ds = DbCommand.getDataSet(query, tableName);
+            if (ds != null)
+            {
+                productsGrid.DataSource = ds.Tables[tableName]; ;
+            }
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            string tableName = "Products";
+            string query = String.Format(Queries.productsSearch,metroTextBox1.Text);
+            DataSet ds = DbCommand.getDataSet(query, tableName);
+            if (ds != null)
+            {
+                productsGrid.DataSource = ds.Tables[tableName]; ;
+            }
         }
 
         //=============================================================
