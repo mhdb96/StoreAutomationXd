@@ -33,6 +33,7 @@ namespace VTYS_Mobilay_Magazasi
         //Admin Panel
         readonly public static string attributeSet2 = "SELECT attributeSet_ID as \"ID\", set_name as \"Name\" FROM mydb.attributeset order by ID;";
         readonly public static string insAttributeSet = "INSERT INTO attributeset (attributeSet_ID ,set_name) VALUES ('{0}', '{1}');";
+        readonly public static string upAttributeset = "UPDATE attributeset SET set_name = '{0}' WHERE (attributeSet_ID = '{1}');";
 
     }
 }

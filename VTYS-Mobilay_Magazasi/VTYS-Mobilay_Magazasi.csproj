@@ -75,6 +75,8 @@
     <Compile Include="admin.Designer.cs">
       <DependentUpon>admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="attributes.cs" />
+    <Compile Include="attributeSet.cs" />
     <Compile Include="DatabaseInfo.cs" />
     <Compile Include="data_entry.cs">
       <SubType>Form</SubType>

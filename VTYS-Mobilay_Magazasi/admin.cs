@@ -13,10 +13,9 @@ namespace VTYS_Mobilay_Magazasi
 {
     public partial class admin : MetroForm
     {
-        public admin(bool u)
+        public admin()
         {
             InitializeComponent();
-            update = u;
         }
 
         private void admin_Load(object sender, EventArgs e)
@@ -104,7 +103,11 @@ namespace VTYS_Mobilay_Magazasi
 
         private void btnUpdateProduct_Click(object sender, EventArgs e)
         {
-            add_attributeset update = new add_attributeset();
+
+            attributeSet.id = attributesetGrid.Rows[attributesetGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+            attributeSet.name = attributesetGrid.Rows[attributesetGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
+            
+            add_attributeset update = new add_attributeset(true);
             update.ShowDialog();
         }
     }
