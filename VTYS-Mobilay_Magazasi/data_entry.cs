@@ -101,7 +101,7 @@ namespace VTYS_Mobilay_Magazasi
             myPro.stock = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[4].Value.ToString();
             myPro.set_name = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[5].Value.ToString();
             myPro.id = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-
+            
             string tableName = "attributes";
             string name = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[5].Value.ToString();
             string query = String.Format(Queries.set_ID, name);

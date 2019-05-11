@@ -30,5 +30,9 @@ namespace VTYS_Mobilay_Magazasi
         readonly public static string delProduct = "DELETE FROM product WHERE(product_ID = '{0}');";
         readonly public static string delProductAtt = "DELETE FROM product_attributes WHERE(product_product_ID = '{0}');";
 
+        //Admin Panel
+        readonly public static string attributeSet2 = "SELECT attributeSet_ID as \"ID\", set_name as \"Name\" FROM mydb.attributeset order by ID;";
+        readonly public static string insAttributeSet = "INSERT INTO attributeset (attributeSet_ID ,set_name) VALUES ('{0}', '{1}');";
+
     }
 }

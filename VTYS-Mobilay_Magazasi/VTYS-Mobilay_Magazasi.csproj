@@ -57,6 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include=".cs" />
+    <Compile Include="add_attributeset.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add_attributeset.Designer.cs">
+      <DependentUpon>add_attributeset.cs</DependentUpon>
+    </Compile>
     <Compile Include="add_product.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,8 +93,14 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries.cs" />
+    <EmbeddedResource Include="add_attributeset.resx">
+      <DependentUpon>add_attributeset.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="add_product.resx">
       <DependentUpon>add_product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin.resx">
+      <DependentUpon>admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="data_entry.resx">
       <DependentUpon>data_entry.cs</DependentUpon>
