@@ -451,7 +451,7 @@ namespace VTYS_Mobilay_Magazasi
         }
 
         //=============================================================
-        //======================= COSTUMERS ===========================
+        //======================= CUSTOMERS ===========================
         //=============================================================
         private void metroTile10_Click(object sender, EventArgs e)
         {
@@ -462,8 +462,8 @@ namespace VTYS_Mobilay_Magazasi
             //SQL kodunu Queries sınıfından çekip string değişkene attı
             //Ardından string değişkenindeki kodu kullanılarak DbCommand sınıfından
             //verileri alıp DataSet değişkenine attı
-            string query = String.Format(Queries.customers);
-            DataSet ds = DbCommand.getDataSet(query, tableName);
+
+            DataSet ds = DbCommand.getDataSet(Queries.customers, tableName);
             //
             //Gelen veriler productsGrid'e aktardı
             if (ds != null)
@@ -535,6 +535,78 @@ namespace VTYS_Mobilay_Magazasi
         private void metroTile11_Click(object sender, EventArgs e)
         {
             panelControl(4);
+            string tableName = "Suppliers";
+
+
+            //SQL kodunu Queries sınıfından çekip string değişkene attı
+            //Ardından string değişkenindeki kodu kullanılarak DbCommand sınıfından
+            //verileri alıp DataSet değişkenine attı
+            
+            DataSet ds = DbCommand.getDataSet(Queries.suppliers, tableName);
+            //
+            //Gelen veriler productsGrid'e aktardı
+            if (ds != null)
+                suppliersGrid.DataSource = ds.Tables[tableName];
+            //
+            //productsGrid'n sütün genişlikleri manuel olarak ayarladı
+            suppliersGrid.Columns[0].Width = 30;
+            suppliersGrid.Columns[1].Width = 150;
+            suppliersGrid.Columns[2].Width = 85;
+            suppliersGrid.Columns[3].Width = 150;
+            suppliersGrid.Columns[4].Width = 100;
+            suppliersGrid.Columns[5].Width = 100;
+
+        }
+
+        private void addSupplierBtn_Click(object sender, EventArgs e)
+        {
+            add_supplier add = new add_supplier();
+            add.ShowDialog();
+
+        }
+
+        private void updateSupplierBtn_Click(object sender, EventArgs e)
+        {
+            if (suppliersGrid.SelectedRows.Count != 0)
+            {
+                Supplier mySup = new Supplier();
+                mySup.id = suppliersGrid.Rows[suppliersGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+                mySup.name = suppliersGrid.Rows[suppliersGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
+                mySup.telephone = suppliersGrid.Rows[suppliersGrid.SelectedRows[0].Index].Cells[2].Value.ToString();
+                mySup.adress = suppliersGrid.Rows[suppliersGrid.SelectedRows[0].Index].Cells[3].Value.ToString();
+                mySup.provinceName = suppliersGrid.Rows[suppliersGrid.SelectedRows[0].Index].Cells[4].Value.ToString();
+                mySup.districtName = suppliersGrid.Rows[suppliersGrid.SelectedRows[0].Index].Cells[5].Value.ToString();
+
+                string tableName = "SupplierData";
+                string query = String.Format(Queries.supplierData, mySup.id);
+                DataSet ds = DbCommand.getDataSet(query, tableName);
+                if (ds != null)
+                {
+                    mySup.provinceID = ds.Tables[tableName].Rows[0]["province_ID"].ToString();
+                    mySup.districtID = ds.Tables[tableName].Rows[0]["district_ID"].ToString();
+                }
+                add_supplier update = new add_supplier(mySup);
+                update.ShowDialog();
+            }
+            else
+                MetroMessageBox.Show(this, "You must choose an order before trying to update it", "Update Erorr", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+        }
+
+        private void deleteSupplierBtn_Click(object sender, EventArgs e)
+        {
+            if (suppliersGrid.SelectedRows.Count != 0)
+            {
+                DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                if (dr == DialogResult.Yes)
+                {
+                    Supplier mySup = new Supplier();
+                    mySup.id = suppliersGrid.Rows[suppliersGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+                    string query = String.Format(Queries.delSuplier, mySup.id);
+                    DbCommand.insertIntoDb(query);
+                    metroTile11_Click(sender, e);
+                }
+            }
         }
 
         //=============================================================
@@ -560,6 +632,22 @@ namespace VTYS_Mobilay_Magazasi
             costumersPanel.Visible = panels[3];
             suppliersPanel.Visible = panels[4];
             accountingPanel.Visible = panels[5];
+
+            Panel[] pa = new Panel[6];
+            pa[0] = overviewPanel;
+            pa[1] = productsPanel;
+            pa[2] = ordersPanel;
+            pa[3] = costumersPanel;
+            pa[4] = suppliersPanel;
+            pa[5] = accountingPanel;
+
+            foreach(Panel myp in pa)
+            {
+                myp.Size = new Size(900, 550);
+                myp.Location = new Point(150, 20);
+                myp.BackColor = Color.White;
+
+            }
         }
 
         private void productsPanel_Paint(object sender, PaintEventArgs e)

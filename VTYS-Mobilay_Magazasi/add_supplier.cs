@@ -12,24 +12,25 @@ using System.Windows.Forms;
 
 namespace VTYS_Mobilay_Magazasi
 {
-    public partial class add_customers : MetroForm
+    public partial class add_supplier : MetroForm
     {
-        Customer myCstr = new Customer();
+        Supplier mySup = new Supplier();
         int controlP = 0;
         bool update = false;
 
-        public add_customers()
+        public add_supplier()
         {
             InitializeComponent();
         }
-        public add_customers(Customer cus)
+
+        public add_supplier(Supplier sup)
         {
             InitializeComponent();
             update = true;
-            myCstr = cus;
+            mySup = sup;
         }
 
-        private void add_customers_Load(object sender, EventArgs e)
+        private void add_supplier_Load(object sender, EventArgs e)
         {
             ID.Enabled = false;
             if (!update)
@@ -38,7 +39,7 @@ namespace VTYS_Mobilay_Magazasi
                 DataSet ds;
                 districtList.Enabled = false;
 
-                ds = DbCommand.getDataSet(Queries.customersProvince, tableName);
+                ds = DbCommand.getDataSet(Queries.suppliersProvince, tableName);
                 if (ds != null)
                 {
                     provinceList.DisplayMember = "prov_name";
@@ -55,18 +56,15 @@ namespace VTYS_Mobilay_Magazasi
             }
             else
             {
-                addCustomerBtn.Text = "Update";
-                ID.Text = myCstr.id;
-                name.Text = myCstr.name;
-                lastName.Text= myCstr.lastName;
-                telephone.Text = myCstr.telephone;
-                TC.Text = myCstr.TC;
-                adress.Text = myCstr.adress;
-
+                addSupplierBtn.Text = "Update";
+                ID.Text = mySup.id;
+                name.Text = mySup.name;
+                telephone.Text = mySup.telephone;     
+                adress.Text = mySup.adress;
                 string tableName = "Province";
                 DataSet ds;
 
-                ds = DbCommand.getDataSet(Queries.customersProvince, tableName);
+                ds = DbCommand.getDataSet(Queries.suppliersProvince, tableName);
                 if (ds != null)
                 {
                     provinceList.DisplayMember = "prov_name";
@@ -75,13 +73,13 @@ namespace VTYS_Mobilay_Magazasi
 
 
                     for (int u = 0; u < provinceList.Items.Count; u++)
-                        if (ds.Tables[tableName].Rows[u]["province_ID"].ToString() == myCstr.provinceID)
+                        if (ds.Tables[tableName].Rows[u]["province_ID"].ToString() == mySup.provinceID)
                             provinceList.SelectedIndex = u;
-                    
-                    provinceList.PromptText = myCstr.provinceName;
+
+                    provinceList.PromptText = mySup.provinceName;
                 }
                 tableName = "District";
-                string query = String.Format(Queries.customersDistrict, myCstr.provinceID);
+                string query = String.Format(Queries.suppliersDistrict, mySup.provinceID);
                 ds = DbCommand.getDataSet(query, tableName);
                 if (ds != null)
                 {
@@ -90,23 +88,18 @@ namespace VTYS_Mobilay_Magazasi
                     districtList.DataSource = ds.Tables[tableName];
 
                     for (int u = 0; u < districtList.Items.Count; u++)
-                        if (ds.Tables[tableName].Rows[u]["district_ID"].ToString() == myCstr.districtID)
+                        if (ds.Tables[tableName].Rows[u]["district_ID"].ToString() == mySup.districtID)
                             districtList.SelectedIndex = u;
 
-                    districtList.PromptText = myCstr.districtName;
-
-
+                    districtList.PromptText = mySup.districtName;
                 }
-
-
-
             }
-            
+
+
 
         }
 
-
-        private void metroTextBox4_KeyPress(object sender, KeyPressEventArgs e)
+        private void telephone_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
@@ -114,12 +107,37 @@ namespace VTYS_Mobilay_Magazasi
             }
         }
 
-        private void metroTextBox5_KeyPress(object sender, KeyPressEventArgs e)
+        private void addSupplierBtn_Click(object sender, EventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!update)
             {
-                e.Handled = true;
+                mySup.id = ID.Text;
+                mySup.name = name.Text;
+                mySup.telephone = telephone.Text;
+                mySup.adress = adress.Text;
+                mySup.provinceID = provinceList.SelectedValue.ToString();
+                mySup.districtID = districtList.SelectedValue.ToString();
+                string query = String.Format(Queries.insSupplier, mySup.id, mySup.name, mySup.telephone, mySup.adress, mySup.provinceID, mySup.districtID);
+                DbCommand.insertIntoDb(query);
             }
+            else
+            {
+                mySup.name = name.Text;
+                mySup.telephone = telephone.Text;
+                mySup.adress = adress.Text;
+                mySup.provinceID = provinceList.SelectedValue.ToString();
+                mySup.districtID = districtList.SelectedValue.ToString();
+                string query = String.Format(Queries.upSupplier, mySup.name, mySup.telephone, mySup.adress, mySup.provinceID, mySup.districtID, mySup.id);
+                DbCommand.insertIntoDb(query);
+            }
+
+
+            this.Close();
+        }
+
+        private void cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void provinceList_SelectedIndexChanged(object sender, EventArgs e)
@@ -140,50 +158,6 @@ namespace VTYS_Mobilay_Magazasi
                 districtList.Enabled = true;
             }
             controlP++;
-        }
-
-        private void districtList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-
-        private void addCustomerBtn_Click(object sender, EventArgs e)
-        {
-            if(!update)
-            {
-                myCstr.id = ID.Text;
-                myCstr.name = name.Text;
-                myCstr.lastName = lastName.Text;
-                myCstr.telephone = telephone.Text;
-                myCstr.TC = TC.Text;
-                myCstr.adress = adress.Text;
-                myCstr.provinceID = provinceList.SelectedValue.ToString();
-                myCstr.districtID = districtList.SelectedValue.ToString();
-                string query = String.Format(Queries.insCustomer, myCstr.id, myCstr.name, myCstr.lastName, myCstr.telephone, myCstr.TC, myCstr.adress, myCstr.provinceID, myCstr.districtID);
-                DbCommand.insertIntoDb(query);
-            }
-            else
-            {
-                myCstr.name = name.Text;
-                myCstr.lastName = lastName.Text;
-                myCstr.telephone = telephone.Text;
-                myCstr.TC = TC.Text;
-                myCstr.adress = adress.Text;
-                myCstr.provinceID = provinceList.SelectedValue.ToString();
-                myCstr.districtID = districtList.SelectedValue.ToString();
-
-                string query = String.Format(Queries.upCustomer,myCstr.name, myCstr.lastName, myCstr.telephone, myCstr.TC, myCstr.adress, myCstr.provinceID, myCstr.districtID, myCstr.id);
-                DbCommand.insertIntoDb(query);
-            }
-            
-
-            this.Close();
-        }
-
-        private void cancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

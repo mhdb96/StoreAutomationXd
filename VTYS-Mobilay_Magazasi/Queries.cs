@@ -9,6 +9,9 @@ namespace VTYS_Mobilay_Magazasi
     //SQL komutlarının bulunduğu sınıf
     class Queries
     {
+
+        readonly public static string newID = "SELECT max({0}) FROM {1};";
+
         //=================================================
         //=================== prodcts =====================
         //=================================================
@@ -27,7 +30,7 @@ namespace VTYS_Mobilay_Magazasi
         readonly public static string attributeValues = "SELECT * FROM attributevalue where attribute_attribute_ID = {0} order by val_value;";
         readonly public static string setAttributedata = "SELECT* FROM attributeset_attribute sa join attributeset ats on sa.attributeSet_attributeSet_ID = ats.attributeSet_ID join attribute a on sa.attribute_attribute_ID = a.attribute_ID where ats.attributeSet_ID = '{0}';";
 
-        readonly public static string newID = "SELECT max({0}) FROM {1};";
+
         readonly public static string set_ID = "SELECT attributeSet_ID FROM attributeset where set_name = '{0}';";
         readonly public static string att_ID = "SELECT attribute_ID FROM attribute where att_name = '{0}';";
         readonly public static string attVal_ID = "SELECT attributeValue_ID FROM attributevalue where val_value = '{0}';";
@@ -73,13 +76,23 @@ namespace VTYS_Mobilay_Magazasi
 
 
 
-        readonly public static string insCustomer = "INSERT INTO customer(customer_ID, cus_name, cus_lastName, cus_telephone, cus_TC, cus_adress, province_province_ID, district_district_ID) VALUES('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}');";
+        readonly public static string insCustomer = "INSERT INTO customer (customer_ID, cus_name, cus_lastName, cus_telephone, cus_TC, cus_adress, province_province_ID, district_district_ID) VALUES('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}');";
         readonly public static string upCustomer = "UPDATE customer SET cus_name = '{0}', cus_lastName = '{1}', cus_telephone = {2}, cus_TC = {3}, cus_adress = '{4}', province_province_ID = {5}, district_district_ID = {6} WHERE(customer_ID = {7} );";
         readonly public static string delCustomer = "DELETE FROM customer WHERE (customer_ID = {0});";
 
+        //=================================================
+        //================== Suppliers ====================
+        //=================================================
+
+        readonly public static string suppliers = "SELECT s.supplier_ID as 'ID', s.sup_name 'Name', s.sup_telephone as 'Telephone', s.sup_adress as 'Adress', p.prov_name as 'Province', d.dis_name as 'District' FROM supplier s join province p on s.province_province_ID = p.province_ID join district d on s.district_district_ID = d.district_ID;";
+        readonly public static string suppliersProvince = "SELECT * FROM province order by province_ID ;";
+        readonly public static string suppliersDistrict = "SELECT * FROM district where province_province_ID = {0} order by district_ID;";
+        readonly public static string supplierData = "SELECT p.province_ID, d.district_ID FROM supplier s join province p on s.province_province_ID = p.province_ID join district d on s.district_district_ID = d.district_ID where s.supplier_ID = {0};";
 
 
-
+        readonly public static string insSupplier = "INSERT INTO supplier (supplier_ID, sup_name, sup_telephone, sup_adress, province_province_ID, district_district_ID) VALUES('{0}', '{1}', '{2}', '{3}', '{4}', '{5}');";
+        readonly public static string upSupplier = "UPDATE supplier SET sup_name = '{0}', sup_telephone = {1}, sup_adress = '{2}', province_province_ID = {3}, district_district_ID = {4} WHERE(supplier_ID = {5} );";
+        readonly public static string delSuplier = "DELETE FROM supplier WHERE (supplier_ID = {0});";
 
     }
 

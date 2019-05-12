@@ -40,6 +40,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.metroTile8 = new MetroFramework.Controls.MetroTile();
             this.metroTile9 = new MetroFramework.Controls.MetroTile();
@@ -80,6 +83,12 @@
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.customersGrid = new MetroFramework.Controls.MetroGrid();
             this.suppliersPanel = new MetroFramework.Controls.MetroPanel();
+            this.deleteSupplierBtn = new MetroFramework.Controls.MetroButton();
+            this.updateSupplierBtn = new MetroFramework.Controls.MetroButton();
+            this.addSupplierBtn = new MetroFramework.Controls.MetroButton();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.metroComboBox2 = new MetroFramework.Controls.MetroComboBox();
+            this.suppliersGrid = new MetroFramework.Controls.MetroGrid();
             this.accountingPanel = new MetroFramework.Controls.MetroPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.productsPanel.SuspendLayout();
@@ -89,6 +98,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ordersGrid)).BeginInit();
             this.costumersPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customersGrid)).BeginInit();
+            this.suppliersPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.suppliersGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -732,7 +743,7 @@
             // 
             // costumersPanel
             // 
-            this.costumersPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.costumersPanel.BackColor = System.Drawing.Color.Purple;
             this.costumersPanel.Controls.Add(this.deleteCustomerBtn);
             this.costumersPanel.Controls.Add(this.updateCustomerBtn);
             this.costumersPanel.Controls.Add(this.addCustomerBtn);
@@ -742,9 +753,9 @@
             this.costumersPanel.HorizontalScrollbarBarColor = true;
             this.costumersPanel.HorizontalScrollbarHighlightOnWheel = false;
             this.costumersPanel.HorizontalScrollbarSize = 10;
-            this.costumersPanel.Location = new System.Drawing.Point(218, 10);
+            this.costumersPanel.Location = new System.Drawing.Point(1257, 200);
             this.costumersPanel.Name = "costumersPanel";
-            this.costumersPanel.Size = new System.Drawing.Size(1022, 572);
+            this.costumersPanel.Size = new System.Drawing.Size(43, 35);
             this.costumersPanel.TabIndex = 4;
             this.costumersPanel.UseCustomBackColor = true;
             this.costumersPanel.VerticalScrollbarBarColor = true;
@@ -863,18 +874,134 @@
             // 
             // suppliersPanel
             // 
-            this.suppliersPanel.BackColor = System.Drawing.Color.DeepPink;
+            this.suppliersPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.suppliersPanel.Controls.Add(this.deleteSupplierBtn);
+            this.suppliersPanel.Controls.Add(this.updateSupplierBtn);
+            this.suppliersPanel.Controls.Add(this.addSupplierBtn);
+            this.suppliersPanel.Controls.Add(this.metroLabel4);
+            this.suppliersPanel.Controls.Add(this.metroComboBox2);
+            this.suppliersPanel.Controls.Add(this.suppliersGrid);
             this.suppliersPanel.HorizontalScrollbarBarColor = true;
             this.suppliersPanel.HorizontalScrollbarHighlightOnWheel = false;
             this.suppliersPanel.HorizontalScrollbarSize = 10;
-            this.suppliersPanel.Location = new System.Drawing.Point(1259, 254);
+            this.suppliersPanel.Location = new System.Drawing.Point(204, 10);
             this.suppliersPanel.Name = "suppliersPanel";
-            this.suppliersPanel.Size = new System.Drawing.Size(45, 36);
+            this.suppliersPanel.Size = new System.Drawing.Size(1013, 589);
             this.suppliersPanel.TabIndex = 4;
             this.suppliersPanel.UseCustomBackColor = true;
             this.suppliersPanel.VerticalScrollbarBarColor = true;
             this.suppliersPanel.VerticalScrollbarHighlightOnWheel = false;
             this.suppliersPanel.VerticalScrollbarSize = 10;
+            // 
+            // deleteSupplierBtn
+            // 
+            this.deleteSupplierBtn.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.deleteSupplierBtn.Location = new System.Drawing.Point(798, 532);
+            this.deleteSupplierBtn.Name = "deleteSupplierBtn";
+            this.deleteSupplierBtn.Size = new System.Drawing.Size(96, 39);
+            this.deleteSupplierBtn.Style = MetroFramework.MetroColorStyle.Green;
+            this.deleteSupplierBtn.TabIndex = 35;
+            this.deleteSupplierBtn.Text = "Delete";
+            this.deleteSupplierBtn.UseSelectable = true;
+            this.deleteSupplierBtn.Click += new System.EventHandler(this.deleteSupplierBtn_Click);
+            // 
+            // updateSupplierBtn
+            // 
+            this.updateSupplierBtn.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.updateSupplierBtn.Location = new System.Drawing.Point(696, 532);
+            this.updateSupplierBtn.Name = "updateSupplierBtn";
+            this.updateSupplierBtn.Size = new System.Drawing.Size(96, 39);
+            this.updateSupplierBtn.Style = MetroFramework.MetroColorStyle.Green;
+            this.updateSupplierBtn.TabIndex = 34;
+            this.updateSupplierBtn.Text = "Update";
+            this.updateSupplierBtn.UseSelectable = true;
+            this.updateSupplierBtn.Click += new System.EventHandler(this.updateSupplierBtn_Click);
+            // 
+            // addSupplierBtn
+            // 
+            this.addSupplierBtn.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.addSupplierBtn.Location = new System.Drawing.Point(594, 532);
+            this.addSupplierBtn.Name = "addSupplierBtn";
+            this.addSupplierBtn.Size = new System.Drawing.Size(96, 39);
+            this.addSupplierBtn.Style = MetroFramework.MetroColorStyle.Green;
+            this.addSupplierBtn.TabIndex = 33;
+            this.addSupplierBtn.Text = "Add";
+            this.addSupplierBtn.UseSelectable = true;
+            this.addSupplierBtn.Click += new System.EventHandler(this.addSupplierBtn_Click);
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(53, 22);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(61, 20);
+            this.metroLabel4.TabIndex = 32;
+            this.metroLabel4.Text = "Filter By:";
+            // 
+            // metroComboBox2
+            // 
+            this.metroComboBox2.FormattingEnabled = true;
+            this.metroComboBox2.ItemHeight = 24;
+            this.metroComboBox2.Items.AddRange(new object[] {
+            "Buy",
+            "Sell"});
+            this.metroComboBox2.Location = new System.Drawing.Point(53, 55);
+            this.metroComboBox2.Name = "metroComboBox2";
+            this.metroComboBox2.PromptText = "Choose a filter";
+            this.metroComboBox2.Size = new System.Drawing.Size(132, 30);
+            this.metroComboBox2.Style = MetroFramework.MetroColorStyle.Orange;
+            this.metroComboBox2.TabIndex = 31;
+            this.metroComboBox2.UseSelectable = true;
+            // 
+            // suppliersGrid
+            // 
+            this.suppliersGrid.AllowUserToAddRows = false;
+            this.suppliersGrid.AllowUserToDeleteRows = false;
+            this.suppliersGrid.AllowUserToResizeRows = false;
+            this.suppliersGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.suppliersGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.suppliersGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.suppliersGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.suppliersGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(148)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(26)))), ((int)(((byte)(157)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.suppliersGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.suppliersGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(26)))), ((int)(((byte)(157)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.suppliersGrid.DefaultCellStyle = dataGridViewCellStyle14;
+            this.suppliersGrid.EnableHeadersVisualStyles = false;
+            this.suppliersGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.suppliersGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.suppliersGrid.Location = new System.Drawing.Point(53, 121);
+            this.suppliersGrid.Name = "suppliersGrid";
+            this.suppliersGrid.ReadOnly = true;
+            this.suppliersGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(148)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(26)))), ((int)(((byte)(157)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.suppliersGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.suppliersGrid.RowHeadersVisible = false;
+            this.suppliersGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.suppliersGrid.RowTemplate.Height = 24;
+            this.suppliersGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.suppliersGrid.Size = new System.Drawing.Size(922, 388);
+            this.suppliersGrid.Style = MetroFramework.MetroColorStyle.Magenta;
+            this.suppliersGrid.TabIndex = 30;
             // 
             // accountingPanel
             // 
@@ -920,6 +1047,9 @@
             this.costumersPanel.ResumeLayout(false);
             this.costumersPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customersGrid)).EndInit();
+            this.suppliersPanel.ResumeLayout(false);
+            this.suppliersPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.suppliersGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -966,5 +1096,11 @@
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroComboBox metroComboBox1;
         private MetroFramework.Controls.MetroGrid customersGrid;
+        private MetroFramework.Controls.MetroButton deleteSupplierBtn;
+        private MetroFramework.Controls.MetroButton updateSupplierBtn;
+        private MetroFramework.Controls.MetroButton addSupplierBtn;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroComboBox metroComboBox2;
+        private MetroFramework.Controls.MetroGrid suppliersGrid;
     }
 }
