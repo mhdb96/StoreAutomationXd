@@ -29,7 +29,17 @@ namespace VTYS_Mobilay_Magazasi
         {
             panelControl(0);
 
+            string tableName = "attribute";
 
+            metroGrid1.DataSource = null;
+
+            string query = Queries.attribute;
+            DataSet ds = DbCommand.getDataSet(query, tableName);
+
+            if (ds != null)
+                attributeGrid.DataSource = ds.Tables[tableName];
+
+            attributeGrid.Columns[0].Width = 30;
 
         }
         //=============================================================
@@ -56,6 +66,20 @@ namespace VTYS_Mobilay_Magazasi
         private void metroTile9_Click(object sender, EventArgs e)
         {
             panelControl(2);
+
+            string tableName = "products";
+            metroGrid4.DataSource = null;
+
+            string query = Queries.attributeValues2;
+            DataSet ds = DbCommand.getDataSet(query, tableName);
+
+            if (ds != null)
+                attributeValueGrid.DataSource = ds.Tables[tableName];
+
+            attributeValueGrid.Columns[0].Width = 30;
+            attributeValueGrid.Columns[1].Width = 100;
+
+
         }
         //=============================================================
         //======================= PROVINCE ============================
@@ -63,6 +87,18 @@ namespace VTYS_Mobilay_Magazasi
         private void metroTile10_Click(object sender, EventArgs e)
         {
             panelControl(3);
+
+            string tableName = "province";
+
+            metroGrid3.DataSource = null;
+
+            string query = Queries.province;
+            DataSet ds = DbCommand.getDataSet(query, tableName);
+
+            if (ds != null)
+                provinceGrid.DataSource = ds.Tables[tableName];
+
+            provinceGrid.Columns[0].Width = 30;
         }
         //=============================================================
         //======================= DISTRICT ============================
@@ -108,6 +144,54 @@ namespace VTYS_Mobilay_Magazasi
             attributeSet.name = attributesetGrid.Rows[attributesetGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
             
             add_attributeset update = new add_attributeset(true);
+            update.ShowDialog();
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            add_attribute add = new add_attribute();
+            add.ShowDialog();
+
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+
+            attribute.id = attributeGrid.Rows[attributeGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+            attribute.name = attributeGrid.Rows[attributeGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
+
+            add_attribute update = new add_attribute(true);
+            update.ShowDialog();
+        }
+
+        private void metroButton4_Click(object sender, EventArgs e)
+        {
+            add_province add = new add_province();
+            add.ShowDialog();
+        }
+
+        private void metroButton3_Click(object sender, EventArgs e)
+        {
+            province.id = provinceGrid.Rows[provinceGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+            province.name = provinceGrid.Rows[provinceGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
+
+            add_province update = new add_province(true);
+            update.ShowDialog();
+        }
+
+        private void metroButton6_Click(object sender, EventArgs e)
+        {
+            add_attributeValue add = new add_attributeValue();
+            add.ShowDialog();
+        }
+
+        private void metroButton5_Click(object sender, EventArgs e)
+        {
+            attributeValue.id = attributeValueGrid.Rows[attributeValueGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+            attributeValue.name = attributeValueGrid.Rows[attributeValueGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
+            attributeValue.attribute = attributeValueGrid.Rows[attributeValueGrid.SelectedRows[0].Index].Cells[2].Value.ToString();
+
+            add_attributeValue update = new add_attributeValue(true);
             update.ShowDialog();
         }
     }

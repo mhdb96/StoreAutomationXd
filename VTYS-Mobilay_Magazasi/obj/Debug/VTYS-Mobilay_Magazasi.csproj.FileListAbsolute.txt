@@ -35,3 +35,6 @@ C:\Users\onurk\Documents\GitHub\Database-Project\VTYS-Mobilay_Magazasi\obj\Debug
 C:\Users\onurk\Documents\GitHub\Database-Project\VTYS-Mobilay_Magazasi\obj\Debug\VTYS-Mobilay_Magazasi.exe
 C:\Users\onurk\Documents\GitHub\Database-Project\VTYS-Mobilay_Magazasi\obj\Debug\VTYS-Mobilay_Magazasi.pdb
 C:\Users\onurk\Documents\GitHub\Database-Project\VTYS-Mobilay_Magazasi\obj\Debug\VTYS_Mobilay_Magazasi.add_attributeset.resources
+C:\Users\onurk\Documents\GitHub\Database-Project\VTYS-Mobilay_Magazasi\obj\Debug\VTYS_Mobilay_Magazasi.add_attribute.resources
+C:\Users\onurk\Documents\GitHub\Database-Project\VTYS-Mobilay_Magazasi\obj\Debug\VTYS_Mobilay_Magazasi.add_province.resources
+C:\Users\onurk\Documents\GitHub\Database-Project\VTYS-Mobilay_Magazasi\obj\Debug\VTYS_Mobilay_Magazasi.add_attributeValue.resources

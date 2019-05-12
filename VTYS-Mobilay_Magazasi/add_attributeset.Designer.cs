@@ -42,6 +42,7 @@
             this.id.Name = "id";
             this.id.Size = new System.Drawing.Size(100, 22);
             this.id.TabIndex = 2;
+            this.id.TextChanged += new System.EventHandler(this.id_TextChanged);
             // 
             // name
             // 
@@ -49,6 +50,7 @@
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(100, 22);
             this.name.TabIndex = 3;
+            this.name.TextChanged += new System.EventHandler(this.name_TextChanged);
             // 
             // metroButton1
             // 
@@ -78,6 +80,7 @@
             this.label1.Size = new System.Drawing.Size(19, 17);
             this.label1.TabIndex = 4;
             this.label1.Text = "Id";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -87,6 +90,7 @@
             this.label2.Size = new System.Drawing.Size(45, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "Name";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // add_attributeset
             // 

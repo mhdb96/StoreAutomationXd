@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace VTYS_Mobilay_Magazasi
 {
-    class attributes
+    class attribute
     {
-
+        public static string id;
+        public static string name;
     }
 }
