@@ -280,7 +280,7 @@
             this.Controls.Add(this.cusList);
             this.Name = "add_orders";
             this.Style = MetroFramework.MetroColorStyle.Orange;
-            this.Text = "add_orders";
+            this.Text = "Add an Order";
             this.Load += new System.EventHandler(this.add_orders_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

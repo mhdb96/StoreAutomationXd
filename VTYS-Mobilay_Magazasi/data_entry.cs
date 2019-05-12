@@ -64,7 +64,7 @@ namespace VTYS_Mobilay_Magazasi
             productsGrid.Columns[0].Width = 30;
             productsGrid.Columns[3].Width = 50;
             productsGrid.Columns[4].Width = 50;
-            //
+            
         }
 
         //Seçilen ürünün özelliklerini farklı bir tabloya aktaran fonksiyon
@@ -337,8 +337,6 @@ namespace VTYS_Mobilay_Magazasi
         {
             panelControl(2);
             ordersGrid.Enabled = false;
-            
-
 
         }
 
@@ -352,21 +350,18 @@ namespace VTYS_Mobilay_Magazasi
 
                 if (ds != null)
                     ordersGrid.DataSource = ds.Tables[tableName];
-
             }
             else if (orderTypelist.SelectedIndex == 1) //sell
             {
-                
                 DataSet ds = DbCommand.getDataSet(Queries.sell, tableName);
-
                 if (ds != null)
                     ordersGrid.DataSource = ds.Tables[tableName];
-
             }
             ordersGrid.Columns[0].Width = 80;
             ordersGrid.Columns[3].Width = 50;
             ordersGrid.Columns[4].Width = 150;
         }
+
         private void addOrderBtn_Click(object sender, EventArgs e)
         {
             string type;
@@ -377,6 +372,7 @@ namespace VTYS_Mobilay_Magazasi
             add_orders add = new add_orders(type);
             add.ShowDialog();
         }
+
         private void updateOrderBtn_Click(object sender, EventArgs e)
         {
             if (ordersGrid.SelectedRows.Count != 0)
@@ -388,7 +384,6 @@ namespace VTYS_Mobilay_Magazasi
                 myOrdr.proName = ordersGrid.Rows[ordersGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
                 myOrdr.price = ordersGrid.Rows[ordersGrid.SelectedRows[0].Index].Cells[3].Value.ToString();
                 myOrdr.qty = ordersGrid.Rows[ordersGrid.SelectedRows[0].Index].Cells[5].Value.ToString();
-
                 if (orderTypelist.SelectedIndex == 0)
                 {
                     type = "buy"; //buy
@@ -422,15 +417,12 @@ namespace VTYS_Mobilay_Magazasi
             }
             else
                 MetroMessageBox.Show(this, "You must choose an order before trying to update it", "Update Erorr", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-
         }
 
         private void metroButton3_Click(object sender, EventArgs e)
         {
             if (ordersGrid.SelectedRows.Count != 0)
             {
-
                 DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if (dr == DialogResult.Yes)
                 {
@@ -443,7 +435,6 @@ namespace VTYS_Mobilay_Magazasi
                         string query = String.Format(Queries.delBuy, myOrdr.id);
                         DbCommand.insertIntoDb(query);
                         //metroTile1_Click(sender, e);
-
                     }
                     else
                     {
@@ -453,14 +444,10 @@ namespace VTYS_Mobilay_Magazasi
                         DbCommand.insertIntoDb(query);
                         //metroTile1_Click(sender, e);
                     }
-
-
                 }
-
             }
-            else MetroMessageBox.Show(this, "You must choose a product before trying to delete it", "Deletion Erorr", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-
+            else
+                MetroMessageBox.Show(this, "You must choose a product before trying to delete it", "Deletion Erorr", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         //=============================================================
@@ -469,6 +456,77 @@ namespace VTYS_Mobilay_Magazasi
         private void metroTile10_Click(object sender, EventArgs e)
         {
             panelControl(3);
+            string tableName = "Customers";
+            
+
+            //SQL kodunu Queries sınıfından çekip string değişkene attı
+            //Ardından string değişkenindeki kodu kullanılarak DbCommand sınıfından
+            //verileri alıp DataSet değişkenine attı
+            string query = String.Format(Queries.customers);
+            DataSet ds = DbCommand.getDataSet(query, tableName);
+            //
+            //Gelen veriler productsGrid'e aktardı
+            if (ds != null)
+                customersGrid.DataSource = ds.Tables[tableName];
+            //
+            //productsGrid'n sütün genişlikleri manuel olarak ayarladı
+            customersGrid.Columns[0].Width = 30;
+            customersGrid.Columns[1].Width = 150;
+            customersGrid.Columns[2].Width = 85;
+            customersGrid.Columns[3].Width = 85;
+            customersGrid.Columns[4].Width = 150;
+            customersGrid.Columns[5].Width = 100;
+            customersGrid.Columns[3].Width = 100;
+        }
+
+        private void addCustomerBtn_Click(object sender, EventArgs e)
+        {
+            add_customers add = new add_customers();
+            add.ShowDialog();
+        }
+
+        private void updateCustomerBtn_Click(object sender, EventArgs e)
+        {
+            if (customersGrid.SelectedRows.Count != 0)
+            {
+                Customer myCstr = new Customer();
+                myCstr.id = customersGrid.Rows[customersGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+                myCstr.telephone = customersGrid.Rows[customersGrid.SelectedRows[0].Index].Cells[2].Value.ToString();
+                myCstr.TC = customersGrid.Rows[customersGrid.SelectedRows[0].Index].Cells[3].Value.ToString();
+                myCstr.adress = customersGrid.Rows[customersGrid.SelectedRows[0].Index].Cells[4].Value.ToString();
+                myCstr.provinceName = customersGrid.Rows[customersGrid.SelectedRows[0].Index].Cells[5].Value.ToString();
+                myCstr.districtName = customersGrid.Rows[customersGrid.SelectedRows[0].Index].Cells[6].Value.ToString();
+                string tableName = "CustomerData";
+                string query = String.Format(Queries.customerData, myCstr.id);
+                DataSet ds = DbCommand.getDataSet(query, tableName);
+                if (ds != null)
+                {
+                    myCstr.provinceID = ds.Tables[tableName].Rows[0]["province_ID"].ToString();
+                    myCstr.districtID = ds.Tables[tableName].Rows[0]["district_ID"].ToString();
+                    myCstr.name = ds.Tables[tableName].Rows[0]["cus_name"].ToString();
+                    myCstr.lastName = ds.Tables[tableName].Rows[0]["cus_lastName"].ToString();
+                }
+                add_customers update = new add_customers (myCstr);
+                update.ShowDialog();
+            }
+            else
+                MetroMessageBox.Show(this, "You must choose an order before trying to update it", "Update Erorr", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void deleteCustomerBtn_Click(object sender, EventArgs e)
+        {
+            if (customersGrid.SelectedRows.Count != 0)
+            {
+                DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                if (dr == DialogResult.Yes)
+                {
+                    Customer myCstr = new Customer();
+                    myCstr.id = customersGrid.Rows[customersGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+                    string query = String.Format(Queries.delCustomer, myCstr.id);
+                    DbCommand.insertIntoDb(query);
+                    metroTile10_Click(sender, e);
+                }
+            }
         }
 
         //=============================================================

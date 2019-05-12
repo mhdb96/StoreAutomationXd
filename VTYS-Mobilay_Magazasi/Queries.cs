@@ -42,7 +42,7 @@ namespace VTYS_Mobilay_Magazasi
         readonly public static string delProductAtt = "DELETE FROM product_attributes WHERE(product_product_ID = '{0}');";
 
         //=================================================
-        //=================== Orders =====================
+        //=================== Orders ======================
         //=================================================
         readonly public static string buy = "SELECT b.buy_ID as 'Order ID', p.pro_name as 'Product', s.sup_name as 'Supplier', b.buy_price as 'Price',b.buy_date as 'date', b.buy_qty as 'Qty' FROM buy b join supplier s on b.supplier_supplier_ID = s.supplier_ID join product p on b.product_product_ID = p.product_ID;";
         readonly public static string sell = "SELECT s.sell_ID as 'Order ID', p.pro_name as 'Product', concat(cus_name,' ',c.cus_lastName)as 'Customer', s.sel_price as 'Price',s.sel_date as 'date', s.sel_qty as 'Qty' FROM sell s join customer c on s.customer_customer_ID = c.customer_ID join product p on s.product_product_ID = p.product_ID;";
@@ -61,6 +61,26 @@ namespace VTYS_Mobilay_Magazasi
 
         readonly public static string delSell = "DELETE FROM sell WHERE sell_ID = {0};";
         readonly public static string delBuy =  "DELETE FROM buy WHERE Buy_ID = {0};";
+
+        //=================================================
+        //================== Customers ====================
+        //=================================================
+
+        readonly public static string customers = "SELECT c.customer_ID as 'ID', concat(c.cus_name ,' ',c.cus_lastName) as 'Name', c.cus_telephone as 'Telephone', c.cus_TC as 'TC Number', c.cus_adress as 'Adress', p.prov_name as 'Province', d.dis_name as 'District'  FROM customer c join province p on c.province_province_ID = p.province_ID join district d on c.district_district_ID = d.district_ID;";
+        readonly public static string customersProvince = "SELECT * FROM province order by province_ID ;";
+        readonly public static string customersDistrict = "SELECT * FROM district where province_province_ID = {0} order by district_ID;";
+        readonly public static string customerData = "SELECT p.province_ID, d.district_ID, c.cus_name, c.cus_lastName FROM customer c join province p on c.province_province_ID = p.province_ID join district d on c.district_district_ID = d.district_ID where c.customer_ID = {0};";
+
+
+
+        readonly public static string insCustomer = "INSERT INTO customer(customer_ID, cus_name, cus_lastName, cus_telephone, cus_TC, cus_adress, province_province_ID, district_district_ID) VALUES('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}');";
+        readonly public static string upCustomer = "UPDATE customer SET cus_name = '{0}', cus_lastName = '{1}', cus_telephone = {2}, cus_TC = {3}, cus_adress = '{4}', province_province_ID = {5}, district_district_ID = {6} WHERE(customer_ID = {7} );";
+        readonly public static string delCustomer = "DELETE FROM customer WHERE (customer_ID = {0});";
+
+
+
+
+
     }
-    
+
 }
