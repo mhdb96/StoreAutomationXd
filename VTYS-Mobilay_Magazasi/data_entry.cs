@@ -162,6 +162,7 @@ namespace VTYS_Mobilay_Magazasi
             
 
         }
+
         private void filterList_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (filterList.SelectedIndex == 0) //Category
@@ -335,6 +336,46 @@ namespace VTYS_Mobilay_Magazasi
         private void metroTile9_Click(object sender, EventArgs e)
         {
             panelControl(2);
+            ordersGrid.Enabled = false;
+            
+
+
+        }
+
+        private void orderTypeList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ordersGrid.Enabled = true;
+            string tableName = "orders";
+            if(orderTypelist.SelectedIndex == 0)//buy
+            {
+                DataSet ds = DbCommand.getDataSet(Queries.buy, tableName);
+
+                if (ds != null)
+                    ordersGrid.DataSource = ds.Tables[tableName];
+
+            }
+            else if (orderTypelist.SelectedIndex == 1) //sell
+            {
+                
+                DataSet ds = DbCommand.getDataSet(Queries.sell, tableName);
+
+                if (ds != null)
+                    ordersGrid.DataSource = ds.Tables[tableName];
+
+            }
+            ordersGrid.Columns[0].Width = 80;
+            ordersGrid.Columns[3].Width = 50;
+            ordersGrid.Columns[4].Width = 150;
+        }
+        private void addOrderBtn_Click(object sender, EventArgs e)
+        {
+            string type;
+            if (orderTypelist.SelectedIndex == 0)
+                type = "buy"; //buy
+            else
+                type = "sell"; //sell
+            add_orders add = new add_orders(type);
+            add.ShowDialog();
         }
 
         //=============================================================

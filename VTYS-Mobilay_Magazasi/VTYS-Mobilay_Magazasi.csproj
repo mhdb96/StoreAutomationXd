@@ -57,6 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include=".cs" />
+    <Compile Include="add_orders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add_orders.Designer.cs">
+      <DependentUpon>add_orders.cs</DependentUpon>
+    </Compile>
     <Compile Include="add_product.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,10 +89,14 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order.cs" />
     <Compile Include="Products.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries.cs" />
+    <EmbeddedResource Include="add_orders.resx">
+      <DependentUpon>add_orders.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="add_product.resx">
       <DependentUpon>add_product.cs</DependentUpon>
     </EmbeddedResource>
