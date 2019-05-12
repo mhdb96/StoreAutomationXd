@@ -50,9 +50,17 @@ namespace VTYS_Mobilay_Magazasi
         readonly public static string ordersProducts = "SELECT product_ID, pro_name FROM mydb.product;";
         readonly public static string ordersSuppliers = "SELECT supplier_ID, sup_name FROM mydb.supplier;";
 
+        readonly public static string sellData = "SELECT c.customer_ID, p.product_ID, s.sel_date FROM sell s join customer c on s.customer_customer_ID = c.customer_ID join product p on s.product_product_ID = p.product_ID where s.sell_ID = {0};";
+        readonly public static string buyData = "SELECT s.supplier_ID, p.product_ID, b.buy_date FROM buy b join product p on b.product_product_ID = p.product_ID join supplier s on b.supplier_supplier_ID = s.supplier_ID where b.Buy_ID = {0};";
 
         readonly public static string insBuy = "INSERT INTO buy(Buy_ID, product_product_ID, supplier_supplier_ID, buy_price, buy_date, buy_qty) VALUES ( {0},{1},{2},{3},'{4}',{5});";
         readonly public static string insSell = "INSERT INTO sell(sell_ID, customer_customer_ID, product_product_ID, sel_price, sel_date, sel_qty) VALUES ({0},{1},{2},{3},'{4}',{5});";
+
+        readonly public static string upSell = "UPDATE sell SET sel_price = {0}, sel_date = '{1}', sel_qty = {2} WHERE sell_ID = {3};";
+        readonly public static string upBuy = "UPDATE buy SET buy_price = {0}, buy_date = '{1}', buy_qty = {2} WHERE Buy_ID = {3};";
+
+        readonly public static string delSell = "DELETE FROM sell WHERE sell_ID = {0};";
+        readonly public static string delBuy =  "DELETE FROM buy WHERE Buy_ID = {0};";
     }
     
 }

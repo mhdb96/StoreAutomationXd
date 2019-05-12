@@ -216,6 +216,7 @@
             this.cancel.TabIndex = 24;
             this.cancel.Text = "Cancel";
             this.cancel.UseSelectable = true;
+            this.cancel.Click += new System.EventHandler(this.cancel_Click);
             // 
             // addOrderBtn
             // 
@@ -245,7 +246,7 @@
             this.metroDateTime1.Location = new System.Drawing.Point(143, 397);
             this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 30);
             this.metroDateTime1.Name = "metroDateTime1";
-            this.metroDateTime1.Size = new System.Drawing.Size(200, 30);
+            this.metroDateTime1.Size = new System.Drawing.Size(271, 30);
             this.metroDateTime1.TabIndex = 27;
             // 
             // metroLabel6

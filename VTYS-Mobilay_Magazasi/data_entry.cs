@@ -377,6 +377,91 @@ namespace VTYS_Mobilay_Magazasi
             add_orders add = new add_orders(type);
             add.ShowDialog();
         }
+        private void updateOrderBtn_Click(object sender, EventArgs e)
+        {
+            if (ordersGrid.SelectedRows.Count != 0)
+            {
+                string type;
+                Order myOrdr = new Order();
+                myOrdr.id = ordersGrid.Rows[ordersGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+                myOrdr.cusName = ordersGrid.Rows[ordersGrid.SelectedRows[0].Index].Cells[2].Value.ToString();
+                myOrdr.proName = ordersGrid.Rows[ordersGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
+                myOrdr.price = ordersGrid.Rows[ordersGrid.SelectedRows[0].Index].Cells[3].Value.ToString();
+                myOrdr.qty = ordersGrid.Rows[ordersGrid.SelectedRows[0].Index].Cells[5].Value.ToString();
+
+                if (orderTypelist.SelectedIndex == 0)
+                {
+                    type = "buy"; //buy
+                    myOrdr.type = type;
+                    string tableName = "BuyData";
+                    string query = String.Format(Queries.buyData, myOrdr.id);
+                    DataSet ds = DbCommand.getDataSet(query, tableName);
+                    if (ds != null)
+                    {
+                        myOrdr.proID = ds.Tables[tableName].Rows[0]["product_ID"].ToString();
+                        myOrdr.date = ds.Tables[tableName].Rows[0]["buy_date"].ToString();
+                        myOrdr.cusID = ds.Tables[tableName].Rows[0]["supplier_ID"].ToString();
+                    }
+                } 
+                else
+                {
+                    type = "sell"; //sell
+                    myOrdr.type = type;
+                    string tableName = "SellData";
+                    string query = String.Format(Queries.sellData, myOrdr.id);
+                    DataSet ds = DbCommand.getDataSet(query, tableName);
+                    if (ds != null)
+                    {
+                        myOrdr.proID = ds.Tables[tableName].Rows[0]["product_ID"].ToString();
+                        myOrdr.date = ds.Tables[tableName].Rows[0]["sel_date"].ToString();
+                        myOrdr.cusID = ds.Tables[tableName].Rows[0]["customer_ID"].ToString();
+                    }
+                }
+                add_orders update = new add_orders(type, myOrdr);
+                update.ShowDialog();
+            }
+            else
+                MetroMessageBox.Show(this, "You must choose an order before trying to update it", "Update Erorr", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+
+        }
+
+        private void metroButton3_Click(object sender, EventArgs e)
+        {
+            if (ordersGrid.SelectedRows.Count != 0)
+            {
+
+                DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                if (dr == DialogResult.Yes)
+                {
+                    Order myOrdr = new Order();
+                    string type;
+                    if (orderTypelist.SelectedIndex == 0)
+                    {
+                        type = "buy"; //Buy
+                        myOrdr.id = ordersGrid.Rows[ordersGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+                        string query = String.Format(Queries.delBuy, myOrdr.id);
+                        DbCommand.insertIntoDb(query);
+                        //metroTile1_Click(sender, e);
+
+                    }
+                    else
+                    {
+                        type = "sell"; //sell
+                        myOrdr.id = ordersGrid.Rows[ordersGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+                        string query = String.Format(Queries.delSell, myOrdr.id);
+                        DbCommand.insertIntoDb(query);
+                        //metroTile1_Click(sender, e);
+                    }
+
+
+                }
+
+            }
+            else MetroMessageBox.Show(this, "You must choose a product before trying to delete it", "Deletion Erorr", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+
+        }
 
         //=============================================================
         //======================= COSTUMERS ===========================
