@@ -94,6 +94,25 @@ namespace VTYS_Mobilay_Magazasi
         readonly public static string upSupplier = "UPDATE supplier SET sup_name = '{0}', sup_telephone = {1}, sup_adress = '{2}', province_province_ID = {3}, district_district_ID = {4} WHERE(supplier_ID = {5} );";
         readonly public static string delSuplier = "DELETE FROM supplier WHERE (supplier_ID = {0});";
 
+        //=================================================
+        //================== Suppliers ====================
+        //=================================================
+        readonly public static string incomes = "SELECT i.incomes_ID as 'ID', i.inc_description as 'Description', i.inc_amount as 'Amount', a.act_name as 'Activity Type' FROM incomes i join activity a on i.activity_activity_ID = a.activity_ID;";
+        readonly public static string incomesType = "SELECT i.incomes_ID as 'ID', i.inc_description as 'Description', i.inc_amount as 'Amount', a.act_name as 'Activity Type' FROM incomes i join activity a on i.activity_activity_ID = a.activity_ID where i.activity_activity_ID = {0};";
+        readonly public static string incomesData = "SELECT a.activity_ID FROM incomes i join activity a on i.activity_activity_ID = a.activity_ID where i.incomes_ID ={0};";
+        readonly public static string delIncome = "DELETE FROM incomes WHERE (incomes_ID = {0});";
+
+
+        readonly public static string expenses = "SELECT e.expenses_ID as 'ID', e.exp_description as 'Description', e.exp_amount as 'Amount', a.act_name as 'Activity Type' FROM expenses e join activity a on e.activity_activity_ID = a.activity_ID;";
+        readonly public static string expensesType = "SELECT e.expenses_ID as 'ID', e.exp_description as 'Description', e.exp_amount as 'Amount', a.act_name as 'Activity Type' FROM expenses e join activity a on e.activity_activity_ID = a.activity_ID where e.activity_activity_ID = {0};";
+        readonly public static string expensesData = "SELECT a.activity_ID FROM expenses e join activity a on e.activity_activity_ID = a.activity_ID where e.expenses_ID ={0};";
+        readonly public static string delExpense = "DELETE FROM expenses WHERE (expenses_ID = {0});";
+
+
+        readonly public static string activity = "SELECT activity_ID ,act_name FROM mydb.activity where activityType_activityType_ID ={0};";
+
+        readonly public static string insIncome = "INSERT INTO incomes (incomes_ID, inc_description, inc_amount, activity_activity_ID ,activityType_activityType_ID) VALUES ({0},'{1}',{2},{3},{4});";
+        readonly public static string insExpense = "INSERT INTO expenses (expenses_ID, exp_description, exp_amount, activity_activity_ID ,activityType_activityType_ID) VALUES ({0},'{1}',{2},{3},{4});";
     }
 
 }

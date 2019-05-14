@@ -1,5 +1,6 @@
 ﻿using MetroFramework.Forms;
 using MetroFramework;
+using MetroFramework.Controls;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,8 @@ namespace VTYS_Mobilay_Magazasi
         int controlS = 0;
         int controlA = 0;
         int controlV = 0;
+        int controlAc = 0;
+
         public data_entry()
         {
             InitializeComponent();
@@ -617,6 +620,169 @@ namespace VTYS_Mobilay_Magazasi
             panelControl(5);
         }
 
+        private void activityTypeList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            controlAc = 0;
+            activityList.Visible = true;
+            accountingGrid.Enabled = true;
+            string tableName = "Accounting";
+            if (activityTypeList.SelectedIndex == 0)//income
+            {
+                DataSet ds = DbCommand.getDataSet(Queries.incomes, tableName);
+
+                if (ds != null)
+                    accountingGrid.DataSource = ds.Tables[tableName];
+                string query = String.Format(Queries.activity, "1");
+                ds = DbCommand.getDataSet(query, tableName);
+
+                if (ds != null)
+                {
+                    activityList.DisplayMember = "act_name";
+                    activityList.ValueMember = "activity_ID";
+                    activityList.DataSource = ds.Tables[tableName];
+                    activityList.SelectedItem = null;
+                    activityList.PromptText = "Choose from the list";
+                }
+
+            }
+            else if (activityTypeList.SelectedIndex == 1) //expense
+            {
+                DataSet ds = DbCommand.getDataSet(Queries.expenses, tableName);
+                if (ds != null)
+                    accountingGrid.DataSource = ds.Tables[tableName];
+
+                string query = String.Format(Queries.activity, "2");
+                ds = DbCommand.getDataSet(query, tableName);
+
+                if (ds != null)
+                {
+                    activityList.DisplayMember = "act_name";
+                    activityList.ValueMember = "activity_ID";
+                    activityList.DataSource = ds.Tables[tableName];
+                    activityList.SelectedItem = null;
+                    activityList.PromptText = "Choose from the list";
+                }
+            }
+        }
+
+        private void activityList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string tableName = "type";
+            string query;
+            DataSet ds;
+            if (activityList.SelectedItem != null && controlAc >= 2)
+            {
+                if (activityTypeList.SelectedIndex == 0)//income
+                {
+
+                    query = String.Format(Queries.incomesType, activityList.SelectedValue.ToString());
+                    ds = DbCommand.getDataSet(query, tableName);
+                    if (ds != null)
+                        accountingGrid.DataSource = ds.Tables[tableName];
+
+                }
+                else if (activityTypeList.SelectedIndex == 1) //expense
+                {
+                    query = String.Format(Queries.expensesType, activityList.SelectedValue.ToString());
+                    ds = DbCommand.getDataSet(query, tableName);
+                    if (ds != null)
+                        accountingGrid.DataSource = ds.Tables[tableName];
+                }
+            }
+            controlAc++;
+        }
+
+        private void addAccountingBtn_Click(object sender, EventArgs e)
+        {
+            Activity myAct = new Activity();
+            if (activityTypeList.SelectedIndex == 0)//income
+            {
+                add_activity add = new add_activity(Activity.type[0]);
+                add.ShowDialog();
+
+            }
+            else if (activityTypeList.SelectedIndex == 1) //expense
+            {
+                add_activity add = new add_activity(Activity.type[1]);
+                add.ShowDialog();
+            }
+        }
+
+        private void updateAccountingBtn_Click(object sender, EventArgs e)
+        {
+            if (accountingGrid.SelectedRows.Count != 0)
+            {
+                string type;
+                Activity myAct = new Activity();
+
+                myAct.ID = accountingGrid.Rows[accountingGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+                myAct.desc = accountingGrid.Rows[accountingGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
+                myAct.ammount = accountingGrid.Rows[accountingGrid.SelectedRows[0].Index].Cells[2].Value.ToString();
+                myAct.activityName = accountingGrid.Rows[accountingGrid.SelectedRows[0].Index].Cells[3].Value.ToString();
+                
+                if (activityTypeList.SelectedIndex == 0)
+                {
+                    type = Activity.type[0]; //income 
+                    string tableName = "IncomeData";
+                    string query = String.Format(Queries.incomesData, myAct.ID);
+                    DataSet ds = DbCommand.getDataSet(query, tableName);
+                    if (ds != null)
+                    {
+                        
+                        myAct.activityID = ds.Tables[tableName].Rows[0]["activity_ID"].ToString();
+                    }
+                }
+                else
+                {
+                    type = Activity.type[1]; //expense
+                    string tableName = "SellData";
+                    string query = String.Format(Queries.expensesData, myAct.ID);
+                    DataSet ds = DbCommand.getDataSet(query, tableName);
+                    if (ds != null)
+                    {
+                        myAct.activityID = ds.Tables[tableName].Rows[0]["activity_ID"].ToString();
+                    }
+                }
+                add_activity update = new add_activity(type,myAct);
+                update.ShowDialog();
+            }
+            else
+                MetroMessageBox.Show(this, "You must choose an order before trying to update it", "Update Erorr", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+        }
+
+        private void deleteAccountingBtn_Click(object sender, EventArgs e)
+        {
+            if (accountingGrid.SelectedRows.Count != 0)
+            {
+                DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                if (dr == DialogResult.Yes)
+                {
+                    Activity myAct = new Activity();
+                    string type;
+                    if (activityTypeList.SelectedIndex == 0)
+                    {
+                        type = Activity.type[0]; //income
+                        myAct.ID = accountingGrid.Rows[accountingGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+                        string query = String.Format(Queries.delIncome, myAct.ID);
+                        DbCommand.insertIntoDb(query);
+                        //metroTile1_Click(sender, e);
+                    }
+                    else
+                    {
+                        type = Activity.type[1]; //expense
+                        myAct.ID = accountingGrid.Rows[accountingGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+                        string query = String.Format(Queries.delExpense, myAct.ID);
+                        DbCommand.insertIntoDb(query);
+                        //metroTile1_Click(sender, e);
+                    }
+                }
+            }
+            else
+                MetroMessageBox.Show(this, "You must choose a product before trying to delete it", "Deletion Erorr", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+        }
+
         //Tıklanan panelin açılıp diğer panellerin kapanmasını gerçekleştiren kod
         void panelControl (int p)
         {
@@ -633,7 +799,7 @@ namespace VTYS_Mobilay_Magazasi
             suppliersPanel.Visible = panels[4];
             accountingPanel.Visible = panels[5];
 
-            Panel[] pa = new Panel[6];
+            MetroPanel[] pa = new MetroPanel[6];
             pa[0] = overviewPanel;
             pa[1] = productsPanel;
             pa[2] = ordersPanel;
@@ -641,7 +807,7 @@ namespace VTYS_Mobilay_Magazasi
             pa[4] = suppliersPanel;
             pa[5] = accountingPanel;
 
-            foreach(Panel myp in pa)
+            foreach(MetroPanel myp in pa)
             {
                 myp.Size = new Size(900, 550);
                 myp.Location = new Point(150, 20);

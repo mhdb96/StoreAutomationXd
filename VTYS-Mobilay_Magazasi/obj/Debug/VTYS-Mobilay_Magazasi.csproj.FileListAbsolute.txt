@@ -39,3 +39,4 @@ C:\Users\mhdb9\Documents\GitHub\Database-Project\VTYS-Mobilay_Magazasi\obj\Debug
 C:\Users\mhdb9\Documents\GitHub\Database-Project\VTYS-Mobilay_Magazasi\obj\Debug\VTYS_Mobilay_Magazasi.add_orders.resources
 C:\Users\mhdb9\Documents\GitHub\Database-Project\VTYS-Mobilay_Magazasi\obj\Debug\VTYS_Mobilay_Magazasi.add_customers.resources
 C:\Users\mhdb9\Documents\GitHub\Database-Project\VTYS-Mobilay_Magazasi\obj\Debug\VTYS_Mobilay_Magazasi.add_supplier.resources
+C:\Users\mhdb9\Documents\GitHub\Database-Project\VTYS-Mobilay_Magazasi\obj\Debug\VTYS_Mobilay_Magazasi.add_activity.resources
