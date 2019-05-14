@@ -2080,6 +2080,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "admin";
             this.Text = "admin";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.admin_FormClosed);
             this.Load += new System.EventHandler(this.admin_Load);
             this.employeePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid7)).EndInit();

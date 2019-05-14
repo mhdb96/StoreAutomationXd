@@ -42,3 +42,4 @@ C:\Users\onurk\Documents\GitHub\Database-Project\VTYS-Mobilay_Magazasi\obj\Debug
 C:\Users\onurk\Documents\GitHub\Database-Project\VTYS-Mobilay_Magazasi\obj\Debug\VTYS_Mobilay_Magazasi.add_district.resources
 C:\Users\onurk\Documents\GitHub\Database-Project\VTYS-Mobilay_Magazasi\obj\Debug\VTYS_Mobilay_Magazasi.add_employee.resources
 C:\Users\onurk\Documents\GitHub\Database-Project\VTYS-Mobilay_Magazasi\obj\Debug\VTYS_Mobilay_Magazasi.add_activity.resources
+C:\Users\onurk\Documents\GitHub\Database-Project\VTYS-Mobilay_Magazasi\obj\Debug\VTYS_Mobilay_Magazasi.loginForm.resources

@@ -599,5 +599,10 @@ namespace VTYS_Mobilay_Magazasi
                 DbCommand.insertIntoDb(query);
             }
         }
+
+        private void admin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
