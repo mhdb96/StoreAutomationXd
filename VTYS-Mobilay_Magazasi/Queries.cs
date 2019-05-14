@@ -83,5 +83,10 @@ namespace VTYS_Mobilay_Magazasi
 
         readonly public static string delActivity = "DELETE FROM activity WHERE (activity_ID = {0});";
 
+        readonly public static string delDepartment = "DELETE FROM department WHERE (department_ID = {0});";
+
+        readonly public static string attribute2 = "SELECT attribute_ID as \"ID\", att_name as \"Name\" FROM mydb.attribute order by attribute_ID;";
+        readonly public static string employee2 = "SELECT e.employee_ID as \"ID\", e.emp_name  as \"Name\", e.emp_lasName as \"Last Name\",e.emp_TC as \"TC\",e.emp_telephone as \"Tel\",e.emp_adress as \"Adress\", d.dis_ID as \"District\", p.prov_name  as \"Province\", de.dep_name as \"Department\", e.emp_salary  as \"Salary\" FROM mydb.employee e JOIN district d on d.district_ID=e.district_district_ID JOIN province p on p.province_ID=e.province_province_ID JOIN department de on de.department_ID=e.department_department_ID;";
+
     }
 }

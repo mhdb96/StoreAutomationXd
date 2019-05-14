@@ -167,8 +167,9 @@ namespace VTYS_Mobilay_Magazasi
                 employee.department = departmentList.SelectedValue.ToString();
                 employee.salary = salary.Text;
 
-                string query = String.Format(Queries.insEmployee, employee.id, employee.name, employee.lastName, employee.tc, employee.tel, employee.adress, employee.department, employee.provice, employee.district, employee.salary);
+                string query = String.Format(Queries.insEmployee, employee.id, employee.name, employee.lastName, employee.tc, employee.tel, employee.adress, employee.district, employee.provice, employee.department, employee.salary);
                 DbCommand.insertIntoDb(query);
+
             }
             else
             {

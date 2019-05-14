@@ -35,7 +35,7 @@ namespace VTYS_Mobilay_Magazasi
 
             metroGrid1.DataSource = null;
 
-            string query = Queries.attribute;
+            string query = Queries.attribute2;
             DataSet ds = DbCommand.getDataSet(query, tableName);
 
             if (ds != null)
@@ -129,7 +129,7 @@ namespace VTYS_Mobilay_Magazasi
             string tableName = "employee";
             metroGrid7.DataSource = null;
 
-            string query = Queries.employee;
+            string query = Queries.employee2;
             DataSet ds = DbCommand.getDataSet(query, tableName);
 
             if (ds != null)
@@ -513,15 +513,12 @@ namespace VTYS_Mobilay_Magazasi
                 string query = String.Format(Queries.delAttributeSet_attribute2, attribute.id);
 
                 DbCommand.insertIntoDb(query);
-                MessageBox.Show("sildi");
                 query = String.Format(Queries.delAttributeValue2, attribute.id);
 
                 DbCommand.insertIntoDb(query);
-                MessageBox.Show("sildi");
                 query = String.Format(Queries.delAttribute, attribute.id);
 
                 DbCommand.insertIntoDb(query);
-                MessageBox.Show("sildi");
             }
         }
 
@@ -584,8 +581,8 @@ namespace VTYS_Mobilay_Magazasi
             DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
             if (dr == DialogResult.Yes)
             {
-                district.id = metroGrid5.Rows[metroGrid5.SelectedRows[0].Index].Cells[0].Value.ToString();
-                string query = String.Format(Queries.delDistrict, district.id);
+                department.id = departmentGrid.Rows[departmentGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+                string query = String.Format(Queries.delDepartment, department.id);
 
                 DbCommand.insertIntoDb(query);
             }
