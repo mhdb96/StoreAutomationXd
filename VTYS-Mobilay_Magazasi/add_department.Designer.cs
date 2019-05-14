@@ -1,6 +1,6 @@
 ﻿namespace VTYS_Mobilay_Magazasi
 {
-    partial class add_attributeValue
+    partial class add_department
     {
         /// <summary>
         /// Required designer variable.
@@ -34,99 +34,74 @@
             this.id = new System.Windows.Forms.TextBox();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
-            this.attributeValueList = new MetroFramework.Controls.MetroComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 161);
+            this.label2.Location = new System.Drawing.Point(23, 160);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 17);
-            this.label2.TabIndex = 17;
+            this.label2.TabIndex = 11;
             this.label2.Text = "Name";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 115);
+            this.label1.Location = new System.Drawing.Point(23, 114);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(19, 17);
-            this.label1.TabIndex = 16;
+            this.label1.TabIndex = 10;
             this.label1.Text = "Id";
             // 
             // name
             // 
-            this.name.Location = new System.Drawing.Point(113, 161);
+            this.name.Location = new System.Drawing.Point(112, 160);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(100, 22);
-            this.name.TabIndex = 15;
+            this.name.TabIndex = 9;
             // 
             // id
             // 
-            this.id.Location = new System.Drawing.Point(113, 115);
+            this.id.Location = new System.Drawing.Point(112, 114);
             this.id.Name = "id";
             this.id.Size = new System.Drawing.Size(100, 22);
-            this.id.TabIndex = 14;
+            this.id.TabIndex = 8;
             // 
             // metroButton2
             // 
-            this.metroButton2.Location = new System.Drawing.Point(395, 384);
+            this.metroButton2.Location = new System.Drawing.Point(394, 383);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(75, 23);
-            this.metroButton2.TabIndex = 13;
+            this.metroButton2.TabIndex = 7;
             this.metroButton2.Text = "Cancel";
             this.metroButton2.UseSelectable = true;
-            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click_1);
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
             // metroButton1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(279, 384);
+            this.metroButton1.Location = new System.Drawing.Point(278, 383);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(75, 23);
-            this.metroButton1.TabIndex = 12;
+            this.metroButton1.TabIndex = 6;
             this.metroButton1.Text = "Add";
             this.metroButton1.UseSelectable = true;
-            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click_1);
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
-            // attributeValueList
-            // 
-            this.attributeValueList.FormattingEnabled = true;
-            this.attributeValueList.ItemHeight = 24;
-            this.attributeValueList.Location = new System.Drawing.Point(113, 204);
-            this.attributeValueList.Name = "attributeValueList";
-            this.attributeValueList.PromptText = "Choose from the list";
-            this.attributeValueList.Size = new System.Drawing.Size(179, 30);
-            this.attributeValueList.Style = MetroFramework.MetroColorStyle.Green;
-            this.attributeValueList.TabIndex = 18;
-            this.attributeValueList.UseSelectable = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 207);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 17);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Attribute";
-            // 
-            // add_attributeValue
+            // add_department
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 450);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.attributeValueList);
+            this.ClientSize = new System.Drawing.Size(513, 450);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.name);
             this.Controls.Add(this.id);
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
-            this.Name = "add_attributeValue";
-            this.Text = "add_attributeValue";
-            this.Load += new System.EventHandler(this.add_attributeValue_Load);
+            this.Name = "add_department";
+            this.Text = "add_department";
+            this.Load += new System.EventHandler(this.add_department_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,7 +115,5 @@
         private System.Windows.Forms.TextBox id;
         private MetroFramework.Controls.MetroButton metroButton2;
         private MetroFramework.Controls.MetroButton metroButton1;
-        private MetroFramework.Controls.MetroComboBox attributeValueList;
-        private System.Windows.Forms.Label label3;
     }
 }
