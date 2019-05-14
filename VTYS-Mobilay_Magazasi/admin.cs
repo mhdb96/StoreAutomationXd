@@ -1,4 +1,5 @@
-﻿using MetroFramework.Controls;
+﻿using MetroFramework;
+using MetroFramework.Controls;
 using MetroFramework.Forms;
 using System;
 using System.Collections.Generic;
@@ -485,6 +486,121 @@ namespace VTYS_Mobilay_Magazasi
 
             if (ds != null)
                 activityGrid.DataSource = ds.Tables[tableName];
+        }
+
+        private void metroButton23_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            if (dr == DialogResult.Yes)
+            {
+                attributeSet.id = attributesetGrid.Rows[attributesetGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+                string query = String.Format(Queries.delAttributeSet_attribute, attributeSet.id);
+
+                DbCommand.insertIntoDb(query);
+
+                query = String.Format(Queries.delAttributeSet, attributeSet.id);
+
+                DbCommand.insertIntoDb(query);
+            }
+        }
+
+        private void metroButton24_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            if (dr == DialogResult.Yes)
+            {
+                attribute.id = attributeGrid.Rows[attributeGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+                string query = String.Format(Queries.delAttributeSet_attribute2, attribute.id);
+
+                DbCommand.insertIntoDb(query);
+                MessageBox.Show("sildi");
+                query = String.Format(Queries.delAttributeValue2, attribute.id);
+
+                DbCommand.insertIntoDb(query);
+                MessageBox.Show("sildi");
+                query = String.Format(Queries.delAttribute, attribute.id);
+
+                DbCommand.insertIntoDb(query);
+                MessageBox.Show("sildi");
+            }
+        }
+
+        private void metroButton25_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            if (dr == DialogResult.Yes)
+            {
+                attributeValue.id = metroGrid4.Rows[metroGrid4.SelectedRows[0].Index].Cells[0].Value.ToString();
+                string query = String.Format(Queries.delAttributeValue2, attributeValue.id);
+
+                DbCommand.insertIntoDb(query);
+            }
+        }
+
+        private void metroButton26_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            if (dr == DialogResult.Yes)
+            {
+                province.id = provinceGrid.Rows[provinceGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+                string query = String.Format(Queries.delDistrict2, province.id);
+
+                DbCommand.insertIntoDb(query);
+
+                query = String.Format(Queries.delProvince, province.id);
+
+                DbCommand.insertIntoDb(query);
+
+                
+            }
+        }
+
+        private void metroButton27_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            if (dr == DialogResult.Yes)
+            {
+                district.id = metroGrid6.Rows[metroGrid6.SelectedRows[0].Index].Cells[0].Value.ToString();
+                string query = String.Format(Queries.delDistrict, district.id);
+
+                DbCommand.insertIntoDb(query);
+            }
+        }
+
+        private void metroButton28_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            if (dr == DialogResult.Yes)
+            {
+                employee.id = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+                string query = String.Format(Queries.delEmployee, employee.id);
+
+                DbCommand.insertIntoDb(query);
+            }
+        }
+
+        private void metroButton29_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            if (dr == DialogResult.Yes)
+            {
+                district.id = metroGrid5.Rows[metroGrid5.SelectedRows[0].Index].Cells[0].Value.ToString();
+                string query = String.Format(Queries.delDistrict, district.id);
+
+                DbCommand.insertIntoDb(query);
+            }
+        }
+
+        private void metroButton30_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            if (dr == DialogResult.Yes)
+            {
+                activity.id = metroGrid8.Rows[metroGrid8.SelectedRows[0].Index].Cells[0].Value.ToString();
+                string query = String.Format(Queries.delActivity, activity.id);
+
+                DbCommand.insertIntoDb(query);
+            }
         }
     }
 }

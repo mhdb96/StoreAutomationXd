@@ -203,7 +203,7 @@
             this.TC.SelectionStart = 0;
             this.TC.ShortcutsEnabled = true;
             this.TC.Size = new System.Drawing.Size(121, 23);
-            this.TC.TabIndex = 20;
+            this.TC.TabIndex = 19;
             this.TC.UseSelectable = true;
             this.TC.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TC.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -233,7 +233,7 @@
             this.telephone.SelectionStart = 0;
             this.telephone.ShortcutsEnabled = true;
             this.telephone.Size = new System.Drawing.Size(121, 23);
-            this.telephone.TabIndex = 19;
+            this.telephone.TabIndex = 20;
             this.telephone.UseSelectable = true;
             this.telephone.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.telephone.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -336,6 +336,7 @@
             this.metroButton2.TabIndex = 33;
             this.metroButton2.Text = "Cancel";
             this.metroButton2.UseSelectable = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
             // metroButton1
             // 

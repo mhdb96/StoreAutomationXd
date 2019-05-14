@@ -41,7 +41,7 @@ namespace VTYS_Mobilay_Magazasi
             catch (Exception ex)
             {
                 //Eğer try kısmında hata alırsak çalışması gereken kod
-                MessageBox.Show("");
+                MetroMessageBox.Show(data_entry.ActiveForm, ex.Message, "Database Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return null;
                 //
             }
@@ -80,7 +80,7 @@ namespace VTYS_Mobilay_Magazasi
             }
             catch (Exception ex)
             {
-                MessageBox.Show("");
+                MetroMessageBox.Show(data_entry.ActiveForm, ex.Message, "Database Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
         }

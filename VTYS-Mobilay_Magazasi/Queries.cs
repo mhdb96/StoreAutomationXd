@@ -68,5 +68,20 @@ namespace VTYS_Mobilay_Magazasi
         readonly public static string upActivityType = "UPDATE activity SET act_name = '{0}',activityType_activityType_ID ={1} WHERE (activity_ID = '{2}');";
         readonly public static string activityTypeLike = "SELECT activityType_ID as \"ID\", actty_name as \"Name\" FROM mydb.activitytype WHERE actty_name LIKE '%{0}%' order by ID;";
 
+        readonly public static string delAttributeSet = "DELETE FROM attributeset WHERE (attributeSet_ID = {0});";
+        readonly public static string delAttributeSet_attribute = "DELETE FROM attributeset_attribute WHERE (attributeSet_attributeSet_ID = {0});";
+        readonly public static string delAttribute = "DELETE FROM attribute  WHERE (attribute_ID = {0});";
+        readonly public static string delAttributeSet_attribute2 = "DELETE FROM attributeset_attribute WHERE (attribute_attribute_ID = {0});";
+        readonly public static string delAttributeValue = "DELETE FROM attributevalue WHERE (attribute_attribute_ID = {0});";
+        readonly public static string delAttributeValue2 = "DELETE FROM attributevalue WHERE (attributeValue_ID = {0});";
+
+        readonly public static string delProvince = "DELETE FROM province WHERE (province_ID = {0});";
+        readonly public static string delDistrict = "DELETE FROM district WHERE (district_ID = {0});";
+        readonly public static string delDistrict2 = "DELETE FROM district WHERE (province_province_ID = {0});";
+
+        readonly public static string delEmployee = "DELETE FROM employee WHERE (employee_ID = {0});";
+
+        readonly public static string delActivity = "DELETE FROM activity WHERE (activity_ID = {0});";
+
     }
 }

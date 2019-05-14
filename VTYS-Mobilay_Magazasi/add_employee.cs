@@ -74,7 +74,7 @@ namespace VTYS_Mobilay_Magazasi
                 adress.Text = employee.adress;
                 salary.Text = employee.salary;
 
-                string tableName = "Province";
+                string tableName = "Department";
                 DataSet ds;
 
                 ds = DbCommand.getDataSet(Queries.department, tableName);
@@ -85,9 +85,14 @@ namespace VTYS_Mobilay_Magazasi
                     departmentList.DisplayMember = "Name";
                     departmentList.ValueMember = "ID";
                     departmentList.DataSource = ds.Tables[tableName];
-                    departmentList.SelectedItem = null;
-                    departmentList.PromptText = "Choose from the list";
+                    for (int u = 0; u < departmentList.Items.Count; u++)
+                        if (ds.Tables[tableName].Rows[u]["Name"].ToString() == employee.department)
+                            departmentList.SelectedIndex = u;
+
+                    provinceList.PromptText = employee.department;
+                    
                 }
+                tableName = "Province";
                 ds = DbCommand.getDataSet(Queries.province2, tableName);
                 if (ds != null)
                 {
@@ -183,6 +188,12 @@ namespace VTYS_Mobilay_Magazasi
 
             }
             this.Close();
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
         }
     }
 }
