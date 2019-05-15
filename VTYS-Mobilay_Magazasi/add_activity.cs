@@ -13,169 +13,76 @@ namespace VTYS_Mobilay_Magazasi
 {
     public partial class add_activity : MetroForm
     {
-        VTYS_Mobilay_Magazasi.Activity myAct = new Activity();
-        string type;
-        bool update = false;
+        bool update;
 
-        public add_activity(string t)
+        public add_activity()
         {
             InitializeComponent();
-            type = t;
         }
-
-        public add_activity(string t, Activity ac)
+        public add_activity(bool u)
         {
             InitializeComponent();
-            type = t;
-            myAct = ac;
-            update = true;
+            update = u;
         }
 
         private void add_activity_Load(object sender, EventArgs e)
         {
-            if(!update)
+            string tableName = "attribute";
+
+            DataSet ds = DbCommand.getDataSet(Queries.activityType, tableName);
+
+            if (ds != null)
             {
-                if (type == Activity.type[0])
-                {
-                    string tableName = "Income";
-                    string query = String.Format(Queries.activity, "1");
-                    DataSet ds = DbCommand.getDataSet(query, tableName);
+                activityValueList.DisplayMember = "Name";
+                activityValueList.ValueMember = "ID";
+                activityValueList.DataSource = ds.Tables[tableName];
+                activityValueList.SelectedItem = null;
+                activityValueList.PromptText = "Choose from the list";
+            }
+            if (!update)
+            {
+                string idName = "id";
 
-                    if (ds != null)
-                    {
-                        activityList.DisplayMember = "act_name";
-                        activityList.ValueMember = "activity_ID";
-                        activityList.DataSource = ds.Tables[tableName];
-                        activityList.SelectedItem = null;
-                        activityList.PromptText = "Choose from the list";
-                    }
-                    query = String.Format(Queries.newID, "incomes_ID", "incomes");
-                    ds = DbCommand.getDataSet(query, tableName);
-                    ID.Text = ((int)(ds.Tables[tableName].Rows[0]["max(incomes_ID)"]) + 1).ToString();
-                }
-                else
-                {
-                    string tableName = "Expense";
-                    string query = String.Format(Queries.activity, "2");
-                    DataSet ds = DbCommand.getDataSet(query, tableName);
+                string idQuery = String.Format(Queries.newID, "activity_ID", "activity");
+                DataSet idDs = DbCommand.getDataSet(idQuery, idName);
+                id.Text = ((int)(idDs.Tables[idName].Rows[0]["max(activity_ID)"]) + 1).ToString();
 
-                    if (ds != null)
-                    {
-                        activityList.DisplayMember = "act_name";
-                        activityList.ValueMember = "activity_ID";
-                        activityList.DataSource = ds.Tables[tableName];
-                        activityList.SelectedItem = null;
-                        activityList.PromptText = "Choose from the list";
-                    }
-                    query = String.Format(Queries.newID, "expenses_ID", "expenses");
-                    ds = DbCommand.getDataSet(query, tableName);
-                    ID.Text = ((int)(ds.Tables[tableName].Rows[0]["max(expenses_ID)"]) + 1).ToString();
-                }
+
             }
             else
             {
-                addActivityBtn.Text = "Update";
-                
-                ID.Text = myAct.ID;
-                ammount.Text = myAct.ammount;
-                desc.Text = myAct.desc;
-                string tableName = "Activity";
-                DataSet ds;
+                id.Text = activity.id;
+                id.Enabled = false;
+                name.Text = activity.name;
+                activityValueList.Text = activity.activityType;
 
-                if (type == Activity.type[0])
-                {
-                    
-
-                    string query = String.Format(Queries.activity, "1");
-                    ds = DbCommand.getDataSet(query, tableName);
-                    if (ds != null)
-                    {
-                        activityList.DisplayMember = "act_name";
-                        activityList.ValueMember = "activity_ID";
-                        activityList.DataSource = ds.Tables[tableName];
-
-
-                        for (int u = 0; u < activityList.Items.Count; u++)
-                            if (ds.Tables[tableName].Rows[u]["activity_ID"].ToString() == myAct.activityID)
-                                activityList.SelectedIndex = u;
-
-                        activityList.PromptText = myAct.activityName;
-                    }
-                }
-                else
-                {
-
-                    string query = String.Format(Queries.activity, "2");
-                    ds = DbCommand.getDataSet(query, tableName);
-                    if (ds != null)
-                    {
-                        activityList.DisplayMember = "act_name";
-                        activityList.ValueMember = "activity_ID";
-                        activityList.DataSource = ds.Tables[tableName];
-
-
-                        for (int u = 0; u < activityList.Items.Count; u++)
-                            if (ds.Tables[tableName].Rows[u]["activity_ID"].ToString() == myAct.activityID)
-                                activityList.SelectedIndex = u;
-
-                        activityList.PromptText = myAct.activityName;
-                    }
-                }
-
+                metroButton1.Text = "Update";
             }
-            
-            
         }
 
-        private void addActivityBtn_Click(object sender, EventArgs e)
+        private void metroButton1_Click(object sender, EventArgs e)
         {
-            if(!update)
+            string Id = id.Text;
+            string Name = name.Text;
+            string activityId = activityValueList.SelectedValue.ToString();
+            if (!update)
             {
-                string tableName = type;
-                string query = "";
-                myAct.ID = ID.Text;
-                myAct.desc = desc.Text;
-                myAct.ammount = ammount.Text;
-                myAct.activityID = activityList.SelectedValue.ToString();
-
-                if (type == Activity.type[0])
-                {
-                    myAct.activityTypeID = "1";
-                    query = String.Format(Queries.insIncome, myAct.ID, myAct.desc, myAct.ammount, myAct.activityID, myAct.activityTypeID);
-                }
-                else
-                {
-                    myAct.activityTypeID = "2";
-                    query = String.Format(Queries.insExpense, myAct.ID, myAct.desc, myAct.ammount, myAct.activityID, myAct.activityTypeID);
-                }
+                string query = String.Format(Queries.insActivityType, Id, Name, activityId);
                 DbCommand.insertIntoDb(query);
             }
             else
             {
 
+                string query = String.Format(Queries.upActivityType, Name, activityId, Id);
+                DbCommand.insertIntoDb(query);
             }
-
-            
-
             this.Close();
         }
 
-        private void cancel_Click(object sender, EventArgs e)
+        private void metroButton2_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
 
-        private void ammount_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ammount_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
         }
     }
 }

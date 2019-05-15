@@ -28,198 +28,105 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ID = new MetroFramework.Controls.MetroTextBox();
-            this.desc = new MetroFramework.Controls.MetroTextBox();
-            this.ammount = new MetroFramework.Controls.MetroTextBox();
-            this.activityList = new MetroFramework.Controls.MetroComboBox();
-            this.cancel = new MetroFramework.Controls.MetroButton();
-            this.addActivityBtn = new MetroFramework.Controls.MetroButton();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.activityValueList = new MetroFramework.Controls.MetroComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.name = new System.Windows.Forms.TextBox();
+            this.id = new System.Windows.Forms.TextBox();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
-            // ID
+            // label3
             // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 229);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 17);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Activity";
             // 
+            // activityValueList
             // 
+            this.activityValueList.FormattingEnabled = true;
+            this.activityValueList.ItemHeight = 24;
+            this.activityValueList.Location = new System.Drawing.Point(103, 226);
+            this.activityValueList.Name = "activityValueList";
+            this.activityValueList.PromptText = "Choose from the list";
+            this.activityValueList.Size = new System.Drawing.Size(179, 30);
+            this.activityValueList.Style = MetroFramework.MetroColorStyle.Lime;
+            this.activityValueList.TabIndex = 27;
+            this.activityValueList.UseSelectable = true;
             // 
-            this.ID.CustomButton.Image = null;
-            this.ID.CustomButton.Location = new System.Drawing.Point(76, 1);
-            this.ID.CustomButton.Name = "";
-            this.ID.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.ID.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.ID.CustomButton.TabIndex = 1;
-            this.ID.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.ID.CustomButton.UseSelectable = true;
-            this.ID.CustomButton.Visible = false;
-            this.ID.Enabled = false;
-            this.ID.Lines = new string[0];
-            this.ID.Location = new System.Drawing.Point(161, 227);
-            this.ID.MaxLength = 32767;
-            this.ID.Name = "ID";
-            this.ID.PasswordChar = '\0';
-            this.ID.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.ID.SelectedText = "";
-            this.ID.SelectionLength = 0;
-            this.ID.SelectionStart = 0;
-            this.ID.ShortcutsEnabled = true;
-            this.ID.Size = new System.Drawing.Size(98, 23);
-            this.ID.TabIndex = 0;
-            this.ID.UseSelectable = true;
-            this.ID.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.ID.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // label2
             // 
-            // desc
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 183);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 17);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Name";
             // 
+            // label1
             // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 137);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(19, 17);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Id";
             // 
+            // name
             // 
-            this.desc.CustomButton.Image = null;
-            this.desc.CustomButton.Location = new System.Drawing.Point(76, 1);
-            this.desc.CustomButton.Name = "";
-            this.desc.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.desc.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.desc.CustomButton.TabIndex = 1;
-            this.desc.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.desc.CustomButton.UseSelectable = true;
-            this.desc.CustomButton.Visible = false;
-            this.desc.Lines = new string[0];
-            this.desc.Location = new System.Drawing.Point(161, 256);
-            this.desc.MaxLength = 45;
-            this.desc.Name = "desc";
-            this.desc.PasswordChar = '\0';
-            this.desc.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.desc.SelectedText = "";
-            this.desc.SelectionLength = 0;
-            this.desc.SelectionStart = 0;
-            this.desc.ShortcutsEnabled = true;
-            this.desc.Size = new System.Drawing.Size(276, 23);
-            this.desc.TabIndex = 1;
-            this.desc.UseSelectable = true;
-            this.desc.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.desc.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.name.Location = new System.Drawing.Point(103, 183);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(100, 22);
+            this.name.TabIndex = 24;
             // 
-            // ammount
+            // id
             // 
+            this.id.Enabled = false;
+            this.id.Location = new System.Drawing.Point(103, 137);
+            this.id.Name = "id";
+            this.id.Size = new System.Drawing.Size(100, 22);
+            this.id.TabIndex = 23;
             // 
+            // metroButton2
             // 
+            this.metroButton2.Location = new System.Drawing.Point(385, 406);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(75, 23);
+            this.metroButton2.TabIndex = 22;
+            this.metroButton2.Text = "Cancel";
+            this.metroButton2.UseSelectable = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
-            this.ammount.CustomButton.Image = null;
-            this.ammount.CustomButton.Location = new System.Drawing.Point(76, 1);
-            this.ammount.CustomButton.Name = "";
-            this.ammount.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.ammount.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.ammount.CustomButton.TabIndex = 1;
-            this.ammount.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.ammount.CustomButton.UseSelectable = true;
-            this.ammount.CustomButton.Visible = false;
-            this.ammount.Lines = new string[0];
-            this.ammount.Location = new System.Drawing.Point(161, 285);
-            this.ammount.MaxLength = 10;
-            this.ammount.Name = "ammount";
-            this.ammount.PasswordChar = '\0';
-            this.ammount.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.ammount.SelectedText = "";
-            this.ammount.SelectionLength = 0;
-            this.ammount.SelectionStart = 0;
-            this.ammount.ShortcutsEnabled = true;
-            this.ammount.Size = new System.Drawing.Size(98, 23);
-            this.ammount.TabIndex = 2;
-            this.ammount.UseSelectable = true;
-            this.ammount.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.ammount.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.ammount.Click += new System.EventHandler(this.ammount_Click);
-            this.ammount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ammount_KeyPress);
+            // metroButton1
             // 
-            // activityList
-            // 
-            this.activityList.FormattingEnabled = true;
-            this.activityList.ItemHeight = 24;
-            this.activityList.Location = new System.Drawing.Point(161, 130);
-            this.activityList.Name = "activityList";
-            this.activityList.Size = new System.Drawing.Size(121, 30);
-            this.activityList.TabIndex = 3;
-            this.activityList.UseSelectable = true;
-            // 
-            // cancel
-            // 
-            this.cancel.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.cancel.Location = new System.Drawing.Point(603, 370);
-            this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(96, 39);
-            this.cancel.Style = MetroFramework.MetroColorStyle.Green;
-            this.cancel.TabIndex = 26;
-            this.cancel.Text = "Cancel";
-            this.cancel.UseSelectable = true;
-            this.cancel.Click += new System.EventHandler(this.cancel_Click);
-            // 
-            // addActivityBtn
-            // 
-            this.addActivityBtn.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.addActivityBtn.Location = new System.Drawing.Point(501, 370);
-            this.addActivityBtn.Name = "addActivityBtn";
-            this.addActivityBtn.Size = new System.Drawing.Size(96, 39);
-            this.addActivityBtn.Style = MetroFramework.MetroColorStyle.Green;
-            this.addActivityBtn.TabIndex = 25;
-            this.addActivityBtn.Text = "Add";
-            this.addActivityBtn.UseSelectable = true;
-            this.addActivityBtn.Click += new System.EventHandler(this.addActivityBtn_Click);
-            // 
-            // metroLabel1
-            // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(24, 130);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(53, 20);
-            this.metroLabel1.TabIndex = 27;
-            this.metroLabel1.Text = "Activity";
-            // 
-            // metroLabel2
-            // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(21, 227);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(22, 20);
-            this.metroLabel2.TabIndex = 28;
-            this.metroLabel2.Text = "ID";
-            // 
-            // metroLabel3
-            // 
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(21, 259);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(79, 20);
-            this.metroLabel3.TabIndex = 29;
-            this.metroLabel3.Text = "Description";
-            // 
-            // metroLabel4
-            // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(24, 288);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(58, 20);
-            this.metroLabel4.TabIndex = 30;
-            this.metroLabel4.Text = "Amount";
+            this.metroButton1.Location = new System.Drawing.Point(269, 406);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(75, 23);
+            this.metroButton1.TabIndex = 21;
+            this.metroButton1.Text = "Add";
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // add_activity
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.metroLabel4);
-            this.Controls.Add(this.metroLabel3);
-            this.Controls.Add(this.metroLabel2);
-            this.Controls.Add(this.metroLabel1);
-            this.Controls.Add(this.cancel);
-            this.Controls.Add(this.addActivityBtn);
-            this.Controls.Add(this.activityList);
-            this.Controls.Add(this.ammount);
-            this.Controls.Add(this.desc);
-            this.Controls.Add(this.ID);
+            this.ClientSize = new System.Drawing.Size(485, 450);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.activityValueList);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.name);
+            this.Controls.Add(this.id);
+            this.Controls.Add(this.metroButton2);
+            this.Controls.Add(this.metroButton1);
             this.Name = "add_activity";
-            this.Style = MetroFramework.MetroColorStyle.Red;
+            this.Style = MetroFramework.MetroColorStyle.Lime;
             this.Text = "Add an Activity";
             this.Load += new System.EventHandler(this.add_activity_Load);
             this.ResumeLayout(false);
@@ -229,15 +136,13 @@
 
         #endregion
 
-        private MetroFramework.Controls.MetroTextBox ID;
-        private MetroFramework.Controls.MetroTextBox desc;
-        private MetroFramework.Controls.MetroTextBox ammount;
-        private MetroFramework.Controls.MetroComboBox activityList;
-        private MetroFramework.Controls.MetroButton cancel;
-        private MetroFramework.Controls.MetroButton addActivityBtn;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private System.Windows.Forms.Label label3;
+        private MetroFramework.Controls.MetroComboBox activityValueList;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox name;
+        private System.Windows.Forms.TextBox id;
+        private MetroFramework.Controls.MetroButton metroButton2;
+        private MetroFramework.Controls.MetroButton metroButton1;
     }
 }

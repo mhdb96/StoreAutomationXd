@@ -711,13 +711,13 @@ namespace VTYS_Mobilay_Magazasi
             Activity myAct = new Activity();
             if (activityTypeList.SelectedIndex == 0)//income
             {
-                add_activity add = new add_activity(Activity.type[0]);
+                add_activity_entry add = new add_activity_entry(Activity.type[0]);
                 add.ShowDialog();
 
             }
             else if (activityTypeList.SelectedIndex == 1) //expense
             {
-                add_activity add = new add_activity(Activity.type[1]);
+                add_activity_entry add = new add_activity_entry(Activity.type[1]);
                 add.ShowDialog();
             }
         }
@@ -757,7 +757,7 @@ namespace VTYS_Mobilay_Magazasi
                         myAct.activityID = ds.Tables[tableName].Rows[0]["activity_ID"].ToString();
                     }
                 }
-                add_activity update = new add_activity(type,myAct);
+                add_activity_entry update = new add_activity_entry(type,myAct);
                 update.ShowDialog();
             }
             else
@@ -1225,6 +1225,9 @@ namespace VTYS_Mobilay_Magazasi
 
 
 
+        private void data_entry_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
