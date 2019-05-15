@@ -1225,6 +1225,9 @@ namespace VTYS_Mobilay_Magazasi
 
 
 
+        private void data_entry_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

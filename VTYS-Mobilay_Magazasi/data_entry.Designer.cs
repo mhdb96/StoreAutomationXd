@@ -2241,6 +2241,7 @@
             this.MinimumSize = new System.Drawing.Size(0, 605);
             this.Name = "data_entry";
             this.Style = MetroFramework.MetroColorStyle.Black;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.data_entry_FormClosed);
             this.Load += new System.EventHandler(this.data_entry_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.overviewPanel.ResumeLayout(false);

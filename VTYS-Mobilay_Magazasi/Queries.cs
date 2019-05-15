@@ -75,6 +75,11 @@ namespace VTYS_Mobilay_Magazasi
         readonly public static string att_ID = "SELECT attribute_ID FROM attribute where att_name = '{0}';";
         readonly public static string attVal_ID = "SELECT attributeValue_ID FROM attributevalue where val_value = '{0}';";
     
+        readonly public static string newID = "SELECT max({0}) FROM {1};";
+        readonly public static string set_ID = "SELECT attributeSet_ID FROM mydb.attributeset where set_name = '{0}';";
+        readonly public static string att_ID = "SELECT attribute_ID FROM mydb.attribute where att_name = '{0}';";
+        readonly public static string attVal_ID = "SELECT attributeValue_ID FROM mydb.attributevalue where val_value = '{0}';";
+
         readonly public static string insProduct = "INSERT INTO product (product_ID ,pro_name, pro_description, pro_price, pro_stock, attributeSet_attributeSet_ID) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}');";
         readonly public static string insProductAttribute = "INSERT INTO product_attributes (product_product_ID, attributeValue_attributeValue_ID, attributeSet_attributeSet_ID, attribute_attribute_ID) VALUES ('{0}', '{1}', '{2}', '{3}');";
 
@@ -153,6 +158,99 @@ namespace VTYS_Mobilay_Magazasi
 
         readonly public static string insIncome = "INSERT INTO incomes (incomes_ID, inc_description, inc_amount, activity_activity_ID ,activityType_activityType_ID) VALUES ({0},'{1}',{2},{3},{4});";
         readonly public static string insExpense = "INSERT INTO expenses (expenses_ID, exp_description, exp_amount, activity_activity_ID ,activityType_activityType_ID) VALUES ({0},'{1}',{2},{3},{4});";
+
+        //Admin Panel
+
+        //=============================================================
+        //======================= ATTRIBUTE ===========================
+        //=============================================================
+        readonly public static string insAttribute = "INSERT INTO attribute (attribute_ID ,att_name) VALUES ('{0}', '{1}');";
+        readonly public static string upAttribute = "UPDATE attribute SET att_name = '{0}' WHERE (attribute_ID = '{1}');";
+        readonly public static string attributeLike = "SELECT attribute_ID as \"ID\", att_name as \"Name\" FROM mydb.attribute WHERE att_name LIKE '%{0}%' order by ID;";
+        readonly public static string delAttribute = "DELETE FROM attribute  WHERE (attribute_ID = {0});";
+        readonly public static string attribute2 = "SELECT attribute_ID as \"ID\", att_name as \"Name\" FROM mydb.attribute order by attribute_ID;";
+        readonly public static string delAttributeSet_attribute = "DELETE FROM attributeset_attribute WHERE (attributeSet_attributeSet_ID = {0});";
+        readonly public static string delAttributeSet_attribute2 = "DELETE FROM attributeset_attribute WHERE (attribute_attribute_ID = {0});";
+
+        //=============================================================
+        //======================= ATTRIBUTE SET =======================
+        //=============================================================
+        readonly public static string attributeSet2 = "SELECT attributeSet_ID as \"ID\", set_name as \"Name\" FROM mydb.attributeset order by ID;";
+        readonly public static string insAttributeSet = "INSERT INTO attributeset (attributeSet_ID ,set_name) VALUES ('{0}', '{1}');";
+        readonly public static string upAttributeset = "UPDATE attributeset SET set_name = '{0}' WHERE (attributeSet_ID = '{1}');";
+        readonly public static string attributeSetLike = "SELECT attributeSet_ID as \"ID\", set_name as \"Name\" FROM mydb.attributeset WHERE set_name LIKE '%{0}%' order by ID;";
+        readonly public static string delAttributeSet = "DELETE FROM attributeset WHERE (attributeSet_ID = {0});";
+
+        //=============================================================
+        //======================= ATTRIBUTE VAlUES ====================
+        //=============================================================
+        readonly public static string attributeValues2 = "SELECT attribute_ID as \"ID\" ,att_name as \"Name\" FROM mydb.attribute;";
+        readonly public static string insAttributeValue = "INSERT INTO attributevalue (attributeValue_ID ,val_value,attribute_attribute_ID) VALUES ('{0}','{1}',{2});";
+        readonly public static string upAttributeValue = "UPDATE attributevalue SET val_value = '{0}',attribute_attribute_ID ={1} WHERE (attributeValue_ID = '{2}');";
+        readonly public static string attributevalueId = "SELECT attributeValue_ID as \"ID\" , val_value as \"Name\" FROM attributevalue where attribute_attribute_ID={0};";
+        readonly public static string delAttributeValue = "DELETE FROM attributevalue WHERE (attribute_attribute_ID = {0});";
+        readonly public static string delAttributeValue2 = "DELETE FROM attributevalue WHERE (attributeValue_ID = {0});";
+        readonly public static string attributeValueLike2 = "SELECT attributeValue_ID as \"ID\", val_value as \"Name\" FROM mydb.attributevalue WHERE val_value LIKE '%{0}%' AND attribute_attribute_ID={1} order by ID;";
+
+        //=============================================================
+        //======================= PROVINCE ============================
+        //=============================================================
+        readonly public static string province = "SELECT province_ID as \"ID\", prov_name as \"Name\" FROM mydb.province order by ID;";
+        readonly public static string insProvince = "INSERT INTO province (province_ID ,prov_name) VALUES ('{0}', '{1}');";
+        readonly public static string upProvince = "UPDATE province SET prov_name = '{0}' WHERE (province_ID = '{1}');";
+        readonly public static string provinceLike = "SELECT province_ID as \"ID\", prov_name as \"Name\" FROM mydb.province WHERE prov_name LIKE '%{0}%' order by ID;";
+        readonly public static string province2 = "SELECT * FROM province order by province_ID ;";
+        readonly public static string delProvince = "DELETE FROM province WHERE (province_ID = {0});";
+
+        //=============================================================
+        //======================= DISTRICT ============================
+        //=============================================================
+        readonly public static string districtId = "SELECT district_ID as \"ID\" , dis_ID as \"Name\" FROM district  where province_province_ID={0};";
+        readonly public static string insDistrict = "INSERT INTO district (district_ID ,dis_ID,province_province_ID) VALUES ('{0}','{1}',{2});";
+        readonly public static string upDistrict = "UPDATE district SET dis_ID = '{0}',province_province_ID ={1} WHERE (district_ID = '{2}');";
+        readonly public static string districtProvince = "SELECT * FROM district where province_province_ID = {0} order by district_ID;";
+        readonly public static string delDistrict = "DELETE FROM district WHERE (district_ID = {0});";
+        readonly public static string delDistrict2 = "DELETE FROM district WHERE (province_province_ID = {0});";
+        readonly public static string districtLike = "SELECT district_ID as \"ID\", dis_ID as \"Name\" FROM mydb.district WHERE dis_ID LIKE '%{0}%' AND province_province_ID={1} order by ID;";
+
+        //=============================================================
+        //======================= EMPLOYEE ============================
+        //=============================================================
+        readonly public static string employee = "SELECT e.employee_ID, e.emp_name , e.emp_lasName,e.emp_TC,e.emp_telephone,e.emp_adress, d.dis_ID, p.prov_name , de.dep_name, e.emp_salary FROM mydb.employee e JOIN district d on d.district_ID=e.district_district_ID JOIN province p on p.province_ID=e.province_province_ID JOIN department de on de.department_ID=e.department_department_ID;";
+        readonly public static string insEmployee = "INSERT INTO employee (employee_ID ,emp_name,emp_lasName,emp_TC,emp_telephone,emp_adress,district_district_ID,province_province_ID,department_department_ID,emp_salary) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}');";
+        readonly public static string upEmployee = "UPDATE employee SET emp_name= '{0}',emp_lasName= '{1}',emp_TC= '{2}',emp_telephone= '{3}',emp_adress= '{4}',district_district_ID= '{5}',province_province_ID= '{6}',department_department_ID= '{7}',emp_salary= '{8}' WHERE employee_ID='{9}';";
+        readonly public static string employeeLike = "SELECT e.employee_ID, e.emp_name , e.emp_lasName,e.emp_TC,e.emp_telephone,e.emp_adress, d.dis_ID, p.prov_name , de.dep_name, e.emp_salary FROM mydb.employee e JOIN district d on d.district_ID=e.district_district_ID JOIN province p on p.province_ID=e.province_province_ID JOIN department de on de.department_ID=e.department_department_ID WHERE e.emp_name LIKE '%{0}%';";
+        readonly public static string delEmployee = "DELETE FROM employee WHERE (employee_ID = {0});";
+        readonly public static string employee2 = "SELECT e.employee_ID as \"ID\", e.emp_name  as \"Name\", e.emp_lasName as \"Last Name\",e.emp_TC as \"TC\",e.emp_telephone as \"Tel\",e.emp_adress as \"Adress\", d.dis_ID as \"District\", p.prov_name  as \"Province\", de.dep_name as \"Department\", e.emp_salary  as \"Salary\" FROM mydb.employee e JOIN district d on d.district_ID=e.district_district_ID JOIN province p on p.province_ID=e.province_province_ID JOIN department de on de.department_ID=e.department_department_ID;";
+
+        //=============================================================
+        //======================= DEPARTMENT ==========================
+        //=============================================================
+        readonly public static string department = "SELECT department_ID as \"ID\", dep_name as \"Name\" FROM mydb.department order by ID;";
+        readonly public static string insDepartment = "INSERT INTO department (department_ID ,dep_name) VALUES ('{0}','{1}');";
+        readonly public static string upDepartment = "UPDATE department SET dep_name = '{0}' WHERE (department_ID = '{1}');";
+        readonly public static string departmentLike = "SELECT department_ID as \"ID\", dep_name as \"Name\" FROM mydb.department WHERE dep_name LIKE '%{0}%' order by ID;";
+        readonly public static string delDepartment = "DELETE FROM department WHERE (department_ID = {0});";
+
+        //=============================================================
+        //======================= ACTIVITY ============================
+        //=============================================================
+        readonly public static string activityType = "SELECT activityType_ID as \"ID\" ,actty_name as \"Name\" FROM mydb.activitytype;";
+        readonly public static string activityId = "SELECT activity_ID as \"ID\" , act_name as \"Name\" FROM activity where activityType_activityType_ID={0};";
+        readonly public static string activity = "SELECT * FROM mydb.activity order by activity_ID;";
+        readonly public static string insActivityType = "INSERT INTO activity (activity_ID ,act_name,activityType_activityType_ID) VALUES ('{0}','{1}',{2});";
+        readonly public static string upActivityType = "UPDATE activity SET act_name = '{0}',activityType_activityType_ID ={1} WHERE (activity_ID = '{2}');";
+        readonly public static string activityLike = "SELECT activity_ID as \"ID\", act_name as \"Name\" FROM mydb.activity WHERE act_name LIKE '%{0}%' AND activityType_activityType_ID={1} order by ID;";
+        readonly public static string delActivity = "DELETE FROM activity WHERE (activity_ID = {0});";
+
+        //readonly public static string ttributeValueLike = "SELECT attribute_ID as \"ID\", att_name as \"Name\" FROM mydb.attribute WHERE att_name LIKE '%{0}%' order by ID;";
+
+
+
+
+
+
+
 
     }
 
