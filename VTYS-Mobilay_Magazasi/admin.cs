@@ -301,15 +301,16 @@ namespace VTYS_Mobilay_Magazasi
 
         private void metroButton10_Click(object sender, EventArgs e)
         {
+
             string tableName = "attributeVLike";
 
-            string attV_name = metroTextBox4.Text;
-
-            string query = String.Format(Queries.attributeValueLike, attV_name);
+            string att_name = metroTextBox4.Text;
+            string att_ID = attributeValueGrid.Rows[attributeValueGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+            string query = String.Format(Queries.attributeValueLike2, att_name, att_ID);
             DataSet ds = DbCommand.getDataSet(query, tableName);
 
             if (ds != null)
-                attributeValueGrid.DataSource = ds.Tables[tableName];
+                metroGrid4.DataSource = ds.Tables[tableName];
         }
 
         private void metroButton11_Click(object sender, EventArgs e)
@@ -387,12 +388,12 @@ namespace VTYS_Mobilay_Magazasi
             string tableName = "districtLike";
 
             string dis_name = metroTextBox6.Text;
-
-            string query = String.Format(Queries.provinceLike, dis_name);
+            string dis_ID = districtGrid.Rows[districtGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+            string query = String.Format(Queries.districtLike, dis_name, dis_ID);
             DataSet ds = DbCommand.getDataSet(query, tableName);
 
             if (ds != null)
-                districtGrid.DataSource = ds.Tables[tableName];
+                metroGrid6.DataSource = ds.Tables[tableName];
         }
 
         private void metroButton19_Click(object sender, EventArgs e)
@@ -477,15 +478,15 @@ namespace VTYS_Mobilay_Magazasi
 
         private void metroButton20_Click(object sender, EventArgs e)
         {
-            string tableName = "activityTypeLike";
+            string tableName = "activityLike";
 
             string act_name = metroTextBox8.Text;
-
-            string query = String.Format(Queries.activityTypeLike, act_name);
+            string actType_ID = activityGrid.Rows[activityGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+            string query = String.Format(Queries.activityLike, act_name, actType_ID);
             DataSet ds = DbCommand.getDataSet(query, tableName);
 
             if (ds != null)
-                activityGrid.DataSource = ds.Tables[tableName];
+                metroGrid8.DataSource = ds.Tables[tableName];
         }
 
         private void metroButton23_Click(object sender, EventArgs e)

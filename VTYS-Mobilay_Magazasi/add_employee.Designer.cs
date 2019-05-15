@@ -131,7 +131,7 @@
             this.districtList.Location = new System.Drawing.Point(176, 546);
             this.districtList.Name = "districtList";
             this.districtList.Size = new System.Drawing.Size(121, 30);
-            this.districtList.Style = MetroFramework.MetroColorStyle.Purple;
+            this.districtList.Style = MetroFramework.MetroColorStyle.Red;
             this.districtList.TabIndex = 23;
             this.districtList.UseSelectable = true;
             // 
@@ -142,7 +142,7 @@
             this.provinceList.Location = new System.Drawing.Point(176, 483);
             this.provinceList.Name = "provinceList";
             this.provinceList.Size = new System.Drawing.Size(121, 30);
-            this.provinceList.Style = MetroFramework.MetroColorStyle.Purple;
+            this.provinceList.Style = MetroFramework.MetroColorStyle.Red;
             this.provinceList.TabIndex = 22;
             this.provinceList.UseSelectable = true;
             this.provinceList.SelectedIndexChanged += new System.EventHandler(this.provinceList_SelectedIndexChanged);
@@ -207,6 +207,7 @@
             this.TC.UseSelectable = true;
             this.TC.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TC.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TC_KeyPress);
             // 
             // telephone
             // 
@@ -237,6 +238,7 @@
             this.telephone.UseSelectable = true;
             this.telephone.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.telephone.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.telephone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.telephone_KeyPress);
             // 
             // lastName
             // 
@@ -312,6 +314,7 @@
             this.ID.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.ID.CustomButton.UseSelectable = true;
             this.ID.CustomButton.Visible = false;
+            this.ID.Enabled = false;
             this.ID.Lines = new string[0];
             this.ID.Location = new System.Drawing.Point(176, 86);
             this.ID.MaxLength = 45;
@@ -373,7 +376,7 @@
             this.salary.CustomButton.Visible = false;
             this.salary.Lines = new string[0];
             this.salary.Location = new System.Drawing.Point(176, 594);
-            this.salary.MaxLength = 11;
+            this.salary.MaxLength = 8;
             this.salary.Name = "salary";
             this.salary.PasswordChar = '\0';
             this.salary.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -386,6 +389,7 @@
             this.salary.UseSelectable = true;
             this.salary.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.salary.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.salary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.salary_KeyPress);
             // 
             // metroLabel10
             // 
@@ -403,7 +407,7 @@
             this.departmentList.Location = new System.Drawing.Point(176, 423);
             this.departmentList.Name = "departmentList";
             this.departmentList.Size = new System.Drawing.Size(121, 30);
-            this.departmentList.Style = MetroFramework.MetroColorStyle.Purple;
+            this.departmentList.Style = MetroFramework.MetroColorStyle.Red;
             this.departmentList.TabIndex = 36;
             this.departmentList.UseSelectable = true;
             // 
@@ -435,7 +439,8 @@
             this.Controls.Add(this.name);
             this.Controls.Add(this.ID);
             this.Name = "add_employee";
-            this.Text = "add_employee";
+            this.Style = MetroFramework.MetroColorStyle.Red;
+            this.Text = "Add an Employee";
             this.Load += new System.EventHandler(this.add_employee_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -65,6 +65,7 @@
             // 
             // id
             // 
+            this.id.Enabled = false;
             this.id.Location = new System.Drawing.Point(113, 115);
             this.id.Name = "id";
             this.id.Size = new System.Drawing.Size(100, 22);
@@ -98,7 +99,7 @@
             this.attributeValueList.Name = "attributeValueList";
             this.attributeValueList.PromptText = "Choose from the list";
             this.attributeValueList.Size = new System.Drawing.Size(179, 30);
-            this.attributeValueList.Style = MetroFramework.MetroColorStyle.Green;
+            this.attributeValueList.Style = MetroFramework.MetroColorStyle.Orange;
             this.attributeValueList.TabIndex = 18;
             this.attributeValueList.UseSelectable = true;
             // 
@@ -125,7 +126,8 @@
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
             this.Name = "add_attributeValue";
-            this.Text = "add_attributeValue";
+            this.Style = MetroFramework.MetroColorStyle.Orange;
+            this.Text = "Add an Attribute Value";
             this.Load += new System.EventHandler(this.add_attributeValue_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

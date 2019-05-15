@@ -55,7 +55,7 @@
             this.activityValueList.Name = "activityValueList";
             this.activityValueList.PromptText = "Choose from the list";
             this.activityValueList.Size = new System.Drawing.Size(179, 30);
-            this.activityValueList.Style = MetroFramework.MetroColorStyle.Green;
+            this.activityValueList.Style = MetroFramework.MetroColorStyle.Lime;
             this.activityValueList.TabIndex = 27;
             this.activityValueList.UseSelectable = true;
             // 
@@ -86,6 +86,7 @@
             // 
             // id
             // 
+            this.id.Enabled = false;
             this.id.Location = new System.Drawing.Point(103, 137);
             this.id.Name = "id";
             this.id.Size = new System.Drawing.Size(100, 22);
@@ -125,7 +126,8 @@
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
             this.Name = "add_activity";
-            this.Text = "add_activity";
+            this.Style = MetroFramework.MetroColorStyle.Lime;
+            this.Text = "Add an Activity";
             this.Load += new System.EventHandler(this.add_activity_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

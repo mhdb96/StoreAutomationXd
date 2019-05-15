@@ -63,6 +63,7 @@
             // 
             // id
             // 
+            this.id.Enabled = false;
             this.id.Location = new System.Drawing.Point(116, 127);
             this.id.Name = "id";
             this.id.Size = new System.Drawing.Size(100, 22);
@@ -100,7 +101,7 @@
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
             this.Name = "add_attribute";
-            this.Text = "add_attribute";
+            this.Text = "Add an Attribute";
             this.Load += new System.EventHandler(this.add_attribute_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

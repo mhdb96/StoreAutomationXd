@@ -63,6 +63,7 @@
             // 
             // id
             // 
+            this.id.Enabled = false;
             this.id.Location = new System.Drawing.Point(112, 114);
             this.id.Name = "id";
             this.id.Size = new System.Drawing.Size(100, 22);
@@ -100,7 +101,8 @@
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
             this.Name = "add_department";
-            this.Text = "add_department";
+            this.Style = MetroFramework.MetroColorStyle.Teal;
+            this.Text = "Add a Department";
             this.Load += new System.EventHandler(this.add_department_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

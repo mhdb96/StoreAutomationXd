@@ -63,6 +63,7 @@
             // 
             // id
             // 
+            this.id.Enabled = false;
             this.id.Location = new System.Drawing.Point(120, 88);
             this.id.Name = "id";
             this.id.Size = new System.Drawing.Size(100, 22);
@@ -100,7 +101,8 @@
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
             this.Name = "add_province";
-            this.Text = "add_province";
+            this.Style = MetroFramework.MetroColorStyle.Purple;
+            this.Text = "Add a Province";
             this.Load += new System.EventHandler(this.add_province_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

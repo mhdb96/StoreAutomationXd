@@ -38,6 +38,7 @@
             // 
             // id
             // 
+            this.id.Enabled = false;
             this.id.Location = new System.Drawing.Point(112, 125);
             this.id.Name = "id";
             this.id.Size = new System.Drawing.Size(100, 22);
@@ -104,7 +105,8 @@
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
             this.Name = "add_attributeset";
-            this.Text = "add_attributeset";
+            this.Style = MetroFramework.MetroColorStyle.Green;
+            this.Text = "Add an Attribute Set";
             this.Load += new System.EventHandler(this.add_attributeset_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
