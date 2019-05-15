@@ -1005,7 +1005,7 @@ namespace VTYS_Mobilay_Magazasi
             metroLabel12.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
             metroProgressBar7.Value = (100 * count_ID2[2, 0]) / sellCount;
 
-            int t = count_ID2[3, 1];
+
             query = String.Format(Queries.customersName, count_ID2[3, 1].ToString());
             ds = DbCommand.getDataSet(query, tableName);
             metroLabel13.Text = ds.Tables[tableName].Rows[0]["name"].ToString();

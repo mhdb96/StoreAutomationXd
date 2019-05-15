@@ -28,6 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -52,18 +64,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.metroTile8 = new MetroFramework.Controls.MetroTile();
             this.metroTile9 = new MetroFramework.Controls.MetroTile();
@@ -79,7 +79,48 @@
             this.suppliersTile = new MetroFramework.Controls.MetroTile();
             this.accountingTile = new MetroFramework.Controls.MetroTile();
             this.productsOverviewPanel = new MetroFramework.Controls.MetroPanel();
+            this.accountingTable = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.incomesOverviewGrid = new MetroFramework.Controls.MetroGrid();
+            this.expensesOverviewGrid = new MetroFramework.Controls.MetroGrid();
+            this.suppliersTable = new System.Windows.Forms.TableLayoutPanel();
+            this.metroPanel6 = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
+            this.metroProgressBar12 = new MetroFramework.Controls.MetroProgressBar();
+            this.metroProgressBar13 = new MetroFramework.Controls.MetroProgressBar();
+            this.metroProgressBar14 = new MetroFramework.Controls.MetroProgressBar();
+            this.metroProgressBar15 = new MetroFramework.Controls.MetroProgressBar();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.suppliersOverviewGrid = new MetroFramework.Controls.MetroGrid();
+            this.metroPanel7 = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel21 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel22 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel23 = new MetroFramework.Controls.MetroLabel();
+            this.metroProgressBar16 = new MetroFramework.Controls.MetroProgressBar();
+            this.metroProgressBar17 = new MetroFramework.Controls.MetroProgressBar();
+            this.metroProgressBar18 = new MetroFramework.Controls.MetroProgressBar();
             this.customersTable = new System.Windows.Forms.TableLayoutPanel();
+            this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.metroProgressBar5 = new MetroFramework.Controls.MetroProgressBar();
+            this.metroProgressBar6 = new MetroFramework.Controls.MetroProgressBar();
+            this.metroProgressBar7 = new MetroFramework.Controls.MetroProgressBar();
+            this.metroProgressBar8 = new MetroFramework.Controls.MetroProgressBar();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.sellOverviewGrid = new MetroFramework.Controls.MetroGrid();
+            this.metroPanel5 = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
+            this.metroProgressBar9 = new MetroFramework.Controls.MetroProgressBar();
+            this.metroProgressBar10 = new MetroFramework.Controls.MetroProgressBar();
+            this.metroProgressBar11 = new MetroFramework.Controls.MetroProgressBar();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -142,53 +183,25 @@
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.activityTypeList = new MetroFramework.Controls.MetroComboBox();
             this.accountingGrid = new MetroFramework.Controls.MetroGrid();
-            this.sellOverviewGrid = new MetroFramework.Controls.MetroGrid();
-            this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
-            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
-            this.metroProgressBar5 = new MetroFramework.Controls.MetroProgressBar();
-            this.metroProgressBar6 = new MetroFramework.Controls.MetroProgressBar();
-            this.metroProgressBar7 = new MetroFramework.Controls.MetroProgressBar();
-            this.metroProgressBar8 = new MetroFramework.Controls.MetroProgressBar();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.metroPanel5 = new MetroFramework.Controls.MetroPanel();
-            this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
-            this.metroProgressBar9 = new MetroFramework.Controls.MetroProgressBar();
-            this.metroProgressBar10 = new MetroFramework.Controls.MetroProgressBar();
-            this.metroProgressBar11 = new MetroFramework.Controls.MetroProgressBar();
-            this.suppliersTable = new System.Windows.Forms.TableLayoutPanel();
-            this.metroPanel6 = new MetroFramework.Controls.MetroPanel();
-            this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
-            this.metroProgressBar12 = new MetroFramework.Controls.MetroProgressBar();
-            this.metroProgressBar13 = new MetroFramework.Controls.MetroProgressBar();
-            this.metroProgressBar14 = new MetroFramework.Controls.MetroProgressBar();
-            this.metroProgressBar15 = new MetroFramework.Controls.MetroProgressBar();
-            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.suppliersOverviewGrid = new MetroFramework.Controls.MetroGrid();
-            this.metroPanel7 = new MetroFramework.Controls.MetroPanel();
-            this.metroLabel21 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel22 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel23 = new MetroFramework.Controls.MetroLabel();
-            this.metroProgressBar16 = new MetroFramework.Controls.MetroProgressBar();
-            this.metroProgressBar17 = new MetroFramework.Controls.MetroProgressBar();
-            this.metroProgressBar18 = new MetroFramework.Controls.MetroProgressBar();
-            this.accountingTable = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.incomesOverviewGrid = new MetroFramework.Controls.MetroGrid();
-            this.expensesOverviewGrid = new MetroFramework.Controls.MetroGrid();
             this.tableLayoutPanel1.SuspendLayout();
             this.overviewPanel.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.productsOverviewPanel.SuspendLayout();
+            this.accountingTable.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.incomesOverviewGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.expensesOverviewGrid)).BeginInit();
+            this.suppliersTable.SuspendLayout();
+            this.metroPanel6.SuspendLayout();
+            this.tableLayoutPanel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.suppliersOverviewGrid)).BeginInit();
+            this.metroPanel7.SuspendLayout();
             this.customersTable.SuspendLayout();
+            this.metroPanel4.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sellOverviewGrid)).BeginInit();
+            this.metroPanel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.metroPanel3.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -208,19 +221,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.suppliersGrid)).BeginInit();
             this.accountingPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accountingGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sellOverviewGrid)).BeginInit();
-            this.metroPanel4.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
-            this.metroPanel5.SuspendLayout();
-            this.suppliersTable.SuspendLayout();
-            this.metroPanel6.SuspendLayout();
-            this.tableLayoutPanel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.suppliersOverviewGrid)).BeginInit();
-            this.metroPanel7.SuspendLayout();
-            this.accountingTable.SuspendLayout();
-            this.tableLayoutPanel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.incomesOverviewGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.expensesOverviewGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -463,6 +463,364 @@
             this.productsOverviewPanel.VerticalScrollbarSize = 10;
             this.productsOverviewPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.productsOverviewPanel_Paint);
             // 
+            // accountingTable
+            // 
+            this.accountingTable.ColumnCount = 1;
+            this.accountingTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.accountingTable.Controls.Add(this.tableLayoutPanel8, 0, 0);
+            this.accountingTable.Location = new System.Drawing.Point(18, 19);
+            this.accountingTable.Name = "accountingTable";
+            this.accountingTable.RowCount = 1;
+            this.accountingTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 59.74265F));
+            this.accountingTable.Size = new System.Drawing.Size(677, 544);
+            this.accountingTable.TabIndex = 4;
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 2;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.77344F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.22656F));
+            this.tableLayoutPanel8.Controls.Add(this.incomesOverviewGrid, 1, 0);
+            this.tableLayoutPanel8.Controls.Add(this.expensesOverviewGrid, 1, 1);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 2;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(671, 538);
+            this.tableLayoutPanel8.TabIndex = 0;
+            // 
+            // incomesOverviewGrid
+            // 
+            this.incomesOverviewGrid.AllowUserToResizeRows = false;
+            this.incomesOverviewGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.incomesOverviewGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.incomesOverviewGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.incomesOverviewGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.incomesOverviewGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.incomesOverviewGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.incomesOverviewGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            this.incomesOverviewGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.incomesOverviewGrid.EnableHeadersVisualStyles = false;
+            this.incomesOverviewGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.incomesOverviewGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.incomesOverviewGrid.Location = new System.Drawing.Point(122, 3);
+            this.incomesOverviewGrid.Name = "incomesOverviewGrid";
+            this.incomesOverviewGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.incomesOverviewGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.incomesOverviewGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.incomesOverviewGrid.RowTemplate.Height = 24;
+            this.incomesOverviewGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.incomesOverviewGrid.Size = new System.Drawing.Size(546, 263);
+            this.incomesOverviewGrid.TabIndex = 0;
+            // 
+            // expensesOverviewGrid
+            // 
+            this.expensesOverviewGrid.AllowUserToResizeRows = false;
+            this.expensesOverviewGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.expensesOverviewGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.expensesOverviewGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.expensesOverviewGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.expensesOverviewGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.expensesOverviewGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.expensesOverviewGrid.DefaultCellStyle = dataGridViewCellStyle5;
+            this.expensesOverviewGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.expensesOverviewGrid.EnableHeadersVisualStyles = false;
+            this.expensesOverviewGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.expensesOverviewGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.expensesOverviewGrid.Location = new System.Drawing.Point(122, 272);
+            this.expensesOverviewGrid.Name = "expensesOverviewGrid";
+            this.expensesOverviewGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.expensesOverviewGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.expensesOverviewGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.expensesOverviewGrid.RowTemplate.Height = 24;
+            this.expensesOverviewGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.expensesOverviewGrid.Size = new System.Drawing.Size(546, 263);
+            this.expensesOverviewGrid.TabIndex = 1;
+            // 
+            // suppliersTable
+            // 
+            this.suppliersTable.BackColor = System.Drawing.Color.White;
+            this.suppliersTable.ColumnCount = 1;
+            this.suppliersTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.suppliersTable.Controls.Add(this.metroPanel6, 0, 0);
+            this.suppliersTable.Controls.Add(this.tableLayoutPanel9, 0, 1);
+            this.suppliersTable.Controls.Add(this.metroPanel7, 0, 2);
+            this.suppliersTable.Location = new System.Drawing.Point(733, 190);
+            this.suppliersTable.Name = "suppliersTable";
+            this.suppliersTable.RowCount = 3;
+            this.suppliersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.39535F));
+            this.suppliersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.60465F));
+            this.suppliersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 171F));
+            this.suppliersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.suppliersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.suppliersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.suppliersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.suppliersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.suppliersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.suppliersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.suppliersTable.Size = new System.Drawing.Size(44, 50);
+            this.suppliersTable.TabIndex = 3;
+            // 
+            // metroPanel6
+            // 
+            this.metroPanel6.Controls.Add(this.metroLabel17);
+            this.metroPanel6.Controls.Add(this.metroLabel18);
+            this.metroPanel6.Controls.Add(this.metroLabel19);
+            this.metroPanel6.Controls.Add(this.metroLabel20);
+            this.metroPanel6.Controls.Add(this.metroProgressBar12);
+            this.metroPanel6.Controls.Add(this.metroProgressBar13);
+            this.metroPanel6.Controls.Add(this.metroProgressBar14);
+            this.metroPanel6.Controls.Add(this.metroProgressBar15);
+            this.metroPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroPanel6.HorizontalScrollbarBarColor = true;
+            this.metroPanel6.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel6.HorizontalScrollbarSize = 10;
+            this.metroPanel6.Location = new System.Drawing.Point(3, 3);
+            this.metroPanel6.Name = "metroPanel6";
+            this.metroPanel6.Size = new System.Drawing.Size(38, 1);
+            this.metroPanel6.TabIndex = 1;
+            this.metroPanel6.VerticalScrollbarBarColor = true;
+            this.metroPanel6.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel6.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel17
+            // 
+            this.metroLabel17.AutoSize = true;
+            this.metroLabel17.Location = new System.Drawing.Point(15, 7);
+            this.metroLabel17.Name = "metroLabel17";
+            this.metroLabel17.Size = new System.Drawing.Size(92, 20);
+            this.metroLabel17.TabIndex = 17;
+            this.metroLabel17.Text = "metroLabel10";
+            // 
+            // metroLabel18
+            // 
+            this.metroLabel18.AutoSize = true;
+            this.metroLabel18.Location = new System.Drawing.Point(15, 50);
+            this.metroLabel18.Name = "metroLabel18";
+            this.metroLabel18.Size = new System.Drawing.Size(89, 20);
+            this.metroLabel18.TabIndex = 16;
+            this.metroLabel18.Text = "metroLabel11";
+            // 
+            // metroLabel19
+            // 
+            this.metroLabel19.AutoSize = true;
+            this.metroLabel19.Location = new System.Drawing.Point(15, 87);
+            this.metroLabel19.Name = "metroLabel19";
+            this.metroLabel19.Size = new System.Drawing.Size(92, 20);
+            this.metroLabel19.TabIndex = 15;
+            this.metroLabel19.Text = "metroLabel12";
+            // 
+            // metroLabel20
+            // 
+            this.metroLabel20.AutoSize = true;
+            this.metroLabel20.Location = new System.Drawing.Point(15, 139);
+            this.metroLabel20.Name = "metroLabel20";
+            this.metroLabel20.Size = new System.Drawing.Size(92, 20);
+            this.metroLabel20.TabIndex = 14;
+            this.metroLabel20.Text = "metroLabel13";
+            // 
+            // metroProgressBar12
+            // 
+            this.metroProgressBar12.Location = new System.Drawing.Point(15, 28);
+            this.metroProgressBar12.Name = "metroProgressBar12";
+            this.metroProgressBar12.Size = new System.Drawing.Size(454, 10);
+            this.metroProgressBar12.TabIndex = 13;
+            // 
+            // metroProgressBar13
+            // 
+            this.metroProgressBar13.Location = new System.Drawing.Point(15, 74);
+            this.metroProgressBar13.Name = "metroProgressBar13";
+            this.metroProgressBar13.Size = new System.Drawing.Size(454, 10);
+            this.metroProgressBar13.TabIndex = 12;
+            // 
+            // metroProgressBar14
+            // 
+            this.metroProgressBar14.Location = new System.Drawing.Point(15, 110);
+            this.metroProgressBar14.Name = "metroProgressBar14";
+            this.metroProgressBar14.Size = new System.Drawing.Size(454, 10);
+            this.metroProgressBar14.TabIndex = 11;
+            // 
+            // metroProgressBar15
+            // 
+            this.metroProgressBar15.Location = new System.Drawing.Point(15, 162);
+            this.metroProgressBar15.Name = "metroProgressBar15";
+            this.metroProgressBar15.Size = new System.Drawing.Size(454, 10);
+            this.metroProgressBar15.TabIndex = 10;
+            // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.ColumnCount = 2;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.21488F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.78513F));
+            this.tableLayoutPanel9.Controls.Add(this.suppliersOverviewGrid, 1, 0);
+            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, -65);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 1;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(38, 1);
+            this.tableLayoutPanel9.TabIndex = 2;
+            // 
+            // suppliersOverviewGrid
+            // 
+            this.suppliersOverviewGrid.AllowUserToAddRows = false;
+            this.suppliersOverviewGrid.AllowUserToDeleteRows = false;
+            this.suppliersOverviewGrid.AllowUserToResizeRows = false;
+            this.suppliersOverviewGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.suppliersOverviewGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.suppliersOverviewGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.suppliersOverviewGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.suppliersOverviewGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.suppliersOverviewGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.suppliersOverviewGrid.DefaultCellStyle = dataGridViewCellStyle8;
+            this.suppliersOverviewGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.suppliersOverviewGrid.EnableHeadersVisualStyles = false;
+            this.suppliersOverviewGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.suppliersOverviewGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.suppliersOverviewGrid.Location = new System.Drawing.Point(10, 3);
+            this.suppliersOverviewGrid.Name = "suppliersOverviewGrid";
+            this.suppliersOverviewGrid.ReadOnly = true;
+            this.suppliersOverviewGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.suppliersOverviewGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.suppliersOverviewGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.suppliersOverviewGrid.RowTemplate.Height = 24;
+            this.suppliersOverviewGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.suppliersOverviewGrid.Size = new System.Drawing.Size(25, 1);
+            this.suppliersOverviewGrid.TabIndex = 0;
+            // 
+            // metroPanel7
+            // 
+            this.metroPanel7.Controls.Add(this.metroLabel21);
+            this.metroPanel7.Controls.Add(this.metroLabel22);
+            this.metroPanel7.Controls.Add(this.metroLabel23);
+            this.metroPanel7.Controls.Add(this.metroProgressBar16);
+            this.metroPanel7.Controls.Add(this.metroProgressBar17);
+            this.metroPanel7.Controls.Add(this.metroProgressBar18);
+            this.metroPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroPanel7.HorizontalScrollbarBarColor = true;
+            this.metroPanel7.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel7.HorizontalScrollbarSize = 10;
+            this.metroPanel7.Location = new System.Drawing.Point(3, -117);
+            this.metroPanel7.Name = "metroPanel7";
+            this.metroPanel7.Size = new System.Drawing.Size(38, 165);
+            this.metroPanel7.TabIndex = 3;
+            this.metroPanel7.VerticalScrollbarBarColor = true;
+            this.metroPanel7.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel7.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel21
+            // 
+            this.metroLabel21.AutoSize = true;
+            this.metroLabel21.Location = new System.Drawing.Point(15, 34);
+            this.metroLabel21.Name = "metroLabel21";
+            this.metroLabel21.Size = new System.Drawing.Size(92, 20);
+            this.metroLabel21.TabIndex = 25;
+            this.metroLabel21.Text = "metroLabel14";
+            // 
+            // metroLabel22
+            // 
+            this.metroLabel22.AutoSize = true;
+            this.metroLabel22.Location = new System.Drawing.Point(15, 77);
+            this.metroLabel22.Name = "metroLabel22";
+            this.metroLabel22.Size = new System.Drawing.Size(92, 20);
+            this.metroLabel22.TabIndex = 24;
+            this.metroLabel22.Text = "metroLabel15";
+            // 
+            // metroLabel23
+            // 
+            this.metroLabel23.AutoSize = true;
+            this.metroLabel23.Location = new System.Drawing.Point(15, 114);
+            this.metroLabel23.Name = "metroLabel23";
+            this.metroLabel23.Size = new System.Drawing.Size(92, 20);
+            this.metroLabel23.TabIndex = 23;
+            this.metroLabel23.Text = "metroLabel16";
+            // 
+            // metroProgressBar16
+            // 
+            this.metroProgressBar16.Location = new System.Drawing.Point(15, 55);
+            this.metroProgressBar16.Name = "metroProgressBar16";
+            this.metroProgressBar16.Size = new System.Drawing.Size(454, 10);
+            this.metroProgressBar16.TabIndex = 21;
+            // 
+            // metroProgressBar17
+            // 
+            this.metroProgressBar17.Location = new System.Drawing.Point(15, 101);
+            this.metroProgressBar17.Name = "metroProgressBar17";
+            this.metroProgressBar17.Size = new System.Drawing.Size(454, 10);
+            this.metroProgressBar17.TabIndex = 20;
+            // 
+            // metroProgressBar18
+            // 
+            this.metroProgressBar18.Location = new System.Drawing.Point(15, 137);
+            this.metroProgressBar18.Name = "metroProgressBar18";
+            this.metroProgressBar18.Size = new System.Drawing.Size(454, 10);
+            this.metroProgressBar18.TabIndex = 19;
+            // 
             // customersTable
             // 
             this.customersTable.BackColor = System.Drawing.Color.White;
@@ -486,6 +844,222 @@
             this.customersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.customersTable.Size = new System.Drawing.Size(65, 36);
             this.customersTable.TabIndex = 3;
+            // 
+            // metroPanel4
+            // 
+            this.metroPanel4.Controls.Add(this.metroLabel10);
+            this.metroPanel4.Controls.Add(this.metroLabel11);
+            this.metroPanel4.Controls.Add(this.metroLabel12);
+            this.metroPanel4.Controls.Add(this.metroLabel13);
+            this.metroPanel4.Controls.Add(this.metroProgressBar5);
+            this.metroPanel4.Controls.Add(this.metroProgressBar6);
+            this.metroPanel4.Controls.Add(this.metroProgressBar7);
+            this.metroPanel4.Controls.Add(this.metroProgressBar8);
+            this.metroPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroPanel4.HorizontalScrollbarBarColor = true;
+            this.metroPanel4.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel4.HorizontalScrollbarSize = 10;
+            this.metroPanel4.Location = new System.Drawing.Point(3, 3);
+            this.metroPanel4.Name = "metroPanel4";
+            this.metroPanel4.Size = new System.Drawing.Size(59, 1);
+            this.metroPanel4.TabIndex = 1;
+            this.metroPanel4.VerticalScrollbarBarColor = true;
+            this.metroPanel4.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel4.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel10
+            // 
+            this.metroLabel10.AutoSize = true;
+            this.metroLabel10.Location = new System.Drawing.Point(15, 7);
+            this.metroLabel10.Name = "metroLabel10";
+            this.metroLabel10.Size = new System.Drawing.Size(92, 20);
+            this.metroLabel10.TabIndex = 17;
+            this.metroLabel10.Text = "metroLabel10";
+            // 
+            // metroLabel11
+            // 
+            this.metroLabel11.AutoSize = true;
+            this.metroLabel11.Location = new System.Drawing.Point(15, 50);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(89, 20);
+            this.metroLabel11.TabIndex = 16;
+            this.metroLabel11.Text = "metroLabel11";
+            // 
+            // metroLabel12
+            // 
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.Location = new System.Drawing.Point(15, 87);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(92, 20);
+            this.metroLabel12.TabIndex = 15;
+            this.metroLabel12.Text = "metroLabel12";
+            // 
+            // metroLabel13
+            // 
+            this.metroLabel13.AutoSize = true;
+            this.metroLabel13.Location = new System.Drawing.Point(15, 139);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(92, 20);
+            this.metroLabel13.TabIndex = 14;
+            this.metroLabel13.Text = "metroLabel13";
+            // 
+            // metroProgressBar5
+            // 
+            this.metroProgressBar5.Location = new System.Drawing.Point(15, 28);
+            this.metroProgressBar5.Name = "metroProgressBar5";
+            this.metroProgressBar5.Size = new System.Drawing.Size(454, 10);
+            this.metroProgressBar5.TabIndex = 13;
+            // 
+            // metroProgressBar6
+            // 
+            this.metroProgressBar6.Location = new System.Drawing.Point(15, 74);
+            this.metroProgressBar6.Name = "metroProgressBar6";
+            this.metroProgressBar6.Size = new System.Drawing.Size(454, 10);
+            this.metroProgressBar6.TabIndex = 12;
+            // 
+            // metroProgressBar7
+            // 
+            this.metroProgressBar7.Location = new System.Drawing.Point(15, 110);
+            this.metroProgressBar7.Name = "metroProgressBar7";
+            this.metroProgressBar7.Size = new System.Drawing.Size(454, 10);
+            this.metroProgressBar7.TabIndex = 11;
+            // 
+            // metroProgressBar8
+            // 
+            this.metroProgressBar8.Location = new System.Drawing.Point(15, 162);
+            this.metroProgressBar8.Name = "metroProgressBar8";
+            this.metroProgressBar8.Size = new System.Drawing.Size(454, 10);
+            this.metroProgressBar8.TabIndex = 10;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 2;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.21488F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.78513F));
+            this.tableLayoutPanel7.Controls.Add(this.sellOverviewGrid, 1, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, -84);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(59, 1);
+            this.tableLayoutPanel7.TabIndex = 2;
+            // 
+            // sellOverviewGrid
+            // 
+            this.sellOverviewGrid.AllowUserToAddRows = false;
+            this.sellOverviewGrid.AllowUserToDeleteRows = false;
+            this.sellOverviewGrid.AllowUserToResizeRows = false;
+            this.sellOverviewGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.sellOverviewGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.sellOverviewGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.sellOverviewGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.sellOverviewGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.sellOverviewGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.sellOverviewGrid.DefaultCellStyle = dataGridViewCellStyle11;
+            this.sellOverviewGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sellOverviewGrid.EnableHeadersVisualStyles = false;
+            this.sellOverviewGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.sellOverviewGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.sellOverviewGrid.Location = new System.Drawing.Point(14, 3);
+            this.sellOverviewGrid.Name = "sellOverviewGrid";
+            this.sellOverviewGrid.ReadOnly = true;
+            this.sellOverviewGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.sellOverviewGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.sellOverviewGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.sellOverviewGrid.RowTemplate.Height = 24;
+            this.sellOverviewGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.sellOverviewGrid.Size = new System.Drawing.Size(42, 1);
+            this.sellOverviewGrid.TabIndex = 0;
+            // 
+            // metroPanel5
+            // 
+            this.metroPanel5.Controls.Add(this.metroLabel14);
+            this.metroPanel5.Controls.Add(this.metroLabel15);
+            this.metroPanel5.Controls.Add(this.metroLabel16);
+            this.metroPanel5.Controls.Add(this.metroProgressBar9);
+            this.metroPanel5.Controls.Add(this.metroProgressBar10);
+            this.metroPanel5.Controls.Add(this.metroProgressBar11);
+            this.metroPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroPanel5.HorizontalScrollbarBarColor = true;
+            this.metroPanel5.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel5.HorizontalScrollbarSize = 10;
+            this.metroPanel5.Location = new System.Drawing.Point(3, -143);
+            this.metroPanel5.Name = "metroPanel5";
+            this.metroPanel5.Size = new System.Drawing.Size(59, 177);
+            this.metroPanel5.TabIndex = 3;
+            this.metroPanel5.VerticalScrollbarBarColor = true;
+            this.metroPanel5.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel5.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel14
+            // 
+            this.metroLabel14.AutoSize = true;
+            this.metroLabel14.Location = new System.Drawing.Point(15, 34);
+            this.metroLabel14.Name = "metroLabel14";
+            this.metroLabel14.Size = new System.Drawing.Size(92, 20);
+            this.metroLabel14.TabIndex = 25;
+            this.metroLabel14.Text = "metroLabel14";
+            // 
+            // metroLabel15
+            // 
+            this.metroLabel15.AutoSize = true;
+            this.metroLabel15.Location = new System.Drawing.Point(15, 77);
+            this.metroLabel15.Name = "metroLabel15";
+            this.metroLabel15.Size = new System.Drawing.Size(92, 20);
+            this.metroLabel15.TabIndex = 24;
+            this.metroLabel15.Text = "metroLabel15";
+            // 
+            // metroLabel16
+            // 
+            this.metroLabel16.AutoSize = true;
+            this.metroLabel16.Location = new System.Drawing.Point(15, 114);
+            this.metroLabel16.Name = "metroLabel16";
+            this.metroLabel16.Size = new System.Drawing.Size(92, 20);
+            this.metroLabel16.TabIndex = 23;
+            this.metroLabel16.Text = "metroLabel16";
+            // 
+            // metroProgressBar9
+            // 
+            this.metroProgressBar9.Location = new System.Drawing.Point(15, 55);
+            this.metroProgressBar9.Name = "metroProgressBar9";
+            this.metroProgressBar9.Size = new System.Drawing.Size(454, 10);
+            this.metroProgressBar9.TabIndex = 21;
+            // 
+            // metroProgressBar10
+            // 
+            this.metroProgressBar10.Location = new System.Drawing.Point(15, 101);
+            this.metroProgressBar10.Name = "metroProgressBar10";
+            this.metroProgressBar10.Size = new System.Drawing.Size(454, 10);
+            this.metroProgressBar10.TabIndex = 20;
+            // 
+            // metroProgressBar11
+            // 
+            this.metroProgressBar11.Location = new System.Drawing.Point(15, 137);
+            this.metroProgressBar11.Name = "metroProgressBar11";
+            this.metroProgressBar11.Size = new System.Drawing.Size(454, 10);
+            this.metroProgressBar11.TabIndex = 19;
             // 
             // tableLayoutPanel4
             // 
@@ -1651,580 +2225,6 @@
             this.accountingGrid.Style = MetroFramework.MetroColorStyle.Red;
             this.accountingGrid.TabIndex = 36;
             // 
-            // sellOverviewGrid
-            // 
-            this.sellOverviewGrid.AllowUserToAddRows = false;
-            this.sellOverviewGrid.AllowUserToDeleteRows = false;
-            this.sellOverviewGrid.AllowUserToResizeRows = false;
-            this.sellOverviewGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.sellOverviewGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.sellOverviewGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.sellOverviewGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.sellOverviewGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.sellOverviewGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.sellOverviewGrid.DefaultCellStyle = dataGridViewCellStyle11;
-            this.sellOverviewGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sellOverviewGrid.EnableHeadersVisualStyles = false;
-            this.sellOverviewGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.sellOverviewGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.sellOverviewGrid.Location = new System.Drawing.Point(14, 3);
-            this.sellOverviewGrid.Name = "sellOverviewGrid";
-            this.sellOverviewGrid.ReadOnly = true;
-            this.sellOverviewGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.sellOverviewGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
-            this.sellOverviewGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.sellOverviewGrid.RowTemplate.Height = 24;
-            this.sellOverviewGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.sellOverviewGrid.Size = new System.Drawing.Size(42, 1);
-            this.sellOverviewGrid.TabIndex = 0;
-            // 
-            // metroPanel4
-            // 
-            this.metroPanel4.Controls.Add(this.metroLabel10);
-            this.metroPanel4.Controls.Add(this.metroLabel11);
-            this.metroPanel4.Controls.Add(this.metroLabel12);
-            this.metroPanel4.Controls.Add(this.metroLabel13);
-            this.metroPanel4.Controls.Add(this.metroProgressBar5);
-            this.metroPanel4.Controls.Add(this.metroProgressBar6);
-            this.metroPanel4.Controls.Add(this.metroProgressBar7);
-            this.metroPanel4.Controls.Add(this.metroProgressBar8);
-            this.metroPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroPanel4.HorizontalScrollbarBarColor = true;
-            this.metroPanel4.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel4.HorizontalScrollbarSize = 10;
-            this.metroPanel4.Location = new System.Drawing.Point(3, 3);
-            this.metroPanel4.Name = "metroPanel4";
-            this.metroPanel4.Size = new System.Drawing.Size(59, 1);
-            this.metroPanel4.TabIndex = 1;
-            this.metroPanel4.VerticalScrollbarBarColor = true;
-            this.metroPanel4.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel4.VerticalScrollbarSize = 10;
-            // 
-            // metroLabel10
-            // 
-            this.metroLabel10.AutoSize = true;
-            this.metroLabel10.Location = new System.Drawing.Point(15, 7);
-            this.metroLabel10.Name = "metroLabel10";
-            this.metroLabel10.Size = new System.Drawing.Size(92, 20);
-            this.metroLabel10.TabIndex = 17;
-            this.metroLabel10.Text = "metroLabel10";
-            // 
-            // metroLabel11
-            // 
-            this.metroLabel11.AutoSize = true;
-            this.metroLabel11.Location = new System.Drawing.Point(15, 50);
-            this.metroLabel11.Name = "metroLabel11";
-            this.metroLabel11.Size = new System.Drawing.Size(89, 20);
-            this.metroLabel11.TabIndex = 16;
-            this.metroLabel11.Text = "metroLabel11";
-            // 
-            // metroLabel12
-            // 
-            this.metroLabel12.AutoSize = true;
-            this.metroLabel12.Location = new System.Drawing.Point(15, 87);
-            this.metroLabel12.Name = "metroLabel12";
-            this.metroLabel12.Size = new System.Drawing.Size(92, 20);
-            this.metroLabel12.TabIndex = 15;
-            this.metroLabel12.Text = "metroLabel12";
-            // 
-            // metroLabel13
-            // 
-            this.metroLabel13.AutoSize = true;
-            this.metroLabel13.Location = new System.Drawing.Point(15, 139);
-            this.metroLabel13.Name = "metroLabel13";
-            this.metroLabel13.Size = new System.Drawing.Size(92, 20);
-            this.metroLabel13.TabIndex = 14;
-            this.metroLabel13.Text = "metroLabel13";
-            // 
-            // metroProgressBar5
-            // 
-            this.metroProgressBar5.Location = new System.Drawing.Point(15, 28);
-            this.metroProgressBar5.Name = "metroProgressBar5";
-            this.metroProgressBar5.Size = new System.Drawing.Size(454, 10);
-            this.metroProgressBar5.TabIndex = 13;
-            // 
-            // metroProgressBar6
-            // 
-            this.metroProgressBar6.Location = new System.Drawing.Point(15, 74);
-            this.metroProgressBar6.Name = "metroProgressBar6";
-            this.metroProgressBar6.Size = new System.Drawing.Size(454, 10);
-            this.metroProgressBar6.TabIndex = 12;
-            // 
-            // metroProgressBar7
-            // 
-            this.metroProgressBar7.Location = new System.Drawing.Point(15, 110);
-            this.metroProgressBar7.Name = "metroProgressBar7";
-            this.metroProgressBar7.Size = new System.Drawing.Size(454, 10);
-            this.metroProgressBar7.TabIndex = 11;
-            // 
-            // metroProgressBar8
-            // 
-            this.metroProgressBar8.Location = new System.Drawing.Point(15, 162);
-            this.metroProgressBar8.Name = "metroProgressBar8";
-            this.metroProgressBar8.Size = new System.Drawing.Size(454, 10);
-            this.metroProgressBar8.TabIndex = 10;
-            // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.ColumnCount = 2;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.21488F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.78513F));
-            this.tableLayoutPanel7.Controls.Add(this.sellOverviewGrid, 1, 0);
-            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, -84);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(59, 1);
-            this.tableLayoutPanel7.TabIndex = 2;
-            // 
-            // metroPanel5
-            // 
-            this.metroPanel5.Controls.Add(this.metroLabel14);
-            this.metroPanel5.Controls.Add(this.metroLabel15);
-            this.metroPanel5.Controls.Add(this.metroLabel16);
-            this.metroPanel5.Controls.Add(this.metroProgressBar9);
-            this.metroPanel5.Controls.Add(this.metroProgressBar10);
-            this.metroPanel5.Controls.Add(this.metroProgressBar11);
-            this.metroPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroPanel5.HorizontalScrollbarBarColor = true;
-            this.metroPanel5.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel5.HorizontalScrollbarSize = 10;
-            this.metroPanel5.Location = new System.Drawing.Point(3, -143);
-            this.metroPanel5.Name = "metroPanel5";
-            this.metroPanel5.Size = new System.Drawing.Size(59, 177);
-            this.metroPanel5.TabIndex = 3;
-            this.metroPanel5.VerticalScrollbarBarColor = true;
-            this.metroPanel5.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel5.VerticalScrollbarSize = 10;
-            // 
-            // metroLabel14
-            // 
-            this.metroLabel14.AutoSize = true;
-            this.metroLabel14.Location = new System.Drawing.Point(15, 34);
-            this.metroLabel14.Name = "metroLabel14";
-            this.metroLabel14.Size = new System.Drawing.Size(92, 20);
-            this.metroLabel14.TabIndex = 25;
-            this.metroLabel14.Text = "metroLabel14";
-            // 
-            // metroLabel15
-            // 
-            this.metroLabel15.AutoSize = true;
-            this.metroLabel15.Location = new System.Drawing.Point(15, 77);
-            this.metroLabel15.Name = "metroLabel15";
-            this.metroLabel15.Size = new System.Drawing.Size(92, 20);
-            this.metroLabel15.TabIndex = 24;
-            this.metroLabel15.Text = "metroLabel15";
-            // 
-            // metroLabel16
-            // 
-            this.metroLabel16.AutoSize = true;
-            this.metroLabel16.Location = new System.Drawing.Point(15, 114);
-            this.metroLabel16.Name = "metroLabel16";
-            this.metroLabel16.Size = new System.Drawing.Size(92, 20);
-            this.metroLabel16.TabIndex = 23;
-            this.metroLabel16.Text = "metroLabel16";
-            // 
-            // metroProgressBar9
-            // 
-            this.metroProgressBar9.Location = new System.Drawing.Point(15, 55);
-            this.metroProgressBar9.Name = "metroProgressBar9";
-            this.metroProgressBar9.Size = new System.Drawing.Size(454, 10);
-            this.metroProgressBar9.TabIndex = 21;
-            // 
-            // metroProgressBar10
-            // 
-            this.metroProgressBar10.Location = new System.Drawing.Point(15, 101);
-            this.metroProgressBar10.Name = "metroProgressBar10";
-            this.metroProgressBar10.Size = new System.Drawing.Size(454, 10);
-            this.metroProgressBar10.TabIndex = 20;
-            // 
-            // metroProgressBar11
-            // 
-            this.metroProgressBar11.Location = new System.Drawing.Point(15, 137);
-            this.metroProgressBar11.Name = "metroProgressBar11";
-            this.metroProgressBar11.Size = new System.Drawing.Size(454, 10);
-            this.metroProgressBar11.TabIndex = 19;
-            // 
-            // suppliersTable
-            // 
-            this.suppliersTable.BackColor = System.Drawing.Color.White;
-            this.suppliersTable.ColumnCount = 1;
-            this.suppliersTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.suppliersTable.Controls.Add(this.metroPanel6, 0, 0);
-            this.suppliersTable.Controls.Add(this.tableLayoutPanel9, 0, 1);
-            this.suppliersTable.Controls.Add(this.metroPanel7, 0, 2);
-            this.suppliersTable.Location = new System.Drawing.Point(733, 190);
-            this.suppliersTable.Name = "suppliersTable";
-            this.suppliersTable.RowCount = 3;
-            this.suppliersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.39535F));
-            this.suppliersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.60465F));
-            this.suppliersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 171F));
-            this.suppliersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.suppliersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.suppliersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.suppliersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.suppliersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.suppliersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.suppliersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.suppliersTable.Size = new System.Drawing.Size(44, 50);
-            this.suppliersTable.TabIndex = 3;
-            // 
-            // metroPanel6
-            // 
-            this.metroPanel6.Controls.Add(this.metroLabel17);
-            this.metroPanel6.Controls.Add(this.metroLabel18);
-            this.metroPanel6.Controls.Add(this.metroLabel19);
-            this.metroPanel6.Controls.Add(this.metroLabel20);
-            this.metroPanel6.Controls.Add(this.metroProgressBar12);
-            this.metroPanel6.Controls.Add(this.metroProgressBar13);
-            this.metroPanel6.Controls.Add(this.metroProgressBar14);
-            this.metroPanel6.Controls.Add(this.metroProgressBar15);
-            this.metroPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroPanel6.HorizontalScrollbarBarColor = true;
-            this.metroPanel6.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel6.HorizontalScrollbarSize = 10;
-            this.metroPanel6.Location = new System.Drawing.Point(3, 3);
-            this.metroPanel6.Name = "metroPanel6";
-            this.metroPanel6.Size = new System.Drawing.Size(38, 1);
-            this.metroPanel6.TabIndex = 1;
-            this.metroPanel6.VerticalScrollbarBarColor = true;
-            this.metroPanel6.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel6.VerticalScrollbarSize = 10;
-            // 
-            // metroLabel17
-            // 
-            this.metroLabel17.AutoSize = true;
-            this.metroLabel17.Location = new System.Drawing.Point(15, 7);
-            this.metroLabel17.Name = "metroLabel17";
-            this.metroLabel17.Size = new System.Drawing.Size(92, 20);
-            this.metroLabel17.TabIndex = 17;
-            this.metroLabel17.Text = "metroLabel10";
-            // 
-            // metroLabel18
-            // 
-            this.metroLabel18.AutoSize = true;
-            this.metroLabel18.Location = new System.Drawing.Point(15, 50);
-            this.metroLabel18.Name = "metroLabel18";
-            this.metroLabel18.Size = new System.Drawing.Size(89, 20);
-            this.metroLabel18.TabIndex = 16;
-            this.metroLabel18.Text = "metroLabel11";
-            // 
-            // metroLabel19
-            // 
-            this.metroLabel19.AutoSize = true;
-            this.metroLabel19.Location = new System.Drawing.Point(15, 87);
-            this.metroLabel19.Name = "metroLabel19";
-            this.metroLabel19.Size = new System.Drawing.Size(92, 20);
-            this.metroLabel19.TabIndex = 15;
-            this.metroLabel19.Text = "metroLabel12";
-            // 
-            // metroLabel20
-            // 
-            this.metroLabel20.AutoSize = true;
-            this.metroLabel20.Location = new System.Drawing.Point(15, 139);
-            this.metroLabel20.Name = "metroLabel20";
-            this.metroLabel20.Size = new System.Drawing.Size(92, 20);
-            this.metroLabel20.TabIndex = 14;
-            this.metroLabel20.Text = "metroLabel13";
-            // 
-            // metroProgressBar12
-            // 
-            this.metroProgressBar12.Location = new System.Drawing.Point(15, 28);
-            this.metroProgressBar12.Name = "metroProgressBar12";
-            this.metroProgressBar12.Size = new System.Drawing.Size(454, 10);
-            this.metroProgressBar12.TabIndex = 13;
-            // 
-            // metroProgressBar13
-            // 
-            this.metroProgressBar13.Location = new System.Drawing.Point(15, 74);
-            this.metroProgressBar13.Name = "metroProgressBar13";
-            this.metroProgressBar13.Size = new System.Drawing.Size(454, 10);
-            this.metroProgressBar13.TabIndex = 12;
-            // 
-            // metroProgressBar14
-            // 
-            this.metroProgressBar14.Location = new System.Drawing.Point(15, 110);
-            this.metroProgressBar14.Name = "metroProgressBar14";
-            this.metroProgressBar14.Size = new System.Drawing.Size(454, 10);
-            this.metroProgressBar14.TabIndex = 11;
-            // 
-            // metroProgressBar15
-            // 
-            this.metroProgressBar15.Location = new System.Drawing.Point(15, 162);
-            this.metroProgressBar15.Name = "metroProgressBar15";
-            this.metroProgressBar15.Size = new System.Drawing.Size(454, 10);
-            this.metroProgressBar15.TabIndex = 10;
-            // 
-            // tableLayoutPanel9
-            // 
-            this.tableLayoutPanel9.ColumnCount = 2;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.21488F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.78513F));
-            this.tableLayoutPanel9.Controls.Add(this.suppliersOverviewGrid, 1, 0);
-            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, -65);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 1;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(38, 1);
-            this.tableLayoutPanel9.TabIndex = 2;
-            // 
-            // suppliersOverviewGrid
-            // 
-            this.suppliersOverviewGrid.AllowUserToAddRows = false;
-            this.suppliersOverviewGrid.AllowUserToDeleteRows = false;
-            this.suppliersOverviewGrid.AllowUserToResizeRows = false;
-            this.suppliersOverviewGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.suppliersOverviewGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.suppliersOverviewGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.suppliersOverviewGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.suppliersOverviewGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.suppliersOverviewGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.suppliersOverviewGrid.DefaultCellStyle = dataGridViewCellStyle8;
-            this.suppliersOverviewGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.suppliersOverviewGrid.EnableHeadersVisualStyles = false;
-            this.suppliersOverviewGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.suppliersOverviewGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.suppliersOverviewGrid.Location = new System.Drawing.Point(10, 3);
-            this.suppliersOverviewGrid.Name = "suppliersOverviewGrid";
-            this.suppliersOverviewGrid.ReadOnly = true;
-            this.suppliersOverviewGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.suppliersOverviewGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.suppliersOverviewGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.suppliersOverviewGrid.RowTemplate.Height = 24;
-            this.suppliersOverviewGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.suppliersOverviewGrid.Size = new System.Drawing.Size(25, 1);
-            this.suppliersOverviewGrid.TabIndex = 0;
-            // 
-            // metroPanel7
-            // 
-            this.metroPanel7.Controls.Add(this.metroLabel21);
-            this.metroPanel7.Controls.Add(this.metroLabel22);
-            this.metroPanel7.Controls.Add(this.metroLabel23);
-            this.metroPanel7.Controls.Add(this.metroProgressBar16);
-            this.metroPanel7.Controls.Add(this.metroProgressBar17);
-            this.metroPanel7.Controls.Add(this.metroProgressBar18);
-            this.metroPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroPanel7.HorizontalScrollbarBarColor = true;
-            this.metroPanel7.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel7.HorizontalScrollbarSize = 10;
-            this.metroPanel7.Location = new System.Drawing.Point(3, -117);
-            this.metroPanel7.Name = "metroPanel7";
-            this.metroPanel7.Size = new System.Drawing.Size(38, 165);
-            this.metroPanel7.TabIndex = 3;
-            this.metroPanel7.VerticalScrollbarBarColor = true;
-            this.metroPanel7.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel7.VerticalScrollbarSize = 10;
-            // 
-            // metroLabel21
-            // 
-            this.metroLabel21.AutoSize = true;
-            this.metroLabel21.Location = new System.Drawing.Point(15, 34);
-            this.metroLabel21.Name = "metroLabel21";
-            this.metroLabel21.Size = new System.Drawing.Size(92, 20);
-            this.metroLabel21.TabIndex = 25;
-            this.metroLabel21.Text = "metroLabel14";
-            // 
-            // metroLabel22
-            // 
-            this.metroLabel22.AutoSize = true;
-            this.metroLabel22.Location = new System.Drawing.Point(15, 77);
-            this.metroLabel22.Name = "metroLabel22";
-            this.metroLabel22.Size = new System.Drawing.Size(92, 20);
-            this.metroLabel22.TabIndex = 24;
-            this.metroLabel22.Text = "metroLabel15";
-            // 
-            // metroLabel23
-            // 
-            this.metroLabel23.AutoSize = true;
-            this.metroLabel23.Location = new System.Drawing.Point(15, 114);
-            this.metroLabel23.Name = "metroLabel23";
-            this.metroLabel23.Size = new System.Drawing.Size(92, 20);
-            this.metroLabel23.TabIndex = 23;
-            this.metroLabel23.Text = "metroLabel16";
-            // 
-            // metroProgressBar16
-            // 
-            this.metroProgressBar16.Location = new System.Drawing.Point(15, 55);
-            this.metroProgressBar16.Name = "metroProgressBar16";
-            this.metroProgressBar16.Size = new System.Drawing.Size(454, 10);
-            this.metroProgressBar16.TabIndex = 21;
-            // 
-            // metroProgressBar17
-            // 
-            this.metroProgressBar17.Location = new System.Drawing.Point(15, 101);
-            this.metroProgressBar17.Name = "metroProgressBar17";
-            this.metroProgressBar17.Size = new System.Drawing.Size(454, 10);
-            this.metroProgressBar17.TabIndex = 20;
-            // 
-            // metroProgressBar18
-            // 
-            this.metroProgressBar18.Location = new System.Drawing.Point(15, 137);
-            this.metroProgressBar18.Name = "metroProgressBar18";
-            this.metroProgressBar18.Size = new System.Drawing.Size(454, 10);
-            this.metroProgressBar18.TabIndex = 19;
-            // 
-            // accountingTable
-            // 
-            this.accountingTable.ColumnCount = 1;
-            this.accountingTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.accountingTable.Controls.Add(this.tableLayoutPanel8, 0, 0);
-            this.accountingTable.Location = new System.Drawing.Point(18, 19);
-            this.accountingTable.Name = "accountingTable";
-            this.accountingTable.RowCount = 1;
-            this.accountingTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 59.74265F));
-            this.accountingTable.Size = new System.Drawing.Size(677, 544);
-            this.accountingTable.TabIndex = 4;
-            // 
-            // tableLayoutPanel8
-            // 
-            this.tableLayoutPanel8.ColumnCount = 2;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.77344F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.22656F));
-            this.tableLayoutPanel8.Controls.Add(this.incomesOverviewGrid, 1, 0);
-            this.tableLayoutPanel8.Controls.Add(this.expensesOverviewGrid, 1, 1);
-            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 2;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(671, 538);
-            this.tableLayoutPanel8.TabIndex = 0;
-            // 
-            // incomesOverviewGrid
-            // 
-            this.incomesOverviewGrid.AllowUserToResizeRows = false;
-            this.incomesOverviewGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.incomesOverviewGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.incomesOverviewGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.incomesOverviewGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.incomesOverviewGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.incomesOverviewGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.incomesOverviewGrid.DefaultCellStyle = dataGridViewCellStyle2;
-            this.incomesOverviewGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.incomesOverviewGrid.EnableHeadersVisualStyles = false;
-            this.incomesOverviewGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.incomesOverviewGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.incomesOverviewGrid.Location = new System.Drawing.Point(122, 3);
-            this.incomesOverviewGrid.Name = "incomesOverviewGrid";
-            this.incomesOverviewGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.incomesOverviewGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.incomesOverviewGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.incomesOverviewGrid.RowTemplate.Height = 24;
-            this.incomesOverviewGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.incomesOverviewGrid.Size = new System.Drawing.Size(546, 263);
-            this.incomesOverviewGrid.TabIndex = 0;
-            // 
-            // expensesOverviewGrid
-            // 
-            this.expensesOverviewGrid.AllowUserToResizeRows = false;
-            this.expensesOverviewGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.expensesOverviewGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.expensesOverviewGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.expensesOverviewGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.expensesOverviewGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.expensesOverviewGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.expensesOverviewGrid.DefaultCellStyle = dataGridViewCellStyle5;
-            this.expensesOverviewGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.expensesOverviewGrid.EnableHeadersVisualStyles = false;
-            this.expensesOverviewGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.expensesOverviewGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.expensesOverviewGrid.Location = new System.Drawing.Point(122, 272);
-            this.expensesOverviewGrid.Name = "expensesOverviewGrid";
-            this.expensesOverviewGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.expensesOverviewGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.expensesOverviewGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.expensesOverviewGrid.RowTemplate.Height = 24;
-            this.expensesOverviewGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.expensesOverviewGrid.Size = new System.Drawing.Size(546, 263);
-            this.expensesOverviewGrid.TabIndex = 1;
-            // 
             // data_entry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2248,7 +2248,24 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.productsOverviewPanel.ResumeLayout(false);
+            this.accountingTable.ResumeLayout(false);
+            this.tableLayoutPanel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.incomesOverviewGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.expensesOverviewGrid)).EndInit();
+            this.suppliersTable.ResumeLayout(false);
+            this.metroPanel6.ResumeLayout(false);
+            this.metroPanel6.PerformLayout();
+            this.tableLayoutPanel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.suppliersOverviewGrid)).EndInit();
+            this.metroPanel7.ResumeLayout(false);
+            this.metroPanel7.PerformLayout();
             this.customersTable.ResumeLayout(false);
+            this.metroPanel4.ResumeLayout(false);
+            this.metroPanel4.PerformLayout();
+            this.tableLayoutPanel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.sellOverviewGrid)).EndInit();
+            this.metroPanel5.ResumeLayout(false);
+            this.metroPanel5.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.metroPanel3.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -2274,23 +2291,6 @@
             this.accountingPanel.ResumeLayout(false);
             this.accountingPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accountingGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sellOverviewGrid)).EndInit();
-            this.metroPanel4.ResumeLayout(false);
-            this.metroPanel4.PerformLayout();
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.metroPanel5.ResumeLayout(false);
-            this.metroPanel5.PerformLayout();
-            this.suppliersTable.ResumeLayout(false);
-            this.metroPanel6.ResumeLayout(false);
-            this.metroPanel6.PerformLayout();
-            this.tableLayoutPanel9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.suppliersOverviewGrid)).EndInit();
-            this.metroPanel7.ResumeLayout(false);
-            this.metroPanel7.PerformLayout();
-            this.accountingTable.ResumeLayout(false);
-            this.tableLayoutPanel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.incomesOverviewGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.expensesOverviewGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
