@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace VTYS_Mobilay_Magazasi
 {
-    class activity
+    public class Activity
     {
-        public static string id;
-        public static string name;
-        public static string activityType;
+        public string ID;
+        public string desc;
+        public string ammount;
+        public string activityID;
+        public string activityName;
+        public string activityTypeID;
+        public string activityTypeName;
+        static public string[] type = { "Income", "Expense" };
     }
 }
