@@ -855,6 +855,7 @@ namespace VTYS_Mobilay_Magazasi
 
         private void productsTile_Click(object sender, EventArgs e)
         {
+            accountingTable.Visible = false;
             suppliersTable.Visible = false;
             productsOverviewPanel.Visible = true;
             tableLayoutPanel4.Visible = true;
@@ -936,6 +937,7 @@ namespace VTYS_Mobilay_Magazasi
 
         private void customersTile_Click(object sender, EventArgs e)
         {
+            accountingTable.Visible = false;
             suppliersTable.Visible = false;
             tableLayoutPanel4.Visible = false;
             customersTable.Visible = true;
@@ -1072,6 +1074,7 @@ namespace VTYS_Mobilay_Magazasi
 
         private void suppliersTile_Click(object sender, EventArgs e)
         {
+            accountingTable.Visible = false;
             tableLayoutPanel4.Visible = false;
             customersTable.Visible = false;
             suppliersTable.Visible = true;
