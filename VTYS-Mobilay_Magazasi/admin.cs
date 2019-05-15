@@ -468,9 +468,9 @@ namespace VTYS_Mobilay_Magazasi
 
         private void metroButton21_Click(object sender, EventArgs e)
         {
-            activity.id = metroGrid8.Rows[metroGrid8.SelectedRows[0].Index].Cells[0].Value.ToString();
-            activity.name = metroGrid8.Rows[metroGrid8.SelectedRows[0].Index].Cells[1].Value.ToString();
-            activity.activityType = activityGrid.Rows[activityGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
+            activity2.id = metroGrid8.Rows[metroGrid8.SelectedRows[0].Index].Cells[0].Value.ToString();
+            activity2.name = metroGrid8.Rows[metroGrid8.SelectedRows[0].Index].Cells[1].Value.ToString();
+            activity2.activityType = activityGrid.Rows[activityGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
             
             add_activity update = new add_activity(true);
             update.ShowDialog();
@@ -594,8 +594,8 @@ namespace VTYS_Mobilay_Magazasi
             DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
             if (dr == DialogResult.Yes)
             {
-                activity.id = metroGrid8.Rows[metroGrid8.SelectedRows[0].Index].Cells[0].Value.ToString();
-                string query = String.Format(Queries.delActivity, activity.id);
+                activity2.id = metroGrid8.Rows[metroGrid8.SelectedRows[0].Index].Cells[0].Value.ToString();
+                string query = String.Format(Queries.delActivity, activity2.id);
 
                 DbCommand.insertIntoDb(query);
             }

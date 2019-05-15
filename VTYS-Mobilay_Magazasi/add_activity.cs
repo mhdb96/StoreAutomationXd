@@ -51,10 +51,10 @@ namespace VTYS_Mobilay_Magazasi
             }
             else
             {
-                id.Text = activity.id;
+                id.Text = activity2.id;
                 id.Enabled = false;
-                name.Text = activity.name;
-                activityValueList.Text = activity.activityType;
+                name.Text = activity2.name;
+                activityValueList.Text = activity2.activityType;
 
                 metroButton1.Text = "Update";
             }

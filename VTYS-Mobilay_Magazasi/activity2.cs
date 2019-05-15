@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VTYS_Mobilay_Magazasi
 {
-    class activity
+    class activity2
     {
         public static string id;
         public static string name;

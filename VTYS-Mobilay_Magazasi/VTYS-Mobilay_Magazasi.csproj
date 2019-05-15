@@ -57,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include=".cs" />
-    <Compile Include="activity.cs" />
+    <Compile Include="activity2.cs" />
     <Compile Include="add_activity.cs">
       <SubType>Form</SubType>
     </Compile>
