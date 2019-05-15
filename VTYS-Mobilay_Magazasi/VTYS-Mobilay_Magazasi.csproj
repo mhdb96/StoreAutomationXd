@@ -58,17 +58,60 @@
   <ItemGroup>
     <Compile Include=".cs" />
     <Compile Include="Activity.cs" />
+    <Compile Include="Activity2.cs" />
+    <Compile Include="add_activity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add_activity.Designer.cs">
+      <DependentUpon>add_activity.cs</DependentUpon>
+    </Compile>
     <Compile Include="add_activity_entry.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="add_activity_entry.Designer.cs">
       <DependentUpon>add_activity_entry.cs</DependentUpon>
     </Compile>
+    <Compile Include="add_attribute.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add_attribute.Designer.cs">
+      <DependentUpon>add_attribute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="add_attributeset.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add_attributeset.Designer.cs">
+      <DependentUpon>add_attributeset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="add_attributeValue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add_attributeValue.Designer.cs">
+      <DependentUpon>add_attributeValue.cs</DependentUpon>
+    </Compile>
     <Compile Include="add_customers.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="add_customers.Designer.cs">
       <DependentUpon>add_customers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="add_department.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add_department.Designer.cs">
+      <DependentUpon>add_department.cs</DependentUpon>
+    </Compile>
+    <Compile Include="add_district.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add_district.Designer.cs">
+      <DependentUpon>add_district.cs</DependentUpon>
+    </Compile>
+    <Compile Include="add_employee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add_employee.Designer.cs">
+      <DependentUpon>add_employee.cs</DependentUpon>
     </Compile>
     <Compile Include="add_orders.cs">
       <SubType>Form</SubType>
@@ -82,6 +125,12 @@
     <Compile Include="add_product.Designer.cs">
       <DependentUpon>add_product.cs</DependentUpon>
     </Compile>
+    <Compile Include="add_province.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add_province.Designer.cs">
+      <DependentUpon>add_province.cs</DependentUpon>
+    </Compile>
     <Compile Include="add_supplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +143,9 @@
     <Compile Include="admin.Designer.cs">
       <DependentUpon>admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="attribute.cs" />
+    <Compile Include="attributeSet.cs" />
+    <Compile Include="attributeValue.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="DatabaseInfo.cs" />
     <Compile Include="data_entry.cs">
@@ -112,6 +164,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="loginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loginForm.Designer.cs">
+      <DependentUpon>loginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Order.cs" />
     <Compile Include="Products.cs" />
     <Compile Include="Program.cs" />
@@ -119,11 +177,32 @@
     <Compile Include="province.cs" />
     <Compile Include="Queries.cs" />
     <Compile Include="Supplier.cs" />
+    <EmbeddedResource Include="add_activity.resx">
+      <DependentUpon>add_activity.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="add_activity_entry.resx">
       <DependentUpon>add_activity_entry.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="add_attribute.resx">
+      <DependentUpon>add_attribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="add_attributeset.resx">
+      <DependentUpon>add_attributeset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="add_attributeValue.resx">
+      <DependentUpon>add_attributeValue.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="add_customers.resx">
       <DependentUpon>add_customers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="add_department.resx">
+      <DependentUpon>add_department.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="add_district.resx">
+      <DependentUpon>add_district.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="add_employee.resx">
+      <DependentUpon>add_employee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="add_orders.resx">
       <DependentUpon>add_orders.cs</DependentUpon>
@@ -131,8 +210,14 @@
     <EmbeddedResource Include="add_product.resx">
       <DependentUpon>add_product.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="add_province.resx">
+      <DependentUpon>add_province.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="add_supplier.resx">
       <DependentUpon>add_supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin.resx">
+      <DependentUpon>admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="data_entry.resx">
       <DependentUpon>data_entry.cs</DependentUpon>

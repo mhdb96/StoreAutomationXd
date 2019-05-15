@@ -1221,6 +1221,7 @@ namespace VTYS_Mobilay_Magazasi
 
             ds = DbCommand.getDataSet(Queries.last5Expenses, tableName);
             expensesOverviewGrid.DataSource = ds.Tables[tableName];
+        }
 
 
 

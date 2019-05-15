@@ -75,10 +75,10 @@ namespace VTYS_Mobilay_Magazasi
         readonly public static string att_ID = "SELECT attribute_ID FROM attribute where att_name = '{0}';";
         readonly public static string attVal_ID = "SELECT attributeValue_ID FROM attributevalue where val_value = '{0}';";
     
-        readonly public static string newID = "SELECT max({0}) FROM {1};";
-        readonly public static string set_ID = "SELECT attributeSet_ID FROM mydb.attributeset where set_name = '{0}';";
-        readonly public static string att_ID = "SELECT attribute_ID FROM mydb.attribute where att_name = '{0}';";
-        readonly public static string attVal_ID = "SELECT attributeValue_ID FROM mydb.attributevalue where val_value = '{0}';";
+        //readonly public static string newID = "SELECT max({0}) FROM {1};";
+        //readonly public static string set_ID = "SELECT attributeSet_ID FROM mydb.attributeset where set_name = '{0}';";
+        //readonly public static string att_ID = "SELECT attribute_ID FROM mydb.attribute where att_name = '{0}';";
+        //readonly public static string attVal_ID = "SELECT attributeValue_ID FROM mydb.attributevalue where val_value = '{0}';";
 
         readonly public static string insProduct = "INSERT INTO product (product_ID ,pro_name, pro_description, pro_price, pro_stock, attributeSet_attributeSet_ID) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}');";
         readonly public static string insProductAttribute = "INSERT INTO product_attributes (product_product_ID, attributeValue_attributeValue_ID, attributeSet_attributeSet_ID, attribute_attribute_ID) VALUES ('{0}', '{1}', '{2}', '{3}');";
@@ -205,23 +205,23 @@ namespace VTYS_Mobilay_Magazasi
         //=============================================================
         //======================= DISTRICT ============================
         //=============================================================
-        readonly public static string districtId = "SELECT district_ID as \"ID\" , dis_ID as \"Name\" FROM district  where province_province_ID={0};";
-        readonly public static string insDistrict = "INSERT INTO district (district_ID ,dis_ID,province_province_ID) VALUES ('{0}','{1}',{2});";
-        readonly public static string upDistrict = "UPDATE district SET dis_ID = '{0}',province_province_ID ={1} WHERE (district_ID = '{2}');";
+        readonly public static string districtId = "SELECT district_ID as \"ID\" , dis_name as \"Name\" FROM district  where province_province_ID={0};";
+        readonly public static string insDistrict = "INSERT INTO district (district_ID ,dis_name,province_province_ID) VALUES ('{0}','{1}',{2});";
+        readonly public static string upDistrict = "UPDATE district SET dis_name = '{0}',province_province_ID ={1} WHERE (district_ID = '{2}');";
         readonly public static string districtProvince = "SELECT * FROM district where province_province_ID = {0} order by district_ID;";
         readonly public static string delDistrict = "DELETE FROM district WHERE (district_ID = {0});";
         readonly public static string delDistrict2 = "DELETE FROM district WHERE (province_province_ID = {0});";
-        readonly public static string districtLike = "SELECT district_ID as \"ID\", dis_ID as \"Name\" FROM mydb.district WHERE dis_ID LIKE '%{0}%' AND province_province_ID={1} order by ID;";
+        readonly public static string districtLike = "SELECT district_ID as \"ID\", dis_name as \"Name\" FROM mydb.district WHERE dis_name LIKE '%{0}%' AND province_province_ID={1} order by ID;";
 
         //=============================================================
         //======================= EMPLOYEE ============================
         //=============================================================
-        readonly public static string employee = "SELECT e.employee_ID, e.emp_name , e.emp_lasName,e.emp_TC,e.emp_telephone,e.emp_adress, d.dis_ID, p.prov_name , de.dep_name, e.emp_salary FROM mydb.employee e JOIN district d on d.district_ID=e.district_district_ID JOIN province p on p.province_ID=e.province_province_ID JOIN department de on de.department_ID=e.department_department_ID;";
+        readonly public static string employee = "SELECT e.employee_ID, e.emp_name , e.emp_lasName,e.emp_TC,e.emp_telephone,e.emp_adress, d.dis_name, p.prov_name , de.dep_name, e.emp_salary FROM mydb.employee e JOIN district d on d.district_ID=e.district_district_ID JOIN province p on p.province_ID=e.province_province_ID JOIN department de on de.department_ID=e.department_department_ID;";
         readonly public static string insEmployee = "INSERT INTO employee (employee_ID ,emp_name,emp_lasName,emp_TC,emp_telephone,emp_adress,district_district_ID,province_province_ID,department_department_ID,emp_salary) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}');";
         readonly public static string upEmployee = "UPDATE employee SET emp_name= '{0}',emp_lasName= '{1}',emp_TC= '{2}',emp_telephone= '{3}',emp_adress= '{4}',district_district_ID= '{5}',province_province_ID= '{6}',department_department_ID= '{7}',emp_salary= '{8}' WHERE employee_ID='{9}';";
-        readonly public static string employeeLike = "SELECT e.employee_ID, e.emp_name , e.emp_lasName,e.emp_TC,e.emp_telephone,e.emp_adress, d.dis_ID, p.prov_name , de.dep_name, e.emp_salary FROM mydb.employee e JOIN district d on d.district_ID=e.district_district_ID JOIN province p on p.province_ID=e.province_province_ID JOIN department de on de.department_ID=e.department_department_ID WHERE e.emp_name LIKE '%{0}%';";
+        readonly public static string employeeLike = "SELECT e.employee_ID, e.emp_name , e.emp_lasName,e.emp_TC,e.emp_telephone,e.emp_adress, d.dis_name, p.prov_name , de.dep_name, e.emp_salary FROM mydb.employee e JOIN district d on d.district_ID=e.district_district_ID JOIN province p on p.province_ID=e.province_province_ID JOIN department de on de.department_ID=e.department_department_ID WHERE e.emp_name LIKE '%{0}%';";
         readonly public static string delEmployee = "DELETE FROM employee WHERE (employee_ID = {0});";
-        readonly public static string employee2 = "SELECT e.employee_ID as \"ID\", e.emp_name  as \"Name\", e.emp_lasName as \"Last Name\",e.emp_TC as \"TC\",e.emp_telephone as \"Tel\",e.emp_adress as \"Adress\", d.dis_ID as \"District\", p.prov_name  as \"Province\", de.dep_name as \"Department\", e.emp_salary  as \"Salary\" FROM mydb.employee e JOIN district d on d.district_ID=e.district_district_ID JOIN province p on p.province_ID=e.province_province_ID JOIN department de on de.department_ID=e.department_department_ID;";
+        readonly public static string employee2 = "SELECT e.employee_ID as \"ID\", e.emp_name  as \"Name\", e.emp_lasName as \"Last Name\",e.emp_TC as \"TC\",e.emp_telephone as \"Tel\",e.emp_adress as \"Adress\", d.dis_name as \"District\", p.prov_name  as \"Province\", de.dep_name as \"Department\", e.emp_salary  as \"Salary\" FROM mydb.employee e JOIN district d on d.district_ID=e.district_district_ID JOIN province p on p.province_ID=e.province_province_ID JOIN department de on de.department_ID=e.department_department_ID;";
 
         //=============================================================
         //======================= DEPARTMENT ==========================
@@ -237,7 +237,7 @@ namespace VTYS_Mobilay_Magazasi
         //=============================================================
         readonly public static string activityType = "SELECT activityType_ID as \"ID\" ,actty_name as \"Name\" FROM mydb.activitytype;";
         readonly public static string activityId = "SELECT activity_ID as \"ID\" , act_name as \"Name\" FROM activity where activityType_activityType_ID={0};";
-        readonly public static string activity = "SELECT * FROM mydb.activity order by activity_ID;";
+        //readonly public static string activity = "SELECT * FROM mydb.activity order by activity_ID;";
         readonly public static string insActivityType = "INSERT INTO activity (activity_ID ,act_name,activityType_activityType_ID) VALUES ('{0}','{1}',{2});";
         readonly public static string upActivityType = "UPDATE activity SET act_name = '{0}',activityType_activityType_ID ={1} WHERE (activity_ID = '{2}');";
         readonly public static string activityLike = "SELECT activity_ID as \"ID\", act_name as \"Name\" FROM mydb.activity WHERE act_name LIKE '%{0}%' AND activityType_activityType_ID={1} order by ID;";
