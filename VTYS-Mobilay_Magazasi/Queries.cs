@@ -10,7 +10,47 @@ namespace VTYS_Mobilay_Magazasi
     class Queries
     {
 
+        //DONT FORGET TO DELETE mydb!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
         readonly public static string newID = "SELECT max({0}) FROM {1};";
+
+
+        //=================================================
+        //=================== Overview ====================
+        //=================================================
+
+        readonly public static string productsCount = "SELECT count(*) FROM mydb.product;";
+        readonly public static string pro_setCount = "SELECT count(*) FROM mydb.product where attributeSet_attributeSet_ID ={0};";
+        readonly public static string attributeSets = "SELECT * FROM mydb.attributeset;";
+        readonly public static string attributeSetsCount = "SELECT count(*) FROM mydb.attributeset;";
+        readonly public static string attributeSetName = "SELECT set_name FROM mydb.attributeset where attributeSet_ID ={0};";
+        readonly public static string last5Pro = "SELECT pro_name, pro_description, pro_price, pro_stock FROM mydb.product ORDER BY product_ID DESC LIMIT 5;";
+        readonly public static string reStockPro = "SELECT pro_name, pro_description, pro_price, pro_stock FROM mydb.product where pro_stock < 2;";
+
+        readonly public static string sellCount ="SELECT count(*) FROM mydb.sell;";
+        readonly public static string sell_cusCount= "SELECT count(*) FROM mydb.sell where customer_customer_ID ={0};";
+        readonly public static string customersData = "SELECT customer_ID, concat(cus_name,' ', cus_lastName)as name FROM mydb.customer;";
+        readonly public static string customersCount = "SELECT count(*) FROM mydb.customer;";
+        readonly public static string customersName = "SELECT concat(cus_name, ' ', cus_lastName)as name FROM mydb.customer where customer_ID ={0};";
+        readonly public static string last5Sell = "SELECT concat(c.cus_name, ' ', c.cus_lastName)as name, p.pro_name,s.sel_price, s.sel_qty FROM mydb.sell s join customer c on c.customer_ID = s.customer_customer_ID join product p on p.product_ID = s.product_product_ID ORDER BY sell_ID DESC LIMIT 5;";
+
+        readonly public static string districtsCount = "SELECT count(*) FROM mydb.district;";
+        readonly public static string dis_cusCount = "SELECT count(*) FROM customer where district_district_ID = {0};";
+        readonly public static string districtData = "SELECT district_ID, dis_name FROM mydb.district;";
+        readonly public static string districName = "SELECT concat(dis_name ,' - ', prov_name)as name FROM mydb.district d join province p on p.province_ID = d.province_province_ID where d.district_ID ={0};";
+
+        readonly public static string buyCount = "SELECT count(*) FROM mydb.buy;";
+        readonly public static string buy_supCount = "SELECT count(*) FROM mydb.buy where supplier_supplier_ID ={0};";
+        readonly public static string suppliersData = "SELECT supplier_ID, sup_name as 'name' FROM mydb.supplier;";
+        readonly public static string suppliersCount = "SELECT count(*) FROM supplier;";
+        readonly public static string suppliersName = "SELECT sup_name as 'name' FROM mydb.supplier where supplier_ID ={0};";
+        readonly public static string last5Buy ="SELECT s.sup_name as 'name', p.pro_name, b.buy_price, b.buy_qty FROM mydb.buy b join supplier s on s.supplier_ID = b.supplier_supplier_ID join product p on p.product_ID = b.product_product_ID ORDER BY Buy_ID DESC LIMIT 5;";
+        readonly public static string dis_supCount = "SELECT count(*) FROM supplier where district_district_ID = {0};";
+
+
+        readonly public static string last5Incomes = "SELECT i.inc_description, i.inc_amount, a.act_name FROM incomes i join activity a on i.activity_activity_ID = a.activity_ID ORDER BY i.incomes_ID DESC LIMIT 5;";
+        readonly public static string last5Expenses = "SELECT e.exp_description, e.exp_amount, a.act_name FROM expenses e join activity a on e.activity_activity_ID = a.activity_ID ORDER BY e.expenses_ID DESC LIMIT 5;";
+
 
         //=================================================
         //=================== prodcts =====================
@@ -113,6 +153,7 @@ namespace VTYS_Mobilay_Magazasi
 
         readonly public static string insIncome = "INSERT INTO incomes (incomes_ID, inc_description, inc_amount, activity_activity_ID ,activityType_activityType_ID) VALUES ({0},'{1}',{2},{3},{4});";
         readonly public static string insExpense = "INSERT INTO expenses (expenses_ID, exp_description, exp_amount, activity_activity_ID ,activityType_activityType_ID) VALUES ({0},'{1}',{2},{3},{4});";
+
     }
 
 }

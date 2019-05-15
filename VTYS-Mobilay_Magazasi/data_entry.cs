@@ -15,6 +15,7 @@ using System.Windows.Forms;
 
 namespace VTYS_Mobilay_Magazasi
 {
+
     public partial class data_entry : MetroForm
     {
         int controlS = 0;
@@ -40,6 +41,19 @@ namespace VTYS_Mobilay_Magazasi
         private void metroTile2_Click(object sender, EventArgs e)
         {
             panelControl(0);
+            string tableName = "Customers";
+
+
+            //SQL kodunu Queries sınıfından çekip string değişkene attı
+            //Ardından string değişkenindeki kodu kullanılarak DbCommand sınıfından
+            //verileri alıp DataSet değişkenine attı
+
+            DataSet ds = DbCommand.getDataSet(Queries.customers, tableName);
+            //
+            //Gelen veriler productsGrid'e aktardı
+            if (ds != null)
+                customersGrid.DataSource = ds.Tables[tableName];
+
         }
 
         //=============================================================
@@ -821,6 +835,393 @@ namespace VTYS_Mobilay_Magazasi
 
         }
 
+        private void metroTile1_Click_1(object sender, EventArgs e)
+        {
+            
+
+
+
+        }
+
+        private void metroPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void productsOverviewPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void productsTile_Click(object sender, EventArgs e)
+        {
+            suppliersTable.Visible = false;
+            productsOverviewPanel.Visible = true;
+            tableLayoutPanel4.Visible = true;
+            tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            customersTable.Visible = false;
+
+            string tableName = "products";
+            string query;
+
+            DataSet ds = DbCommand.getDataSet(Queries.productsCount, tableName);
+
+            int productsCount = Int32.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
+            ds = DbCommand.getDataSet(Queries.attributeSetsCount, tableName);
+            int attributeSetsCount = Int32.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
+            ds = DbCommand.getDataSet(Queries.attributeSets, tableName);
+
+            int[,] count_ID = new int[attributeSetsCount, 2];
+            int[,] count_ID2 = new int[4, 2];
+            for (int i = 0; i < attributeSetsCount; i++)
+            {
+                string attributeSetID = ds.Tables[tableName].Rows[i]["attributeSet_ID"].ToString();
+                count_ID[i, 1] = (int)ds.Tables[tableName].Rows[i]["attributeSet_ID"];
+                query = String.Format(Queries.pro_setCount, attributeSetID);
+                DataSet pro_setCountDs = DbCommand.getDataSet(query, tableName);
+                count_ID[i, 0] = Int32.Parse(pro_setCountDs.Tables[tableName].Rows[0]["count(*)"].ToString());
+            }
+            int r = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                int max = -1;
+                int id = -1;
+                for (int j = 0; j < attributeSetsCount; j++)
+                {
+
+                    if (count_ID[j, 0] > max)
+                    {
+                        max = count_ID[j, 0];
+                        id = count_ID[j, 1];
+                        r = j;
+
+                    }
+
+                }
+                count_ID2[i, 0] = max;
+                count_ID2[i, 1] = id;
+                count_ID[r, 0] = -2;
+
+            }
+            query = String.Format(Queries.attributeSetName, count_ID2[0, 1].ToString());
+            ds = DbCommand.getDataSet(query, tableName);
+            metroLabel6.Text = ds.Tables[tableName].Rows[0]["set_name"].ToString();
+            metroProgressBar1.Value = (100 * count_ID2[0, 0]) / productsCount;
+
+            query = String.Format(Queries.attributeSetName, count_ID2[1, 1].ToString());
+            ds = DbCommand.getDataSet(query, tableName);
+            metroLabel7.Text = ds.Tables[tableName].Rows[0]["set_name"].ToString();
+            metroProgressBar2.Value = (100 * count_ID2[1, 0]) / productsCount;
+
+            query = String.Format(Queries.attributeSetName, count_ID2[2, 1].ToString());
+            ds = DbCommand.getDataSet(query, tableName);
+            metroLabel8.Text = ds.Tables[tableName].Rows[0]["set_name"].ToString();
+            metroProgressBar3.Value = (100 * count_ID2[2, 0]) / productsCount;
+
+            int t = count_ID2[3, 1];
+            query = String.Format(Queries.attributeSetName, count_ID2[3, 1].ToString());
+            ds = DbCommand.getDataSet(query, tableName);
+            metroLabel9.Text = ds.Tables[tableName].Rows[0]["set_name"].ToString();
+            metroProgressBar4.Value = (100 * count_ID2[3, 0]) / productsCount;
+
+
+            ds = DbCommand.getDataSet(Queries.last5Pro, tableName);
+            productsOverviewGrid.DataSource = ds.Tables[tableName];
+
+            ds = DbCommand.getDataSet(Queries.reStockPro, tableName);
+            reStockProGrid.DataSource = ds.Tables[tableName];
+
+
+        }
+
+        private void customersTile_Click(object sender, EventArgs e)
+        {
+            suppliersTable.Visible = false;
+            tableLayoutPanel4.Visible = false;
+            customersTable.Visible = true;
+            customersTable.Dock = DockStyle.Fill;
+            string tableName = "products";
+            string query;
+            DataSet ds;
         
+            ds = DbCommand.getDataSet(Queries.last5Sell, tableName);
+            sellOverviewGrid.DataSource = ds.Tables[tableName];
+
+
+
+            ds = DbCommand.getDataSet(Queries.sellCount, tableName);
+
+            int sellCount = Int32.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
+            ds = DbCommand.getDataSet(Queries.customersCount, tableName);
+            int customersCount = Int32.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
+            ds = DbCommand.getDataSet(Queries.customersData, tableName);
+
+            int[,] count_ID = new int[customersCount, 2];
+            int[,] count_ID2 = new int[4, 2];
+            for (int i = 0; i < customersCount; i++)
+            {
+                string customerID = ds.Tables[tableName].Rows[i]["customer_ID"].ToString();
+                count_ID[i, 1] = (int)ds.Tables[tableName].Rows[i]["customer_ID"];
+                query = String.Format(Queries.sell_cusCount, customerID);
+                DataSet sell_cusCountDs = DbCommand.getDataSet(query, tableName);
+                count_ID[i, 0] = Int32.Parse(sell_cusCountDs.Tables[tableName].Rows[0]["count(*)"].ToString());
+            }
+            int r = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                int max = -1;
+                int id = -1;
+                for (int j = 0; j < customersCount; j++)
+                {
+
+                    if (count_ID[j, 0] > max)
+                    {
+                        max = count_ID[j, 0];
+                        id = count_ID[j, 1];
+                        r = j;
+
+                    }
+
+                }
+                count_ID2[i, 0] = max;
+                count_ID2[i, 1] = id;
+                count_ID[r, 0] = -2;
+
+            }
+            query = String.Format(Queries.customersName, count_ID2[0, 1].ToString());
+            ds = DbCommand.getDataSet(query, tableName);
+            metroLabel10.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
+            metroProgressBar5.Value = (100 * count_ID2[0, 0]) / sellCount;
+
+            query = String.Format(Queries.customersName, count_ID2[1, 1].ToString());
+            ds = DbCommand.getDataSet(query, tableName);
+            metroLabel11.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
+            metroProgressBar6.Value = (100 * count_ID2[1, 0]) / sellCount;
+
+            query = String.Format(Queries.customersName, count_ID2[2, 1].ToString());
+            ds = DbCommand.getDataSet(query, tableName);
+            metroLabel12.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
+            metroProgressBar7.Value = (100 * count_ID2[2, 0]) / sellCount;
+
+            int t = count_ID2[3, 1];
+            query = String.Format(Queries.customersName, count_ID2[3, 1].ToString());
+            ds = DbCommand.getDataSet(query, tableName);
+            metroLabel13.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
+            metroProgressBar8.Value = (100 * count_ID2[3, 0]) / sellCount;
+
+
+            ds = DbCommand.getDataSet(Queries.districtsCount, tableName);
+
+            int districtCount = Int32.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
+            ds = DbCommand.getDataSet(Queries.customersCount, tableName);
+            customersCount = Int32.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
+            ds = DbCommand.getDataSet(Queries.districtData, tableName);
+
+            count_ID = new int[districtCount, 2];
+            count_ID2 = new int[3, 2];
+            for (int i = 0; i < districtCount; i++)
+            {
+                string districtID = ds.Tables[tableName].Rows[i]["district_ID"].ToString();
+                count_ID[i, 1] = (int)ds.Tables[tableName].Rows[i]["district_ID"];
+                query = String.Format(Queries.sell_cusCount, districtID);
+                DataSet dis_cusCountDs = DbCommand.getDataSet(query, tableName);
+                count_ID[i, 0] = Int32.Parse(dis_cusCountDs.Tables[tableName].Rows[0]["count(*)"].ToString());
+            }
+            r = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                int max = -1;
+                int id = -1;
+                for (int j = 0; j < districtCount; j++)
+                {
+
+                    if (count_ID[j, 0] > max)
+                    {
+                        max = count_ID[j, 0];
+                        id = count_ID[j, 1];
+                        r = j;
+
+                    }
+
+                }
+                count_ID2[i, 0] = max;
+                count_ID2[i, 1] = id;
+                count_ID[r, 0] = -2;
+
+            }
+            query = String.Format(Queries.districName, count_ID2[0, 1].ToString());
+            ds = DbCommand.getDataSet(query, tableName);
+            metroLabel14.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
+            metroProgressBar9.Value = (100 * count_ID2[0, 0]) / customersCount;
+
+            query = String.Format(Queries.districName, count_ID2[1, 1].ToString());
+            ds = DbCommand.getDataSet(query, tableName);
+            metroLabel15.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
+            metroProgressBar10.Value = (100 * count_ID2[1, 0]) / customersCount;
+
+            query = String.Format(Queries.districName, count_ID2[2, 1].ToString());
+            ds = DbCommand.getDataSet(query, tableName);
+            metroLabel16.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
+            metroProgressBar11.Value = (100 * count_ID2[2, 0]) / customersCount;     
+
+
+
+
+
+        }
+
+        private void suppliersTile_Click(object sender, EventArgs e)
+        {
+            tableLayoutPanel4.Visible = false;
+            customersTable.Visible = false;
+            suppliersTable.Visible = true;
+            suppliersTable.Dock = DockStyle.Fill;
+            string tableName = "Buy";
+            string query;
+            DataSet ds;
+
+            ds = DbCommand.getDataSet(Queries.last5Buy, tableName);
+            suppliersOverviewGrid.DataSource = ds.Tables[tableName];
+
+
+
+            ds = DbCommand.getDataSet(Queries.buyCount, tableName);
+
+            int buyCount = Int32.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
+            ds = DbCommand.getDataSet(Queries.suppliersCount, tableName);
+            int suppliersCount = Int32.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
+            ds = DbCommand.getDataSet(Queries.suppliersData, tableName);
+
+            int[,] count_ID = new int[suppliersCount, 2];
+            int[,] count_ID2 = new int[4, 2];
+            for (int i = 0; i < suppliersCount; i++)
+            {
+                string supplierID = ds.Tables[tableName].Rows[i]["supplier_ID"].ToString();
+                count_ID[i, 1] = (int)ds.Tables[tableName].Rows[i]["supplier_ID"];
+                query = String.Format(Queries.buy_supCount, supplierID);
+                DataSet buy_supCountDs = DbCommand.getDataSet(query, tableName);
+                count_ID[i, 0] = Int32.Parse(buy_supCountDs.Tables[tableName].Rows[0]["count(*)"].ToString());
+            }
+            int r = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                int max = -1;
+                int id = -1;
+                for (int j = 0; j < suppliersCount; j++)
+                {
+
+                    if (count_ID[j, 0] > max)
+                    {
+                        max = count_ID[j, 0];
+                        id = count_ID[j, 1];
+                        r = j;
+
+                    }
+
+                }
+                count_ID2[i, 0] = max;
+                count_ID2[i, 1] = id;
+                count_ID[r, 0] = -2;
+
+            }
+            query = String.Format(Queries.suppliersName, count_ID2[0, 1].ToString());
+            ds = DbCommand.getDataSet(query, tableName);
+            metroLabel17.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
+            metroProgressBar12.Value = (100 * count_ID2[0, 0]) / buyCount;
+
+            query = String.Format(Queries.suppliersName, count_ID2[1, 1].ToString());
+            ds = DbCommand.getDataSet(query, tableName);
+            metroLabel18.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
+            metroProgressBar13.Value = (100 * count_ID2[1, 0]) / buyCount;
+
+            query = String.Format(Queries.suppliersName, count_ID2[2, 1].ToString());
+            ds = DbCommand.getDataSet(query, tableName);
+            metroLabel19.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
+            metroProgressBar14.Value = (100 * count_ID2[2, 0]) / buyCount;
+
+            int t = count_ID2[3, 1];
+            query = String.Format(Queries.suppliersName, count_ID2[3, 1].ToString());
+            ds = DbCommand.getDataSet(query, tableName);
+            metroLabel20.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
+            metroProgressBar15.Value = (100 * count_ID2[3, 0]) / buyCount;
+
+
+            ds = DbCommand.getDataSet(Queries.districtsCount, tableName);
+
+            int districtCount = Int32.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
+            ds = DbCommand.getDataSet(Queries.suppliersCount, tableName);
+            suppliersCount = Int32.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
+            ds = DbCommand.getDataSet(Queries.districtData, tableName);
+
+            count_ID = new int[districtCount, 2];
+            count_ID2 = new int[3, 2];
+            for (int i = 0; i < districtCount; i++)
+            {
+                string districtID = ds.Tables[tableName].Rows[i]["district_ID"].ToString();
+                count_ID[i, 1] = (int)ds.Tables[tableName].Rows[i]["district_ID"];
+                query = String.Format(Queries.buy_supCount, districtID);
+                DataSet dis_cusCountDs = DbCommand.getDataSet(query, tableName);
+                count_ID[i, 0] = Int32.Parse(dis_cusCountDs.Tables[tableName].Rows[0]["count(*)"].ToString());
+            }
+            r = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                int max = -1;
+                int id = -1;
+                for (int j = 0; j < districtCount; j++)
+                {
+
+                    if (count_ID[j, 0] > max)
+                    {
+                        max = count_ID[j, 0];
+                        id = count_ID[j, 1];
+                        r = j;
+
+                    }
+
+                }
+                count_ID2[i, 0] = max;
+                count_ID2[i, 1] = id;
+                count_ID[r, 0] = -2;
+
+            }
+            query = String.Format(Queries.districName, count_ID2[0, 1].ToString());
+            ds = DbCommand.getDataSet(query, tableName);
+            metroLabel21.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
+            metroProgressBar16.Value = (100 * count_ID2[0, 0]) / suppliersCount;
+
+            query = String.Format(Queries.districName, count_ID2[1, 1].ToString());
+            ds = DbCommand.getDataSet(query, tableName);
+            metroLabel22.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
+            metroProgressBar17.Value = (100 * count_ID2[1, 0]) / suppliersCount;
+
+            query = String.Format(Queries.districName, count_ID2[2, 1].ToString());
+            ds = DbCommand.getDataSet(query, tableName);
+            metroLabel23.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
+            metroProgressBar18.Value = (100 * count_ID2[2, 0]) / suppliersCount;
+        }
+
+        private void accountingTile_Click(object sender, EventArgs e)
+        {
+            tableLayoutPanel4.Visible = false;
+            customersTable.Visible = false;
+            suppliersTable.Visible = false;
+            accountingTable.Visible = true;
+            accountingTable.Dock = DockStyle.Fill;
+
+            string tableName = "Buy";
+            string query;
+            DataSet ds;
+
+            ds = DbCommand.getDataSet(Queries.last5Incomes, tableName);
+            incomesOverviewGrid.DataSource = ds.Tables[tableName];
+
+            ds = DbCommand.getDataSet(Queries.last5Expenses, tableName);
+            expensesOverviewGrid.DataSource = ds.Tables[tableName];
+
+
+
+
+        }
     }
 }
