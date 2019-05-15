@@ -1,6 +1,6 @@
 ﻿namespace VTYS_Mobilay_Magazasi
 {
-    partial class add_activity
+    partial class add_activity_entry
     {
         /// <summary>
         /// Required designer variable.

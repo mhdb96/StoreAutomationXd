@@ -11,19 +11,19 @@ using System.Windows.Forms;
 
 namespace VTYS_Mobilay_Magazasi
 {
-    public partial class add_activity : MetroForm
+    public partial class add_activity_entry : MetroForm
     {
         VTYS_Mobilay_Magazasi.Activity myAct = new Activity();
         string type;
         bool update = false;
 
-        public add_activity(string t)
+        public add_activity_entry(string t)
         {
             InitializeComponent();
             type = t;
         }
 
-        public add_activity(string t, Activity ac)
+        public add_activity_entry(string t, Activity ac)
         {
             InitializeComponent();
             type = t;
