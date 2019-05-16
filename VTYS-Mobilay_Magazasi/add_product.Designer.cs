@@ -41,9 +41,9 @@
             this.name = new MetroFramework.Controls.MetroTextBox();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.metroButton4 = new MetroFramework.Controls.MetroButton();
-            this.ID = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.ID = new MetroFramework.Controls.MetroTextBox();
+            this.metroButton4 = new MetroFramework.Controls.MetroButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -205,6 +205,7 @@
             this.stock.UseSelectable = true;
             this.stock.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.stock.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.stock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.stock_KeyPress);
             // 
             // name
             // 
@@ -266,15 +267,14 @@
             this.panel1.TabIndex = 11;
             this.panel1.Visible = false;
             // 
-            // metroButton4
+            // metroLabel6
             // 
-            this.metroButton4.Location = new System.Drawing.Point(346, 67);
-            this.metroButton4.Name = "metroButton4";
-            this.metroButton4.Size = new System.Drawing.Size(75, 23);
-            this.metroButton4.TabIndex = 12;
-            this.metroButton4.Text = "Apply";
-            this.metroButton4.UseSelectable = true;
-            this.metroButton4.Click += new System.EventHandler(this.metroButton4_Click);
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.Location = new System.Drawing.Point(17, 26);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(22, 20);
+            this.metroLabel6.TabIndex = 12;
+            this.metroLabel6.Text = "ID";
             // 
             // ID
             // 
@@ -307,14 +307,15 @@
             this.ID.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.ID.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // metroLabel6
+            // metroButton4
             // 
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(17, 26);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(22, 20);
-            this.metroLabel6.TabIndex = 12;
-            this.metroLabel6.Text = "ID";
+            this.metroButton4.Location = new System.Drawing.Point(346, 67);
+            this.metroButton4.Name = "metroButton4";
+            this.metroButton4.Size = new System.Drawing.Size(75, 23);
+            this.metroButton4.TabIndex = 12;
+            this.metroButton4.Text = "Apply";
+            this.metroButton4.UseSelectable = true;
+            this.metroButton4.Click += new System.EventHandler(this.metroButton4_Click);
             // 
             // add_product
             // 

@@ -40,7 +40,6 @@
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.cancel = new MetroFramework.Controls.MetroButton();
             this.addOrderBtn = new MetroFramework.Controls.MetroButton();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
@@ -49,7 +48,7 @@
             // 
             this.cusList.FormattingEnabled = true;
             this.cusList.ItemHeight = 24;
-            this.cusList.Location = new System.Drawing.Point(143, 91);
+            this.cusList.Location = new System.Drawing.Point(162, 96);
             this.cusList.Name = "cusList";
             this.cusList.Size = new System.Drawing.Size(202, 30);
             this.cusList.Style = MetroFramework.MetroColorStyle.Orange;
@@ -61,7 +60,7 @@
             // 
             this.proList.FormattingEnabled = true;
             this.proList.ItemHeight = 24;
-            this.proList.Location = new System.Drawing.Point(143, 128);
+            this.proList.Location = new System.Drawing.Point(162, 143);
             this.proList.Name = "proList";
             this.proList.Size = new System.Drawing.Size(202, 30);
             this.proList.Style = MetroFramework.MetroColorStyle.Orange;
@@ -71,20 +70,20 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(10, 138);
+            this.metroLabel1.Location = new System.Drawing.Point(10, 148);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(117, 20);
+            this.metroLabel1.Size = new System.Drawing.Size(119, 20);
             this.metroLabel1.TabIndex = 2;
-            this.metroLabel1.Text = "choose a product";
+            this.metroLabel1.Text = "Choose a product";
             // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.Location = new System.Drawing.Point(10, 101);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(127, 20);
+            this.metroLabel2.Size = new System.Drawing.Size(129, 20);
             this.metroLabel2.TabIndex = 3;
-            this.metroLabel2.Text = "choose a customer";
+            this.metroLabel2.Text = "Choose a customer";
             // 
             // ID
             // 
@@ -230,17 +229,6 @@
             this.addOrderBtn.UseSelectable = true;
             this.addOrderBtn.Click += new System.EventHandler(this.addOrderBtn_Click);
             // 
-            // metroButton1
-            // 
-            this.metroButton1.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.metroButton1.Location = new System.Drawing.Point(448, 91);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(123, 30);
-            this.metroButton1.Style = MetroFramework.MetroColorStyle.Green;
-            this.metroButton1.TabIndex = 25;
-            this.metroButton1.Text = "Add a customer";
-            this.metroButton1.UseSelectable = true;
-            // 
             // metroDateTime1
             // 
             this.metroDateTime1.Location = new System.Drawing.Point(143, 397);
@@ -254,9 +242,9 @@
             this.metroLabel6.AutoSize = true;
             this.metroLabel6.Location = new System.Drawing.Point(10, 410);
             this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(36, 20);
+            this.metroLabel6.Size = new System.Drawing.Size(38, 20);
             this.metroLabel6.TabIndex = 28;
-            this.metroLabel6.Text = "date";
+            this.metroLabel6.Text = "Date";
             // 
             // add_orders
             // 
@@ -265,7 +253,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.metroLabel6);
             this.Controls.Add(this.metroDateTime1);
-            this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.addOrderBtn);
             this.Controls.Add(this.metroLabel5);
@@ -301,7 +288,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroButton cancel;
         private MetroFramework.Controls.MetroButton addOrderBtn;
-        private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroDateTime metroDateTime1;
         private MetroFramework.Controls.MetroLabel metroLabel6;
     }

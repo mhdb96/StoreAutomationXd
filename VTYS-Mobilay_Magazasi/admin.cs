@@ -205,22 +205,6 @@ namespace VTYS_Mobilay_Magazasi
             departmentPanel.Visible = panels[6];
             activityPanel.Visible = panels[7];
 
-            MetroPanel[] pa = new MetroPanel[8];
-            pa[0]= attributePanel;
-            pa[1] = attributesetPanel;
-            pa[2] = attributevaluePanel;
-            pa[3] = provincePanel;
-            pa[4] = districtPanel;
-            pa[5] = employeePanel;
-            pa[6] = departmentPanel;
-            pa[7] = activityPanel;
-
-            foreach (MetroPanel myp in pa)
-            {
-                myp.Size = new Size(967, 592);
-                myp.Location = new Point(275, 6);
-                myp.BackColor = Color.White;
-            }
 
         }
 
@@ -280,12 +264,20 @@ namespace VTYS_Mobilay_Magazasi
 
         private void metroButton5_Click(object sender, EventArgs e)
         {
-            attributeValue.id = metroGrid4.Rows[metroGrid4.SelectedRows[0].Index].Cells[0].Value.ToString();
-            attributeValue.name = metroGrid4.Rows[metroGrid4.SelectedRows[0].Index].Cells[1].Value.ToString();
-            attributeValue.attribute = attributeValueGrid.Rows[attributeValueGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
+            if(metroGrid4.Rows.Count != 0)
+            {
+                attributeValue.id = metroGrid4.Rows[metroGrid4.SelectedRows[0].Index].Cells[0].Value.ToString();
+                attributeValue.name = metroGrid4.Rows[metroGrid4.SelectedRows[0].Index].Cells[1].Value.ToString();
+                attributeValue.attribute = attributeValueGrid.Rows[attributeValueGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
 
-            add_attributeValue update = new add_attributeValue(true);
-            update.ShowDialog();
+                add_attributeValue update = new add_attributeValue(true);
+                update.ShowDialog();
+            }
+            else
+            {
+                MetroMessageBox.Show(this, "You need no add a value first", "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
         }
 
         private void attributeValueGrid_MouseClick(object sender, MouseEventArgs e)
@@ -405,12 +397,24 @@ namespace VTYS_Mobilay_Magazasi
 
         private void metroButton15_Click(object sender, EventArgs e)
         {
-            district.id = metroGrid6.Rows[metroGrid6.SelectedRows[0].Index].Cells[0].Value.ToString();
-            district.name = metroGrid6.Rows[metroGrid6.SelectedRows[0].Index].Cells[1].Value.ToString();
-            district.province = districtGrid.Rows[districtGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
+            if(metroGrid6.Rows.Count != 0)
+            {
+                district.id = metroGrid6.Rows[metroGrid6.SelectedRows[0].Index].Cells[0].Value.ToString();
+                district.name = metroGrid6.Rows[metroGrid6.SelectedRows[0].Index].Cells[1].Value.ToString();
+                district.province = districtGrid.Rows[districtGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
 
-            add_district update = new add_district(true);
-            update.ShowDialog();
+                add_district update = new add_district(true);
+                update.ShowDialog();
+            }
+            else if(metroGrid6 != null)
+            {
+                MetroMessageBox.Show(this, "You need no select a district first", "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                MetroMessageBox.Show(this, "You need no add a district first", "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
         }
 
         private void metroButton14_Click(object sender, EventArgs e)
@@ -661,6 +665,23 @@ namespace VTYS_Mobilay_Magazasi
 
         private void attributevaluePanel_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void districtGrid_SelectionChanged(object sender, EventArgs e)
+        {
+            /*if(districtGrid.Rows.Count != 0)
+            {
+                string tableName = "district";
+
+                string dis_ID = districtGrid.Rows[districtGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+
+                string query = String.Format(Queries.districtId, dis_ID);
+                DataSet ds = DbCommand.getDataSet(query, tableName);
+
+                if (ds != null)
+                    metroGrid6.DataSource = ds.Tables[tableName];
+            }*/
 
         }
     }

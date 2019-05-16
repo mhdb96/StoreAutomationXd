@@ -99,7 +99,7 @@ namespace VTYS_Mobilay_Magazasi
             else
             {
                 addOrderBtn.Text = "Update";
-                metroButton1.Visible = false;
+
                 metroLabel1.Text = "product";
                 cusList.Enabled = false;
                 cusList.PromptText = myOrdr.cusName;

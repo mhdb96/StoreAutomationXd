@@ -166,7 +166,17 @@ namespace VTYS_Mobilay_Magazasi
                 //
                 if (idDs == null)
                     MessageBox.Show("");
-                ID.Text = ((int)(idDs.Tables[id].Rows[0]["max(product_ID)"]) + 1).ToString();
+
+                try
+                {
+                    ID.Text = ((int)(idDs.Tables[id].Rows[0]["max(product_ID)"]) + 1).ToString();
+                }
+                catch (Exception ex)
+                {
+                    ID.Text = "1";
+                }
+
+                
                 myPro.id = ID.Text;
 
                 string tableName = "setAttributes";
@@ -301,6 +311,14 @@ namespace VTYS_Mobilay_Magazasi
         private void price_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void stock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }

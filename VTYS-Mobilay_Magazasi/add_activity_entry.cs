@@ -1,4 +1,5 @@
-﻿using MetroFramework.Forms;
+﻿using MetroFramework;
+using MetroFramework.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -139,24 +140,34 @@ namespace VTYS_Mobilay_Magazasi
         {
             if(!update)
             {
-                string tableName = type;
-                string query = "";
-                myAct.ID = ID.Text;
-                myAct.desc = desc.Text;
-                myAct.ammount = ammount.Text;
-                myAct.activityID = activityList.SelectedValue.ToString();
-
-                if (type == Activity.type[0])
+                if(activityList.SelectedItem != null)
                 {
-                    myAct.activityTypeID = "1";
-                    query = String.Format(Queries.insIncome, myAct.ID, myAct.desc, myAct.ammount, myAct.activityID, myAct.activityTypeID);
+                    string tableName = type;
+                    string query = "";
+                    myAct.ID = ID.Text;
+                    myAct.desc = desc.Text;
+                    myAct.ammount = ammount.Text;
+                    myAct.activityID = activityList.SelectedValue.ToString();
+
+                    if (type == Activity.type[0])
+                    {
+                        myAct.activityTypeID = "1";
+                        query = String.Format(Queries.insIncome, myAct.ID, myAct.desc, myAct.ammount, myAct.activityID, myAct.activityTypeID);
+                    }
+                    else
+                    {
+                        myAct.activityTypeID = "2";
+                        query = String.Format(Queries.insExpense, myAct.ID, myAct.desc, myAct.ammount, myAct.activityID, myAct.activityTypeID);
+                    }
+                    DbCommand.insertIntoDb(query);
+                    this.Close();
+
                 }
                 else
                 {
-                    myAct.activityTypeID = "2";
-                    query = String.Format(Queries.insExpense, myAct.ID, myAct.desc, myAct.ammount, myAct.activityID, myAct.activityTypeID);
+                    MetroMessageBox.Show(this, "You must choose an activity before trying to add it", "Add Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                DbCommand.insertIntoDb(query);
+                
             }
             else
             {
@@ -165,7 +176,7 @@ namespace VTYS_Mobilay_Magazasi
 
             
 
-            this.Close();
+            
         }
 
         private void cancel_Click(object sender, EventArgs e)
