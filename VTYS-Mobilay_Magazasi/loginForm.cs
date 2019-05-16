@@ -45,5 +45,10 @@ namespace VTYS_Mobilay_Magazasi
         {
             Application.Exit();
         }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

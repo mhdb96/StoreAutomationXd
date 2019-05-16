@@ -30,6 +30,7 @@
         {
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // metroTextBox1
@@ -72,13 +73,27 @@
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
+            // metroButton2
+            // 
+            this.metroButton2.Location = new System.Drawing.Point(75, 206);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(75, 50);
+            this.metroButton2.TabIndex = 2;
+            this.metroButton2.Text = "CLOSE";
+            this.metroButton2.UseSelectable = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
+            // 
             // loginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(250, 300);
+            this.ControlBox = false;
+            this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroTextBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "loginForm";
             this.Text = "loginForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.loginForm_FormClosed);
@@ -90,5 +105,6 @@
 
         private MetroFramework.Controls.MetroTextBox metroTextBox1;
         private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroButton metroButton2;
     }
 }
