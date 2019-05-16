@@ -52,7 +52,7 @@ namespace VTYS_Mobilay_Magazasi
             panelControl(1);
             string tableName = "attributeSet";
 
-            metroGrid2.DataSource = null;
+            attributeSetAttributesGrid.DataSource = null;
 
             string query = Queries.attributeSet2;
             DataSet ds = DbCommand.getDataSet(query, tableName);
@@ -604,6 +604,23 @@ namespace VTYS_Mobilay_Magazasi
         private void admin_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void attributesetGrid_SelectionChanged(object sender, EventArgs e)
+        {
+            if (attributesetGrid.SelectedRows.Count != 0)
+            {
+                string tableName = "attributeSetAttributes";
+
+
+                string set_ID = attributesetGrid.Rows[attributesetGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+                string query = String.Format(Queries.attributeSetAttributes, set_ID);
+                DataSet ds = DbCommand.getDataSet(query, tableName);
+                //
+                //Gelen veriler metroGrid2'ye aktardı
+                if (ds != null)
+                    attributeSetAttributesGrid.DataSource = ds.Tables[tableName];
+            }
         }
     }
 }

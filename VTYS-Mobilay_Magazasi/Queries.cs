@@ -140,7 +140,7 @@ namespace VTYS_Mobilay_Magazasi
         readonly public static string delSuplier = "DELETE FROM supplier WHERE (supplier_ID = {0});";
 
         //=================================================
-        //================== Suppliers ====================
+        //================== Orders =======================
         //=================================================
         readonly public static string incomes = "SELECT i.incomes_ID as 'ID', i.inc_description as 'Description', i.inc_amount as 'Amount', a.act_name as 'Activity Type' FROM incomes i join activity a on i.activity_activity_ID = a.activity_ID;";
         readonly public static string incomesType = "SELECT i.incomes_ID as 'ID', i.inc_description as 'Description', i.inc_amount as 'Amount', a.act_name as 'Activity Type' FROM incomes i join activity a on i.activity_activity_ID = a.activity_ID where i.activity_activity_ID = {0};";
@@ -180,6 +180,11 @@ namespace VTYS_Mobilay_Magazasi
         readonly public static string upAttributeset = "UPDATE attributeset SET set_name = '{0}' WHERE (attributeSet_ID = '{1}');";
         readonly public static string attributeSetLike = "SELECT attributeSet_ID as \"ID\", set_name as \"Name\" FROM mydb.attributeset WHERE set_name LIKE '%{0}%' order by ID;";
         readonly public static string delAttributeSet = "DELETE FROM attributeset WHERE (attributeSet_ID = {0});";
+
+        readonly public static string insAttributeSetAttribute = "INSERT INTO attributeset_attribute (attributeSet_attributeSet_ID, attribute_attribute_ID) VALUES({0}, {1});";
+        readonly public static string delAttributeSetAttributes ="DELETE FROM attributeset_attribute WHERE attributeSet_attributeSet_ID = {0};";
+        readonly public static string attributeSetAttributes =  "SELECT att_name as 'Attributes' FROM attributeset_attribute atsa join attribute a on atsa.attribute_attribute_ID = a.attribute_ID where attributeSet_attributeSet_ID = {0};";
+        readonly public static string attributeSetAttributesForUpdate = "SELECT a.attribute_ID as 'ID',a.att_name as 'Name' FROM attributeset_attribute atsa join attribute a on atsa.attribute_attribute_ID = a.attribute_ID where attributeSet_attributeSet_ID = {0};";
 
         //=============================================================
         //======================= ATTRIBUTE VAlUES ====================
@@ -246,6 +251,14 @@ namespace VTYS_Mobilay_Magazasi
         //readonly public static string ttributeValueLike = "SELECT attribute_ID as \"ID\", att_name as \"Name\" FROM mydb.attribute WHERE att_name LIKE '%{0}%' order by ID;";
 
 
+        //=============================================================
+        //======================= Automation ==========================
+        //=============================================================
+        readonly public static string upStockBuy = "UPDATE product SET pro_stock = pro_stock + {0} WHERE product_id = {1};";
+        readonly public static string upStockSell = "UPDATE product SET pro_stock = pro_stock - {0} WHERE product_id = {1};";
+
+        readonly public static string insIncomeSell = "INSERT INTO incomes(inc_description, inc_amount, activity_activity_ID, activityType_activityType_ID) VALUES('{0}', {1} , {2}, {3});";
+        readonly public static string insExpenseBuy = "INSERT INTO expenses(exp_description, exp_amount, activity_activity_ID, activityType_activityType_ID) VALUES('{0}', {1} , {2}, {3});";
 
 
 

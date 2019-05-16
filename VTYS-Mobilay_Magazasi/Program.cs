@@ -16,8 +16,9 @@ namespace VTYS_Mobilay_Magazasi
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new loginForm());
+            //Application.Run(new loginForm());
             //Application.Run(new admin());
+            Application.Run(new data_entry());
         }
     }
 }

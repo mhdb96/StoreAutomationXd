@@ -145,31 +145,64 @@ namespace VTYS_Mobilay_Magazasi
                 myOrdr.id = ID.Text;
                 myOrdr.cusID = cusList.SelectedValue.ToString();
                 myOrdr.proID = proList.SelectedValue.ToString();
+                myOrdr.proName = proList.PromptText;
                 myOrdr.price = Price.Text;
                 myOrdr.qty = Qty.Text;
                 myOrdr.date = metroDateTime1.Value.ToString("yyyy-MM-dd  HH:mm:ss");
                 string tableName = type;
                 string query = "";
                 if (type == "buy")
+                {
                     query = String.Format(Queries.insBuy, myOrdr.id, myOrdr.proID, myOrdr.cusID, myOrdr.price, myOrdr.date, myOrdr.qty);
+                    DbCommand.insertIntoDb(query);
+                    query = String.Format(Queries.upStockBuy, myOrdr.qty, myOrdr.proID);
+                    DbCommand.insertIntoDb(query);
+                    query = String.Format(Queries.insExpenseBuy, myOrdr.proName, (float.Parse(myOrdr.price) * Int32.Parse(myOrdr.qty)).ToString(), "1","1");
+                    DbCommand.insertIntoDb(query);
+
+                }
+                    
                 else
+                {
                     query = String.Format(Queries.insSell, myOrdr.id, myOrdr.cusID, myOrdr.proID, myOrdr.price, myOrdr.date, myOrdr.qty);
-                DbCommand.insertIntoDb(query);
+                    DbCommand.insertIntoDb(query);
+                    query = String.Format(Queries.upStockSell, myOrdr.qty, myOrdr.proID);
+                    DbCommand.insertIntoDb(query);
+                    query = String.Format(Queries.insIncomeSell, myOrdr.proName, (float.Parse(myOrdr.price) * Int32.Parse(myOrdr.qty)).ToString(), "2", "2");
+                    DbCommand.insertIntoDb(query);
+                }
+                    
+                
             }
             else
             {
+                int stock = Int32.Parse(Qty.Text) - Int32.Parse(myOrdr.qty);
                 myOrdr.type = type;
                 myOrdr.price = Price.Text;
                 myOrdr.qty = Qty.Text;
                 myOrdr.date = metroDateTime1.Value.ToString("yyyy-MM-dd  HH:mm:ss");
+                
 
                 string tableName = type;
                 string query = "";
                 if (type == "buy")
-                    query = String.Format(Queries.upBuy, myOrdr.price, myOrdr.date, myOrdr.qty,myOrdr.id);
+                {
+                    query = String.Format(Queries.upBuy, myOrdr.price, myOrdr.date, myOrdr.qty, myOrdr.id);
+                    DbCommand.insertIntoDb(query);
+                    query = String.Format(Queries.upStockBuy, stock.ToString(),myOrdr.proID);
+                    DbCommand.insertIntoDb(query);
+
+                }
+                    
                 else
-                    query = String.Format(Queries.upSell,myOrdr.price, myOrdr.date, myOrdr.qty, myOrdr.id);
-                DbCommand.insertIntoDb(query);
+{
+                    query = String.Format(Queries.upSell, myOrdr.price, myOrdr.date, myOrdr.qty, myOrdr.id);
+                    DbCommand.insertIntoDb(query);
+                    query = String.Format(Queries.upStockSell, stock.ToString(), myOrdr.proID);
+                    DbCommand.insertIntoDb(query);
+                }
+                    
+                
             }
 
             
