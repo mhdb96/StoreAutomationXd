@@ -275,7 +275,7 @@ namespace VTYS_Mobilay_Magazasi
             }
             else
             {
-                MetroMessageBox.Show(this, "You need no add a value first", "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MetroMessageBox.Show(this, "You need to add a value first", "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             
         }
@@ -408,11 +408,11 @@ namespace VTYS_Mobilay_Magazasi
             }
             else if(metroGrid6 != null)
             {
-                MetroMessageBox.Show(this, "You need no select a district first", "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MetroMessageBox.Show(this, "You need to select a district first", "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                MetroMessageBox.Show(this, "You need no add a district first", "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MetroMessageBox.Show(this, "You need to add a district first", "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             
         }
