@@ -81,6 +81,7 @@
             this.Controls.Add(this.metroTextBox1);
             this.Name = "loginForm";
             this.Text = "loginForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.loginForm_FormClosed);
             this.ResumeLayout(false);
 
         }

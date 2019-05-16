@@ -91,7 +91,7 @@ namespace VTYS_Mobilay_Magazasi
 
                     lbl.Name = "lbl" + (string)attDs.Tables[atttableName].Rows[attributeID[i] - 1]["att_name"];
                     lbl.Text = (string)attDs.Tables[atttableName].Rows[attributeID[i] - 1]["att_name"];
-                    lbl.Location = new Point(471, 209 + (i * 40));
+                    lbl.Location = new Point(471, 100 + (i * 40));
                     lbl.Visible = true;
                     this.Controls.Add(lbl);
                     i++;
@@ -113,7 +113,7 @@ namespace VTYS_Mobilay_Magazasi
                     string name = (string)attDs.Tables[atttableName].Rows[attributeID[i] - 1]["att_name"];
                     list.Name = name;
                     //list.Text = name;
-                    list.Location = new Point(603, 199 + (i * 40));
+                    list.Location = new Point(603, 90 + (i * 40));
                     list.Visible = true;
                     list.DisplayMember = "val_value";
                     list.ValueMember = "attributeValue_ID";
@@ -203,7 +203,7 @@ namespace VTYS_Mobilay_Magazasi
                     string name = "lbl" + (string)attDs.Tables[atttableName].Rows[attributeID[i] - 1]["att_name"];
                     lbl.Name = name;
                     lbl.Text = (string)attDs.Tables[atttableName].Rows[attributeID[i] - 1]["att_name"];
-                    lbl.Location = new Point(471, 209 + (i * 40));
+                    lbl.Location = new Point(471, 100 + (i * 40));
                     lbl.Visible = true;
                     this.Controls.Add(lbl);
                     i++;
@@ -226,7 +226,7 @@ namespace VTYS_Mobilay_Magazasi
                     string name = (string)attDs.Tables[atttableName].Rows[attributeID[i] - 1]["att_name"];
                     list.Name = name;
                     list.Text = name;
-                    list.Location = new Point(603, 199 + (i * 40));
+                    list.Location = new Point(603, 90 + (i * 40));
                     list.Visible = true;
                     list.DisplayMember = "val_value";
                     list.ValueMember = "attributeValue_ID";

@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Timers;
 
 namespace VTYS_Mobilay_Magazasi
 {
@@ -25,9 +25,39 @@ namespace VTYS_Mobilay_Magazasi
 
         public data_entry()
         {
+
             InitializeComponent();
+            accountingTable.Dock = DockStyle.Fill;
+            suppliersTable.Dock = DockStyle.Fill;
+            tableLayoutPanel4.Dock = DockStyle.Fill;
+            customersTable.Dock = DockStyle.Fill;
+            overviewPanel.Dock = DockStyle.Fill;
+            productsPanel.Dock = DockStyle.Fill;
+            ordersPanel.Dock  = DockStyle.Fill; ;
+            costumersPanel.Dock = DockStyle.Fill; 
+            suppliersPanel.Dock = DockStyle.Fill; 
+            accountingPanel.Dock = DockStyle.Fill;
+
+            MetroPanel[] pa = new MetroPanel[6];
+            pa[0] = overviewPanel;
+            pa[1] = productsPanel;
+            pa[2] = ordersPanel;
+            pa[3] = costumersPanel;
+            pa[4] = suppliersPanel;
+            pa[5] = accountingPanel;
+
+            foreach (MetroPanel myp in pa)
+            {
+                
+                myp.BackColor = Color.White;
+
+            }
+            productsOverview();
+
+
         }
-        
+
+
 
         //Form Yüklendiğinde Gerçekleşecek Olaylar
         private void data_entry_Load(object sender, EventArgs e)
@@ -353,7 +383,7 @@ namespace VTYS_Mobilay_Magazasi
         private void metroTile9_Click(object sender, EventArgs e)
         {
             panelControl(2);
-            ordersGrid.Enabled = false;
+            //ordersGrid.Enabled = false;
 
         }
 
@@ -813,21 +843,6 @@ namespace VTYS_Mobilay_Magazasi
             suppliersPanel.Visible = panels[4];
             accountingPanel.Visible = panels[5];
 
-            MetroPanel[] pa = new MetroPanel[6];
-            pa[0] = overviewPanel;
-            pa[1] = productsPanel;
-            pa[2] = ordersPanel;
-            pa[3] = costumersPanel;
-            pa[4] = suppliersPanel;
-            pa[5] = accountingPanel;
-
-            foreach(MetroPanel myp in pa)
-            {
-                myp.Size = new Size(900, 550);
-                myp.Location = new Point(150, 20);
-                myp.BackColor = Color.White;
-
-            }
         }
 
         private void productsPanel_Paint(object sender, PaintEventArgs e)
@@ -854,6 +869,11 @@ namespace VTYS_Mobilay_Magazasi
         }
 
         private void productsTile_Click(object sender, EventArgs e)
+        {
+            productsOverview();
+
+        }
+        private void productsOverview()
         {
             accountingTable.Visible = false;
             suppliersTable.Visible = false;
@@ -931,7 +951,6 @@ namespace VTYS_Mobilay_Magazasi
 
             ds = DbCommand.getDataSet(Queries.reStockPro, tableName);
             reStockProGrid.DataSource = ds.Tables[tableName];
-
 
         }
 
@@ -1228,7 +1247,28 @@ namespace VTYS_Mobilay_Magazasi
 
         private void data_entry_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            loginForm l = new loginForm();
+            l.Show();
+        }
+
+        private void accountingTable_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void metroLabel6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void ordersPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

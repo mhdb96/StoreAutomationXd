@@ -18,6 +18,30 @@ namespace VTYS_Mobilay_Magazasi
         public admin()
         {
             InitializeComponent();
+            attributePanel.Dock = DockStyle.Fill;
+            attributesetPanel.Dock = DockStyle.Fill;
+            attributevaluePanel.Dock = DockStyle.Fill;
+            provincePanel.Dock = DockStyle.Fill;
+            districtPanel.Dock = DockStyle.Fill;
+            employeePanel.Dock = DockStyle.Fill;
+            departmentPanel.Dock = DockStyle.Fill;
+            activityPanel.Dock = DockStyle.Fill;
+
+            MetroPanel[] pa = new MetroPanel[8];
+            pa[0] = attributePanel;
+            pa[1] = attributesetPanel;
+            pa[2] = attributevaluePanel;
+            pa[3] = provincePanel;
+            pa[4] = districtPanel;
+            pa[5] = employeePanel;
+            pa[6] = departmentPanel;
+            pa[7] = activityPanel;
+
+            foreach (MetroPanel myp in pa)
+            {
+                myp.BackColor = Color.White;
+            }
+            adminpanel();
         }
 
         private void admin_Load(object sender, EventArgs e)
@@ -29,21 +53,28 @@ namespace VTYS_Mobilay_Magazasi
         //=============================================================
         private void metroTile7_Click(object sender, EventArgs e)
         {
+            adminpanel();
+
+
+        }
+
+        private void adminpanel()
+        {
             panelControl(0);
 
             string tableName = "attribute";
 
-            metroGrid1.DataSource = null;
+
 
             string query = Queries.attribute2;
             DataSet ds = DbCommand.getDataSet(query, tableName);
 
             if (ds != null)
                 attributeGrid.DataSource = ds.Tables[tableName];
-
-            attributeGrid.Columns[0].Width = 30;
+            //attributeGrid.Columns[0].Width = 30;
 
         }
+
         //=============================================================
         //======================= ATTRIBUTE SET =======================
         //=============================================================
@@ -91,7 +122,7 @@ namespace VTYS_Mobilay_Magazasi
 
             string tableName = "province";
 
-            metroGrid3.DataSource = null;
+           
 
             string query = Queries.province;
             DataSet ds = DbCommand.getDataSet(query, tableName);
@@ -127,7 +158,7 @@ namespace VTYS_Mobilay_Magazasi
             panelControl(5);
 
             string tableName = "employee";
-            metroGrid7.DataSource = null;
+
 
             string query = Queries.employee2;
             DataSet ds = DbCommand.getDataSet(query, tableName);
@@ -147,7 +178,6 @@ namespace VTYS_Mobilay_Magazasi
 
             string tableName = "department";
 
-            metroGrid5.DataSource = null;
 
             string query = Queries.department;
             DataSet ds = DbCommand.getDataSet(query, tableName);
@@ -603,7 +633,8 @@ namespace VTYS_Mobilay_Magazasi
 
         private void admin_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            loginForm l = new loginForm();
+            l.Show();
         }
 
         private void attributesetGrid_SelectionChanged(object sender, EventArgs e)
@@ -621,6 +652,16 @@ namespace VTYS_Mobilay_Magazasi
                 if (ds != null)
                     attributeSetAttributesGrid.DataSource = ds.Tables[tableName];
             }
+        }
+
+        private void activityPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void attributevaluePanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

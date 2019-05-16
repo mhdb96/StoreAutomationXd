@@ -55,7 +55,7 @@
             this.provinceList.Name = "provinceList";
             this.provinceList.PromptText = "Choose from the list";
             this.provinceList.Size = new System.Drawing.Size(179, 30);
-            this.provinceList.Style = MetroFramework.MetroColorStyle.Pink;
+            this.provinceList.Style = MetroFramework.MetroColorStyle.Magenta;
             this.provinceList.TabIndex = 27;
             this.provinceList.UseSelectable = true;
             // 
@@ -126,7 +126,7 @@
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
             this.Name = "add_district";
-            this.Style = MetroFramework.MetroColorStyle.Pink;
+            this.Style = MetroFramework.MetroColorStyle.Magenta;
             this.Text = "Add a District";
             this.Load += new System.EventHandler(this.add_district_Load);
             this.ResumeLayout(false);

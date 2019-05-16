@@ -40,5 +40,10 @@ namespace VTYS_Mobilay_Magazasi
                 MetroMessageBox.Show(loginForm.ActiveForm, "Password Incorrect!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void loginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
