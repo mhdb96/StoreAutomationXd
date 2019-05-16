@@ -61,7 +61,17 @@ namespace VTYS_Mobilay_Magazasi
 
                 string query = String.Format(Queries.newID, "employee_ID", "employee");
                 ds = DbCommand.getDataSet(query, tableName);
-                ID.Text = ((int)(ds.Tables[tableName].Rows[0]["max(employee_ID)"]) + 1).ToString();
+
+                try
+                {
+                    ID.Text = ((int)(ds.Tables[tableName].Rows[0]["max(employee_ID)"]) + 1).ToString();
+                }
+                catch (Exception ex)
+                {
+                    ID.Text = "1";
+                }
+
+                
             }
             else
             {
@@ -113,12 +123,12 @@ namespace VTYS_Mobilay_Magazasi
                 ds = DbCommand.getDataSet(query, tableName);
                 if (ds != null)
                 {
-                    districtList.DisplayMember = "dis_ID";
+                    districtList.DisplayMember = "dis_name";
                     districtList.ValueMember = "district_ID";
                     districtList.DataSource = ds.Tables[tableName];
 
                     for (int u = 0; u < districtList.Items.Count; u++)
-                        if (ds.Tables[tableName].Rows[u]["dis_ID"].ToString() == employee.district)
+                        if (ds.Tables[tableName].Rows[u]["dis_name"].ToString() == employee.district)
                             districtList.SelectedIndex = u;
 
                     districtList.PromptText = employee.district;
@@ -141,7 +151,7 @@ namespace VTYS_Mobilay_Magazasi
                 DataSet ds = DbCommand.getDataSet(query, tableName);
                 if (ds != null)
                 {
-                    districtList.DisplayMember = "dis_ID";
+                    districtList.DisplayMember = "dis_name";
                     districtList.ValueMember = "district_ID";
                     districtList.DataSource = ds.Tables[tableName];
                     districtList.SelectedItem = null;

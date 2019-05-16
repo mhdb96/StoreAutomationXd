@@ -101,7 +101,17 @@ namespace VTYS_Mobilay_Magazasi
                 string idName = "id";
                 string idQuery = String.Format(Queries.newID, "attributeSet_ID", "attributeset");
                 DataSet idDs = DbCommand.getDataSet(idQuery, idName);
-                id.Text = ((int)(idDs.Tables[idName].Rows[0]["max(attributeSet_ID)"]) + 1).ToString();
+
+                try
+                {
+                    id.Text = ((int)(idDs.Tables[idName].Rows[0]["max(attributeSet_ID)"]) + 1).ToString();
+                }
+                catch (Exception ex)
+                {
+                    id.Text = "1";
+                }
+
+                
 
                 string tableName ="Attributes";
                 DataSet ds = DbCommand.getDataSet(Queries.attribute2, tableName);

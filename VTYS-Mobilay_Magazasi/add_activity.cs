@@ -45,7 +45,17 @@ namespace VTYS_Mobilay_Magazasi
 
                 string idQuery = String.Format(Queries.newID, "activity_ID", "activity");
                 DataSet idDs = DbCommand.getDataSet(idQuery, idName);
-                id.Text = ((int)(idDs.Tables[idName].Rows[0]["max(activity_ID)"]) + 1).ToString();
+
+                try
+                {
+                    id.Text = ((int)(idDs.Tables[idName].Rows[0]["max(activity_ID)"]) + 1).ToString();
+                }
+                catch(Exception ex)
+                {
+                    id.Text = "1";
+                }
+
+                
 
 
             }

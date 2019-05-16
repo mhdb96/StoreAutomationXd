@@ -50,9 +50,19 @@ namespace VTYS_Mobilay_Magazasi
                 }
 
 
-                string query = String.Format(Queries.newID, "customer_ID", "customer");
+                string query = String.Format(Queries.newID, "supplier_ID", "supplier");
                 ds = DbCommand.getDataSet(query, tableName);
-                ID.Text = ((int)(ds.Tables[tableName].Rows[0]["max(customer_ID)"]) + 1).ToString();
+
+                try
+                {
+                    ID.Text = ((int)(ds.Tables[tableName].Rows[0]["max(supplier_ID)"]) + 1).ToString();
+                }
+                catch (Exception ex)
+                {
+                    ID.Text = "1";
+                }
+
+                
             }
             else
             {
