@@ -103,14 +103,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VTYS-Mobilay_Magazasi.exe" size="1282528">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VTYS-Mobilay_Magazasi.exe" size="1293792">
       <assemblyIdentity name="VTYS-Mobilay_Magazasi" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>sGLxNa1kDPq7vdJQ/5z2Lc+501N7wtvs46k/FRoIUhE=</dsig:DigestValue>
+        <dsig:DigestValue>/61eqFq9Kl1q+ihJHp3THwSWLpqy/1IlXsGG2rtStc8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
