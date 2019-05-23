@@ -8,6 +8,14 @@ LOGIN PANELİ GİRİŞ ŞİFRELERİ
 
 VERİ TABANINI PROJEYE BAĞLAMA
 
-Proje kodu içerisinde bulunan "DatabaseInfo" class'ındaki tanımlanan
-"server", "root", "pass", "database", "port" değişkenlerini
-kendi veritabanı bilgilerinizle değiştiriniz.
+1- Statik Yöntemi:
+Database-Project\VTYS-Mobilay_Magazasi\DatabaseInfo.cs class'ındaki tanımlanan
+"server", "root", "pass", "database", "port" değişkenlerini kendi veritabanı bilgilerinizle değiştiriniz.
+
+2- Dinamik Yöntemi:
+Login ekranında Database Settings tuşuna basarak kendi veritabanı bilgilerinizi giriniz.
+
+---------------------------------------
+Muhammed Bedavi - 161307066
+Onur Kantar - 171307052
+Kartal Yağız Deveci - 171307020
