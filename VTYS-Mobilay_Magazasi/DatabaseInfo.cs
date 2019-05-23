@@ -14,7 +14,7 @@ namespace VTYS_Mobilay_Magazasi
         public static string server = "localhost";
         public static string user = "root";
         public static string pass = "alpha86";
-        public static string database = "mydb";
+        public static string database = "pro";
         public static uint port = 3306;
         //
         static public MySqlConnection getConnection()

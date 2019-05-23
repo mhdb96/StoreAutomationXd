@@ -19,7 +19,7 @@ namespace VTYS_Mobilay_Magazasi
         //=================== Overview ====================
         //=================================================
 
-        readonly public static string productsCount = "SELECT count(*) FROM mydb.product;";
+        readonly public static string productsCount = "SELECT count(*) FROM product;";
         readonly public static string pro_setCount = "SELECT count(*) FROM product where attributeSet_attributeSet_ID ={0};";
         readonly public static string attributeSets = "SELECT * FROM attributeset;";
         readonly public static string attributeSetsCount = "SELECT count(*) FROM attributeset;";

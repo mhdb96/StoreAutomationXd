@@ -50,5 +50,11 @@ namespace VTYS_Mobilay_Magazasi
         {
             this.Close();
         }
+
+        private void metroButton3_Click(object sender, EventArgs e)
+        {
+            db_settings db = new db_settings();
+            db.ShowDialog();
+        }
     }
 }

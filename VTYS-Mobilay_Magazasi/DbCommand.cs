@@ -86,5 +86,21 @@ namespace VTYS_Mobilay_Magazasi
             }
         }
 
+        static public bool tryConncetion()
+        {
+            try
+            {
+                Mycon mycnct = DatabaseInfo.getConnection();
+                mycnct.Open();
+                mycnct.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(data_entry.ActiveForm, ex.Message, "Database Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+        }
+
     }
 }

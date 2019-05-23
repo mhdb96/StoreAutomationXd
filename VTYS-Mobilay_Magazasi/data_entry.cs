@@ -676,7 +676,7 @@ namespace VTYS_Mobilay_Magazasi
 
                 if (ds != null)
                     accountingGrid.DataSource = ds.Tables[tableName];
-                string query = String.Format(Queries.activity, "1");
+                string query = String.Format(Queries.activity, "2");
                 ds = DbCommand.getDataSet(query, tableName);
 
                 if (ds != null)
@@ -695,7 +695,7 @@ namespace VTYS_Mobilay_Magazasi
                 if (ds != null)
                     accountingGrid.DataSource = ds.Tables[tableName];
 
-                string query = String.Format(Queries.activity, "2");
+                string query = String.Format(Queries.activity, "1");
                 ds = DbCommand.getDataSet(query, tableName);
 
                 if (ds != null)

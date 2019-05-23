@@ -155,6 +155,12 @@
       <DependentUpon>data_entry.cs</DependentUpon>
     </Compile>
     <Compile Include="DbCommand.cs" />
+    <Compile Include="db_settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="db_settings.Designer.cs">
+      <DependentUpon>db_settings.cs</DependentUpon>
+    </Compile>
     <Compile Include="department.cs" />
     <Compile Include="district.cs" />
     <Compile Include="employee.cs" />
@@ -215,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="data_entry.resx">
       <DependentUpon>data_entry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="db_settings.resx">
+      <DependentUpon>db_settings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="loginForm.resx">
       <DependentUpon>loginForm.cs</DependentUpon>
