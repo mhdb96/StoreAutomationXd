@@ -16,6 +16,3 @@ Database-Project\VTYS-Mobilay_Magazasi\DatabaseInfo.cs class'ındaki tanımlanan
 Login ekranında Database Settings tuşuna basarak kendi veritabanı bilgilerinizi giriniz.
 
 ---------------------------------------
-Muhammed Bedavi - 161307066
-Onur Kantar - 171307052
-Kartal Yağız Deveci - 171307020
