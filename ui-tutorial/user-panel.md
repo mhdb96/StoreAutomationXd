@@ -32,7 +32,7 @@ Veri tabanındaki en çok ürün alınan tedarikçilerin, tedarikçilerden en so
 
 Şirketin son yapılan gelir ve gider değerlerinin gösterildiği kısımdır.
 
-
+![](../.gitbook/assets/accounting.png)
 
 ## **Products**
 
