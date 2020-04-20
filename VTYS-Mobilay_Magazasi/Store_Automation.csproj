@@ -49,7 +49,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>preview-575d3662-1a58-486b-b90e-27be0a14153a-r12S2.ico</ApplicationIcon>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>AA513BB8CAD2EF76DE63D938F4CF6A07525A35C5</ManifestCertificateThumbprint>
@@ -278,7 +278,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="VTYS-Mobilay_Magazasi_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -287,6 +286,7 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="icon.ico" />
     <Content Include="preview-575d3662-1a58-486b-b90e-27be0a14153a-r12S2.ico" />
   </ItemGroup>
   <ItemGroup>
