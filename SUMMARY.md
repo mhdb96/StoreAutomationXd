@@ -5,6 +5,7 @@
 * [UI Tutorial](ui-tutorial/README.md)
   * [Admin Panel](ui-tutorial/admin-panel.md)
   * [User Panel](ui-tutorial/user-panel.md)
+  * [Common Commands](ui-tutorial/common-commands.md)
 * [How To Deploy](how-to-deploy.md)
 * [ER Diagram](er-diagram.md)
 * [Flow Chart](flow-chart.md)
