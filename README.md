@@ -1,5 +1,7 @@
 # Store Automation System
 
+![](.gitbook/assets/automation.png)
+
 ## Table of Contents
 
 | \# | Title |
