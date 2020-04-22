@@ -1,3 +1,9 @@
+---
+description: >-
+  An automation system to store products’ specifications and track stock through
+  purchase and sale operations for any type of stores.
+---
+
 # Store Automation System
 
 ![](.gitbook/assets/automation.png)
