@@ -22,7 +22,7 @@ The system consists of 2 main login **roles**:
 * **Admin:** which can enter the main categories and their attributes.
 * **User:** which can enter products and customers data, make commercial operation and review the store statistics through the UI.
 
-## Technologies
+### Technologies
 
 * MySQL Server.
 * MetroModernUI for UI design.
