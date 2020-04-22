@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Mycon = MySql.Data.MySqlClient.MySqlConnection;
 using Myad = MySql.Data.MySqlClient.MySqlDataAdapter;
 using Mycom = MySql.Data.MySqlClient.MySqlCommand;
 using System.Data;
 using MetroFramework;
-using MetroFramework.Forms;
 using System.Windows.Forms;
 using VTYS_Mobilay_Magazasi;
 
@@ -48,25 +43,6 @@ namespace DataAccess
                 //
             }
         }
-
-        /*static public DataTable getDataTable(string query, string tableName)
-        {
-            try
-            {
-                DataTable dt = new DataTable();
-                Mycon mycnct = DatabaseInfo.getConnection();
-                Myad myadapter = new Myad();
-                myadapter.SelectCommand = new Mycom(query, mycnct);
-                mycnct.Open();
-                myadapter.Fill(dt);
-                mycnct.Close();
-                return dt;
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-        }*/
 
         static public bool insertIntoDb(string query)
         {
