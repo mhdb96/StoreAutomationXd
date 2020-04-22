@@ -176,10 +176,10 @@
     <Compile Include="Panels\admin.Designer.cs">
       <DependentUpon>admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Attribute.cs" />
-    <Compile Include="Models\attributeSet.cs" />
-    <Compile Include="Models\attributeValue.cs" />
-    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\AttributeModel.cs" />
+    <Compile Include="Models\AttributeSetModel.cs" />
+    <Compile Include="Models\AttributeValueModel.cs" />
+    <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="DataAccess\DatabaseInfo.cs" />
     <Compile Include="Panels\data_entry.cs">
       <SubType>Form</SubType>
@@ -194,22 +194,22 @@
     <Compile Include="LoginWindows\db_settings.Designer.cs">
       <DependentUpon>db_settings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\department.cs" />
-    <Compile Include="Models\district.cs" />
-    <Compile Include="Models\employee.cs" />
+    <Compile Include="Models\DepartmentModel.cs" />
+    <Compile Include="Models\DistrictModel.cs" />
+    <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="LoginWindows\loginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginWindows\loginForm.Designer.cs">
       <DependentUpon>loginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\OrderModel.cs" />
+    <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\province.cs" />
+    <Compile Include="Models\ProvinceModel.cs" />
     <Compile Include="DataAccess\Queries.cs" />
-    <Compile Include="Models\Supplier.cs" />
+    <Compile Include="Models\SupplierModel.cs" />
     <EmbeddedResource Include="CreateForms\add_activity.resx">
       <DependentUpon>add_activity.cs</DependentUpon>
     </EmbeddedResource>

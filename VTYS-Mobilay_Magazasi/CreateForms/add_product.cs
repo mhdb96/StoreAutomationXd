@@ -173,7 +173,7 @@ namespace VTYS_Mobilay_Magazasi
                 {
                     ID.Text = ((int)(idDs.Tables[id].Rows[0]["max(product_ID)"]) + 1).ToString();
                 }
-                catch (Exception ex)
+                catch (Exception )
                 {
                     ID.Text = "1";
                 }

@@ -52,14 +52,10 @@ namespace VTYS_Mobilay_Magazasi
                 {
                     id.Text = ((int)(idDs.Tables[idName].Rows[0]["max(activity_ID)"]) + 1).ToString();
                 }
-                catch(Exception ex)
+                catch(Exception)
                 {
                     id.Text = "1";
                 }
-
-                
-
-
             }
             else
             {
@@ -67,7 +63,6 @@ namespace VTYS_Mobilay_Magazasi
                 id.Enabled = false;
                 name.Text = activity.name;
                 activityValueList.Text = activity.activityType;
-
                 metroButton1.Text = "Update";
             }
         }
