@@ -1,15 +1,7 @@
 ﻿using DataAccess;
 using MetroFramework.Forms;
-using Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace StoreAutomationUI
 {
@@ -33,13 +25,13 @@ namespace StoreAutomationUI
                 string Id = id.Text;
                 string Name = name.Text;
 
-                string query = String.Format(Queries.insAttribute, Id, Name);
+                string query = string.Format(Queries.insAttribute, Id, Name);
                 DbCommand.insertIntoDb(query);
             }
             else
             {
 
-                string query = String.Format(Queries.upAttribute, name.Text, id.Text);
+                string query = string.Format(Queries.upAttribute, name.Text, id.Text);
                 DbCommand.insertIntoDb(query);
             }
             this.Close();
@@ -64,17 +56,17 @@ namespace StoreAutomationUI
             {
                 string idName = "id";
 
-                string idQuery = String.Format(Queries.newID, "attribute_ID", "attribute");
+                string idQuery = string.Format(Queries.newID, "attribute_ID", "attribute");
                 DataSet idDs = DbCommand.getDataSet(idQuery, idName);
                 try
                 {
                     id.Text = ((int)(idDs.Tables[idName].Rows[0]["max(attribute_ID)"]) + 1).ToString();
                 }
-                catch (Exception )
+                catch (Exception)
                 {
                     id.Text = "1";
                 }
-                
+
 
             }
         }

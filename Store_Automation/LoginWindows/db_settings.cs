@@ -2,13 +2,6 @@
 using MetroFramework;
 using MetroFramework.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace StoreAutomationUI
@@ -48,7 +41,7 @@ namespace StoreAutomationUI
             DatabaseInfo.user = metroTextBox4.Text;
             DatabaseInfo.pass = metroTextBox5.Text;
             if (DbCommand.tryConncetion())
-                MetroMessageBox.Show(this, "Conneted Successfully" , "Database Info", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                MetroMessageBox.Show(this, "Conneted Successfully", "Database Info", MessageBoxButtons.OK, MessageBoxIcon.Question);
         }
     }
 }

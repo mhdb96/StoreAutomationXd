@@ -2,14 +2,7 @@
 using MetroFramework.Forms;
 using Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace StoreAutomationUI
 {
@@ -51,24 +44,24 @@ namespace StoreAutomationUI
                 attributeValueList.PromptText = "Choose from the list";
             }
             if (!update)
-            { 
+            {
                 string idName = "id";
 
-                string idQuery = String.Format(Queries.newID, "attributeValue_ID", "attributevalue");
+                string idQuery = string.Format(Queries.newID, "attributeValue_ID", "attributevalue");
                 DataSet idDs = DbCommand.getDataSet(idQuery, idName);
 
                 try
                 {
                     id.Text = ((int)(idDs.Tables[idName].Rows[0]["max(attributeValue_ID)"]) + 1).ToString();
                 }
-                catch (Exception )
+                catch (Exception)
                 {
                     id.Text = "1";
                 }
 
-                
 
-                
+
+
             }
             else
             {
@@ -88,13 +81,13 @@ namespace StoreAutomationUI
             string AttributeId = attributeValueList.SelectedValue.ToString();
             if (!update)
             {
-                string query = String.Format(Queries.insAttributeValue, Id, Name, AttributeId);
+                string query = string.Format(Queries.insAttributeValue, Id, Name, AttributeId);
                 DbCommand.insertIntoDb(query);
             }
             else
             {
-                
-                string query = String.Format(Queries.upAttributeValue, Name, AttributeId, Id);
+
+                string query = string.Format(Queries.upAttributeValue, Name, AttributeId, Id);
                 DbCommand.insertIntoDb(query);
             }
             this.Close();

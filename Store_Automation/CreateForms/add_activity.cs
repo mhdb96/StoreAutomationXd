@@ -2,14 +2,7 @@
 using MetroFramework.Forms;
 using Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace StoreAutomationUI
 {
@@ -45,14 +38,14 @@ namespace StoreAutomationUI
             {
                 string idName = "id";
 
-                string idQuery = String.Format(Queries.newID, "activity_ID", "activity");
+                string idQuery = string.Format(Queries.newID, "activity_ID", "activity");
                 DataSet idDs = DbCommand.getDataSet(idQuery, idName);
 
                 try
                 {
                     id.Text = ((int)(idDs.Tables[idName].Rows[0]["max(activity_ID)"]) + 1).ToString();
                 }
-                catch(Exception)
+                catch (Exception)
                 {
                     id.Text = "1";
                 }
@@ -74,13 +67,13 @@ namespace StoreAutomationUI
             string activityId = activityValueList.SelectedValue.ToString();
             if (!update)
             {
-                string query = String.Format(Queries.insActivityType, Id, Name, activityId);
+                string query = string.Format(Queries.insActivityType, Id, Name, activityId);
                 DbCommand.insertIntoDb(query);
             }
             else
             {
 
-                string query = String.Format(Queries.upActivityType, Name, activityId, Id);
+                string query = string.Format(Queries.upActivityType, Name, activityId, Id);
                 DbCommand.insertIntoDb(query);
             }
             this.Close();

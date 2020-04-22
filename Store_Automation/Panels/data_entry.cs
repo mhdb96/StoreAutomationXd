@@ -95,7 +95,7 @@ namespace StoreAutomationUI
             //SQL kodunu Queries sınıfından çekip string değişkene attı
             //Ardından string değişkenindeki kodu kullanılarak DbCommand sınıfından
             //verileri alıp DataSet değişkenine attı
-            string query = String.Format(Queries.products, "product_ID");
+            string query = string.Format(Queries.products, "product_ID");
             DataSet ds = DbCommand.getDataSet(query, tableName);
             //
             //Gelen veriler productsGrid'e aktardı
@@ -119,7 +119,7 @@ namespace StoreAutomationUI
             //Daha Sonra string değişkenindeki SQL kodu kullanılarak DbCommand sınıfından
             //verileri alıp DataSet değişkenine attı
             string pro_ID = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-            string query = String.Format(Queries.productsAttributes, pro_ID);
+            string query = string.Format(Queries.productsAttributes, pro_ID);
             DataSet ds = DbCommand.getDataSet(query, tableName);
             //
             //Gelen veriler metroGrid2'ye aktardı
@@ -151,7 +151,7 @@ namespace StoreAutomationUI
 
                 string tableName = "attributes";
                 string name = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[5].Value.ToString();
-                string query = String.Format(Queries.set_ID, name);
+                string query = string.Format(Queries.set_ID, name);
                 DataSet ds = DbCommand.getDataSet(query, tableName);
                 if (ds != null)
                     myPro.set_id = ds.Tables[tableName].Rows[0]["attributeset_ID"].ToString();
@@ -161,13 +161,13 @@ namespace StoreAutomationUI
                 for (int i = 0; i < myPro.count; i++)
                 {
                     name = metroGrid2.Rows[i].Cells[0].Value.ToString();
-                    query = String.Format(Queries.att_ID, name);
+                    query = string.Format(Queries.att_ID, name);
                     ds = DbCommand.getDataSet(query, tableName);
                     if (ds != null)
                         myPro.attribute_id[i] = ds.Tables[tableName].Rows[0]["attribute_ID"].ToString();
 
                     name = metroGrid2.Rows[i].Cells[1].Value.ToString();
-                    query = String.Format(Queries.attVal_ID, name);
+                    query = string.Format(Queries.attVal_ID, name);
                     ds = DbCommand.getDataSet(query, tableName);
                     if (ds != null)
                         myPro.att_val_id[i] = ds.Tables[tableName].Rows[0]["attributeValue_ID"].ToString();
@@ -192,9 +192,9 @@ namespace StoreAutomationUI
                 {
                     ProductModel myPro = new ProductModel();
                     myPro.id = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-                    string query = String.Format(Queries.delProductAtt, myPro.id);
+                    string query = string.Format(Queries.delProductAtt, myPro.id);
                     DbCommand.insertIntoDb(query);
-                    query = String.Format(Queries.delProduct, myPro.id);
+                    query = string.Format(Queries.delProduct, myPro.id);
                     DbCommand.insertIntoDb(query);
                     metroTile1_Click(sender, e);
                 }
@@ -281,7 +281,7 @@ namespace StoreAutomationUI
             if (attributeSetList.SelectedItem != null && controlS >= 2)
             {
                 string tableName = "attribute";
-                string query = String.Format(Queries.setAttributedata, attributeSetList.SelectedValue.ToString());
+                string query = string.Format(Queries.setAttributedata, attributeSetList.SelectedValue.ToString());
                 DataSet ds = DbCommand.getDataSet(query, tableName);
                 if (ds != null)
                 {
@@ -294,7 +294,7 @@ namespace StoreAutomationUI
                 attributeList.Visible = true;
                 attributeValuesList.Visible = false;
 
-                query = String.Format(Queries.productsFiltering, attributeSetList.SelectedValue.ToString());
+                query = string.Format(Queries.productsFiltering, attributeSetList.SelectedValue.ToString());
                 ds = DbCommand.getDataSet(query, tableName);
                 productsGrid.DataSource = ds.Tables[tableName]; ;
             }
@@ -307,7 +307,7 @@ namespace StoreAutomationUI
             if (attributeList.SelectedItem != null && controlA >= 2)
             {
                 string tableName = "attribute";
-                string query = String.Format(Queries.attributeValues, attributeList.SelectedValue.ToString());
+                string query = string.Format(Queries.attributeValues, attributeList.SelectedValue.ToString());
                 DataSet ds = DbCommand.getDataSet(query, tableName);
                 if (ds != null)
                 {
@@ -327,11 +327,11 @@ namespace StoreAutomationUI
             if (attributeList.SelectedItem != null && controlV >= 2)
             {
                 string tableName = "Products";
-                string query = String.Format(Queries.attributeValues, attributeList.SelectedValue.ToString());
+                string query = string.Format(Queries.attributeValues, attributeList.SelectedValue.ToString());
                 DataSet ds = DbCommand.getDataSet(query, tableName);
                 if (ds != null)
                 {
-                    query = String.Format(Queries.productsFiltering, attributeSetList.SelectedValue.ToString() + " and pa.attributeValue_attributeValue_ID = " + attributeValuesList.SelectedValue.ToString());
+                    query = string.Format(Queries.productsFiltering, attributeSetList.SelectedValue.ToString() + " and pa.attributeValue_attributeValue_ID = " + attributeValuesList.SelectedValue.ToString());
                     ds = DbCommand.getDataSet(query, tableName);
                     productsGrid.DataSource = ds.Tables[tableName]; ;
                 }
@@ -351,9 +351,9 @@ namespace StoreAutomationUI
             string tableName = "Products";
             string query = "";
             if (logicFilter.SelectedIndex == 3)
-                query = String.Format(Queries.productsBetweenFilter, filter, metroTextBox2.Text, metroTextBox3.Text);
+                query = string.Format(Queries.productsBetweenFilter, filter, metroTextBox2.Text, metroTextBox3.Text);
             else
-                query = String.Format(Queries.productsBasicFilter, filter, logicFilter.SelectedItem.ToString(), metroTextBox2.Text);
+                query = string.Format(Queries.productsBasicFilter, filter, logicFilter.SelectedItem.ToString(), metroTextBox2.Text);
             DataSet ds = DbCommand.getDataSet(query, tableName);
             if (ds != null)
             {
@@ -364,7 +364,7 @@ namespace StoreAutomationUI
         private void metroButton1_Click(object sender, EventArgs e)
         {
             string tableName = "Products";
-            string query = String.Format(Queries.productsSearch, metroTextBox1.Text);
+            string query = string.Format(Queries.productsSearch, metroTextBox1.Text);
             DataSet ds = DbCommand.getDataSet(query, tableName);
             if (ds != null)
             {
@@ -431,7 +431,7 @@ namespace StoreAutomationUI
                     type = "buy"; //buy
                     myOrdr.type = type;
                     string tableName = "BuyData";
-                    string query = String.Format(Queries.buyData, myOrdr.id);
+                    string query = string.Format(Queries.buyData, myOrdr.id);
                     DataSet ds = DbCommand.getDataSet(query, tableName);
                     if (ds != null)
                     {
@@ -445,7 +445,7 @@ namespace StoreAutomationUI
                     type = "sell"; //sell
                     myOrdr.type = type;
                     string tableName = "SellData";
-                    string query = String.Format(Queries.sellData, myOrdr.id);
+                    string query = string.Format(Queries.sellData, myOrdr.id);
                     DataSet ds = DbCommand.getDataSet(query, tableName);
                     if (ds != null)
                     {
@@ -472,14 +472,14 @@ namespace StoreAutomationUI
                     if (orderTypelist.SelectedIndex == 0)
                     {
                         myOrdr.id = ordersGrid.Rows[ordersGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-                        string query = String.Format(Queries.delBuy, myOrdr.id);
+                        string query = string.Format(Queries.delBuy, myOrdr.id);
                         DbCommand.insertIntoDb(query);
                         //metroTile1_Click(sender, e);
                     }
                     else
                     {
                         myOrdr.id = ordersGrid.Rows[ordersGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-                        string query = String.Format(Queries.delSell, myOrdr.id);
+                        string query = string.Format(Queries.delSell, myOrdr.id);
                         DbCommand.insertIntoDb(query);
                         //metroTile1_Click(sender, e);
                     }
@@ -536,7 +536,7 @@ namespace StoreAutomationUI
                 myCstr.provinceName = customersGrid.Rows[customersGrid.SelectedRows[0].Index].Cells[5].Value.ToString();
                 myCstr.districtName = customersGrid.Rows[customersGrid.SelectedRows[0].Index].Cells[6].Value.ToString();
                 string tableName = "CustomerData";
-                string query = String.Format(Queries.customerData, myCstr.id);
+                string query = string.Format(Queries.customerData, myCstr.id);
                 DataSet ds = DbCommand.getDataSet(query, tableName);
                 if (ds != null)
                 {
@@ -561,7 +561,7 @@ namespace StoreAutomationUI
                 {
                     CustomerModel myCstr = new CustomerModel();
                     myCstr.id = customersGrid.Rows[customersGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-                    string query = String.Format(Queries.delCustomer, myCstr.id);
+                    string query = string.Format(Queries.delCustomer, myCstr.id);
                     DbCommand.insertIntoDb(query);
                     metroTile10_Click(sender, e);
                 }
@@ -617,7 +617,7 @@ namespace StoreAutomationUI
                 mySup.districtName = suppliersGrid.Rows[suppliersGrid.SelectedRows[0].Index].Cells[5].Value.ToString();
 
                 string tableName = "SupplierData";
-                string query = String.Format(Queries.supplierData, mySup.id);
+                string query = string.Format(Queries.supplierData, mySup.id);
                 DataSet ds = DbCommand.getDataSet(query, tableName);
                 if (ds != null)
                 {
@@ -641,7 +641,7 @@ namespace StoreAutomationUI
                 {
                     SupplierModel mySup = new SupplierModel();
                     mySup.id = suppliersGrid.Rows[suppliersGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-                    string query = String.Format(Queries.delSuplier, mySup.id);
+                    string query = string.Format(Queries.delSuplier, mySup.id);
                     DbCommand.insertIntoDb(query);
                     metroTile11_Click(sender, e);
                 }
@@ -668,7 +668,7 @@ namespace StoreAutomationUI
 
                 if (ds != null)
                     accountingGrid.DataSource = ds.Tables[tableName];
-                string query = String.Format(Queries.activity, "2");
+                string query = string.Format(Queries.activity, "2");
                 ds = DbCommand.getDataSet(query, tableName);
 
                 if (ds != null)
@@ -687,7 +687,7 @@ namespace StoreAutomationUI
                 if (ds != null)
                     accountingGrid.DataSource = ds.Tables[tableName];
 
-                string query = String.Format(Queries.activity, "1");
+                string query = string.Format(Queries.activity, "1");
                 ds = DbCommand.getDataSet(query, tableName);
 
                 if (ds != null)
@@ -711,7 +711,7 @@ namespace StoreAutomationUI
                 if (activityTypeList.SelectedIndex == 0)//income
                 {
 
-                    query = String.Format(Queries.incomesType, activityList.SelectedValue.ToString());
+                    query = string.Format(Queries.incomesType, activityList.SelectedValue.ToString());
                     ds = DbCommand.getDataSet(query, tableName);
                     if (ds != null)
                         accountingGrid.DataSource = ds.Tables[tableName];
@@ -719,7 +719,7 @@ namespace StoreAutomationUI
                 }
                 else if (activityTypeList.SelectedIndex == 1) //expense
                 {
-                    query = String.Format(Queries.expensesType, activityList.SelectedValue.ToString());
+                    query = string.Format(Queries.expensesType, activityList.SelectedValue.ToString());
                     ds = DbCommand.getDataSet(query, tableName);
                     if (ds != null)
                         accountingGrid.DataSource = ds.Tables[tableName];
@@ -760,7 +760,7 @@ namespace StoreAutomationUI
                 {
                     type = Activity.type[0]; //income 
                     string tableName = "IncomeData";
-                    string query = String.Format(Queries.incomesData, myAct.ID);
+                    string query = string.Format(Queries.incomesData, myAct.ID);
                     DataSet ds = DbCommand.getDataSet(query, tableName);
                     if (ds != null)
                     {
@@ -772,7 +772,7 @@ namespace StoreAutomationUI
                 {
                     type = Activity.type[1]; //expense
                     string tableName = "SellData";
-                    string query = String.Format(Queries.expensesData, myAct.ID);
+                    string query = string.Format(Queries.expensesData, myAct.ID);
                     DataSet ds = DbCommand.getDataSet(query, tableName);
                     if (ds != null)
                     {
@@ -800,7 +800,7 @@ namespace StoreAutomationUI
                     {
                         type = Activity.type[0]; //income
                         myAct.ID = accountingGrid.Rows[accountingGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-                        string query = String.Format(Queries.delIncome, myAct.ID);
+                        string query = string.Format(Queries.delIncome, myAct.ID);
                         DbCommand.insertIntoDb(query);
                         //metroTile1_Click(sender, e);
                     }
@@ -808,7 +808,7 @@ namespace StoreAutomationUI
                     {
                         type = Activity.type[1]; //expense
                         myAct.ID = accountingGrid.Rows[accountingGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-                        string query = String.Format(Queries.delExpense, myAct.ID);
+                        string query = string.Format(Queries.delExpense, myAct.ID);
                         DbCommand.insertIntoDb(query);
                         //metroTile1_Click(sender, e);
                     }
@@ -879,9 +879,9 @@ namespace StoreAutomationUI
 
             DataSet ds = DbCommand.getDataSet(Queries.productsCount, tableName);
 
-            int productsCount = Int32.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
+            int productsCount = int.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
             ds = DbCommand.getDataSet(Queries.attributeSetsCount, tableName);
-            int attributeSetsCount = Int32.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
+            int attributeSetsCount = int.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
             ds = DbCommand.getDataSet(Queries.attributeSets, tableName);
 
             int[,] count_ID = new int[attributeSetsCount, 2];
@@ -890,9 +890,9 @@ namespace StoreAutomationUI
             {
                 string attributeSetID = ds.Tables[tableName].Rows[i]["attributeSet_ID"].ToString();
                 count_ID[i, 1] = (int)ds.Tables[tableName].Rows[i]["attributeSet_ID"];
-                query = String.Format(Queries.pro_setCount, attributeSetID);
+                query = string.Format(Queries.pro_setCount, attributeSetID);
                 DataSet pro_setCountDs = DbCommand.getDataSet(query, tableName);
-                count_ID[i, 0] = Int32.Parse(pro_setCountDs.Tables[tableName].Rows[0]["count(*)"].ToString());
+                count_ID[i, 0] = int.Parse(pro_setCountDs.Tables[tableName].Rows[0]["count(*)"].ToString());
             }
             int r = 0;
             for (int i = 0; i < 4; i++)
@@ -916,23 +916,23 @@ namespace StoreAutomationUI
                 count_ID[r, 0] = -2;
 
             }
-            query = String.Format(Queries.attributeSetName, count_ID2[0, 1].ToString());
+            query = string.Format(Queries.attributeSetName, count_ID2[0, 1].ToString());
             ds = DbCommand.getDataSet(query, tableName);
             metroLabel6.Text = ds.Tables[tableName].Rows[0]["set_name"].ToString();
             metroProgressBar1.Value = (100 * count_ID2[0, 0]) / productsCount;
 
-            query = String.Format(Queries.attributeSetName, count_ID2[1, 1].ToString());
+            query = string.Format(Queries.attributeSetName, count_ID2[1, 1].ToString());
             ds = DbCommand.getDataSet(query, tableName);
             metroLabel7.Text = ds.Tables[tableName].Rows[0]["set_name"].ToString();
             metroProgressBar2.Value = (100 * count_ID2[1, 0]) / productsCount;
 
-            query = String.Format(Queries.attributeSetName, count_ID2[2, 1].ToString());
+            query = string.Format(Queries.attributeSetName, count_ID2[2, 1].ToString());
             ds = DbCommand.getDataSet(query, tableName);
             metroLabel8.Text = ds.Tables[tableName].Rows[0]["set_name"].ToString();
             metroProgressBar3.Value = (100 * count_ID2[2, 0]) / productsCount;
 
             int t = count_ID2[3, 1];
-            query = String.Format(Queries.attributeSetName, count_ID2[3, 1].ToString());
+            query = string.Format(Queries.attributeSetName, count_ID2[3, 1].ToString());
             ds = DbCommand.getDataSet(query, tableName);
             metroLabel9.Text = ds.Tables[tableName].Rows[0]["set_name"].ToString();
             metroProgressBar4.Value = (100 * count_ID2[3, 0]) / productsCount;
@@ -964,9 +964,9 @@ namespace StoreAutomationUI
 
             ds = DbCommand.getDataSet(Queries.sellCount, tableName);
 
-            int sellCount = Int32.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
+            int sellCount = int.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
             ds = DbCommand.getDataSet(Queries.customersCount, tableName);
-            int customersCount = Int32.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
+            int customersCount = int.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
             ds = DbCommand.getDataSet(Queries.customersData, tableName);
 
             int[,] count_ID = new int[customersCount, 2];
@@ -975,9 +975,9 @@ namespace StoreAutomationUI
             {
                 string customerID = ds.Tables[tableName].Rows[i]["customer_ID"].ToString();
                 count_ID[i, 1] = (int)ds.Tables[tableName].Rows[i]["customer_ID"];
-                query = String.Format(Queries.sell_cusCount, customerID);
+                query = string.Format(Queries.sell_cusCount, customerID);
                 DataSet sell_cusCountDs = DbCommand.getDataSet(query, tableName);
-                count_ID[i, 0] = Int32.Parse(sell_cusCountDs.Tables[tableName].Rows[0]["count(*)"].ToString());
+                count_ID[i, 0] = int.Parse(sell_cusCountDs.Tables[tableName].Rows[0]["count(*)"].ToString());
             }
             int r = 0;
             for (int i = 0; i < 4; i++)
@@ -1001,23 +1001,23 @@ namespace StoreAutomationUI
                 count_ID[r, 0] = -2;
 
             }
-            query = String.Format(Queries.customersName, count_ID2[0, 1].ToString());
+            query = string.Format(Queries.customersName, count_ID2[0, 1].ToString());
             ds = DbCommand.getDataSet(query, tableName);
             metroLabel10.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
             metroProgressBar5.Value = (100 * count_ID2[0, 0]) / sellCount;
 
-            query = String.Format(Queries.customersName, count_ID2[1, 1].ToString());
+            query = string.Format(Queries.customersName, count_ID2[1, 1].ToString());
             ds = DbCommand.getDataSet(query, tableName);
             metroLabel11.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
             metroProgressBar6.Value = (100 * count_ID2[1, 0]) / sellCount;
 
-            query = String.Format(Queries.customersName, count_ID2[2, 1].ToString());
+            query = string.Format(Queries.customersName, count_ID2[2, 1].ToString());
             ds = DbCommand.getDataSet(query, tableName);
             metroLabel12.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
             metroProgressBar7.Value = (100 * count_ID2[2, 0]) / sellCount;
 
 
-            query = String.Format(Queries.customersName, count_ID2[3, 1].ToString());
+            query = string.Format(Queries.customersName, count_ID2[3, 1].ToString());
             ds = DbCommand.getDataSet(query, tableName);
             metroLabel13.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
             metroProgressBar8.Value = (100 * count_ID2[3, 0]) / sellCount;
@@ -1025,9 +1025,9 @@ namespace StoreAutomationUI
 
             ds = DbCommand.getDataSet(Queries.districtsCount, tableName);
 
-            int districtCount = Int32.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
+            int districtCount = int.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
             ds = DbCommand.getDataSet(Queries.customersCount, tableName);
-            customersCount = Int32.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
+            customersCount = int.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
             ds = DbCommand.getDataSet(Queries.districtData, tableName);
 
             count_ID = new int[districtCount, 2];
@@ -1036,9 +1036,9 @@ namespace StoreAutomationUI
             {
                 string districtID = ds.Tables[tableName].Rows[i]["district_ID"].ToString();
                 count_ID[i, 1] = (int)ds.Tables[tableName].Rows[i]["district_ID"];
-                query = String.Format(Queries.sell_cusCount, districtID);
+                query = string.Format(Queries.sell_cusCount, districtID);
                 DataSet dis_cusCountDs = DbCommand.getDataSet(query, tableName);
-                count_ID[i, 0] = Int32.Parse(dis_cusCountDs.Tables[tableName].Rows[0]["count(*)"].ToString());
+                count_ID[i, 0] = int.Parse(dis_cusCountDs.Tables[tableName].Rows[0]["count(*)"].ToString());
             }
             r = 0;
             for (int i = 0; i < 3; i++)
@@ -1062,17 +1062,17 @@ namespace StoreAutomationUI
                 count_ID[r, 0] = -2;
 
             }
-            query = String.Format(Queries.districName, count_ID2[0, 1].ToString());
+            query = string.Format(Queries.districName, count_ID2[0, 1].ToString());
             ds = DbCommand.getDataSet(query, tableName);
             metroLabel14.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
             metroProgressBar9.Value = (100 * count_ID2[0, 0]) / customersCount;
 
-            query = String.Format(Queries.districName, count_ID2[1, 1].ToString());
+            query = string.Format(Queries.districName, count_ID2[1, 1].ToString());
             ds = DbCommand.getDataSet(query, tableName);
             metroLabel15.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
             metroProgressBar10.Value = (100 * count_ID2[1, 0]) / customersCount;
 
-            query = String.Format(Queries.districName, count_ID2[2, 1].ToString());
+            query = string.Format(Queries.districName, count_ID2[2, 1].ToString());
             ds = DbCommand.getDataSet(query, tableName);
             metroLabel16.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
             metroProgressBar11.Value = (100 * count_ID2[2, 0]) / customersCount;
@@ -1101,9 +1101,9 @@ namespace StoreAutomationUI
 
             ds = DbCommand.getDataSet(Queries.buyCount, tableName);
 
-            int buyCount = Int32.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
+            int buyCount = int.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
             ds = DbCommand.getDataSet(Queries.suppliersCount, tableName);
-            int suppliersCount = Int32.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
+            int suppliersCount = int.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
             ds = DbCommand.getDataSet(Queries.suppliersData, tableName);
 
             int[,] count_ID = new int[suppliersCount, 2];
@@ -1112,9 +1112,9 @@ namespace StoreAutomationUI
             {
                 string supplierID = ds.Tables[tableName].Rows[i]["supplier_ID"].ToString();
                 count_ID[i, 1] = (int)ds.Tables[tableName].Rows[i]["supplier_ID"];
-                query = String.Format(Queries.buy_supCount, supplierID);
+                query = string.Format(Queries.buy_supCount, supplierID);
                 DataSet buy_supCountDs = DbCommand.getDataSet(query, tableName);
-                count_ID[i, 0] = Int32.Parse(buy_supCountDs.Tables[tableName].Rows[0]["count(*)"].ToString());
+                count_ID[i, 0] = int.Parse(buy_supCountDs.Tables[tableName].Rows[0]["count(*)"].ToString());
             }
             int r = 0;
             for (int i = 0; i < 4; i++)
@@ -1138,23 +1138,23 @@ namespace StoreAutomationUI
                 count_ID[r, 0] = -2;
 
             }
-            query = String.Format(Queries.suppliersName, count_ID2[0, 1].ToString());
+            query = string.Format(Queries.suppliersName, count_ID2[0, 1].ToString());
             ds = DbCommand.getDataSet(query, tableName);
             metroLabel17.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
             metroProgressBar12.Value = (100 * count_ID2[0, 0]) / buyCount;
 
-            query = String.Format(Queries.suppliersName, count_ID2[1, 1].ToString());
+            query = string.Format(Queries.suppliersName, count_ID2[1, 1].ToString());
             ds = DbCommand.getDataSet(query, tableName);
             metroLabel18.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
             metroProgressBar13.Value = (100 * count_ID2[1, 0]) / buyCount;
 
-            query = String.Format(Queries.suppliersName, count_ID2[2, 1].ToString());
+            query = string.Format(Queries.suppliersName, count_ID2[2, 1].ToString());
             ds = DbCommand.getDataSet(query, tableName);
             metroLabel19.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
             metroProgressBar14.Value = (100 * count_ID2[2, 0]) / buyCount;
 
             int t = count_ID2[3, 1];
-            query = String.Format(Queries.suppliersName, count_ID2[3, 1].ToString());
+            query = string.Format(Queries.suppliersName, count_ID2[3, 1].ToString());
             ds = DbCommand.getDataSet(query, tableName);
             metroLabel20.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
             metroProgressBar15.Value = (100 * count_ID2[3, 0]) / buyCount;
@@ -1162,9 +1162,9 @@ namespace StoreAutomationUI
 
             ds = DbCommand.getDataSet(Queries.districtsCount, tableName);
 
-            int districtCount = Int32.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
+            int districtCount = int.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
             ds = DbCommand.getDataSet(Queries.suppliersCount, tableName);
-            suppliersCount = Int32.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
+            suppliersCount = int.Parse(ds.Tables[tableName].Rows[0]["count(*)"].ToString());
             ds = DbCommand.getDataSet(Queries.districtData, tableName);
 
             count_ID = new int[districtCount, 2];
@@ -1173,9 +1173,9 @@ namespace StoreAutomationUI
             {
                 string districtID = ds.Tables[tableName].Rows[i]["district_ID"].ToString();
                 count_ID[i, 1] = (int)ds.Tables[tableName].Rows[i]["district_ID"];
-                query = String.Format(Queries.buy_supCount, districtID);
+                query = string.Format(Queries.buy_supCount, districtID);
                 DataSet dis_cusCountDs = DbCommand.getDataSet(query, tableName);
-                count_ID[i, 0] = Int32.Parse(dis_cusCountDs.Tables[tableName].Rows[0]["count(*)"].ToString());
+                count_ID[i, 0] = int.Parse(dis_cusCountDs.Tables[tableName].Rows[0]["count(*)"].ToString());
             }
             r = 0;
             for (int i = 0; i < 3; i++)
@@ -1199,17 +1199,17 @@ namespace StoreAutomationUI
                 count_ID[r, 0] = -2;
 
             }
-            query = String.Format(Queries.districName, count_ID2[0, 1].ToString());
+            query = string.Format(Queries.districName, count_ID2[0, 1].ToString());
             ds = DbCommand.getDataSet(query, tableName);
             metroLabel21.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
             metroProgressBar16.Value = (100 * count_ID2[0, 0]) / suppliersCount;
 
-            query = String.Format(Queries.districName, count_ID2[1, 1].ToString());
+            query = string.Format(Queries.districName, count_ID2[1, 1].ToString());
             ds = DbCommand.getDataSet(query, tableName);
             metroLabel22.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
             metroProgressBar17.Value = (100 * count_ID2[1, 0]) / suppliersCount;
 
-            query = String.Format(Queries.districName, count_ID2[2, 1].ToString());
+            query = string.Format(Queries.districName, count_ID2[2, 1].ToString());
             ds = DbCommand.getDataSet(query, tableName);
             metroLabel23.Text = ds.Tables[tableName].Rows[0]["name"].ToString();
             metroProgressBar18.Value = (100 * count_ID2[2, 0]) / suppliersCount;

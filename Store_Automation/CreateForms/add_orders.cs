@@ -3,13 +3,7 @@ using MetroFramework;
 using MetroFramework.Forms;
 using Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace StoreAutomationUI
@@ -18,7 +12,7 @@ namespace StoreAutomationUI
     {
         bool update = false;
         OrderModel myOrdr = new OrderModel();
-        string type; 
+        string type;
         public add_orders(string t)
         {
             InitializeComponent();
@@ -26,7 +20,7 @@ namespace StoreAutomationUI
 
         }
 
-        public add_orders(string t,OrderModel order)
+        public add_orders(string t, OrderModel order)
         {
             InitializeComponent();
             type = t;
@@ -54,19 +48,19 @@ namespace StoreAutomationUI
                         cusList.SelectedItem = null;
                         cusList.PromptText = "Choose from the list";
                     }
-                    string query = String.Format(Queries.newID, "Buy_ID", "buy");
+                    string query = string.Format(Queries.newID, "Buy_ID", "buy");
                     ds = DbCommand.getDataSet(query, tableName);
 
                     try
                     {
                         ID.Text = ((int)(ds.Tables[tableName].Rows[0]["max(Buy_ID)"]) + 1).ToString();
                     }
-                    catch (Exception )
+                    catch (Exception)
                     {
                         ID.Text = "1";
                     }
 
-                    
+
                 }
                 else
                 {
@@ -81,7 +75,7 @@ namespace StoreAutomationUI
                         cusList.PromptText = "Choose from the list";
 
                     }
-                    string query = String.Format(Queries.newID, "sell_ID", "sell");
+                    string query = string.Format(Queries.newID, "sell_ID", "sell");
                     ds = DbCommand.getDataSet(query, tableName);
                     ID.Text = ((int)(ds.Tables[tableName].Rows[0]["max(sell_ID)"]) + 1).ToString();
                 }
@@ -96,8 +90,8 @@ namespace StoreAutomationUI
                     proList.SelectedItem = null;
                     proList.PromptText = "Choose from the list";
                 }
-                
-                
+
+
             }
             else
             {
@@ -116,7 +110,7 @@ namespace StoreAutomationUI
                 if (type == "buy")
                 {
                     metroLabel2.Text = "supplier:";
-                    
+
                 }
                 else
                 {
@@ -168,22 +162,22 @@ namespace StoreAutomationUI
                     string query = "";
                     if (type == "buy")
                     {
-                        query = String.Format(Queries.insBuy, myOrdr.id, myOrdr.proID, myOrdr.cusID, myOrdr.price, myOrdr.date, myOrdr.qty);
+                        query = string.Format(Queries.insBuy, myOrdr.id, myOrdr.proID, myOrdr.cusID, myOrdr.price, myOrdr.date, myOrdr.qty);
                         DbCommand.insertIntoDb(query);
-                        query = String.Format(Queries.upStockBuy, myOrdr.qty, myOrdr.proID);
+                        query = string.Format(Queries.upStockBuy, myOrdr.qty, myOrdr.proID);
                         DbCommand.insertIntoDb(query);
-                        query = String.Format(Queries.insExpenseBuy, myOrdr.proName, (float.Parse(myOrdr.price) * Int32.Parse(myOrdr.qty)).ToString(), "1", "1");
+                        query = string.Format(Queries.insExpenseBuy, myOrdr.proName, (float.Parse(myOrdr.price) * int.Parse(myOrdr.qty)).ToString(), "1", "1");
                         DbCommand.insertIntoDb(query);
 
                     }
 
                     else
                     {
-                        query = String.Format(Queries.insSell, myOrdr.id, myOrdr.cusID, myOrdr.proID, myOrdr.price, myOrdr.date, myOrdr.qty);
+                        query = string.Format(Queries.insSell, myOrdr.id, myOrdr.cusID, myOrdr.proID, myOrdr.price, myOrdr.date, myOrdr.qty);
                         DbCommand.insertIntoDb(query);
-                        query = String.Format(Queries.upStockSell, myOrdr.qty, myOrdr.proID);
+                        query = string.Format(Queries.upStockSell, myOrdr.qty, myOrdr.proID);
                         DbCommand.insertIntoDb(query);
-                        query = String.Format(Queries.insIncomeSell, myOrdr.proName, (float.Parse(myOrdr.price) * Int32.Parse(myOrdr.qty)).ToString(), "2", "2");
+                        query = string.Format(Queries.insIncomeSell, myOrdr.proName, (float.Parse(myOrdr.price) * int.Parse(myOrdr.qty)).ToString(), "2", "2");
                         DbCommand.insertIntoDb(query);
                     }
                     this.Close();
@@ -199,43 +193,43 @@ namespace StoreAutomationUI
                         if (proList.SelectedItem == null)
                             MetroMessageBox.Show(this, "You need to add a product first", "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    
+
                 }
- 
+
             }
             else
             {
-                int stock = Int32.Parse(Qty.Text) - Int32.Parse(myOrdr.qty);
+                int stock = int.Parse(Qty.Text) - int.Parse(myOrdr.qty);
                 myOrdr.type = type;
                 myOrdr.price = Price.Text;
                 myOrdr.qty = Qty.Text;
                 myOrdr.date = metroDateTime1.Value.ToString("yyyy-MM-dd  HH:mm:ss");
-                
+
 
                 string tableName = type;
                 string query = "";
                 if (type == "buy")
                 {
-                    query = String.Format(Queries.upBuy, myOrdr.price, myOrdr.date, myOrdr.qty, myOrdr.id);
+                    query = string.Format(Queries.upBuy, myOrdr.price, myOrdr.date, myOrdr.qty, myOrdr.id);
                     DbCommand.insertIntoDb(query);
-                    query = String.Format(Queries.upStockBuy, stock.ToString(),myOrdr.proID);
+                    query = string.Format(Queries.upStockBuy, stock.ToString(), myOrdr.proID);
                     DbCommand.insertIntoDb(query);
 
                 }
-                    
+
                 else
-{
-                    query = String.Format(Queries.upSell, myOrdr.price, myOrdr.date, myOrdr.qty, myOrdr.id);
+                {
+                    query = string.Format(Queries.upSell, myOrdr.price, myOrdr.date, myOrdr.qty, myOrdr.id);
                     DbCommand.insertIntoDb(query);
-                    query = String.Format(Queries.upStockSell, stock.ToString(), myOrdr.proID);
+                    query = string.Format(Queries.upStockSell, stock.ToString(), myOrdr.proID);
                     DbCommand.insertIntoDb(query);
                 }
 
                 this.Close();
             }
 
-            
-            
+
+
         }
 
         private void cancel_Click(object sender, EventArgs e)

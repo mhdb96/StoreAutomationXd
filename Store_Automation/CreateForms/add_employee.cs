@@ -2,13 +2,7 @@
 using MetroFramework.Forms;
 using Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace StoreAutomationUI
@@ -38,9 +32,9 @@ namespace StoreAutomationUI
                 string tableName = "employee";
                 DataSet ds;
                 districtList.Enabled = false;
-                
+
                 ds = DbCommand.getDataSet(Queries.province2, tableName);
-                
+
 
                 if (ds != null)
                 {
@@ -61,19 +55,19 @@ namespace StoreAutomationUI
                     departmentList.PromptText = "Choose from the list";
                 }
 
-                string query = String.Format(Queries.newID, "employee_ID", "employee");
+                string query = string.Format(Queries.newID, "employee_ID", "employee");
                 ds = DbCommand.getDataSet(query, tableName);
 
                 try
                 {
                     ID.Text = ((int)(ds.Tables[tableName].Rows[0]["max(employee_ID)"]) + 1).ToString();
                 }
-                catch (Exception )
+                catch (Exception)
                 {
                     ID.Text = "1";
                 }
 
-                
+
             }
             else
             {
@@ -102,7 +96,7 @@ namespace StoreAutomationUI
                             departmentList.SelectedIndex = u;
 
                     provinceList.PromptText = EmployeeModel.department;
-                    
+
                 }
                 tableName = "Province";
                 ds = DbCommand.getDataSet(Queries.province2, tableName);
@@ -120,8 +114,8 @@ namespace StoreAutomationUI
                     provinceList.PromptText = EmployeeModel.provice;
                 }
                 tableName = "District";
-                string query = String.Format(Queries.districtProvince, provinceList.SelectedValue.ToString());
-                
+                string query = string.Format(Queries.districtProvince, provinceList.SelectedValue.ToString());
+
                 ds = DbCommand.getDataSet(query, tableName);
                 if (ds != null)
                 {
@@ -146,10 +140,10 @@ namespace StoreAutomationUI
         private void provinceList_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (provinceList.SelectedItem != null && controlP >= 2 || update==true)
+            if (provinceList.SelectedItem != null && controlP >= 2 || update == true)
             {
                 string tableName = "District";
-                string query = String.Format(Queries.districtProvince, provinceList.SelectedValue.ToString());
+                string query = string.Format(Queries.districtProvince, provinceList.SelectedValue.ToString());
                 DataSet ds = DbCommand.getDataSet(query, tableName);
                 if (ds != null)
                 {
@@ -179,7 +173,7 @@ namespace StoreAutomationUI
                 EmployeeModel.department = departmentList.SelectedValue.ToString();
                 EmployeeModel.salary = salary.Text;
 
-                string query = String.Format(Queries.insEmployee, EmployeeModel.id, EmployeeModel.name, EmployeeModel.lastName, EmployeeModel.tc, EmployeeModel.tel, EmployeeModel.adress, EmployeeModel.district, EmployeeModel.provice, EmployeeModel.department, EmployeeModel.salary);
+                string query = string.Format(Queries.insEmployee, EmployeeModel.id, EmployeeModel.name, EmployeeModel.lastName, EmployeeModel.tc, EmployeeModel.tel, EmployeeModel.adress, EmployeeModel.district, EmployeeModel.provice, EmployeeModel.department, EmployeeModel.salary);
                 DbCommand.insertIntoDb(query);
 
             }
@@ -196,7 +190,7 @@ namespace StoreAutomationUI
                 EmployeeModel.department = departmentList.SelectedValue.ToString();
                 EmployeeModel.salary = salary.Text;
 
-                string query = String.Format(Queries.upEmployee, EmployeeModel.name, EmployeeModel.lastName, EmployeeModel.tc, EmployeeModel.tel, EmployeeModel.adress, EmployeeModel.district, EmployeeModel.provice, EmployeeModel.department, EmployeeModel.salary, EmployeeModel.id);
+                string query = string.Format(Queries.upEmployee, EmployeeModel.name, EmployeeModel.lastName, EmployeeModel.tc, EmployeeModel.tel, EmployeeModel.adress, EmployeeModel.district, EmployeeModel.provice, EmployeeModel.department, EmployeeModel.salary, EmployeeModel.id);
                 DbCommand.insertIntoDb(query);
 
             }

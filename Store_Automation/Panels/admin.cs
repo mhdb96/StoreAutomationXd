@@ -283,7 +283,7 @@ namespace StoreAutomationUI
 
             string pro_ID = attributeValueGrid.Rows[attributeValueGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
 
-            string query = String.Format(Queries.attributevalueId, pro_ID);
+            string query = string.Format(Queries.attributevalueId, pro_ID);
             DataSet ds = DbCommand.getDataSet(query, tableName);
 
             if (ds != null)
@@ -311,7 +311,7 @@ namespace StoreAutomationUI
 
             string dep_name = metroTextBox5.Text;
 
-            string query = String.Format(Queries.departmentLike, dep_name);
+            string query = string.Format(Queries.departmentLike, dep_name);
             DataSet ds = DbCommand.getDataSet(query, tableName);
 
             if (ds != null)
@@ -325,7 +325,7 @@ namespace StoreAutomationUI
 
             string att_name = metroTextBox4.Text;
             string att_ID = attributeValueGrid.Rows[attributeValueGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-            string query = String.Format(Queries.attributeValueLike2, att_name, att_ID);
+            string query = string.Format(Queries.attributeValueLike2, att_name, att_ID);
             DataSet ds = DbCommand.getDataSet(query, tableName);
 
             if (ds != null)
@@ -338,7 +338,7 @@ namespace StoreAutomationUI
 
             string pro_name = metroTextBox3.Text;
 
-            string query = String.Format(Queries.provinceLike, pro_name);
+            string query = string.Format(Queries.provinceLike, pro_name);
             DataSet ds = DbCommand.getDataSet(query, tableName);
 
             if (ds != null)
@@ -351,7 +351,7 @@ namespace StoreAutomationUI
 
             string att_name = metroTextBox2.Text;
 
-            string query = String.Format(Queries.attributeLike, att_name);
+            string query = string.Format(Queries.attributeLike, att_name);
             DataSet ds = DbCommand.getDataSet(query, tableName);
 
             if (ds != null)
@@ -366,7 +366,7 @@ namespace StoreAutomationUI
 
             string attS_name = metroTextBox1.Text;
 
-            string query = String.Format(Queries.attributeSetLike, attS_name);
+            string query = string.Format(Queries.attributeSetLike, attS_name);
             DataSet ds = DbCommand.getDataSet(query, tableName);
 
             if (ds != null)
@@ -379,7 +379,7 @@ namespace StoreAutomationUI
 
             string dis_ID = districtGrid.Rows[districtGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
 
-            string query = String.Format(Queries.districtId, dis_ID);
+            string query = string.Format(Queries.districtId, dis_ID);
             DataSet ds = DbCommand.getDataSet(query, tableName);
 
             if (ds != null)
@@ -420,7 +420,7 @@ namespace StoreAutomationUI
 
             string dis_name = metroTextBox6.Text;
             string dis_ID = districtGrid.Rows[districtGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-            string query = String.Format(Queries.districtLike, dis_name, dis_ID);
+            string query = string.Format(Queries.districtLike, dis_name, dis_ID);
             DataSet ds = DbCommand.getDataSet(query, tableName);
 
             if (ds != null)
@@ -455,7 +455,7 @@ namespace StoreAutomationUI
 
             string emp_name = metroTextBox7.Text;
 
-            string query = String.Format(Queries.employeeLike, emp_name);
+            string query = string.Format(Queries.employeeLike, emp_name);
             DataSet ds = DbCommand.getDataSet(query, tableName);
 
             if (ds != null)
@@ -484,7 +484,7 @@ namespace StoreAutomationUI
 
             string act_ID = activityGrid.Rows[activityGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
 
-            string query = String.Format(Queries.activityId, act_ID);
+            string query = string.Format(Queries.activityId, act_ID);
             DataSet ds = DbCommand.getDataSet(query, tableName);
 
             if (ds != null)
@@ -513,7 +513,7 @@ namespace StoreAutomationUI
 
             string act_name = metroTextBox8.Text;
             string actType_ID = activityGrid.Rows[activityGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-            string query = String.Format(Queries.activityLike, act_name, actType_ID);
+            string query = string.Format(Queries.activityLike, act_name, actType_ID);
             DataSet ds = DbCommand.getDataSet(query, tableName);
 
             if (ds != null)
@@ -526,11 +526,11 @@ namespace StoreAutomationUI
             if (dr == DialogResult.Yes)
             {
                 AttributeSetModel.id = attributesetGrid.Rows[attributesetGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-                string query = String.Format(Queries.delAttributeSet_attribute, AttributeSetModel.id);
+                string query = string.Format(Queries.delAttributeSet_attribute, AttributeSetModel.id);
 
                 DbCommand.insertIntoDb(query);
 
-                query = String.Format(Queries.delAttributeSet, AttributeSetModel.id);
+                query = string.Format(Queries.delAttributeSet, AttributeSetModel.id);
 
                 DbCommand.insertIntoDb(query);
             }
@@ -560,7 +560,7 @@ namespace StoreAutomationUI
             if (dr == DialogResult.Yes)
             {
                 AttributeValueModel.id = metroGrid4.Rows[metroGrid4.SelectedRows[0].Index].Cells[0].Value.ToString();
-                string query = String.Format(Queries.delAttributeValue2, AttributeValueModel.id);
+                string query = string.Format(Queries.delAttributeValue2, AttributeValueModel.id);
 
                 DbCommand.insertIntoDb(query);
             }
@@ -572,11 +572,11 @@ namespace StoreAutomationUI
             if (dr == DialogResult.Yes)
             {
                 ProvinceModel.id = provinceGrid.Rows[provinceGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-                string query = String.Format(Queries.delDistrict2, ProvinceModel.id);
+                string query = string.Format(Queries.delDistrict2, ProvinceModel.id);
 
                 DbCommand.insertIntoDb(query);
 
-                query = String.Format(Queries.delProvince, ProvinceModel.id);
+                query = string.Format(Queries.delProvince, ProvinceModel.id);
 
                 DbCommand.insertIntoDb(query);
 
@@ -590,7 +590,7 @@ namespace StoreAutomationUI
             if (dr == DialogResult.Yes)
             {
                 DistrictModel.id = metroGrid6.Rows[metroGrid6.SelectedRows[0].Index].Cells[0].Value.ToString();
-                string query = String.Format(Queries.delDistrict, DistrictModel.id);
+                string query = string.Format(Queries.delDistrict, DistrictModel.id);
 
                 DbCommand.insertIntoDb(query);
             }
@@ -602,7 +602,7 @@ namespace StoreAutomationUI
             if (dr == DialogResult.Yes)
             {
                 EmployeeModel.id = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-                string query = String.Format(Queries.delEmployee, EmployeeModel.id);
+                string query = string.Format(Queries.delEmployee, EmployeeModel.id);
 
                 DbCommand.insertIntoDb(query);
             }
@@ -614,7 +614,7 @@ namespace StoreAutomationUI
             if (dr == DialogResult.Yes)
             {
                 DepartmentModel.id = departmentGrid.Rows[departmentGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-                string query = String.Format(Queries.delDepartment, DepartmentModel.id);
+                string query = string.Format(Queries.delDepartment, DepartmentModel.id);
 
                 DbCommand.insertIntoDb(query);
             }
@@ -626,7 +626,7 @@ namespace StoreAutomationUI
             if (dr == DialogResult.Yes)
             {
                 activity.id = metroGrid8.Rows[metroGrid8.SelectedRows[0].Index].Cells[0].Value.ToString();
-                string query = String.Format(Queries.delActivity, activity.id);
+                string query = string.Format(Queries.delActivity, activity.id);
 
                 DbCommand.insertIntoDb(query);
             }
@@ -646,7 +646,7 @@ namespace StoreAutomationUI
 
 
                 string set_ID = attributesetGrid.Rows[attributesetGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-                string query = String.Format(Queries.attributeSetAttributes, set_ID);
+                string query = string.Format(Queries.attributeSetAttributes, set_ID);
                 DataSet ds = DbCommand.getDataSet(query, tableName);
                 //
                 //Gelen veriler metroGrid2'ye aktardı

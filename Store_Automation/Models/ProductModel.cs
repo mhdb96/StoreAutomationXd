@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Mycon = MySql.Data.MySqlClient.MySqlConnection;
-using Myad = MySql.Data.MySqlClient.MySqlDataAdapter;
-using Mycom = MySql.Data.MySqlClient.MySqlCommand;
-
-
-namespace Models
+﻿namespace Models
 
 {
     public class ProductModel
@@ -30,7 +19,7 @@ namespace Models
         {
             attribute_id = new string[count];
             attribute_name = new string[count];
-            att_val_id = new string [count];
+            att_val_id = new string[count];
 
         }
     }

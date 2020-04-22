@@ -1,16 +1,9 @@
-﻿using MetroFramework.Forms;
-using MetroFramework;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DataAccess;
+﻿using DataAccess;
+using MetroFramework.Forms;
 using Models;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace StoreAutomationUI
 {
@@ -52,26 +45,26 @@ namespace StoreAutomationUI
                 }
 
 
-                string query = String.Format(Queries.newID, "supplier_ID", "supplier");
+                string query = string.Format(Queries.newID, "supplier_ID", "supplier");
                 ds = DbCommand.getDataSet(query, tableName);
 
                 try
                 {
                     ID.Text = ((int)(ds.Tables[tableName].Rows[0]["max(supplier_ID)"]) + 1).ToString();
                 }
-                catch (Exception )
+                catch (Exception)
                 {
                     ID.Text = "1";
                 }
 
-                
+
             }
             else
             {
                 addSupplierBtn.Text = "Update";
                 ID.Text = mySup.id;
                 name.Text = mySup.name;
-                telephone.Text = mySup.telephone;     
+                telephone.Text = mySup.telephone;
                 adress.Text = mySup.adress;
                 string tableName = "Province";
                 DataSet ds;
@@ -91,7 +84,7 @@ namespace StoreAutomationUI
                     provinceList.PromptText = mySup.provinceName;
                 }
                 tableName = "District";
-                string query = String.Format(Queries.suppliersDistrict, mySup.provinceID);
+                string query = string.Format(Queries.suppliersDistrict, mySup.provinceID);
                 ds = DbCommand.getDataSet(query, tableName);
                 if (ds != null)
                 {
@@ -129,7 +122,7 @@ namespace StoreAutomationUI
                 mySup.adress = adress.Text;
                 mySup.provinceID = provinceList.SelectedValue.ToString();
                 mySup.districtID = districtList.SelectedValue.ToString();
-                string query = String.Format(Queries.insSupplier, mySup.id, mySup.name, mySup.telephone, mySup.adress, mySup.provinceID, mySup.districtID);
+                string query = string.Format(Queries.insSupplier, mySup.id, mySup.name, mySup.telephone, mySup.adress, mySup.provinceID, mySup.districtID);
                 DbCommand.insertIntoDb(query);
             }
             else
@@ -139,7 +132,7 @@ namespace StoreAutomationUI
                 mySup.adress = adress.Text;
                 mySup.provinceID = provinceList.SelectedValue.ToString();
                 mySup.districtID = districtList.SelectedValue.ToString();
-                string query = String.Format(Queries.upSupplier, mySup.name, mySup.telephone, mySup.adress, mySup.provinceID, mySup.districtID, mySup.id);
+                string query = string.Format(Queries.upSupplier, mySup.name, mySup.telephone, mySup.adress, mySup.provinceID, mySup.districtID, mySup.id);
                 DbCommand.insertIntoDb(query);
             }
 
@@ -157,7 +150,7 @@ namespace StoreAutomationUI
             if (provinceList.SelectedItem != null && controlP >= 2)
             {
                 string tableName = "District";
-                string query = String.Format(Queries.customersDistrict, provinceList.SelectedValue.ToString());
+                string query = string.Format(Queries.customersDistrict, provinceList.SelectedValue.ToString());
                 DataSet ds = DbCommand.getDataSet(query, tableName);
                 if (ds != null)
                 {

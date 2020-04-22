@@ -21,8 +21,8 @@
         readonly public static string last5Pro = "SELECT pro_name, pro_description, pro_price, pro_stock FROM product ORDER BY product_ID DESC LIMIT 5;";
         readonly public static string reStockPro = "SELECT pro_name, pro_description, pro_price, pro_stock FROM product where pro_stock < 2;";
 
-        readonly public static string sellCount ="SELECT count(*) FROM sell;";
-        readonly public static string sell_cusCount= "SELECT count(*) FROM sell where customer_customer_ID ={0};";
+        readonly public static string sellCount = "SELECT count(*) FROM sell;";
+        readonly public static string sell_cusCount = "SELECT count(*) FROM sell where customer_customer_ID ={0};";
         readonly public static string customersData = "SELECT customer_ID, concat(cus_name,' ', cus_lastName)as name FROM customer;";
         readonly public static string customersCount = "SELECT count(*) FROM customer;";
         readonly public static string customersName = "SELECT concat(cus_name, ' ', cus_lastName)as name FROM customer where customer_ID ={0};";
@@ -38,7 +38,7 @@
         readonly public static string suppliersData = "SELECT supplier_ID, sup_name as 'name' FROM supplier;";
         readonly public static string suppliersCount = "SELECT count(*) FROM supplier;";
         readonly public static string suppliersName = "SELECT sup_name as 'name' FROM supplier where supplier_ID ={0};";
-        readonly public static string last5Buy ="SELECT s.sup_name as 'name', p.pro_name, b.buy_price, b.buy_qty FROM buy b join supplier s on s.supplier_ID = b.supplier_supplier_ID join product p on p.product_ID = b.product_product_ID ORDER BY Buy_ID DESC LIMIT 5;";
+        readonly public static string last5Buy = "SELECT s.sup_name as 'name', p.pro_name, b.buy_price, b.buy_qty FROM buy b join supplier s on s.supplier_ID = b.supplier_supplier_ID join product p on p.product_ID = b.product_product_ID ORDER BY Buy_ID DESC LIMIT 5;";
         readonly public static string dis_supCount = "SELECT count(*) FROM supplier where district_district_ID = {0};";
 
 
@@ -54,7 +54,7 @@
 
         readonly public static string productsFiltering = "SELECT p.product_ID as \"ID\", p.pro_name as \"Name\", pro_description as \"Description\", pro_price as \"Price\", pro_stock as \"Stock\", ats.set_name as \"Category\" FROM product_attributes pa join product p on pa.product_product_ID = p.product_ID join attributeset ats on pa.attributeSet_attributeSet_ID = ats.attributeSet_ID where ats.attributeSet_ID= {0} group by p.product_ID;";
 
-        readonly public static string productsBasicFilter= "select p.product_ID as \"ID\", p.pro_name as \"Name\",pro_description as \"Description\",pro_price as \"Price\",pro_stock as \"Stock\", ats.set_name as \"Category\" from product p join attributeset ats on p.attributeSet_attributeSet_ID = ats.attributeSet_ID where {0} {1} {2};";
+        readonly public static string productsBasicFilter = "select p.product_ID as \"ID\", p.pro_name as \"Name\",pro_description as \"Description\",pro_price as \"Price\",pro_stock as \"Stock\", ats.set_name as \"Category\" from product p join attributeset ats on p.attributeSet_attributeSet_ID = ats.attributeSet_ID where {0} {1} {2};";
         readonly public static string productsBetweenFilter = "select p.product_ID as \"ID\", p.pro_name as \"Name\",pro_description as \"Description\",pro_price as \"Price\",pro_stock as \"Stock\", ats.set_name as \"Category\" from product p join attributeset ats on p.attributeSet_attributeSet_ID = ats.attributeSet_ID where {0} between {1} and {2};";
         readonly public static string productsSearch = "select p.product_ID as \"ID\", p.pro_name as \"Name\",pro_description as \"Description\",pro_price as \"Price\",pro_stock as \"Stock\", ats.set_name as \"Category\" from product p join attributeset ats on p.attributeSet_attributeSet_ID = ats.attributeSet_ID where pro_name LIKE '%{0}%';";
 
@@ -68,7 +68,7 @@
         readonly public static string set_ID = "SELECT attributeSet_ID FROM attributeset where set_name = '{0}';";
         readonly public static string att_ID = "SELECT attribute_ID FROM attribute where att_name = '{0}';";
         readonly public static string attVal_ID = "SELECT attributeValue_ID FROM attributevalue where val_value = '{0}';";
-    
+
         //readonly public static string newID = "SELECT max({0}) FROM {1};";
         //readonly public static string set_ID = "SELECT attributeSet_ID FROM attributeset where set_name = '{0}';";
         //readonly public static string att_ID = "SELECT attribute_ID FROM attribute where att_name = '{0}';";
@@ -102,7 +102,7 @@
         readonly public static string upBuy = "UPDATE buy SET buy_price = {0}, buy_date = '{1}', buy_qty = {2} WHERE Buy_ID = {3};";
 
         readonly public static string delSell = "DELETE FROM sell WHERE sell_ID = {0};";
-        readonly public static string delBuy =  "DELETE FROM buy WHERE Buy_ID = {0};";
+        readonly public static string delBuy = "DELETE FROM buy WHERE Buy_ID = {0};";
 
         //=================================================
         //================== Customers ====================
@@ -176,8 +176,8 @@
         readonly public static string delAttributeSet = "DELETE FROM attributeset WHERE (attributeSet_ID = {0});";
 
         readonly public static string insAttributeSetAttribute = "INSERT INTO attributeset_attribute (attributeSet_attributeSet_ID, attribute_attribute_ID) VALUES({0}, {1});";
-        readonly public static string delAttributeSetAttributes ="DELETE FROM attributeset_attribute WHERE attributeSet_attributeSet_ID = {0};";
-        readonly public static string attributeSetAttributes =  "SELECT att_name as 'Attributes' FROM attributeset_attribute atsa join attribute a on atsa.attribute_attribute_ID = a.attribute_ID where attributeSet_attributeSet_ID = {0};";
+        readonly public static string delAttributeSetAttributes = "DELETE FROM attributeset_attribute WHERE attributeSet_attributeSet_ID = {0};";
+        readonly public static string attributeSetAttributes = "SELECT att_name as 'Attributes' FROM attributeset_attribute atsa join attribute a on atsa.attribute_attribute_ID = a.attribute_ID where attributeSet_attributeSet_ID = {0};";
         readonly public static string attributeSetAttributesForUpdate = "SELECT a.attribute_ID as 'ID',a.att_name as 'Name' FROM attributeset_attribute atsa join attribute a on atsa.attribute_attribute_ID = a.attribute_ID where attributeSet_attributeSet_ID = {0};";
 
         //=============================================================

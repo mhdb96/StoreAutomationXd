@@ -1,13 +1,6 @@
 ﻿using MetroFramework;
 using MetroFramework.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace StoreAutomationUI
@@ -23,13 +16,13 @@ namespace StoreAutomationUI
         private void metroButton1_Click(object sender, EventArgs e)
         {
             pass = metroTextBox1.Text;
-            if(pass=="123")
+            if (pass == "123")
             {
                 data_entry data_Entry = new data_entry();
                 data_Entry.Show();
                 this.Hide();
             }
-            else if(pass == "321")
+            else if (pass == "321")
             {
                 admin Admin = new admin();
                 Admin.Show();

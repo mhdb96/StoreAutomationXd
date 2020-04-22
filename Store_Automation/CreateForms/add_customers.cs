@@ -1,16 +1,9 @@
-﻿using MetroFramework.Forms;
-using MetroFramework;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DataAccess;
+﻿using DataAccess;
+using MetroFramework.Forms;
 using Models;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace StoreAutomationUI
 {
@@ -51,26 +44,26 @@ namespace StoreAutomationUI
                 }
 
 
-                string query = String.Format(Queries.newID, "customer_ID", "customer");
+                string query = string.Format(Queries.newID, "customer_ID", "customer");
                 ds = DbCommand.getDataSet(query, tableName);
 
                 try
                 {
                     ID.Text = ((int)(ds.Tables[tableName].Rows[0]["max(customer_ID)"]) + 1).ToString();
                 }
-                catch (Exception )
+                catch (Exception)
                 {
                     ID.Text = "1";
                 }
 
-                
+
             }
             else
             {
                 addCustomerBtn.Text = "Update";
                 ID.Text = myCstr.id;
                 name.Text = myCstr.name;
-                lastName.Text= myCstr.lastName;
+                lastName.Text = myCstr.lastName;
                 telephone.Text = myCstr.telephone;
                 TC.Text = myCstr.TC;
                 adress.Text = myCstr.adress;
@@ -89,11 +82,11 @@ namespace StoreAutomationUI
                     for (int u = 0; u < provinceList.Items.Count; u++)
                         if (ds.Tables[tableName].Rows[u]["province_ID"].ToString() == myCstr.provinceID)
                             provinceList.SelectedIndex = u;
-                    
+
                     provinceList.PromptText = myCstr.provinceName;
                 }
                 tableName = "District";
-                string query = String.Format(Queries.customersDistrict, myCstr.provinceID);
+                string query = string.Format(Queries.customersDistrict, myCstr.provinceID);
                 ds = DbCommand.getDataSet(query, tableName);
                 if (ds != null)
                 {
@@ -113,7 +106,7 @@ namespace StoreAutomationUI
 
 
             }
-            
+
 
         }
 
@@ -139,7 +132,7 @@ namespace StoreAutomationUI
             if (provinceList.SelectedItem != null && controlP >= 2)
             {
                 string tableName = "District";
-                string query = String.Format(Queries.customersDistrict, provinceList.SelectedValue.ToString());
+                string query = string.Format(Queries.customersDistrict, provinceList.SelectedValue.ToString());
                 DataSet ds = DbCommand.getDataSet(query, tableName);
                 if (ds != null)
                 {
@@ -156,13 +149,13 @@ namespace StoreAutomationUI
 
         private void districtList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
 
         private void addCustomerBtn_Click(object sender, EventArgs e)
         {
-            if(!update)
+            if (!update)
             {
                 myCstr.id = ID.Text;
                 myCstr.name = name.Text;
@@ -172,7 +165,7 @@ namespace StoreAutomationUI
                 myCstr.adress = adress.Text;
                 myCstr.provinceID = provinceList.SelectedValue.ToString();
                 myCstr.districtID = districtList.SelectedValue.ToString();
-                string query = String.Format(Queries.insCustomer, myCstr.id, myCstr.name, myCstr.lastName, myCstr.telephone, myCstr.TC, myCstr.adress, myCstr.provinceID, myCstr.districtID);
+                string query = string.Format(Queries.insCustomer, myCstr.id, myCstr.name, myCstr.lastName, myCstr.telephone, myCstr.TC, myCstr.adress, myCstr.provinceID, myCstr.districtID);
                 DbCommand.insertIntoDb(query);
             }
             else
@@ -185,10 +178,10 @@ namespace StoreAutomationUI
                 myCstr.provinceID = provinceList.SelectedValue.ToString();
                 myCstr.districtID = districtList.SelectedValue.ToString();
 
-                string query = String.Format(Queries.upCustomer,myCstr.name, myCstr.lastName, myCstr.telephone, myCstr.TC, myCstr.adress, myCstr.provinceID, myCstr.districtID, myCstr.id);
+                string query = string.Format(Queries.upCustomer, myCstr.name, myCstr.lastName, myCstr.telephone, myCstr.TC, myCstr.adress, myCstr.provinceID, myCstr.districtID, myCstr.id);
                 DbCommand.insertIntoDb(query);
             }
-            
+
 
             this.Close();
         }

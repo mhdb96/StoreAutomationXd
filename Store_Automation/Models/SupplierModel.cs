@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Models
+﻿namespace Models
 {
     public class SupplierModel
     {
         public string id;
-        public string name;        
+        public string name;
         public string telephone;
         public string adress;
         public string provinceID;

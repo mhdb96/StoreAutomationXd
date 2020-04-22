@@ -1,11 +1,11 @@
-﻿using System;
-using Mycon = MySql.Data.MySqlClient.MySqlConnection;
+﻿using MetroFramework;
+using StoreAutomationUI;
+using System;
+using System.Data;
+using System.Windows.Forms;
 using Myad = MySql.Data.MySqlClient.MySqlDataAdapter;
 using Mycom = MySql.Data.MySqlClient.MySqlCommand;
-using System.Data;
-using MetroFramework;
-using System.Windows.Forms;
-using StoreAutomationUI;
+using Mycon = MySql.Data.MySqlClient.MySqlConnection;
 
 namespace DataAccess
 {
@@ -38,7 +38,7 @@ namespace DataAccess
             catch (Exception ex)
             {
                 //Eğer try kısmında hata alırsak çalışması gereken kod
-                MetroMessageBox.Show(data_entry.ActiveForm, ex.Message,"Database Error!",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MetroMessageBox.Show(data_entry.ActiveForm, ex.Message, "Database Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return null;
                 //
             }
@@ -49,7 +49,7 @@ namespace DataAccess
             try
             {
                 Mycon mycnct = DatabaseInfo.getConnection();
-                Myad myadapter = new Myad();          
+                Myad myadapter = new Myad();
                 myadapter.SelectCommand = new Mycom(query, mycnct);
                 mycnct.Open();
                 myadapter.SelectCommand.ExecuteNonQuery();

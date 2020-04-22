@@ -1,17 +1,13 @@
-﻿using MetroFramework.Controls;
-using MetroFramework.Forms;
+﻿using DataAccess;
 using MetroFramework;
+using MetroFramework.Controls;
+using MetroFramework.Forms;
+using Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using DataAccess;
-using Models;
 
 namespace StoreAutomationUI
 {
@@ -66,7 +62,7 @@ namespace StoreAutomationUI
                 stock.Text = myPro.stock;
                 string tableName = "setAttributes";
                 string setID = myPro.set_id;
-                string query = String.Format(Queries.setAttributes, setID);
+                string query = string.Format(Queries.setAttributes, setID);
                 DataSet ds = DbCommand.getDataSet(query, tableName);
                 if (ds == null)
                     MessageBox.Show("");
@@ -108,7 +104,7 @@ namespace StoreAutomationUI
                 foreach (MetroComboBox list in listNames)
                 {
                     string valuetableName = "AttributeValues";
-                    string valueQuery = String.Format(Queries.attributeValues, attributeID[i].ToString());
+                    string valueQuery = string.Format(Queries.attributeValues, attributeID[i].ToString());
                     DataSet attValDs = DbCommand.getDataSet(valueQuery, valuetableName);
                     if (attValDs == null)
                         MessageBox.Show("DataSet is empty!");
@@ -125,7 +121,7 @@ namespace StoreAutomationUI
                     this.Controls.Add(list);
 
                     string valIndextableName = "AttributeValues";
-                    string valIndexQuery = String.Format(Queries.attributeValues, attributeID[i].ToString());
+                    string valIndexQuery = string.Format(Queries.attributeValues, attributeID[i].ToString());
                     DataSet valIndexDs = DbCommand.getDataSet(valIndexQuery, valIndextableName);
                     if (attValDs == null)
                         MessageBox.Show("DataSet is empty!");
@@ -149,7 +145,7 @@ namespace StoreAutomationUI
         {
             this.Close();
         }
-        
+
 
         private void metroButton4_Click(object sender, EventArgs e)
         {
@@ -163,7 +159,7 @@ namespace StoreAutomationUI
                 //Queries sınıfından SQL komutları string bir değişkene attı
                 //Ardından DbCommand'i kullanarak verileri çekip DataSet'e attı
                 //Toplam ürün sayısını elde etti
-                string idQuery = String.Format(Queries.newID, "product_ID", "product");
+                string idQuery = string.Format(Queries.newID, "product_ID", "product");
                 DataSet idDs = DbCommand.getDataSet(idQuery, id);
                 //
                 if (idDs == null)
@@ -173,17 +169,17 @@ namespace StoreAutomationUI
                 {
                     ID.Text = ((int)(idDs.Tables[id].Rows[0]["max(product_ID)"]) + 1).ToString();
                 }
-                catch (Exception )
+                catch (Exception)
                 {
                     ID.Text = "1";
                 }
 
-                
+
                 myPro.id = ID.Text;
 
                 string tableName = "setAttributes";
                 string setID = attributeSetList.SelectedValue.ToString();
-                string query = String.Format(Queries.setAttributes, setID);
+                string query = string.Format(Queries.setAttributes, setID);
                 DataSet ds = DbCommand.getDataSet(query, tableName);
                 if (ds == null)
                     MessageBox.Show("");
@@ -231,7 +227,7 @@ namespace StoreAutomationUI
                 foreach (MetroComboBox list in listTeamNames)
                 {
                     string valuetableName = "AttributeValues";
-                    string valueQuery = String.Format(Queries.attributeValues, attributeID[i].ToString());
+                    string valueQuery = string.Format(Queries.attributeValues, attributeID[i].ToString());
                     DataSet attValDs = DbCommand.getDataSet(valueQuery, valuetableName);
                     if (attValDs == null)
                         MessageBox.Show("DataSet is empty!");
@@ -254,20 +250,20 @@ namespace StoreAutomationUI
 
         private void metroButton2_Click(object sender, EventArgs e)
         {
-                myPro.name = name.Text;
-                myPro.desc = description.Text;
-                myPro.price = price.Text;
-                myPro.stock = stock.Text;
+            myPro.name = name.Text;
+            myPro.desc = description.Text;
+            myPro.price = price.Text;
+            myPro.stock = stock.Text;
             if (!update)
             {
                 myPro.set_id = attributeSetList.SelectedValue.ToString();
-                string query = String.Format(Queries.insProduct, myPro.id, myPro.name, myPro.desc, myPro.price, myPro.stock, myPro.set_id);
+                string query = string.Format(Queries.insProduct, myPro.id, myPro.name, myPro.desc, myPro.price, myPro.stock, myPro.set_id);
                 DbCommand.insertIntoDb(query);
                 for (int i = 0; i < myPro.count; i++)
                 {
                     MetroComboBox list = (MetroComboBox)Controls[myPro.attribute_name[i]];
                     myPro.att_val_id[i] = list.SelectedValue.ToString();
-                    query = String.Format(Queries.insProductAttribute, myPro.id, myPro.att_val_id[i], myPro.set_id, myPro.attribute_id[i]);
+                    query = string.Format(Queries.insProductAttribute, myPro.id, myPro.att_val_id[i], myPro.set_id, myPro.attribute_id[i]);
 
                     DbCommand.insertIntoDb(query);
 
@@ -279,20 +275,20 @@ namespace StoreAutomationUI
                 DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
                 {
-                    string query = String.Format(Queries.upProduct, myPro.name, myPro.desc, myPro.price, myPro.stock, myPro.id);
+                    string query = string.Format(Queries.upProduct, myPro.name, myPro.desc, myPro.price, myPro.stock, myPro.id);
                     DbCommand.insertIntoDb(query);
                     for (int i = 0; i < myPro.count; i++)
                     {
                         MetroComboBox list = (MetroComboBox)Controls[myPro.attribute_name[i]];
                         myPro.att_val_id[i] = list.SelectedValue.ToString();
-                        query = String.Format(Queries.upProductAtt, myPro.att_val_id[i], myPro.id, myPro.attribute_id[i]);
+                        query = string.Format(Queries.upProductAtt, myPro.att_val_id[i], myPro.id, myPro.attribute_id[i]);
                         DbCommand.insertIntoDb(query);
 
                     }
                     this.Close();
                 }
             }
-            
+
         }
 
         private void add_product_FormClosed(object sender, FormClosedEventArgs e)
