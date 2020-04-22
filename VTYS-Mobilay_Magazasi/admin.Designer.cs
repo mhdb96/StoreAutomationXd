@@ -325,6 +325,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.employeeGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.employeeGrid.RowHeadersVisible = false;
+            this.employeeGrid.RowHeadersWidth = 51;
             this.employeeGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.employeeGrid.RowTemplate.Height = 24;
             this.employeeGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -415,6 +416,7 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.districtGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.districtGrid.RowHeadersVisible = false;
+            this.districtGrid.RowHeadersWidth = 51;
             this.districtGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.districtGrid.RowTemplate.Height = 24;
             this.districtGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -469,6 +471,7 @@
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.metroGrid6.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.metroGrid6.RowHeadersVisible = false;
+            this.metroGrid6.RowHeadersWidth = 51;
             this.metroGrid6.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGrid6.RowTemplate.Height = 24;
             this.metroGrid6.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -705,6 +708,7 @@
             dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.provinceGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.provinceGrid.RowHeadersVisible = false;
+            this.provinceGrid.RowHeadersWidth = 51;
             this.provinceGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.provinceGrid.RowTemplate.Height = 24;
             this.provinceGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -796,6 +800,7 @@
             dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.attributeValueGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.attributeValueGrid.RowHeadersVisible = false;
+            this.attributeValueGrid.RowHeadersWidth = 51;
             this.attributeValueGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.attributeValueGrid.RowTemplate.Height = 24;
             this.attributeValueGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -849,6 +854,7 @@
             dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.metroGrid4.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.metroGrid4.RowHeadersVisible = false;
+            this.metroGrid4.RowHeadersWidth = 51;
             this.metroGrid4.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGrid4.RowTemplate.Height = 24;
             this.metroGrid4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1021,6 +1027,7 @@
             dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.attributesetGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.attributesetGrid.RowHeadersVisible = false;
+            this.attributesetGrid.RowHeadersWidth = 51;
             this.attributesetGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.attributesetGrid.RowTemplate.Height = 24;
             this.attributesetGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1074,6 +1081,7 @@
             dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.attributeSetAttributesGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.attributeSetAttributesGrid.RowHeadersVisible = false;
+            this.attributeSetAttributesGrid.RowHeadersWidth = 51;
             this.attributeSetAttributesGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.attributeSetAttributesGrid.RowTemplate.Height = 24;
             this.attributeSetAttributesGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1352,6 +1360,7 @@
             dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.attributeGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.attributeGrid.RowHeadersVisible = false;
+            this.attributeGrid.RowHeadersWidth = 51;
             this.attributeGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.attributeGrid.RowTemplate.Height = 24;
             this.attributeGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1748,6 +1757,7 @@
             dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.departmentGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
             this.departmentGrid.RowHeadersVisible = false;
+            this.departmentGrid.RowHeadersWidth = 51;
             this.departmentGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.departmentGrid.RowTemplate.Height = 24;
             this.departmentGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1839,6 +1849,7 @@
             dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.activityGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle33;
             this.activityGrid.RowHeadersVisible = false;
+            this.activityGrid.RowHeadersWidth = 51;
             this.activityGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.activityGrid.RowTemplate.Height = 24;
             this.activityGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1892,6 +1903,7 @@
             dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.metroGrid8.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
             this.metroGrid8.RowHeadersVisible = false;
+            this.metroGrid8.RowHeadersWidth = 51;
             this.metroGrid8.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGrid8.RowTemplate.Height = 24;
             this.metroGrid8.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

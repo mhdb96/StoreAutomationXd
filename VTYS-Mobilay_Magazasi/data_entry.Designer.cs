@@ -603,6 +603,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.reStockProGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.reStockProGrid.RowHeadersVisible = false;
+            this.reStockProGrid.RowHeadersWidth = 51;
             this.reStockProGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.reStockProGrid.RowTemplate.Height = 24;
             this.reStockProGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -686,6 +687,7 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.productsOverviewGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.productsOverviewGrid.RowHeadersVisible = false;
+            this.productsOverviewGrid.RowHeadersWidth = 51;
             this.productsOverviewGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.productsOverviewGrid.RowTemplate.Height = 24;
             this.productsOverviewGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -903,6 +905,7 @@
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.incomesOverviewGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.incomesOverviewGrid.RowHeadersVisible = false;
+            this.incomesOverviewGrid.RowHeadersWidth = 51;
             this.incomesOverviewGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.incomesOverviewGrid.RowTemplate.Height = 24;
             this.incomesOverviewGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -955,6 +958,7 @@
             dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.expensesOverviewGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.expensesOverviewGrid.RowHeadersVisible = false;
+            this.expensesOverviewGrid.RowHeadersWidth = 51;
             this.expensesOverviewGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.expensesOverviewGrid.RowTemplate.Height = 24;
             this.expensesOverviewGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1260,6 +1264,7 @@
             dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.sellOverviewGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.sellOverviewGrid.RowHeadersVisible = false;
+            this.sellOverviewGrid.RowHeadersWidth = 51;
             this.sellOverviewGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.sellOverviewGrid.RowTemplate.Height = 24;
             this.sellOverviewGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1470,6 +1475,7 @@
             dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.suppliersOverviewGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.suppliersOverviewGrid.RowHeadersVisible = false;
+            this.suppliersOverviewGrid.RowHeadersWidth = 51;
             this.suppliersOverviewGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.suppliersOverviewGrid.RowTemplate.Height = 24;
             this.suppliersOverviewGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1671,6 +1677,7 @@
             dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.productsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.productsGrid.RowHeadersVisible = false;
+            this.productsGrid.RowHeadersWidth = 51;
             this.productsGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.productsGrid.RowTemplate.Height = 24;
             this.productsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1724,6 +1731,7 @@
             dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.metroGrid2.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.metroGrid2.RowHeadersVisible = false;
+            this.metroGrid2.RowHeadersWidth = 51;
             this.metroGrid2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGrid2.RowTemplate.Height = 24;
             this.metroGrid2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -2105,6 +2113,7 @@
             dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ordersGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.ordersGrid.RowHeadersVisible = false;
+            this.ordersGrid.RowHeadersWidth = 51;
             this.ordersGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.ordersGrid.RowTemplate.Height = 24;
             this.ordersGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -2217,6 +2226,7 @@
             dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.customersGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
             this.customersGrid.RowHeadersVisible = false;
+            this.customersGrid.RowHeadersWidth = 51;
             this.customersGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.customersGrid.RowTemplate.Height = 24;
             this.customersGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -2329,6 +2339,7 @@
             dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.suppliersGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle33;
             this.suppliersGrid.RowHeadersVisible = false;
+            this.suppliersGrid.RowHeadersWidth = 51;
             this.suppliersGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.suppliersGrid.RowTemplate.Height = 24;
             this.suppliersGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -2484,6 +2495,7 @@
             dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.accountingGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
             this.accountingGrid.RowHeadersVisible = false;
+            this.accountingGrid.RowHeadersWidth = 51;
             this.accountingGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.accountingGrid.RowTemplate.Height = 24;
             this.accountingGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
