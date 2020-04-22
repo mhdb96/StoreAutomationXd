@@ -17,7 +17,7 @@ namespace VTYS_Mobilay_Magazasi
     public partial class add_orders : MetroForm
     {
         bool update = false;
-        Order myOrdr = new Order();
+        OrderModel myOrdr = new OrderModel();
         string type; 
         public add_orders(string t)
         {
@@ -26,7 +26,7 @@ namespace VTYS_Mobilay_Magazasi
 
         }
 
-        public add_orders(string t,Order order)
+        public add_orders(string t,OrderModel order)
         {
             InitializeComponent();
             type = t;

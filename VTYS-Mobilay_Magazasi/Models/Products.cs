@@ -12,7 +12,7 @@ using Mycom = MySql.Data.MySqlClient.MySqlCommand;
 namespace Models
 
 {
-    public class Products
+    public class ProductModel
     {
         public string id;
         public string name;

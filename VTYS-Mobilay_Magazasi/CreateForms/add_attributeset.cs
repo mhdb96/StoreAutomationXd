@@ -71,9 +71,9 @@ namespace VTYS_Mobilay_Magazasi
         {
             if (update)
             {
-                id.Text = attributeSet.id;
+                id.Text = AttributeSetModel.id;
                 id.Enabled = false;
-                name.Text = attributeSet.name;
+                name.Text = AttributeSetModel.name;
                 metroButton1.Text = "Update";
 
                 string tableName = "Attributes";
@@ -81,7 +81,7 @@ namespace VTYS_Mobilay_Magazasi
                 MyDs = ds;
                 allAttributeGrid.DataSource = MyDs.Tables[tableName];
 
-                string query = String.Format(Queries.attributeSetAttributesForUpdate,attributeSet.id);
+                string query = String.Format(Queries.attributeSetAttributesForUpdate,AttributeSetModel.id);
                 ds = DbCommand.getDataSet(query, tableName);
                 setAttributesGrid.Columns.Clear();
                 MyDs1 = ds;

@@ -57,9 +57,9 @@ namespace VTYS_Mobilay_Magazasi
 
             if (update)
             {
-                id.Text = province.id;
+                id.Text = ProvinceModel.id;
                 id.Enabled = false;
-                name.Text = province.name;
+                name.Text = ProvinceModel.name;
                 metroButton1.Text = "Update";
             }
             else

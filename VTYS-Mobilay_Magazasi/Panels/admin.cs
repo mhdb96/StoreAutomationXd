@@ -219,8 +219,8 @@ namespace VTYS_Mobilay_Magazasi
         private void btnUpdateProduct_Click(object sender, EventArgs e)
         {
 
-            attributeSet.id = attributesetGrid.Rows[attributesetGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-            attributeSet.name = attributesetGrid.Rows[attributesetGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
+            AttributeSetModel.id = attributesetGrid.Rows[attributesetGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+            AttributeSetModel.name = attributesetGrid.Rows[attributesetGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
             
             add_attributeset update = new add_attributeset(true);
             update.ShowDialog();
@@ -236,8 +236,8 @@ namespace VTYS_Mobilay_Magazasi
         private void metroButton1_Click(object sender, EventArgs e)
         {
 
-            Models.Attribute.id = attributeGrid.Rows[attributeGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-            Models.Attribute.name = attributeGrid.Rows[attributeGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
+            Models.AttributeModel.id = attributeGrid.Rows[attributeGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+            Models.AttributeModel.name = attributeGrid.Rows[attributeGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
 
             add_attribute update = new add_attribute(true);
             update.ShowDialog();
@@ -251,8 +251,8 @@ namespace VTYS_Mobilay_Magazasi
 
         private void metroButton3_Click(object sender, EventArgs e)
         {
-            province.id = provinceGrid.Rows[provinceGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-            province.name = provinceGrid.Rows[provinceGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
+            ProvinceModel.id = provinceGrid.Rows[provinceGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+            ProvinceModel.name = provinceGrid.Rows[provinceGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
 
             add_province update = new add_province(true);
             update.ShowDialog();
@@ -268,9 +268,9 @@ namespace VTYS_Mobilay_Magazasi
         {
             if(metroGrid4.Rows.Count != 0)
             {
-                attributeValue.id = metroGrid4.Rows[metroGrid4.SelectedRows[0].Index].Cells[0].Value.ToString();
-                attributeValue.name = metroGrid4.Rows[metroGrid4.SelectedRows[0].Index].Cells[1].Value.ToString();
-                attributeValue.attribute = attributeValueGrid.Rows[attributeValueGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
+                AttributeValueModel.id = metroGrid4.Rows[metroGrid4.SelectedRows[0].Index].Cells[0].Value.ToString();
+                AttributeValueModel.name = metroGrid4.Rows[metroGrid4.SelectedRows[0].Index].Cells[1].Value.ToString();
+                AttributeValueModel.attribute = attributeValueGrid.Rows[attributeValueGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
 
                 add_attributeValue update = new add_attributeValue(true);
                 update.ShowDialog();
@@ -304,8 +304,8 @@ namespace VTYS_Mobilay_Magazasi
 
         private void metroButton7_Click(object sender, EventArgs e)
         {
-            department.id = departmentGrid.Rows[departmentGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-            department.name = departmentGrid.Rows[departmentGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
+            DepartmentModel.id = departmentGrid.Rows[departmentGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+            DepartmentModel.name = departmentGrid.Rows[departmentGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
             add_department update = new add_department(true);
             update.ShowDialog();
         }
@@ -401,9 +401,9 @@ namespace VTYS_Mobilay_Magazasi
         {
             if(metroGrid6.Rows.Count != 0)
             {
-                district.id = metroGrid6.Rows[metroGrid6.SelectedRows[0].Index].Cells[0].Value.ToString();
-                district.name = metroGrid6.Rows[metroGrid6.SelectedRows[0].Index].Cells[1].Value.ToString();
-                district.province = districtGrid.Rows[districtGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
+                DistrictModel.id = metroGrid6.Rows[metroGrid6.SelectedRows[0].Index].Cells[0].Value.ToString();
+                DistrictModel.name = metroGrid6.Rows[metroGrid6.SelectedRows[0].Index].Cells[1].Value.ToString();
+                DistrictModel.province = districtGrid.Rows[districtGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
 
                 add_district update = new add_district(true);
                 update.ShowDialog();
@@ -440,16 +440,16 @@ namespace VTYS_Mobilay_Magazasi
 
         private void metroButton18_Click(object sender, EventArgs e)
         {
-            employee.id = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-            employee.name = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
-            employee.lastName = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[2].Value.ToString();
-            employee.tc = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[3].Value.ToString();
-            employee.tel = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[4].Value.ToString();
-            employee.adress = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[5].Value.ToString();
-            employee.district = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[6].Value.ToString();
-            employee.provice = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[7].Value.ToString();
-            employee.department = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[8].Value.ToString();
-            employee.salary = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[9].Value.ToString();
+            EmployeeModel.id = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+            EmployeeModel.name = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
+            EmployeeModel.lastName = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[2].Value.ToString();
+            EmployeeModel.tc = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[3].Value.ToString();
+            EmployeeModel.tel = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[4].Value.ToString();
+            EmployeeModel.adress = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[5].Value.ToString();
+            EmployeeModel.district = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[6].Value.ToString();
+            EmployeeModel.provice = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[7].Value.ToString();
+            EmployeeModel.department = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[8].Value.ToString();
+            EmployeeModel.salary = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[9].Value.ToString();
             add_employee update = new add_employee(true);
             update.ShowDialog();
         }
@@ -530,12 +530,12 @@ namespace VTYS_Mobilay_Magazasi
             DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
             if (dr == DialogResult.Yes)
             {
-                attributeSet.id = attributesetGrid.Rows[attributesetGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-                string query = String.Format(Queries.delAttributeSet_attribute, attributeSet.id);
+                AttributeSetModel.id = attributesetGrid.Rows[attributesetGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+                string query = String.Format(Queries.delAttributeSet_attribute, AttributeSetModel.id);
 
                 DbCommand.insertIntoDb(query);
 
-                query = String.Format(Queries.delAttributeSet, attributeSet.id);
+                query = String.Format(Queries.delAttributeSet, AttributeSetModel.id);
 
                 DbCommand.insertIntoDb(query);
             }
@@ -546,14 +546,14 @@ namespace VTYS_Mobilay_Magazasi
             DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
             if (dr == DialogResult.Yes)
             {
-                Models.Attribute.id = attributeGrid.Rows[attributeGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-                string query = string.Format(Queries.delAttributeSet_attribute2, Models.Attribute.id);
+                Models.AttributeModel.id = attributeGrid.Rows[attributeGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+                string query = string.Format(Queries.delAttributeSet_attribute2, Models.AttributeModel.id);
 
                 DbCommand.insertIntoDb(query);
-                query = string.Format(Queries.delAttributeValue2, Models.Attribute.id);
+                query = string.Format(Queries.delAttributeValue2, Models.AttributeModel.id);
 
                 DbCommand.insertIntoDb(query);
-                query = string.Format(Queries.delAttribute, Models.Attribute.id);
+                query = string.Format(Queries.delAttribute, Models.AttributeModel.id);
 
                 DbCommand.insertIntoDb(query);
             }
@@ -564,8 +564,8 @@ namespace VTYS_Mobilay_Magazasi
             DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
             if (dr == DialogResult.Yes)
             {
-                attributeValue.id = metroGrid4.Rows[metroGrid4.SelectedRows[0].Index].Cells[0].Value.ToString();
-                string query = String.Format(Queries.delAttributeValue2, attributeValue.id);
+                AttributeValueModel.id = metroGrid4.Rows[metroGrid4.SelectedRows[0].Index].Cells[0].Value.ToString();
+                string query = String.Format(Queries.delAttributeValue2, AttributeValueModel.id);
 
                 DbCommand.insertIntoDb(query);
             }
@@ -576,12 +576,12 @@ namespace VTYS_Mobilay_Magazasi
             DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
             if (dr == DialogResult.Yes)
             {
-                province.id = provinceGrid.Rows[provinceGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-                string query = String.Format(Queries.delDistrict2, province.id);
+                ProvinceModel.id = provinceGrid.Rows[provinceGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+                string query = String.Format(Queries.delDistrict2, ProvinceModel.id);
 
                 DbCommand.insertIntoDb(query);
 
-                query = String.Format(Queries.delProvince, province.id);
+                query = String.Format(Queries.delProvince, ProvinceModel.id);
 
                 DbCommand.insertIntoDb(query);
 
@@ -594,8 +594,8 @@ namespace VTYS_Mobilay_Magazasi
             DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
             if (dr == DialogResult.Yes)
             {
-                district.id = metroGrid6.Rows[metroGrid6.SelectedRows[0].Index].Cells[0].Value.ToString();
-                string query = String.Format(Queries.delDistrict, district.id);
+                DistrictModel.id = metroGrid6.Rows[metroGrid6.SelectedRows[0].Index].Cells[0].Value.ToString();
+                string query = String.Format(Queries.delDistrict, DistrictModel.id);
 
                 DbCommand.insertIntoDb(query);
             }
@@ -606,8 +606,8 @@ namespace VTYS_Mobilay_Magazasi
             DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
             if (dr == DialogResult.Yes)
             {
-                employee.id = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-                string query = String.Format(Queries.delEmployee, employee.id);
+                EmployeeModel.id = employeeGrid.Rows[employeeGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+                string query = String.Format(Queries.delEmployee, EmployeeModel.id);
 
                 DbCommand.insertIntoDb(query);
             }
@@ -618,8 +618,8 @@ namespace VTYS_Mobilay_Magazasi
             DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
             if (dr == DialogResult.Yes)
             {
-                department.id = departmentGrid.Rows[departmentGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
-                string query = String.Format(Queries.delDepartment, department.id);
+                DepartmentModel.id = departmentGrid.Rows[departmentGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
+                string query = String.Format(Queries.delDepartment, DepartmentModel.id);
 
                 DbCommand.insertIntoDb(query);
             }

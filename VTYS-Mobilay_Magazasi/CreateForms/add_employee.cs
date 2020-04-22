@@ -78,13 +78,13 @@ namespace VTYS_Mobilay_Magazasi
             else
             {
                 metroButton1.Text = "Update";
-                ID.Text = employee.id;
-                name.Text = employee.name;
-                lastName.Text = employee.lastName;
-                telephone.Text = employee.tel;
-                TC.Text = employee.tc;
-                adress.Text = employee.adress;
-                salary.Text = employee.salary;
+                ID.Text = EmployeeModel.id;
+                name.Text = EmployeeModel.name;
+                lastName.Text = EmployeeModel.lastName;
+                telephone.Text = EmployeeModel.tel;
+                TC.Text = EmployeeModel.tc;
+                adress.Text = EmployeeModel.adress;
+                salary.Text = EmployeeModel.salary;
 
                 string tableName = "Department";
                 DataSet ds;
@@ -98,10 +98,10 @@ namespace VTYS_Mobilay_Magazasi
                     departmentList.ValueMember = "ID";
                     departmentList.DataSource = ds.Tables[tableName];
                     for (int u = 0; u < departmentList.Items.Count; u++)
-                        if (ds.Tables[tableName].Rows[u]["Name"].ToString() == employee.department)
+                        if (ds.Tables[tableName].Rows[u]["Name"].ToString() == EmployeeModel.department)
                             departmentList.SelectedIndex = u;
 
-                    provinceList.PromptText = employee.department;
+                    provinceList.PromptText = EmployeeModel.department;
                     
                 }
                 tableName = "Province";
@@ -114,10 +114,10 @@ namespace VTYS_Mobilay_Magazasi
 
 
                     for (int u = 0; u < provinceList.Items.Count; u++)
-                        if (ds.Tables[tableName].Rows[u]["prov_name"].ToString() == employee.provice)
+                        if (ds.Tables[tableName].Rows[u]["prov_name"].ToString() == EmployeeModel.provice)
                             provinceList.SelectedIndex = u;
 
-                    provinceList.PromptText = employee.provice;
+                    provinceList.PromptText = EmployeeModel.provice;
                 }
                 tableName = "District";
                 string query = String.Format(Queries.districtProvince, provinceList.SelectedValue.ToString());
@@ -130,10 +130,10 @@ namespace VTYS_Mobilay_Magazasi
                     districtList.DataSource = ds.Tables[tableName];
 
                     for (int u = 0; u < districtList.Items.Count; u++)
-                        if (ds.Tables[tableName].Rows[u]["dis_name"].ToString() == employee.district)
+                        if (ds.Tables[tableName].Rows[u]["dis_name"].ToString() == EmployeeModel.district)
                             districtList.SelectedIndex = u;
 
-                    districtList.PromptText = employee.district;
+                    districtList.PromptText = EmployeeModel.district;
 
 
                 }
@@ -168,35 +168,35 @@ namespace VTYS_Mobilay_Magazasi
         {
             if (!update)
             {
-                employee.id = ID.Text;
-                employee.name = name.Text;
-                employee.lastName = lastName.Text;
-                employee.tc = TC.Text;
-                employee.tel = telephone.Text;
-                employee.adress = adress.Text;
-                employee.district = districtList.SelectedValue.ToString();
-                employee.provice = provinceList.SelectedValue.ToString();
-                employee.department = departmentList.SelectedValue.ToString();
-                employee.salary = salary.Text;
+                EmployeeModel.id = ID.Text;
+                EmployeeModel.name = name.Text;
+                EmployeeModel.lastName = lastName.Text;
+                EmployeeModel.tc = TC.Text;
+                EmployeeModel.tel = telephone.Text;
+                EmployeeModel.adress = adress.Text;
+                EmployeeModel.district = districtList.SelectedValue.ToString();
+                EmployeeModel.provice = provinceList.SelectedValue.ToString();
+                EmployeeModel.department = departmentList.SelectedValue.ToString();
+                EmployeeModel.salary = salary.Text;
 
-                string query = String.Format(Queries.insEmployee, employee.id, employee.name, employee.lastName, employee.tc, employee.tel, employee.adress, employee.district, employee.provice, employee.department, employee.salary);
+                string query = String.Format(Queries.insEmployee, EmployeeModel.id, EmployeeModel.name, EmployeeModel.lastName, EmployeeModel.tc, EmployeeModel.tel, EmployeeModel.adress, EmployeeModel.district, EmployeeModel.provice, EmployeeModel.department, EmployeeModel.salary);
                 DbCommand.insertIntoDb(query);
 
             }
             else
             {
-                employee.id = ID.Text;
-                employee.name = name.Text;
-                employee.lastName = lastName.Text;
-                employee.tc = TC.Text;
-                employee.tel = telephone.Text;
-                employee.adress = adress.Text;
-                employee.district = districtList.SelectedValue.ToString();
-                employee.provice = provinceList.SelectedValue.ToString();
-                employee.department = departmentList.SelectedValue.ToString();
-                employee.salary = salary.Text;
+                EmployeeModel.id = ID.Text;
+                EmployeeModel.name = name.Text;
+                EmployeeModel.lastName = lastName.Text;
+                EmployeeModel.tc = TC.Text;
+                EmployeeModel.tel = telephone.Text;
+                EmployeeModel.adress = adress.Text;
+                EmployeeModel.district = districtList.SelectedValue.ToString();
+                EmployeeModel.provice = provinceList.SelectedValue.ToString();
+                EmployeeModel.department = departmentList.SelectedValue.ToString();
+                EmployeeModel.salary = salary.Text;
 
-                string query = String.Format(Queries.upEmployee, employee.name, employee.lastName, employee.tc, employee.tel, employee.adress, employee.district, employee.provice, employee.department, employee.salary, employee.id);
+                string query = String.Format(Queries.upEmployee, EmployeeModel.name, EmployeeModel.lastName, EmployeeModel.tc, EmployeeModel.tel, EmployeeModel.adress, EmployeeModel.district, EmployeeModel.provice, EmployeeModel.department, EmployeeModel.salary, EmployeeModel.id);
                 DbCommand.insertIntoDb(query);
 
             }

@@ -62,10 +62,10 @@ namespace VTYS_Mobilay_Magazasi
             }
             else
             {
-                id.Text = district.id;
+                id.Text = DistrictModel.id;
                 id.Enabled = false;
-                name.Text = district.name;
-                provinceList.Text = district.province;
+                name.Text = DistrictModel.name;
+                provinceList.Text = DistrictModel.province;
 
                 metroButton1.Text = "Update";
             }

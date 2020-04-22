@@ -16,7 +16,7 @@ namespace VTYS_Mobilay_Magazasi
 {
     public partial class add_supplier : MetroForm
     {
-        Supplier mySup = new Supplier();
+        SupplierModel mySup = new SupplierModel();
         int controlP = 0;
         bool update = false;
 
@@ -25,7 +25,7 @@ namespace VTYS_Mobilay_Magazasi
             InitializeComponent();
         }
 
-        public add_supplier(Supplier sup)
+        public add_supplier(SupplierModel sup)
         {
             InitializeComponent();
             update = true;

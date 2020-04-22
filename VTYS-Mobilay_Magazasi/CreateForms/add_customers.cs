@@ -16,7 +16,7 @@ namespace VTYS_Mobilay_Magazasi
 {
     public partial class add_customers : MetroForm
     {
-        Customer myCstr = new Customer();
+        CustomerModel myCstr = new CustomerModel();
         int controlP = 0;
         bool update = false;
 
@@ -24,7 +24,7 @@ namespace VTYS_Mobilay_Magazasi
         {
             InitializeComponent();
         }
-        public add_customers(Customer cus)
+        public add_customers(CustomerModel cus)
         {
             InitializeComponent();
             update = true;

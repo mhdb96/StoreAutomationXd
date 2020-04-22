@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    class attributeValue
+    class AttributeValueModel
     {
         public static string id;
         public static string name;

@@ -72,10 +72,10 @@ namespace VTYS_Mobilay_Magazasi
             }
             else
             {
-                id.Text = attributeValue.id;
+                id.Text = AttributeValueModel.id;
                 id.Enabled = false;
-                name.Text = attributeValue.name;
-                attributeValueList.Text = attributeValue.attribute;
+                name.Text = AttributeValueModel.name;
+                attributeValueList.Text = AttributeValueModel.attribute;
 
                 metroButton1.Text = "Update";
             }

@@ -148,7 +148,7 @@ namespace VTYS_Mobilay_Magazasi
         {
             if (productsGrid.SelectedRows.Count != 0)
             {
-                Products myPro = new Products();
+                ProductModel myPro = new ProductModel();
                 myPro.name = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
                 myPro.desc = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[2].Value.ToString();
                 myPro.price = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[3].Value.ToString();
@@ -197,7 +197,7 @@ namespace VTYS_Mobilay_Magazasi
                 DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if(dr == DialogResult.Yes)
                 {
-                    Products myPro = new Products();
+                    ProductModel myPro = new ProductModel();
                     myPro.id = productsGrid.Rows[productsGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
                     string query = String.Format(Queries.delProductAtt, myPro.id);
                     DbCommand.insertIntoDb(query);
@@ -427,7 +427,7 @@ namespace VTYS_Mobilay_Magazasi
             if (ordersGrid.SelectedRows.Count != 0)
             {
                 string type;
-                Order myOrdr = new Order();
+                OrderModel myOrdr = new OrderModel();
                 myOrdr.id = ordersGrid.Rows[ordersGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
                 myOrdr.cusName = ordersGrid.Rows[ordersGrid.SelectedRows[0].Index].Cells[2].Value.ToString();
                 myOrdr.proName = ordersGrid.Rows[ordersGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
@@ -475,7 +475,7 @@ namespace VTYS_Mobilay_Magazasi
                 DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if (dr == DialogResult.Yes)
                 {
-                    Order myOrdr = new Order();
+                    OrderModel myOrdr = new OrderModel();
                     if (orderTypelist.SelectedIndex == 0)
                     {
                         myOrdr.id = ordersGrid.Rows[ordersGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
@@ -535,7 +535,7 @@ namespace VTYS_Mobilay_Magazasi
         {
             if (customersGrid.SelectedRows.Count != 0)
             {
-                Customer myCstr = new Customer();
+                CustomerModel myCstr = new CustomerModel();
                 myCstr.id = customersGrid.Rows[customersGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
                 myCstr.telephone = customersGrid.Rows[customersGrid.SelectedRows[0].Index].Cells[2].Value.ToString();
                 myCstr.TC = customersGrid.Rows[customersGrid.SelectedRows[0].Index].Cells[3].Value.ToString();
@@ -566,7 +566,7 @@ namespace VTYS_Mobilay_Magazasi
                 DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if (dr == DialogResult.Yes)
                 {
-                    Customer myCstr = new Customer();
+                    CustomerModel myCstr = new CustomerModel();
                     myCstr.id = customersGrid.Rows[customersGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
                     string query = String.Format(Queries.delCustomer, myCstr.id);
                     DbCommand.insertIntoDb(query);
@@ -615,7 +615,7 @@ namespace VTYS_Mobilay_Magazasi
         {
             if (suppliersGrid.SelectedRows.Count != 0)
             {
-                Supplier mySup = new Supplier();
+                SupplierModel mySup = new SupplierModel();
                 mySup.id = suppliersGrid.Rows[suppliersGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
                 mySup.name = suppliersGrid.Rows[suppliersGrid.SelectedRows[0].Index].Cells[1].Value.ToString();
                 mySup.telephone = suppliersGrid.Rows[suppliersGrid.SelectedRows[0].Index].Cells[2].Value.ToString();
@@ -646,7 +646,7 @@ namespace VTYS_Mobilay_Magazasi
                 DialogResult dr = MetroMessageBox.Show(this, "are you sure?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if (dr == DialogResult.Yes)
                 {
-                    Supplier mySup = new Supplier();
+                    SupplierModel mySup = new SupplierModel();
                     mySup.id = suppliersGrid.Rows[suppliersGrid.SelectedRows[0].Index].Cells[0].Value.ToString();
                     string query = String.Format(Queries.delSuplier, mySup.id);
                     DbCommand.insertIntoDb(query);

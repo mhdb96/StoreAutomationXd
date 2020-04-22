@@ -55,9 +55,9 @@ namespace VTYS_Mobilay_Magazasi
         {
             if (update)
             {
-                id.Text = Models.Attribute.id;
+                id.Text = Models.AttributeModel.id;
                 id.Enabled = false;
-                name.Text = Models.Attribute.name;
+                name.Text = Models.AttributeModel.name;
                 metroButton1.Text = "Update";
             }
             else

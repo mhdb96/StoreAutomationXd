@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    class department
+    class DepartmentModel
     {
         public static string id;
         public static string name;

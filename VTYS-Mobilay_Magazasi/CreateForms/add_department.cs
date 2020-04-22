@@ -55,9 +55,9 @@ namespace VTYS_Mobilay_Magazasi
 
             if (update)
             {
-                id.Text = department.id;
+                id.Text = DepartmentModel.id;
                 id.Enabled = false;
-                name.Text = department.name;
+                name.Text = DepartmentModel.name;
                 metroButton1.Text = "Update";
 
             }

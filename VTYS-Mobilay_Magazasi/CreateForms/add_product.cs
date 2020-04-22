@@ -17,14 +17,14 @@ namespace VTYS_Mobilay_Magazasi
 {
     public partial class add_product : MetroForm
     {
-        Products myPro = new Products();
+        ProductModel myPro = new ProductModel();
         bool update;
         public add_product()
         {
             InitializeComponent();
         }
 
-        public add_product(Products upPro, bool u)
+        public add_product(ProductModel upPro, bool u)
         {
             InitializeComponent();
             myPro = upPro;
