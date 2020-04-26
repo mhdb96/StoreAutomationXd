@@ -458,8 +458,7 @@
             // accountingTile
             // 
             this.accountingTile.ActiveControl = null;
-            this.accountingTile.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.accountingTile.DisplayFocusBorder = false;
+            this.accountingTile.BackColor = System.Drawing.SystemColors.MenuHighlight;            
             this.accountingTile.Dock = System.Windows.Forms.DockStyle.Fill;
             this.accountingTile.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.accountingTile.Location = new System.Drawing.Point(3, 435);
