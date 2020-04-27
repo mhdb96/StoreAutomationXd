@@ -17,7 +17,7 @@ description: >-
 | 3 | [How To Deploy](how-to-deploy.md) |
 | 4 | [ER Diagram](er-diagram.md) |
 | 5 | [Flow Chart](flow-chart.md) |
-| 5 | [Software Architecture](software-architecture.md) |
+| 6 | [Software Architecture](software-architecture.md) |
 
 ## Overview:
 
